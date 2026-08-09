@@ -1,4 +1,4 @@
-name: Update Releases Cache
+name: Update Releases Website Cache
 
 on:
   repository_dispatch:
@@ -6,6 +6,7 @@ on:
   schedule:
     - cron: "0 2 * * *" # 02:00 AM UTC everyday
   workflow_dispatch:
+  workflow_call:
 
 concurrency:
   group: cache
