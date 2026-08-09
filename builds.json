@@ -8,12 +8,20 @@
           "Enable speed control ",
           "Skip ads "
         ]
+      },
+      "260003": {
+        "patches": "hoo-dles/patches-1.40.0.mpp",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.40.0",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
       }
     }
   },
   "proton-vpn-morphe-paresh": {
     "5.19.16.0": {
-      "260006": {
+      "260003": {
         "patches": "Paresh-Maheshwari/patches-1.19.0.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.19.0",
         "applied_patches": [
@@ -24,6 +32,14 @@
     },
     "5.19.72.0": {
       "260001": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
+      },
+      "260002": {
         "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
         "applied_patches": [
@@ -307,6 +323,42 @@
           "Sanitize sharing links ",
           "Settings ",
           "Show seekbar ",
+          "Translate comments ",
+          "Disable screen capture detection "
+        ]
+      }
+    },
+    "46.2.3": {
+      "260003": {
+        "patches": "icysymmetra/patches-0.6.1.mpp",
+        "changelog": "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/v0.6.1",
+        "applied_patches": [
+          "Always show publish date ",
+          "Copy comments without username ",
+          "Custom offline videos limit ",
+          "Disable login requirement ",
+          "Disable long-press quick share ",
+          "Downloads ",
+          "Enable Live search ",
+          "Enable non-personalized search ",
+          "Feature Gate Lab ",
+          "Feed filter ",
+          "Feed tab navigation ",
+          "Fix Google login ",
+          "Hide CAPTCHA popups ",
+          "Hide floating promotions ",
+          "Hide quick comment reactions ",
+          "Hold-and-slide 2x lock ",
+          "Open external links directly ",
+          "Playback speed ",
+          "Remember clear display ",
+          "Resume videos after scrolling ",
+          "SIM spoof ",
+          "Sanitize sharing links ",
+          "Settings ",
+          "Show seekbar ",
+          "Show seekbar thumbnail ",
+          "Stop video looping ",
           "Translate comments ",
           "Disable screen capture detection "
         ]
