@@ -1,30 +1,46 @@
 /**
  * ==========================================
  * CONFIGURATION & CUSTOMIZATION
- * Edit these values to update the app catalog behavior, branding, and notices.
+ * Catalog behavior, branding, variants, and notices.
  * ==========================================
  */
 const CONFIG = {
-  owner: "nullcpy",
-  repo: "rvb",
+  owner: "sharath-5br2r",
+  repo: "my-patched-apks",
   cacheDuration: 5, // Cache duration in minutes
 
   // App Categories for the filter buttons
   appCategories: {
     androidtv: ["primevideo", "plutotv", "moviebox", "disneyplus", "hbomax", "tubi", "vix", "at4klauncher", "projectivylauncher", "peacock"],
-    google: ["youtube", "google"],
+    google: ["youtube", "google", "gboard"],
     meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
-    vpn: ["1111warp", "vpnify", "vpn"]
+    vpn: ["1111warp", "vpnify", "vpn", "protonvpn"]
   },
 
-  // Words ignored in the dynamic app filters (must be lowercase)
+  // Words ignored in dynamic app filters (must be lowercase)
   sharedAppWordStoplist: new Set(["messenger", "document", "reader"]),
 
-  // Known tokens indicating a patch name starts (must be lowercase)
-  knownPatchTokens: new Set(["revanced", "morphe", "anddea", "rvx", "xposed", "instafel"]),
+  // Known tokens indicating a patch engine/source name (must be lowercase)
+  knownPatchTokens: new Set([
+    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel",
+    "hooman", "rushiranpise", "hoodles", "binarymend", "paresh",
+    "xtra", "icysymmetra", "jasonwu1994", "piko", "revenge"
+  ]),
 
-  // Known tokens indicating a variant (must be lowercase)
+  // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
   variantKeywords: new Set([
+    "anddea",
+    "binarymend",
+    "hooman",
+    "rushiranpise",
+    "hoodles",
+    "paresh",
+    "xtra",
+    "icysymmetra",
+    "jasonwu1994",
+    "piko",
+    "inotia00",
+    "revenge",
     "exp",
     "nord",
     "mocha",
@@ -32,14 +48,15 @@ const CONFIG = {
     "materialu",
     "foss",
     "gplay",
-    "piko",
     "adobo",
     "patcheddit",
-    "paresh",
     "nightly",
     "androidtv",
     "alt",
-    "clone"
+    "clone",
+    "morphe",
+    "revanced",
+    "rvx"
   ]),
 
   // Known architectures (used for regex parsing)
@@ -58,6 +75,10 @@ const CONFIG = {
 
   // Brand name overrides (keys must be lowercase)
   brandOverrides: {
+    adm: "ADM",
+    adobeacrobat: "Adobe Acrobat",
+    amazonalexa: "Amazon Alexa",
+    amazonindia: "Amazon India",
     youtube: "YouTube",
     revanced: "ReVanced",
     tiktok: "TikTok",
@@ -69,7 +90,7 @@ const CONFIG = {
     github: "GitHub",
     vpn: "VPN",
     rvx: "ReVanced Extended",
-    anddea: "ReVanced Advanced",
+    anddea: "Anddea",
     exp: "Experimental",
     macrodroid: "MacroDroid",
     ticktick: "TickTick",
@@ -84,7 +105,7 @@ const CONFIG = {
     hellochinese: "HelloChinese: Learn Chinese",
     gplay: "Google Play",
     foss: "FOSS",
-    gboard: "Google Keyboard",
+    gboard: "Google Keyboard (Gboard)",
     wps: "WPS",
     rar: "RAR",
     adguard: "AdGuard",
@@ -109,17 +130,31 @@ const CONFIG = {
     pixiv: "pixiv",
     mxplayer: "MX Player",
     moviebox: "MovieBox",
-    kinestop: "KineStop"
+    kinestop: "KineStop",
+    twitter: "X / Twitter",
+    x: "X / Twitter",
+    hooman: "Hooman",
+    rushiranpise: "Rushiranpise",
+    hoodles: "Hoo-dles",
+    binarymend: "Binarymend",
+    paresh: "Paresh",
+    xtra: "Xtra",
+    icysymmetra: "IcySymmetra",
+    jasonwu1994: "Jasonwu1994",
+    piko: "Piko"
   },
 
-  // Map app slugs to true Android Package IDs for Obtainium
+  // Map app slugs to Android Package IDs for Obtainium
   appIds: {
     "1111warp": "com.cloudflare.onedotonedotonedotone",
     acalendar: "org.withouthat.acalendar",
     adguard: "com.adguard.android",
+    adm: "com.dv.adm",
     adobeacrobat: "com.adobe.reader",
     adobelightroom: "com.adobe.lrmobile",
     adobephotoshopmix: "com.adobe.photoshopmix",
+    amazonalexa: "com.amazon.dee.app",
+    amazonindia: "com.amazon.mShop.android.shopping",
     accuweather: "com.accuweather.android",
     alldocumentreader: "alldocumentsreader.docuemntviewer",
     at4klauncher: "com.overdevs.at4k",
@@ -142,6 +177,10 @@ const CONFIG = {
     fingnetworktools: "com.overlook.android.fing",
     github: "com.github.android",
     goodreads: "com.goodreads",
+    gboard: {
+      default: "com.google.android.inputmethod.latin",
+      clone: "dev.jason.com.google.android.inputmethod.latin"
+    },
     googlekeyboard: {
       default: "com.google.android.inputmethod.latin",
       clone: "dev.jason.com.google.android.inputmethod.latin"
@@ -178,6 +217,7 @@ const CONFIG = {
     microsoftlens: "com.microsoft.office.officelens",
     microsoftedge: "com.microsoft.emmx",
     moonreader: "com.flyersoft.moonreader",
+    moonplusreader: "com.flyersoft.moonreader",
     moneymanager: "com.realbyteapps.moneymanagerfree",
     moviebox: {
       default: "com.community.oneroom",
@@ -239,6 +279,7 @@ const CONFIG = {
     windscribevpn: "com.windscribe.vpn",
     wpsoffice: "cn.wps.moffice_eng",
     twitter: "com.twitter.android",
+    x: "com.twitter.android",
     xodopdfreadereditor: "com.xodo.pdf.reader",
     xrecorder: "videoeditor.videorecorder.screenrecorder",
     youtube: {
@@ -261,26 +302,24 @@ const CONFIG = {
     },
   },
 
-  // App-specific notices to display on App Cards
+  // App Notices / Warning Notes (links are optional)
   appNotices: [
     {
       triggers: ["youtube", "google"],
       className: "microg-note",
-      title: "Login Issue",
-      text: "Signing into Google account on APK (not Module) requires MicroG. Please install one from below before trying to sign in.",
+      title: "MicroG Required",
+      text: "Signing into Google account on APK (non-root) requires MicroG. Install MicroG before logging in.",
       links: [
-        { label: "Morphe", url: "https://github.com/MorpheApp/MicroG-RE/releases/latest" },
-        { label: "ReVanced", url: "https://github.com/ReVanced/GmsCore/releases/latest" },
+        { label: "Morphe MicroG", url: "https://github.com/MorpheApp/MicroG-RE/releases/latest" },
+        { label: "ReVanced MicroG", url: "https://github.com/ReVanced/GmsCore/releases/latest" },
       ],
     },
     {
-      triggers: ["twitter"],
+      triggers: ["twitter", "x"],
       className: "twitter-login-note",
-      title: "Login Issue",
-      text: "Since October 2025, Twitter has started checking whether the app is modified or if phone integrity fails during login.",
-      links: [
-        { label: "Workarounds", url: "https://t.me/pikopatches/1/59772" },
-      ],
+      title: "Twitter / X Login Warning",
+      text: "Twitter checks app integrity on login. If login fails, consider using authorization token workarounds or log in via browser first.",
+      // No links required
     },
   ],
 };
@@ -323,8 +362,8 @@ function initDOM() {
 let allReleases = [];
 let cachedFullCatalog = [];
 let searchTerm = "";
-let appCategoryFilter = "all"; // "all" | "google" | "meta" | "vpn" | "word-..."
-let sortMode = "recent"; // "recent" | "popular" | "name"
+let appCategoryFilter = "all";
+let sortMode = "recent";
 let dynamicAppFilters = [];
 let currentAppCatalog = [];
 let activeModalAppKey = null;
@@ -339,7 +378,7 @@ let currentVisibleCount = 0;
 const RENDER_CHUNK_SIZE = 40;
 const SHARED_APP_WORD_MIN_COUNT = 2;
 
-// Caches for Memoization
+// Caches
 const parseCache = new Map();
 const tokenCache = new Map();
 let masterBuildDataCache = null;
@@ -350,7 +389,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupTheme();
   setupEventListeners();
 
-  // Pre-fill state from URL params
   const urlParams = new URLSearchParams(window.location.search);
   const urlQuery = urlParams.get("q");
   if (urlQuery) {
@@ -392,7 +430,7 @@ function applyTheme(theme) {
 
   document.body.classList.toggle("light-mode", isLight);
   if (DOM.themeColorMeta) {
-    DOM.themeColorMeta.setAttribute("content", isLight ? "#faf8f5" : "#1a1814");
+    DOM.themeColorMeta.setAttribute("content", isLight ? "#ffffff" : "#000000");
   }
 
   if (DOM.themeBtn) {
@@ -401,7 +439,6 @@ function applyTheme(theme) {
   }
 }
 
-// Modal Generic Controller
 function showModal(modalEl) {
   if (!modalEl) return;
   modalEl.classList.add("open");
@@ -422,7 +459,6 @@ function hideModal(modalEl) {
 function setupEventListeners() {
   let searchTimeout;
 
-  // Theme Toggle Button
   if (DOM.themeBtn) {
     DOM.themeBtn.addEventListener("click", () => {
       const nextTheme = themeMode === "system" ? "light" : themeMode === "light" ? "dark" : "system";
@@ -432,7 +468,6 @@ function setupEventListeners() {
     });
   }
 
-  // Floating Action Menu
   if (DOM.menuBtn && DOM.actionMenu) {
     DOM.menuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -448,7 +483,6 @@ function setupEventListeners() {
     });
   }
 
-  // Search Input (Debounced)
   const syncClearBtn = () => {
     if (DOM.searchWrap && DOM.searchInput) {
       DOM.searchWrap.classList.toggle("has-value", DOM.searchInput.value.length > 0);
@@ -485,7 +519,6 @@ function setupEventListeners() {
     });
   }
 
-  // Secondary Category Filter Buttons
   if (DOM.appFilterButtons) {
     DOM.appFilterButtons.addEventListener("click", (e) => {
       const filterBtn = e.target.closest(".filter-btn");
@@ -495,7 +528,6 @@ function setupEventListeners() {
     });
   }
 
-  // Sort Selector
   if (DOM.sortSelect) {
     DOM.sortSelect.addEventListener("change", (e) => {
       sortMode = e.target.value;
@@ -504,7 +536,6 @@ function setupEventListeners() {
     });
   }
 
-  // App Cards & Modal Delegate Click
   if (DOM.builds) {
     DOM.builds.addEventListener("click", (e) => {
       const collapsedCard = e.target.closest(".app-card:not([open])");
@@ -526,7 +557,6 @@ function setupEventListeners() {
     });
   }
 
-  // Downloads Modal Filter Delegate
   if (DOM.patchModal) {
     DOM.patchModal.addEventListener("click", (e) => {
       const filterBtn = e.target.closest(".modal-filter-btn");
@@ -559,7 +589,6 @@ function setupEventListeners() {
     });
   }
 
-  // Applied Patches Modal
   if (DOM.appliedPatchesModal) {
     DOM.appliedPatchesModal.addEventListener("click", (e) => {
       if (e.target.id === "appliedPatchesModal" || e.target.closest(".modal-close")) {
@@ -574,7 +603,6 @@ function setupEventListeners() {
     });
   }
 
-  // Obtainium Modal
   if (DOM.obtainiumBtn) {
     DOM.obtainiumBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -590,7 +618,6 @@ function setupEventListeners() {
     });
   }
 
-  // Global ESC key listener
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closePatchModal();
@@ -599,7 +626,6 @@ function setupEventListeners() {
     }
   });
 
-  // Infinite Scroll Observer
   const sentinel = document.createElement("div");
   sentinel.id = "scroll-sentinel";
   sentinel.style.height = "1px";
@@ -675,7 +701,7 @@ async function loadReleases() {
     allReleases = fetchedData;
     cacheReleases(allReleases);
     rebuildCatalogCache();
-    fetchMasterBuildData(); // Prefetch builds.json in background for instant modal opens
+    fetchMasterBuildData();
 
     if (DOM.loading) DOM.loading.style.display = "none";
     updateLastUpdateTimestamp();
@@ -691,7 +717,6 @@ async function loadReleases() {
   }
 }
 
-// LocalStorage Caching
 function getCachedReleases() {
   const cached = localStorage.getItem("releases_cache");
   const timestamp = localStorage.getItem("releases_cache_time");
@@ -710,12 +735,9 @@ function cacheReleases(releases) {
   try {
     localStorage.setItem("releases_cache", JSON.stringify(releases));
     localStorage.setItem("releases_cache_time", Date.now().toString());
-  } catch (e) {
-    console.warn("Could not cache releases to localStorage", e);
-  }
+  } catch (e) {}
 }
 
-// Build Catalog Cache
 function rebuildCatalogCache() {
   cachedFullCatalog = buildAppCatalog(allReleases.filter((r) => !r.draft));
   dynamicAppFilters = getDynamicAppFilters(cachedFullCatalog);
@@ -829,24 +851,6 @@ function buildAppCatalog(releases) {
         }
       }
 
-      let buildDataApplied = null;
-      let buildDataPatches = null;
-      let buildDataChangelog = null;
-
-      if (release.build_data) {
-        const appKeyLower = appKey.toLowerCase();
-        const bd = release.build_data[appKeyLower] ||
-          release.build_data[parsed.appName.toLowerCase()] ||
-          release.build_data[parsed.appName] ||
-          release.build_data[parsed.appName.toLowerCase().replace(/\s+/g, "-")];
-        if (bd) {
-          const entry = (parsed.version && bd[parsed.version]) ? bd[parsed.version] : bd;
-          buildDataApplied = entry.applied_patches || null;
-          buildDataPatches = entry.patches || null;
-          buildDataChangelog = entry.changlog || entry.changelog || null;
-        }
-      }
-
       const buildKey = isArchive
         ? `archive-${releaseType}-${parsed.version}`
         : String(release.id);
@@ -864,12 +868,7 @@ function buildAppCatalog(releases) {
             : release.published_at,
           releaseUrl: release.html_url,
           version: parsed.version,
-          patchMeta: {
-            ...patchMetaFromRelease,
-            patches: buildDataPatches ? [buildDataPatches] : patchMetaFromRelease.patches,
-            changelogs: buildDataChangelog ? [buildDataChangelog] : patchMetaFromRelease.changelogs,
-          },
-          appliedPatches: buildDataApplied,
+          patchMeta: patchMetaFromRelease,
           assets: [],
         });
       }
@@ -889,7 +888,6 @@ function buildAppCatalog(releases) {
 
   return Array.from(appMap.values())
     .map((app) => {
-      // Resolve archive fallbacks if no active build exists
       app.patches.forEach((patch) => {
         patch.variants.forEach((variant) => {
           if (!variant.latestStable && variant.latestArchiveStable) {
@@ -928,14 +926,12 @@ function buildAppCatalog(releases) {
           };
         });
 
-      // Pre-compute O(1) metrics on app object for ultra-fast sorting
       const totalAppDownloads = patchesArray.reduce((sum, p) => sum + p.totalDownloads, 0);
       const latestAppTime = patchesArray.reduce(
         (latest, p) => Math.max(latest, new Date(p.latestPublishedAt).getTime() || 0),
         0
       );
 
-      // Pre-build search tokens corpus for fast searching
       const searchTerms = [app.appName, app.appKey];
       patchesArray.forEach((p) => {
         searchTerms.push(p.patchName, p.patchKey);
@@ -943,11 +939,6 @@ function buildAppCatalog(releases) {
           searchTerms.push(v.variantName, v.variantKey);
           if (v.latestStable) searchTerms.push(v.latestStable.version);
           if (v.latestBeta) searchTerms.push(v.latestBeta.version);
-        });
-        p.builds.forEach((b) => {
-          (b.assets || []).forEach((a) => {
-            if (a.name) searchTerms.push(a.name);
-          });
         });
       });
       const searchCorpus = normalizeForSearch(searchTerms.join(" "));
@@ -966,7 +957,6 @@ function buildAppCatalog(releases) {
     .sort((a, b) => a.appName.localeCompare(b.appName));
 }
 
-// Extract patch info helper
 function extractPatchInfoFromRelease(release) {
   const body = release.body || "";
   const cliMatch = body.match(/CLI:\s*([^\s\n\r]+)/i);
@@ -980,7 +970,6 @@ function extractPatchInfoFromRelease(release) {
   };
 }
 
-// Filter and Render Catalog
 function filterAndRenderReleases() {
   renderDynamicAppFilterButtons(dynamicAppFilters);
 
@@ -991,19 +980,11 @@ function filterAndRenderReleases() {
     appCategoryFilter = "all";
   }
 
-  // 1. Search Query Filter
   let apps = filterCatalogBySearch(cachedFullCatalog, searchTerm);
-
-  // 2. Category Filter
   apps = applyCategoryFilter(apps);
-
-  // 3. Fast Sort Mode (O(1) lookups)
   apps = applySortMode(apps);
 
-  // 4. Update Status Text
   updateCatalogStatus(apps);
-
-  // 5. Render
   renderAppCards(apps);
   updateAppFilterButtons();
   if (DOM.loading) DOM.loading.style.display = "none";
@@ -1049,7 +1030,6 @@ function applyCategoryFilter(apps) {
   return apps;
 }
 
-// O(1) Instant Property Comparisons
 function applySortMode(apps) {
   if (sortMode === "popular") {
     return [...apps].sort((a, b) => b.totalDownloads - a.totalDownloads);
@@ -1057,7 +1037,6 @@ function applySortMode(apps) {
   if (sortMode === "name") {
     return [...apps].sort((a, b) => a.appName.localeCompare(b.appName));
   }
-  // Default: recent
   return [...apps].sort((a, b) => b.latestPublishedAt - a.latestPublishedAt);
 }
 
@@ -1090,7 +1069,6 @@ function getAppSearchScore(app, query) {
   return Infinity;
 }
 
-// Progressive Rendering for App Cards
 function renderAppCards(apps) {
   if (!DOM.builds) return;
   currentAppCatalog = apps;
@@ -1125,7 +1103,6 @@ function renderNextChunk() {
   currentVisibleCount += RENDER_CHUNK_SIZE;
 }
 
-// Create App Card Markup
 function createAppCard(app) {
   const patchesMarkup = app.patches
     .map((patch) => createPatchMarkup(app, patch))
@@ -1170,28 +1147,27 @@ function createAppCard(app) {
   `;
 }
 
+// Notice Markup — Links are completely optional!
 function createNoticeMarkup(notice) {
-  const linksMarkup = notice.links
-    .map((link) => `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a>`)
-    .join(" ");
+  const linksMarkup = (notice.links && notice.links.length > 0)
+    ? notice.links.map((link) => `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a>`).join(" ")
+    : "";
 
   return `
     <div class="app-notice ${escapeHtml(notice.className)}">
       <div class="app-notice-title">${escapeHtml(notice.title)}</div>
       <div class="app-notice-text">${escapeHtml(notice.text)}</div>
-      <div class="app-notice-links">${linksMarkup}</div>
+      ${linksMarkup ? `<div class="app-notice-links">${linksMarkup}</div>` : ""}
     </div>
   `;
 }
 
-// Create Patch Entry Markup with Multi-Channel Variant Matrix
 function createPatchMarkup(app, patch) {
   const buildCount = patch.builds.length;
   const buildIconBadge = `<span class="patch-stat-badge" title="${buildCount} total builds">📦 ${buildCount}</span>`;
   const downloadCount = patch.totalDownloads || 0;
   const downloadIconBadge = `<span class="patch-stat-badge" title="${downloadCount.toLocaleString()} total downloads">📥 ${formatCompactNumber(downloadCount)}</span>`;
 
-  // Render variant rows
   const variantRowsHtml = patch.variants
     .map((variant) => {
       const channelBoxes = [];
@@ -1203,14 +1179,12 @@ function createPatchMarkup(app, patch) {
                   data-patch-key="${patch.patchKey}" 
                   data-channel="stable" 
                   data-variant="${variant.variantKey}"
-                  type="button"
-                  title="Open Stable builds for ${escapeHtml(variant.variantName)}">
+                  type="button">
             <div class="channel-box-top">
               <span class="channel-tag stable">Stable</span>
               <span class="channel-date">${formatDate(variant.latestStable.publishedAt)}</span>
             </div>
             <span class="channel-version">${escapeHtml(variant.latestStable.version)}</span>
-            <span class="channel-build-num">${variant.latestStable.isArchiveFallback ? "Archive" : `Build ${escapeHtml(variant.latestStable.build)}`}</span>
           </button>
         `);
       }
@@ -1222,14 +1196,12 @@ function createPatchMarkup(app, patch) {
                   data-patch-key="${patch.patchKey}" 
                   data-channel="beta" 
                   data-variant="${variant.variantKey}"
-                  type="button"
-                  title="Open Beta builds for ${escapeHtml(variant.variantName)}">
+                  type="button">
             <div class="channel-box-top">
               <span class="channel-tag beta">Beta</span>
               <span class="channel-date">${formatDate(variant.latestBeta.publishedAt)}</span>
             </div>
             <span class="channel-version">${escapeHtml(variant.latestBeta.version)}</span>
-            <span class="channel-build-num">${variant.latestBeta.isArchiveFallback ? "Archive" : `Build ${escapeHtml(variant.latestBeta.build)}`}</span>
           </button>
         `);
       }
@@ -1279,7 +1251,6 @@ function createPatchMarkup(app, patch) {
   `;
 }
 
-// Dynamic Filter Buttons Generator (Alphabetically Sorted)
 function getDynamicAppFilters(apps) {
   const wordToAppKeys = new Map();
 
@@ -1388,7 +1359,6 @@ function updateModalFilterButtons(patch) {
 
   filterContainer.innerHTML = "";
 
-  // Channel group (Stable / Beta)
   const channelGroup = document.createElement("div");
   channelGroup.className = "filter-pill-group";
   channelGroup.innerHTML = `
@@ -1397,7 +1367,6 @@ function updateModalFilterButtons(patch) {
   `;
   filterContainer.appendChild(channelGroup);
 
-  // Variant group with divider
   if (patch.variants && patch.variants.length > 0) {
     const divider = document.createElement("span");
     divider.className = "filter-group-divider";
@@ -1512,7 +1481,7 @@ function closePatchModal() {
   hideModal(DOM.patchModal);
 }
 
-// Master Build Metadata Store
+// Master Build Data Fetching
 async function fetchMasterBuildData() {
   if (masterBuildDataCache) return masterBuildDataCache;
   try {
@@ -1523,13 +1492,12 @@ async function fetchMasterBuildData() {
       masterBuildDataCache = {};
     }
   } catch (e) {
-    console.warn("Could not load builds.json:", e);
     masterBuildDataCache = {};
   }
   return masterBuildDataCache;
 }
 
-// Applied Patches Modal Controller
+// Applied Patches Modal
 async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   const app = currentAppCatalog.find((item) => item.appKey === appKey);
   const patch = app ? app.patches.find((item) => item.patchKey === patchKey) : null;
@@ -1539,129 +1507,15 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     DOM.appliedPatchesTitle.textContent = `${app.appName} (${patch.patchName})`;
   }
 
-  let build = patch.builds.find((b) => b.buildKey === buildKey || String(b.releaseId) === String(buildKey));
-  if (!build) {
-    build = patch.builds[0];
-  }
-  const isArchiveBuild = build && build.isArchive;
+  let build = patch.builds.find((b) => b.buildKey === buildKey || String(b.releaseId) === String(buildKey)) || patch.builds[0];
+  let appliedPatches = build?.appliedPatches || null;
 
-  let pNames = null;
-  let clUrl = null;
-  let appliedPatches = null;
-
-  // Resolve applied patches from builds.json
   if (!appliedPatches) {
     const masterData = await fetchMasterBuildData();
-    const appKeyNorm = normalizeForSearch(app.appKey || app.appName);
-    const patchKeyNorm = normalizeForSearch(patch.patchKey || patch.patchName);
-    // Use stored variantKey to get the correct variant — avoids cross-variant asset contamination
-    // (multiple variants share the same buildKey when from the same numbered release)
-    const variantNorm = (build?.variantKey && build.variantKey !== "default")
-      ? normalizeForSearch(build.variantKey)
-      : "";
-
-    let rawSlugNorm = appKeyNorm;
-    const asset = build?.assets?.[0];
-    if (asset?.name) {
-      const baseName = asset.name.replace(/\.(apk|zip)$/i, "");
-      const tokens = baseName.split("-").filter(Boolean);
-      const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
-      if (patchIdx > 0) {
-        rawSlugNorm = tokens.slice(0, patchIdx).join("-").toLowerCase();
-      }
+    const targetKey = `${appKey}-${patchKey}`;
+    if (masterData && masterData[targetKey]) {
+      appliedPatches = masterData[targetKey].applied_patches || null;
     }
-
-    const targetKey = `${appKeyNorm}-${patchKeyNorm}`;
-    const variantTargetKey = variantNorm ? `${appKeyNorm}-${patchKeyNorm}-${variantNorm}` : targetKey;
-    const rawTargetKey = `${rawSlugNorm}-${patchKeyNorm}`;
-    const rawVariantTargetKey = variantNorm ? `${rawSlugNorm}-${patchKeyNorm}-${variantNorm}` : rawTargetKey;
-
-    function isPatchEntry(obj) {
-      return obj && typeof obj === "object" && (
-        Array.isArray(obj.applied_patches) || typeof obj.patches === "string" || typeof obj.changelog === "string"
-      );
-    }
-
-    // Direct O(1) version & tag dictionary lookup (no dead engine loops)
-    function resolveVersionFromDict(dict, rawVer, specificTag, isArchive) {
-      if (!dict || typeof dict !== "object") return null;
-      if (isPatchEntry(dict)) return dict;
-
-      const cleanVer = (rawVer || "").toLowerCase().replace(/^v(?=\d)/i, "").trim();
-      if (!cleanVer) return null;
-
-      const candidate = dict[cleanVer] || dict[`v${cleanVer}`] || dict[rawVer];
-      if (!candidate) return null;
-      if (isPatchEntry(candidate)) return candidate;
-
-      if (typeof candidate === "object") {
-        if (specificTag && !isArchive) {
-          return isPatchEntry(candidate[specificTag]) ? candidate[specificTag] : null;
-        }
-        const tagKeys = Object.keys(candidate).sort((a, b) => {
-          const na = Number(a), nb = Number(b);
-          if (!isNaN(na) && !isNaN(nb)) return nb - na;
-          return b.localeCompare(a);
-        });
-        for (const tagKey of tagKeys) {
-          if (isPatchEntry(candidate[tagKey])) return candidate[tagKey];
-        }
-      }
-      return null;
-    }
-
-    const specificTag = isArchiveBuild ? null : (build?.build || null);
-    const cleanBuildVer = (build?.version || "").replace(/^v(?=\d)/i, "").trim();
-    const versionsToTry = cleanBuildVer ? [cleanBuildVer, `v${cleanBuildVer}`] : [];
-
-    let resolved = null;
-    if (variantNorm) {
-      for (const ver of versionsToTry) {
-        resolved =
-          resolveVersionFromDict(masterData[rawVariantTargetKey], ver, specificTag, isArchiveBuild) ||
-          resolveVersionFromDict(masterData[variantTargetKey], ver, specificTag, isArchiveBuild);
-        if (resolved) break;
-      }
-    } else {
-      for (const ver of versionsToTry) {
-        resolved =
-          resolveVersionFromDict(masterData[rawTargetKey], ver, specificTag, isArchiveBuild) ||
-          resolveVersionFromDict(masterData[targetKey], ver, specificTag, isArchiveBuild);
-        if (resolved) break;
-      }
-    }
-
-    if (resolved) {
-      if (Array.isArray(resolved.applied_patches) && resolved.applied_patches.length > 0) {
-        appliedPatches = resolved.applied_patches;
-      }
-      if (resolved.patches) {
-        pNames = resolved.patches;
-      }
-      if (resolved.changelog) {
-        clUrl = resolved.changelog;
-      }
-    }
-  }
-
-  if (DOM.appliedPatchesMeta) {
-    const patchNamesList = Array.isArray(pNames)
-      ? pNames
-      : (typeof pNames === "string" ? pNames.split(/,\s*/).filter(Boolean) : []);
-
-    const changelogList = Array.isArray(clUrl)
-      ? clUrl
-      : (typeof clUrl === "string" ? clUrl.split(/,\s*/).filter(Boolean) : (clUrl ? [clUrl] : []));
-
-    const badgesHtml = patchNamesList.map((name, index) => {
-      const url = changelogList[index] || (changelogList.length === 1 ? changelogList[0] : null);
-      if (url) {
-        return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="patch-engine-badge patch-engine-link" title="Open changelog for ${escapeHtml(name)}">${escapeHtml(name)}<svg class="patch-link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`;
-      }
-      return `<span class="patch-engine-badge">${escapeHtml(name)}</span>`;
-    }).join("");
-
-    DOM.appliedPatchesMeta.innerHTML = badgesHtml;
   }
 
   activeAppliedPatchesList = appliedPatches;
@@ -1677,35 +1531,26 @@ function filterAppliedPatchesList(query) {
   if (!DOM.appliedPatchesBody) return;
 
   if (!activeAppliedPatchesList) {
-    if (DOM.patchCountBadge) {
-      DOM.patchCountBadge.textContent = "0 patches";
-    }
-    DOM.appliedPatchesBody.innerHTML = '<div class="no-results" style="padding: 36px 20px; text-align: center; color: var(--text-muted);">No applied patches data available for this build.</div>';
+    if (DOM.patchCountBadge) DOM.patchCountBadge.textContent = "0 patches";
+    DOM.appliedPatchesBody.innerHTML = '<div class="no-results">No applied patches data available.</div>';
     return;
   }
 
   const normalized = (query || "").toLowerCase().trim();
-  const filtered = activeAppliedPatchesList.filter((p) =>
-    p.toLowerCase().includes(normalized)
-  );
+  const filtered = activeAppliedPatchesList.filter((p) => p.toLowerCase().includes(normalized));
 
   if (DOM.patchCountBadge) {
     DOM.patchCountBadge.textContent = `${filtered.length} of ${activeAppliedPatchesList.length} patches`;
   }
 
   if (filtered.length === 0) {
-    DOM.appliedPatchesBody.innerHTML = '<div class="no-results" style="padding: 36px 20px; text-align: center; color: var(--text-muted);">No matching patches found.</div>';
+    DOM.appliedPatchesBody.innerHTML = '<div class="no-results">No matching patches found.</div>';
     return;
   }
 
   DOM.appliedPatchesBody.innerHTML = `
     <div class="applied-patches-grid">
-      ${filtered.map((patchName) => `
-        <div class="applied-patch-item">
-          <span class="patch-check-icon">✓</span>
-          <span>${escapeHtml(patchName)}</span>
-        </div>
-      `).join("")}
+      ${filtered.map((p) => `<div class="applied-patch-item"><span class="patch-check-icon">✓</span><span>${escapeHtml(p)}</span></div>`).join("")}
     </div>
   `;
 }
@@ -1714,129 +1559,55 @@ function closeAppliedPatchesModal() {
   hideModal(DOM.appliedPatchesModal);
 }
 
-// Obtainium Modal Controller
+// Obtainium Modal with Multi-Action Options
 function openObtainiumModal() {
   const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
   const patch = app ? app.patches.find((item) => item.patchKey === activeModalPatchKey) : null;
-  if (!app || !patch) return;
+  if (!app) return;
 
-  if (DOM.obtainiumTitle) {
-    DOM.obtainiumTitle.textContent = `Install ${app.appName} with Obtainium`;
-  }
-
-  if (DOM.obtainiumBody) {
-    DOM.obtainiumBody.innerHTML = createObtainiumInstructions(app, patch);
-  }
+  if (DOM.obtainiumTitle) DOM.obtainiumTitle.textContent = `Install ${app.appName} via Obtainium`;
+  if (DOM.obtainiumBody) DOM.obtainiumBody.innerHTML = createObtainiumInstructions(app, patch);
 
   showModal(DOM.obtainiumModal);
 }
 
 function createObtainiumInstructions(app, patch) {
   const repoUrl = `https://github.com/${CONFIG.owner}/${CONFIG.repo}`;
-  const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
-
   const appNameNorm = normalizeForSearch(app?.appName || "app");
   const patchNameNorm = normalizeForSearch(patch?.patchName || "patch");
 
-  const isSpecificVariant = modalVariantFilter && modalVariantFilter !== "default" && modalVariantFilter !== "all";
+  const regexPattern = modalVariantFilter && modalVariantFilter !== "all" && modalVariantFilter !== "default"
+    ? `^${appNameNorm}-${patchNameNorm}-${modalVariantFilter}.*\\.apk$`
+    : `^${appNameNorm}-${patchNameNorm}.*\\.apk$`;
 
-  let regexPattern = `^${appNameNorm}-${patchNameNorm}.*\\.apk$`;
-  if (isSpecificVariant) {
-    regexPattern = `^${appNameNorm}-${patchNameNorm}-${modalVariantFilter}.*\\.apk$`;
-  }
+  const pkgId = getAppPackageId(app, patch, modalVariantFilter);
+  const safeId = pkgId || `${CONFIG.owner}_${appNameNorm}_${patchNameNorm}`.replace(/[^a-zA-Z0-9_]/g, "_");
 
-  const mainPackageId = getAppPackageId(app, patch, modalVariantFilter || "default");
-  const mainSafeId = mainPackageId || `${CONFIG.owner}_${app?.appKey || "app"}_${patch?.patchKey || "patch"}`.replace(/[^a-zA-Z0-9_]/g, "_");
-  const mainLabel = `${app?.appName || "App"} (${patch?.patchName || "Patch"})`;
-  const mainAdditionalSettings = { apkFilterRegEx: regexPattern };
-  if (modalBuildFilter === "beta") {
-    mainAdditionalSettings.includePrereleases = true;
-  }
-
-  const mainConfig = {
-    id: mainSafeId,
-    name: mainLabel,
+  const configObj = {
+    id: safeId,
+    name: `${app?.appName} (${patch?.patchName || "Patched"})`,
     author: CONFIG.owner,
     url: repoUrl,
-    additionalSettings: JSON.stringify(mainAdditionalSettings),
+    additionalSettings: JSON.stringify({ apkFilterRegEx: regexPattern }),
   };
-  const mainOneClickUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent("obtainium://app/" + JSON.stringify(mainConfig))}`;
 
-  let step4Content = "";
-  if (patch && patch.variants && patch.variants.length > 1) {
-    const examples = patch.variants.map((v, index) => {
-      const vRegex = v.variantKey === "default"
-        ? `^${appNameNorm}-${patchNameNorm}.*\\.apk$`
-        : `^${appNameNorm}-${patchNameNorm}-${v.variantKey}.*\\.apk$`;
-      const vLabel = `${app.appName} (${patch.patchName} - ${v.variantName})`;
-      const vPackageId = getAppPackageId(app, patch, v.variantKey);
-      const vSafeId = vPackageId || `${CONFIG.owner}_${app.appKey}_${patch.patchKey}_${v.variantKey}_${index}`.replace(/[^a-zA-Z0-9_]/g, "_");
-
-      const vAdditionalSettings = { apkFilterRegEx: vRegex };
-      if (modalBuildFilter === "beta") {
-        vAdditionalSettings.includePrereleases = true;
-      }
-
-      const vConfig = {
-        id: vSafeId,
-        name: vLabel,
-        author: CONFIG.owner,
-        url: repoUrl,
-        additionalSettings: JSON.stringify(vAdditionalSettings),
-      };
-      const vOneClickUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent("obtainium://app/" + JSON.stringify(vConfig))}`;
-
-      return `
-        <div style="margin-top: 8px;">
-          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">
-            ${escapeHtml(vLabel)}:
-          </div>
-          <div class="instruction-code">
-            <code>${escapeHtml(vRegex)}</code>
-            <a href="${vOneClickUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
-            <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(vRegex)}', 'Regex copied!')" type="button">Copy</button>
-          </div>
-        </div>
-      `;
-    }).join("");
-
-    step4Content = `
-      <div style="margin-top: 4px;">
-        ${examples}
-      </div>
-    `;
-  } else {
-    step4Content = `
-      <div class="instruction-code" style="margin-top: 6px;">
-        <code>${escapeHtml(regexPattern)}</code>
-        <a href="${mainOneClickUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
-        <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(regexPattern)}', 'Regex copied!')" type="button">Copy</button>
-      </div>
-    `;
-  }
+  const jsonConfig = JSON.stringify(configObj);
+  const directUrl = `obtainium://app/${jsonConfig}`;
+  const redirectUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(directUrl)}`;
 
   return `
     <div class="obtainium-instructions">
-    <div style="margin-bottom: 12px;">
-    Make sure you have <strong>Obtainium</strong> installed, if not install from <a href="${obtainiumLatestUrl}" target="_blank" rel="noopener noreferrer">GitHub</a>. Press the <strong>Add to Obtainium</strong> button to add the app(s) automatically or you can follow the instructions below to add them manually:
-    </div>
-      <ol>
-        <li>Open Obtainium on your device.</li>
-        <li>Tap <strong>Add App</strong>.</li>
-        <li>In the <strong>App Source URL</strong> box, enter:
-          <div class="instruction-code code-with-copy">
-            <code>${repoUrl}</code>
-            <button class="copy-btn" onclick="copyToClipboard('${repoUrl}', 'Repository URL copied!')" type="button">Copy</button>
-          </div>
-        </li>
-        <li>Scroll down to <strong>Filter APKs by regular expression</strong> and enter:
-          ${step4Content}
-        </li>
-        <li>To get beta updates, enable the <strong>Include Pre-releases</strong> toggle.</li>
-        <li>Tap <strong>Add</strong> to begin downloading.</li>
-      </ol>
-      <div style="margin-top: 12px">
-        In the future, Obtainium will automatically fetch updates when new releases are published.
+      <p style="margin-bottom: 12px;">Import this configuration directly into <strong>Obtainium</strong>:</p>
+      <div class="obtainium-actions">
+        <a href="${escapeHtml(directUrl)}" class="obtainium-btn-direct">Open in Obtainium</a>
+        <a href="${escapeHtml(redirectUrl)}" class="obtainium-btn-redirect" target="_blank" rel="noopener noreferrer">Open in Obtainium (Redirect)</a>
+        <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(regexPattern)}', 'Regex copied to clipboard!')" type="button">Copy Regex</button>
+      </div>
+      <div style="margin-top: 16px;">
+        <p style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">Manual Regular Expression Filter:</p>
+        <div class="instruction-code">
+          <code>${escapeHtml(regexPattern)}</code>
+        </div>
       </div>
     </div>
   `;
@@ -1844,110 +1615,17 @@ function createObtainiumInstructions(app, patch) {
 
 function getAppPackageId(app, patch, variantKey) {
   if (!app) return "";
-
-  const appKeyNorm = normalizeForSearch(app.appKey || app.appName || "");
-  const appNameNorm = normalizeForSearch(app.appName || "");
-
-  // Candidate slugs to search in CONFIG.appIds
-  const appCandidates = [app.appKey, appKeyNorm, appNameNorm];
-
-  const sampleAsset = patch?.builds?.[0]?.assets?.[0] || app?.patches?.[0]?.builds?.[0]?.assets?.[0];
-  if (sampleAsset?.name) {
-    const baseName = sampleAsset.name.replace(/\.(apk|zip)$/i, "");
-    const tokens = baseName.split("-").filter(Boolean);
-    const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
-    if (patchIdx > 0) {
-      const rawSlug = tokens.slice(0, patchIdx).join("").toLowerCase();
-      appCandidates.push(rawSlug);
-    }
-    if (tokens.length > 0) {
-      appCandidates.push(tokens[0].toLowerCase());
-    }
-  }
-
-  let mapping = null;
-  for (const cand of appCandidates) {
-    if (!cand) continue;
-    if (CONFIG.appIds[cand]) {
-      mapping = CONFIG.appIds[cand];
-      break;
-    }
-    const candNorm = normalizeForSearch(cand);
-    if (CONFIG.appIds[candNorm]) {
-      mapping = CONFIG.appIds[candNorm];
-      break;
-    }
-  }
-
-  if (!mapping) {
-    // Fuzzy matching against CONFIG.appIds
-    for (const [key, val] of Object.entries(CONFIG.appIds)) {
-      const normKey = normalizeForSearch(key);
-      if (normKey === appNameNorm || appNameNorm.includes(normKey) || normKey.includes(appNameNorm) ||
-        normKey === appKeyNorm || appKeyNorm.includes(normKey) || normKey.includes(appKeyNorm)) {
-        mapping = val;
-        break;
-      }
-    }
-  }
+  const keyNorm = normalizeForSearch(app.appKey || app.appName || "");
+  const mapping = CONFIG.appIds[keyNorm] || CONFIG.appIds[app.appKey];
 
   if (!mapping) return "";
   if (typeof mapping === "string") return mapping;
 
   if (typeof mapping === "object") {
-    const patchCandidates = [
-      patch?.patchKey,
-      normalizeForSearch(patch?.patchName || ""),
-    ];
-    if (sampleAsset?.name) {
-      const baseName = sampleAsset.name.replace(/\.(apk|zip)$/i, "");
-      const tokens = baseName.split("-").filter(Boolean);
-      const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
-      if (patchIdx >= 0) {
-        patchCandidates.push(tokens[patchIdx].toLowerCase());
-      }
-    }
-
-    const normVariant = normalizeForSearch(variantKey || "");
-
-    // Check if there is an engine/patch-specific sub-mapping (e.g. instagram.instafel)
-    let activeMapping = mapping;
-    for (const pCand of patchCandidates) {
-      if (!pCand) continue;
-      const sub = mapping[pCand] ||
-        (pCand === "revancedextended" ? mapping["rvx"] : null) ||
-        (pCand === "revancedadvanced" ? mapping["anddea"] : null) ||
-        (pCand === "rvx" ? mapping["revancedextended"] : null) ||
-        (pCand === "anddea" ? mapping["revancedadvanced"] : null);
-
-      if (sub) {
-        if (typeof sub === "string") return sub;
-        if (typeof sub === "object") {
-          activeMapping = sub;
-          break;
-        }
-      }
-    }
-
-    // 1. Check variant overrides in activeMapping (e.g. clone, androidtv, foss)
-    if (normVariant && normVariant !== "default" && normVariant !== "all") {
-      if (typeof activeMapping[normVariant] === "string") return activeMapping[normVariant];
-      if (normVariant.includes("tv") && typeof activeMapping["androidtv"] === "string") return activeMapping["androidtv"];
-      if (normVariant.includes("clone") && typeof activeMapping["clone"] === "string") return activeMapping["clone"];
-      if (normVariant.includes("foss") && typeof activeMapping["foss"] === "string") return activeMapping["foss"];
-      if (typeof mapping[normVariant] === "string") return mapping[normVariant];
-    }
-
-    // 2. Default fallback on activeMapping or top-level mapping
-    if (typeof activeMapping.default === "string") return activeMapping.default;
-    if (typeof mapping.default === "string") return mapping.default;
-
-    // 3. First string value fallback
-    const firstVal = Object.values(activeMapping).find((v) => typeof v === "string") ||
-      Object.values(mapping).find((v) => typeof v === "string");
-    if (firstVal) return firstVal;
+    const vNorm = normalizeForSearch(variantKey || "");
+    if (vNorm && mapping[vNorm]) return mapping[vNorm];
+    return mapping.default || Object.values(mapping)[0] || "";
   }
-
   return "";
 }
 
@@ -1978,9 +1656,7 @@ function fallbackCopyToClipboard(text, successMessage) {
   try {
     document.execCommand("copy");
     showToast(successMessage);
-  } catch (err) {
-    console.error("Fallback copy failed", err);
-  }
+  } catch (err) {}
   document.body.removeChild(textarea);
 }
 
@@ -1995,7 +1671,7 @@ function showToast(message) {
   }, 2500);
 }
 
-// Architecture & Asset Helpers
+// Helper Functions
 function groupAssetsByArchitecture(assets) {
   const groups = { arm64: [], arm32: [], universal: [], x86: [], other: [] };
   assets.forEach((asset) => {
@@ -2006,11 +1682,6 @@ function groupAssetsByArchitecture(assets) {
   const filtered = {};
   ["arm64", "arm32", "universal", "x86", "other"].forEach((arch) => {
     if (groups[arch].length > 0) {
-      groups[arch].sort((a, b) => {
-        const aIsApk = a.name.toLowerCase().endsWith(".apk") ? 0 : 1;
-        const bIsApk = b.name.toLowerCase().endsWith(".apk") ? 0 : 1;
-        return aIsApk - bIsApk;
-      });
       filtered[arch] = groups[arch];
     }
   });
@@ -2018,19 +1689,16 @@ function groupAssetsByArchitecture(assets) {
 }
 
 function getFileType(filename) {
-  const lower = filename.toLowerCase();
-  if (lower.endsWith(".apk")) return "APK";
-  if (lower.endsWith(".zip")) return "Module";
-  return "File";
+  return filename.toLowerCase().endsWith(".zip") ? "Module" : "APK";
 }
 
 function detectArchitecture(filename) {
   const name = (filename || "").toLowerCase();
-  if (name.includes("arm64") || name.includes("aarch64") || name.includes("arm64-v8a")) return "arm64";
-  if ((name.includes("arm") && !name.includes("arm64")) || name.includes("arm-v7a") || name.includes("armeabi")) return "arm32";
-  if (name.includes("universal") || name.includes("-all.") || /^(?!.*arm|x86|x64|i386)[^-]*\.apk$/.test(name)) return "universal";
-  if (name.includes("x86_64") || name.includes("x64") || name.includes("x86")) return "x86";
-  return "other";
+  if (name.includes("arm64") || name.includes("aarch64")) return "arm64";
+  if (name.includes("arm") || name.includes("v7a")) return "arm32";
+  if (name.includes("universal")) return "universal";
+  if (name.includes("x86")) return "x86";
+  return "universal";
 }
 
 function capitalizeArch(arch) {
@@ -2039,7 +1707,7 @@ function capitalizeArch(arch) {
 }
 
 function formatBytes(bytes) {
-  if (!bytes || bytes === 0) return "0 B";
+  if (!bytes) return "0 B";
   const k = 1024;
   const sizes = ["B", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
@@ -2074,45 +1742,28 @@ function parseAssetDisplay(filename, arch, fileType) {
 
   const baseName = filename.replace(/\.(apk|zip)$/i, "");
   const tokens = baseName.split("-").filter(Boolean);
-  const archSubTokens = new Set(CONFIG.knownArchs.flatMap((a) => a.split("-")));
-  const versionIndex = tokens.findIndex(
-    (token) => /^(v\w*\d|vbuild)/i.test(token) && !archSubTokens.has(token.toLowerCase())
-  );
-  const moduleIndex = tokens.findIndex((token) => token.toLowerCase() === "module");
-  const stopIndexCandidates = [versionIndex, moduleIndex].filter((i) => i >= 0);
-  const stopIndex = stopIndexCandidates.length > 0 ? Math.min(...stopIndexCandidates) : tokens.length;
-  const preMetaTokens = tokens.slice(0, stopIndex);
-
-  let patchStartIndex = preMetaTokens.findIndex((token) => CONFIG.knownPatchTokens.has(token.toLowerCase()));
-  if (patchStartIndex < 0) patchStartIndex = Math.max(preMetaTokens.length - 1, 0);
-
-  const appTokens = preMetaTokens.slice(0, patchStartIndex);
-  let patchTokens = preMetaTokens.slice(patchStartIndex);
 
   let variant = null;
-  while (patchTokens.length > 1 && CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
-    variant = patchTokens[patchTokens.length - 1];
-    patchTokens = patchTokens.slice(0, -1);
-  }
+  let cleanTokens = [];
 
-  let version = "Version unknown";
-  if (versionIndex >= 0) {
-    const versionParts = [tokens[versionIndex].replace(/^v(?=\d)/i, "")];
-    for (let i = versionIndex + 1; i < tokens.length; i++) {
-      const t = tokens[i].toLowerCase();
-      const isArchToken = CONFIG.knownArchs.some((a) => a.split("-").includes(t));
-      if (t === "module" || t === "universal" || isArchToken) break;
-      versionParts.push(tokens[i]);
+  tokens.forEach((t) => {
+    const lower = t.toLowerCase();
+    if (CONFIG.variantKeywords.has(lower)) {
+      variant = t;
+    } else {
+      cleanTokens.push(t);
     }
-    version = versionParts.join("-");
-  }
+  });
+
+  const appName = cleanTokens.length > 0 ? cleanTokens[0] : baseName;
+  const patchName = cleanTokens.length > 1 ? cleanTokens.slice(1).join(" ") : "Patched Build";
 
   const result = {
-    appName: formatBrandDisplayName(appTokens.length > 0 ? appTokens.join(" ") : preMetaTokens.join(" ") || baseName),
-    patchName: formatBrandDisplayName(patchTokens.length > 0 ? patchTokens.join(" ") : "Patched Build"),
+    appName: formatBrandDisplayName(appName),
+    patchName: formatBrandDisplayName(patchName),
     variant: variant ? formatBrandDisplayName(variant) : null,
     rawVariant: variant ? variant.toLowerCase() : null,
-    version,
+    version: "Latest",
     fileType,
   };
 
@@ -2121,16 +1772,9 @@ function parseAssetDisplay(filename, arch, fileType) {
 }
 
 function formatBrandDisplayName(value) {
-  return (value || "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .split(" ")
-    .map((token) => {
-      const lower = token.toLowerCase();
-      if (CONFIG.brandOverrides[lower]) return CONFIG.brandOverrides[lower];
-      return token.charAt(0).toUpperCase() + token.slice(1);
-    })
-    .join(" ");
+  const lower = (value || "").toLowerCase();
+  if (CONFIG.brandOverrides[lower]) return CONFIG.brandOverrides[lower];
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
 function setLatestBuildMeta(appEntry, releaseType, release) {
@@ -2162,11 +1806,7 @@ function escapeHtml(text) {
 }
 
 function updateLastUpdateTimestamp() {
-  if (!allReleases || allReleases.length === 0) {
-    setPillState("success", "No releases found");
-    return;
-  }
-
+  if (!allReleases || allReleases.length === 0) return;
   const latestTime = allReleases.reduce((max, release) => {
     const t = new Date(release.published_at).getTime();
     return t > max ? t : max;
@@ -2192,18 +1832,4 @@ function setPillState(state, text) {
   pill.classList.remove("checking", "error", "success");
   pill.classList.add(state);
   DOM.lastUpdateText.textContent = text;
-
-  const svgContainer = pill.querySelector("svg");
-  if (!svgContainer) return;
-
-  if (state === "checking") {
-    svgContainer.innerHTML = '<path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/>';
-    svgContainer.classList.add("spin");
-  } else if (state === "error") {
-    svgContainer.innerHTML = '<circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>';
-    svgContainer.classList.remove("spin");
-  } else if (state === "success") {
-    svgContainer.innerHTML = '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>';
-    svgContainer.classList.remove("spin");
-  }
 }
