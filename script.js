@@ -23,8 +23,6 @@ const CONFIG = {
   // Known tokens indicating a patch engine/source name (must be lowercase)
   knownPatchTokens: new Set([
     "revanced", "morphe", "anddea", "rvx", "xposed", "instafel",
-    "hooman", "rushiranpise", "hoodles", "binarymend", "paresh",
-    "xtra", "icysymmetra", "jasonwu1994", "piko", "revenge"
   ]),
 
   // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
@@ -76,9 +74,6 @@ const CONFIG = {
   // Brand name overrides (keys must be lowercase)
   brandOverrides: {
     adm: "ADM",
-    adobeacrobat: "Adobe Acrobat",
-    amazonalexa: "Amazon Alexa",
-    amazonindia: "Amazon India",
     youtube: "YouTube",
     revanced: "ReVanced",
     tiktok: "TikTok",
@@ -131,7 +126,6 @@ const CONFIG = {
     mxplayer: "MX Player",
     moviebox: "MovieBox",
     kinestop: "KineStop",
-    twitter: "X / Twitter",
     x: "X / Twitter",
     hooman: "Hooman",
     rushiranpise: "Rushiranpise",
