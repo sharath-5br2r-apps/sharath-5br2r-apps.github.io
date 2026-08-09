@@ -7,7 +7,7 @@
 const CONFIG = {
   owner: "sharath-5br2r",
   repo: "my-patched-apks",
-  cacheDuration: 5, // Cache duration in minutes
+  cacheDuration: 1, // Cache duration in minutes
 
   // App Categories for the filter buttons
   appCategories: {
