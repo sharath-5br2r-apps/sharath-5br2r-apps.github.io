@@ -11,10 +11,10 @@ const CONFIG = {
 
   // App Categories for the filter buttons
   appCategories: {
-    amazon: ["amazon", "alexa", "primevideo", "amazonindia" ],
+    amazon: ["amazon", "alexa", "primevideo", "amazonindia"],
     google: ["youtube", "google", "gboard"],
     meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
-    vpn: ["1111warp", "vpnify", "vpn" ],
+    vpn: ["1111warp", "vpnify", "vpn"],
   },
 
   // Words ignored in dynamic app filters (must be lowercase)
@@ -22,7 +22,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine/source name (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch" , "Extra"
+    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "Extra"
   ]),
 
   // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
@@ -144,6 +144,7 @@ const CONFIG = {
     xshim: "X-Shim",
     jiohotstar: "JioHotstar",
     dolphin: "Dolphin Emulator",
+    official: "Official",
   },
 
   // Map app slugs to Android Package IDs for Obtainium
@@ -349,6 +350,10 @@ const CONFIG = {
     },
   ],
 };
+
+// Explicit Extension Matching (Includes .tar.{ext})
+const ALLOWED_EXT_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
+const EXT_STRIP_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
 
 // Cached DOM references
 const DOM = {};
@@ -803,7 +808,8 @@ function buildAppCatalog(releases) {
     const patchMetaFromRelease = extractPatchInfoFromRelease(release);
 
     (release.assets || []).forEach((asset) => {
-      if (!asset.name || !/\.(apk|zip)$/i.test(asset.name)) return;
+      // ONLY include specifically allowed formats (APK, EXE, DMG, Tarballs, Archives, Packages)
+      if (!asset.name || !ALLOWED_EXT_REGEX.test(asset.name)) return;
 
       const arch = detectArchitecture(asset.name);
       const fileType = getFileType(asset.name);
@@ -825,7 +831,7 @@ function buildAppCatalog(releases) {
       const appEntry = appMap.get(appKey);
       setLatestBuildMeta(appEntry, releaseType, release);
 
-      const patchKey = normalizeForSearch(parsed.patchName) || "patchedbuild";
+      const patchKey = normalizeForSearch(parsed.patchName) || "official";
       if (!appEntry.patches.has(patchKey)) {
         appEntry.patches.set(patchKey, {
           patchKey,
@@ -1236,7 +1242,7 @@ function createAppCard(app) {
 }
 
 function createNoticeMarkup(notice) {
-  const linksMarkup = notice.links
+  const linksMarkup = (notice.links || [])
     .map((link) => `<a href="${link.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)} ↗</a>`)
     .join(" ");
 
@@ -1244,7 +1250,7 @@ function createNoticeMarkup(notice) {
     <div class="app-notice ${escapeHtml(notice.className)}">
       <div class="app-notice-title">${escapeHtml(notice.title)}</div>
       <div class="app-notice-text">${escapeHtml(notice.text)}</div>
-      <div class="app-notice-links">${linksMarkup}</div>
+      ${linksMarkup ? `<div class="app-notice-links">${linksMarkup}</div>` : ""}
     </div>
   `;
 }
@@ -1427,6 +1433,24 @@ function openPatchModal(appKey, patchKey, preferredChannel = "stable", preferred
   showModal(DOM.patchModal);
 }
 
+// Check if active build contains an Android package (.apk, .apks, .xapk, .apkm)
+function patchHasApk(patch, variantKey = "all", buildFilter = "stable") {
+  if (!patch || !patch.builds) return false;
+  let builds = patch.builds;
+  if (buildFilter === "stable") builds = builds.filter((b) => b.releaseType === "stable");
+  else if (buildFilter === "beta") builds = builds.filter((b) => b.releaseType === "beta");
+
+  return builds.some((build) =>
+    (build.assets || []).some((asset) => {
+      if (variantKey && variantKey !== "all" && variantKey !== "default") {
+        const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
+        if (vKey !== variantKey) return false;
+      }
+      return /\.(apk|apks|xapk|apkm)$/i.test(asset.name || "");
+    })
+  );
+}
+
 function renderOpenPatchModal() {
   const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
   const patch = app ? app.patches.find((item) => item.patchKey === activeModalPatchKey) : null;
@@ -1443,6 +1467,12 @@ function renderOpenPatchModal() {
 
   if (DOM.patchModalTitle) {
     DOM.patchModalTitle.textContent = `${app.appName} • ${patch.patchName}${variantText}`;
+  }
+
+  // Display "Add to Obtainium" button IF AND ONLY IF an APK asset exists
+  if (DOM.obtainiumBtn) {
+    const hasApk = patchHasApk(patch, modalVariantFilter, modalBuildFilter);
+    DOM.obtainiumBtn.style.display = hasApk ? "inline-flex" : "none";
   }
 
   updateModalFilterButtons(patch);
@@ -1579,34 +1609,6 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
   `;
 }
 
-  const patchInfoBanner = `
-    <div class="patch-info-actions">
-      <button class="patch-applied-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" type="button">View Applied Patches</button>
-      <a href="${build.releaseUrl}" target="_blank" rel="noopener noreferrer" class="release-link-button">View Release Source</a>
-    </div>
-  `;
-
-  return `
-    <details class="modal-build-card" ${openByDefault ? "open" : ""}>
-      <summary class="modal-build-header">
-        <div class="modal-build-header-left">
-          <div class="modal-build-title">${titleText}</div>
-          <div class="modal-build-date">${formatDate(build.publishedAt)}${build.isArchive ? "" : ` • ${escapeHtml(build.version)}`}</div>
-        </div>
-        <div class="modal-build-header-right">
-          <span class="badge-group">
-            ${build.isArchive ? `<span class="release-badge archive">Archive</span>` : ""}
-          </span>
-        </div>
-      </summary>
-      <div class="modal-build-downloads">
-        ${downloadsMarkup}
-        ${patchInfoBanner}
-      </div>
-    </details>
-  `;
-}
-
 function closePatchModal() {
   hideModal(DOM.patchModal);
 }
@@ -1657,8 +1659,6 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     const masterData = await fetchMasterBuildData();
     const appKeyNorm = normalizeForSearch(app.appKey || app.appName);
     const patchKeyNorm = normalizeForSearch(patch.patchKey || patch.patchName);
-    // Use stored variantKey to get the correct variant — avoids cross-variant asset contamination
-    // (multiple variants share the same buildKey when from the same numbered release)
     const variantNorm = (build?.variantKey && build.variantKey !== "default")
       ? normalizeForSearch(build.variantKey)
       : "";
@@ -1666,7 +1666,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     let rawSlugNorm = appKeyNorm;
     const asset = build?.assets?.[0];
     if (asset?.name) {
-      const baseName = asset.name.replace(/\.(apk|zip)$/i, "");
+      const baseName = asset.name.replace(EXT_STRIP_REGEX, "");
       const tokens = baseName.split("-").filter(Boolean);
       const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
       if (patchIdx > 0) {
@@ -1685,7 +1685,6 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
       );
     }
 
-    // Direct O(1) version & tag dictionary lookup (no dead engine loops)
     function resolveVersionFromDict(dict, rawVer, specificTag, isArchive) {
       if (!dict || typeof dict !== "object") return null;
       if (isPatchEntry(dict)) return dict;
@@ -1824,10 +1823,9 @@ function buildObtainiumRegex(app, patch, variantKey) {
   let appSlug = sampleAsset?.parsed?.rawAppSlug;
   let patchSlug = sampleAsset?.parsed?.rawPatchSlug;
 
-  // Dynamic fallback from asset filename if raw slugs aren't cached
   if (!appSlug || !patchSlug) {
     if (sampleAsset?.name) {
-      const baseName = sampleAsset.name.replace(/\.(apk|zip)$/i, "");
+      const baseName = sampleAsset.name.replace(EXT_STRIP_REGEX, "");
       const tokens = baseName.split("-").filter(Boolean);
       const archSubTokens = new Set(CONFIG.knownArchs.flatMap((a) => a.split("-")));
       const versionIndex = tokens.findIndex(
@@ -1854,7 +1852,7 @@ function buildObtainiumRegex(app, patch, variantKey) {
   }
 
   if (!appSlug) appSlug = normalizeForSearch(app?.appName || "app");
-  if (!patchSlug) patchSlug = normalizeForSearch(patch?.patchName || "patch");
+  if (!patchSlug) patchSlug = normalizeForSearch(patch?.patchName || "official");
 
   if (!variantKey || variantKey === "default" || variantKey === "all") {
     return `${appSlug}-${patchSlug}.*\\.apk$`;
@@ -1874,6 +1872,11 @@ function openObtainiumModal() {
   const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
   const patch = app ? app.patches.find((item) => item.patchKey === activeModalPatchKey) : null;
   if (!app || !patch) return;
+
+  if (!patchHasApk(patch, modalVariantFilter, modalBuildFilter)) {
+    showToast("Obtainium integration is only available for Android APK builds.");
+    return;
+  }
 
   const selectedVariant = patch.variants.find((v) => v.variantKey === modalVariantFilter);
   const variantText = selectedVariant && selectedVariant.variantName !== "Standard"
@@ -2008,7 +2011,7 @@ function getAppPackageId(app, patch, variantKey) {
 
   const sampleAsset = patch?.builds?.[0]?.assets?.[0] || app?.patches?.[0]?.builds?.[0]?.assets?.[0];
   if (sampleAsset?.name) {
-    const baseName = sampleAsset.name.replace(/\.(apk|zip)$/i, "");
+    const baseName = sampleAsset.name.replace(EXT_STRIP_REGEX, "");
     const tokens = baseName.split("-").filter(Boolean);
     const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
     if (patchIdx > 0) {
@@ -2054,7 +2057,7 @@ function getAppPackageId(app, patch, variantKey) {
       normalizeForSearch(patch?.patchName || ""),
     ];
     if (sampleAsset?.name) {
-      const baseName = sampleAsset.name.replace(/\.(apk|zip)$/i, "");
+      const baseName = sampleAsset.name.replace(EXT_STRIP_REGEX, "");
       const tokens = baseName.split("-").filter(Boolean);
       const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
       if (patchIdx >= 0) {
@@ -2083,7 +2086,6 @@ function getAppPackageId(app, patch, variantKey) {
       }
     }
 
-    // 1. Check exact multi-variant key or individual variant tokens
     if (normVariant && normVariant !== "default" && normVariant !== "all") {
       if (typeof activeMapping[normVariant] === "string") return activeMapping[normVariant];
       if (typeof mapping[normVariant] === "string") return mapping[normVariant];
@@ -2097,11 +2099,9 @@ function getAppPackageId(app, patch, variantKey) {
       }
     }
 
-    // 2. Default fallback
     if (typeof activeMapping.default === "string") return activeMapping.default;
     if (typeof mapping.default === "string") return mapping.default;
 
-    // 3. First string value fallback
     const firstVal = Object.values(activeMapping).find((v) => typeof v === "string") ||
       Object.values(mapping).find((v) => typeof v === "string");
     if (firstVal) return firstVal;
@@ -2109,6 +2109,7 @@ function getAppPackageId(app, patch, variantKey) {
 
   return "";
 }
+
 function closeObtainiumModal() {
   hideModal(DOM.obtainiumModal);
 }
@@ -2166,8 +2167,8 @@ function groupAssetsByArchitecture(assets) {
   ["arm64", "arm32", "universal", "x86_64", "x86", "other"].forEach((arch) => {
     if (groups[arch] && groups[arch].length > 0) {
       groups[arch].sort((a, b) => {
-        const aIsApk = a.name.toLowerCase().endsWith(".apk") ? 0 : 1;
-        const bIsApk = b.name.toLowerCase().endsWith(".apk") ? 0 : 1;
+        const aIsApk = /\.(apk|apks|xapk|apkm)$/i.test(a.name) ? 0 : 1;
+        const bIsApk = /\.(apk|apks|xapk|apkm)$/i.test(b.name) ? 0 : 1;
         return aIsApk - bIsApk;
       });
       filtered[arch] = groups[arch];
@@ -2177,20 +2178,27 @@ function groupAssetsByArchitecture(assets) {
 }
 
 function getFileType(filename) {
-  const lower = filename.toLowerCase();
+  const lower = (filename || "").toLowerCase();
 
-  if (lower.endsWith(".apk")) return "APK";
+  if (/\.(apk|apks|xapk|apkm)$/i.test(lower)) return "APK";
   if (lower.endsWith(".exe")) return "EXE";
+  if (lower.endsWith(".msi")) return "MSI";
   if (lower.endsWith(".appimage")) return "AppImage";
+  if (lower.endsWith(".dmg")) return "DMG";
+  if (lower.endsWith(".pkg")) return "PKG";
+  if (lower.endsWith(".deb")) return "DEB";
+  if (lower.endsWith(".rpm")) return "RPM";
+  if (lower.endsWith(".flatpak")) return "Flatpak";
+  if (lower.endsWith(".snap")) return "Snap";
 
   if (lower.endsWith(".zip")) {
-    if (lower.includes("windows") || lower.includes("macos") || lower.includes("linux")) {
+    if (lower.includes("windows") || lower.includes("macos") || lower.includes("linux") || lower.includes("android")) {
       return "Archive";
     }
     return "Module";
   }
 
-  if (lower.includes(".tar." ) || lower.endsWith(".tar")) return "Archive";
+  if (/\.(tar(\.[a-z0-9]+)?|tgz|7z|rar)$/i.test(lower)) return "Archive";
 
   return "File";
 }
@@ -2199,8 +2207,7 @@ function detectArchitecture(filename) {
   const name = (filename || "").toLowerCase();
   if (name.includes("arm64") || name.includes("aarch64") || name.includes("arm64-v8a")) return "arm64";
   if ((name.includes("arm") && !name.includes("arm64")) || name.includes("arm-v7a") || name.includes("armeabi")) return "arm32";
-  if (name.includes("universal") || name.includes("-all.") || /^(?!.*arm|x86|x64|i386)[^-]*\.apk$/.test(name)) return "universal";
-  // Isolated 64-bit x86 from 32-bit x86
+  if (name.includes("universal") || name.includes("-all.") || /^(?!.*arm|x86|x64|i386)[^-]*\.(apk|apks|xapk|apkm|exe|msi|zip)$/i.test(name)) return "universal";
   if (name.includes("x86_64") || name.includes("x86-64") || name.includes("x64")) return "x86_64";
   if (name.includes("x86") || name.includes("i386") || name.includes("i686")) return "x86";
   return "other";
@@ -2252,7 +2259,7 @@ function getSearchTokens(value) {
 function parseAssetDisplay(filename, arch, fileType) {
   if (parseCache.has(filename)) return parseCache.get(filename);
 
-  const baseName = filename.replace(/\.(apk|zip)$/i, "");
+  const baseName = filename.replace(EXT_STRIP_REGEX, "");
   const tokens = baseName.split("-").filter(Boolean);
   const archSubTokens = new Set(CONFIG.knownArchs.flatMap((a) => a.split("-")));
   const versionIndex = tokens.findIndex(
@@ -2264,16 +2271,32 @@ function parseAssetDisplay(filename, arch, fileType) {
   const preMetaTokens = tokens.slice(0, stopIndex);
 
   let patchStartIndex = preMetaTokens.findIndex((token) => CONFIG.knownPatchTokens.has(token.toLowerCase()));
-  if (patchStartIndex < 0) patchStartIndex = Math.max(preMetaTokens.length - 1, 0);
 
-  const appTokens = preMetaTokens.slice(0, patchStartIndex);
-  let patchTokens = preMetaTokens.slice(patchStartIndex);
-
-  // Extract multi-variants cleanly in sequence
+  let appTokens = [];
+  let patchTokens = [];
   let variantTokens = [];
-  while (patchTokens.length > 1 && CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
-    variantTokens.unshift(patchTokens[patchTokens.length - 1]);
-    patchTokens = patchTokens.slice(0, -1);
+
+  if (patchStartIndex >= 0) {
+    // Known patch token exists
+    appTokens = preMetaTokens.slice(0, patchStartIndex);
+    patchTokens = preMetaTokens.slice(patchStartIndex);
+
+    // Extract multi-variants cleanly from patchTokens
+    while (patchTokens.length > 1 && CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
+      variantTokens.unshift(patchTokens[patchTokens.length - 1]);
+      patchTokens = patchTokens.slice(0, -1);
+    }
+  } else {
+    // NO patch token found -> NO GUESSWORK!
+    // All tokens before version/arch are treated as the application name
+    appTokens = preMetaTokens;
+    patchTokens = [];
+
+    // Extract trailing variant keywords if present
+    while (appTokens.length > 1 && CONFIG.variantKeywords.has(appTokens[appTokens.length - 1].toLowerCase())) {
+      variantTokens.unshift(appTokens[appTokens.length - 1]);
+      appTokens = appTokens.slice(0, -1);
+    }
   }
 
   let version = "Version unknown";
@@ -2288,7 +2311,6 @@ function parseAssetDisplay(filename, arch, fileType) {
     version = versionParts.join("-");
   }
 
-  // Multi-variant display format segregated with ' + '
   const variantDisplayName = variantTokens.length > 0
     ? variantTokens.map((v) => formatBrandDisplayName(v)).join(" + ")
     : null;
@@ -2297,9 +2319,12 @@ function parseAssetDisplay(filename, arch, fileType) {
     ? variantTokens.map((v) => v.toLowerCase()).join("+")
     : null;
 
+  const appNameRaw = appTokens.length > 0 ? appTokens.join(" ") : (preMetaTokens.join(" ") || baseName);
+  const patchNameRaw = patchTokens.length > 0 ? patchTokens.join(" ") : "Official";
+
   const result = {
-    appName: formatBrandDisplayName(appTokens.length > 0 ? appTokens.join(" ") : preMetaTokens.join(" ") || baseName),
-    patchName: formatBrandDisplayName(patchTokens.length > 0 ? patchTokens.join(" ") : "Patched Build"),
+    appName: formatBrandDisplayName(appNameRaw),
+    patchName: formatBrandDisplayName(patchNameRaw),
     variant: variantDisplayName,
     rawVariant: rawVariant,
     version,
