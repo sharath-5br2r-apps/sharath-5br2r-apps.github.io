@@ -338,7 +338,7 @@ const CONFIG = {
       title: "Amazon Shared Permissions Issue",
       text: "Due to disabling of shared permissions patch, All Amazon Apps have to be installed with common signature.",
       links: [
-        { label: "Download apps from here", url: "/" },
+        { label: "Download apps from here", url: "./" },
       ],
     },
     {
