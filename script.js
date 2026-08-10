@@ -136,7 +136,8 @@ const CONFIG = {
     icysymmetra: "icysymmetra",
     jasonwu1994: "jasonwu1994",
     piko: "Piko",
-    xshim: "X-Shim"
+    xshim: "X-Shim",
+    jiohotstar: "JioHotstar"
   },
 
   // Map app slugs to Android Package IDs for Obtainium
@@ -202,6 +203,7 @@ const CONFIG = {
     inshot: "com.camerasideas.instashot",
     inshortsnewsin60words: "com.nis.app",
     imdb: "com.imdb.mobile",
+    jiohotstar: "in.startv.hotstar",
     kinestop: "com.urbandroid.kinestop",
     komoothikebikerun: "de.komoot.android",
     luminawallpapers: "com.lumina.wallpapers",
