@@ -145,6 +145,7 @@ const CONFIG = {
     jiohotstar: "JioHotstar",
     dolphin: "Dolphin Emulator",
     official: "Official",
+    gfp: "Game For Peace Spoof",
   },
 
   // Map app slugs to Android Package IDs for Obtainium
@@ -176,7 +177,7 @@ const CONFIG = {
     disneyplus: "com.disney.disneyplus",
     dolphinemulator: {
       default: "org.dolphinemu.dolphinemu",
-      gfp: "com.tencent.tmgp.pubgmhd",
+      gameforpeacespoof: "com.tencent.tmgp.pubgmhd",
     },
     discord: "com.discord",
     eyeconcalleridspamblock: "com.eyecon.global",
@@ -295,6 +296,7 @@ const CONFIG = {
       rvx: "app.rvx.android.youtube",
       revancedextended: "app.rvx.android.youtube",
       morpheanddea: "anddea.youtube",
+      anddea: "anddea.youtube",
       revancedadvanced: "anddea.youtube",
       morphe: "app.morphe.android.youtube",
       default: "com.google.android.youtube",
