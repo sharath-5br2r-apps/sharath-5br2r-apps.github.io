@@ -1532,7 +1532,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
     assets.forEach((asset) => {
       const sizeStr = formatBytes(asset.size);
       const downloads = formatCompactNumber(asset.download_count || 0);
-      const variantDisplay = asset.parsed.variant ? ` • <span class="asset-variant-tag">+ ${escapeHtml(asset.parsed.variant)}</span>` : "";
+      const variantDisplay = asset.parsed.variant ? ` • <span class="asset-variant-tag">${escapeHtml(asset.parsed.variant)}</span>` : "";
 
       downloadsMarkup += `
         <div class="download-btn ${arch}">
@@ -1550,6 +1550,34 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
 
     downloadsMarkup += `</div>`;
   });
+
+  const patchInfoBanner = `
+    <div class="patch-info-actions">
+      <button class="patch-applied-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" type="button">View Applied Patches</button>
+      <a href="${build.releaseUrl}" target="_blank" rel="noopener noreferrer" class="release-link-button">View Release Source</a>
+    </div>
+  `;
+
+  return `
+    <details class="modal-build-card" ${openByDefault ? "open" : ""}>
+      <summary class="modal-build-header">
+        <div class="modal-build-header-left">
+          <div class="modal-build-title">${titleText}</div>
+          <div class="modal-build-date">${formatDate(build.publishedAt)}${build.isArchive ? "" : ` • ${escapeHtml(build.version)}`}</div>
+        </div>
+        <div class="modal-build-header-right">
+          <span class="badge-group">
+            ${build.isArchive ? `<span class="release-badge archive">Archive</span>` : ""}
+          </span>
+        </div>
+      </summary>
+      <div class="modal-build-downloads">
+        ${downloadsMarkup}
+        ${patchInfoBanner}
+      </div>
+    </details>
+  `;
+}
 
   const patchInfoBanner = `
     <div class="patch-info-actions">
