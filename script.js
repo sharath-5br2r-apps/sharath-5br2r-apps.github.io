@@ -22,7 +22,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine/source name (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch"
+    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "Extra"
   ]),
 
   // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
@@ -54,7 +54,11 @@ const CONFIG = {
     "clone",
     "revanced",
     "rvx",
-    "xshim"
+    "xshim",
+    "gfp",
+    "stock",
+    "Windows",
+    "Linux"
   ]),
 
   // Known architectures (used for regex parsing)
@@ -137,7 +141,8 @@ const CONFIG = {
     jasonwu1994: "jasonwu1994",
     piko: "Piko",
     xshim: "X-Shim",
-    jiohotstar: "JioHotstar"
+    jiohotstar: "JioHotstar",
+    dolphin: "Dolphin Emulator"
   },
 
   // Map app slugs to Android Package IDs for Obtainium
@@ -167,6 +172,10 @@ const CONFIG = {
     documentscanner: "com.cv.docscanner",
     duolingo: "com.duolingo",
     disneyplus: "com.disney.disneyplus",
+    dolphinemulator: {
+      default: "org.dolphinemu.dolphinemu",
+      gfp: "com.tencent.tmgp.pubgmhd",
+    },
     discord: "com.discord",
     eyeconcalleridspamblock: "com.eyecon.global",
     facebook: "com.facebook.katana",
@@ -317,6 +326,24 @@ const CONFIG = {
       text: "Since October 2025, Twitter has started checking whether the app is modified or if phone integrity fails during login.",
       links: [
         { label: "Workarounds", url: "https://t.me/pikopatches/1/59772" },
+      ],
+    },
+    {
+      triggers: ["amazon", "primevideo"]
+      className: "amazon-signing-note
+      title: "Amazon Shared Permissions Issue"
+      text: "Due to disabling of shared permissions patch, All Amazon Apps have to be installed with common signature.
+      linkz: [
+        { label: "Download apps from here", url: "/" },
+      ],
+    },
+    {
+      triggers: ["dolphinemulator"]
+      className: "dolphin-note
+      title: "Dolphin Extra"
+      text: "It is a fork of Dolphin that incorporates aspects from DolphinCS and Better-Wii-Menu-DE."
+      links: [
+        { label: "Source Code", url: "https://github.com/sharath-5br2r/Dolphin-Extra" },
       ],
     },
   ],
