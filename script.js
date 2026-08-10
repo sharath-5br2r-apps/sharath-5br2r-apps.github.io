@@ -332,7 +332,7 @@ const CONFIG = {
       triggers: ["amazon", "primevideo"],
       className: "amazon-signing-note",
       title: "Amazon Shared Permissions Issue",
-      text: "Due to disabling of shared permissions patch, All Amazon Apps have to be installed with common signature.,
+      text: "Due to disabling of shared permissions patch, All Amazon Apps have to be installed with common signature.",
       linkz: [
         { label: "Download apps from here", url: "https://sharath-5br2r.github.io/my-patched-apks" },
       ],
