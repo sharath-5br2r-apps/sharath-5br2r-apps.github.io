@@ -2150,8 +2150,20 @@ function groupAssetsByArchitecture(assets) {
 
 function getFileType(filename) {
   const lower = filename.toLowerCase();
+
   if (lower.endsWith(".apk")) return "APK";
-  if (lower.endsWith(".zip")) return "Module";
+  if (lower.endsWith(".exe")) return "EXE";
+  if (lower.endsWith(".appimage")) return "AppImage";
+
+  if (lower.endsWith(".zip")) {
+    if (lower.includes("windows") || lower.includes("macos") || lower.includes("linux")) {
+      return "Archive";
+    }
+    return "Module";
+  }
+
+  if (lower.includes(".tar." ) || lower.endsWith(".tar")) return "Archive";
+
   return "File";
 }
 
