@@ -46,6 +46,14 @@
           "Disable telemetry ",
           "Proton VPN Premium "
         ]
+      },
+      "260005": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
       }
     }
   },
@@ -724,6 +732,34 @@
           "Video quality ",
           "Voice over translation ",
           "Wide search bar "
+        ]
+      }
+    }
+  },
+  "fing-morphe-paresh": {
+    "12.12.0": {
+      "260005": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Fing Premium "
+        ]
+      }
+    }
+  },
+  "jiohotstar-morphe-paresh": {
+    "26.04.27.10": {
+      "260005": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Bypass signature check ",
+          "Enable all codecs ",
+          "Enable screen mirroring ",
+          "Enable screenshots ",
+          "Force HDR10 ",
+          "Premium unlock ",
+          "Remove ads "
         ]
       }
     }
