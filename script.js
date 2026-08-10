@@ -59,6 +59,7 @@ const CONFIG = {
     "stock",
     "Windows",
     "Linux",
+    "Android",
   ]),
 
   // Known architectures (used for regex parsing)
