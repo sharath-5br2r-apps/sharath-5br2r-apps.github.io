@@ -177,6 +177,7 @@ const CONFIG = {
     disneyplus: "com.disney.disneyplus",
     dolphinemulator: {
       default: "org.dolphinemu.dolphinemu",
+      gfp: "com.tencent.tmgp.pubgmhd",
       gameforpeacespoof: "com.tencent.tmgp.pubgmhd",
     },
     discord: "com.discord",
@@ -395,8 +396,8 @@ function initDOM() {
 let allReleases = [];
 let cachedFullCatalog = [];
 let searchTerm = "";
-let appCategoryFilter = "all"; // "all" | "google" | "meta" | "vpn" | "word-..."
-let sortMode = "recent"; // "recent" | "popular" | "name"
+let appCategoryFilter = "all";
+let sortMode = "recent";
 let dynamicAppFilters = [];
 let currentAppCatalog = [];
 let activeModalAppKey = null;
@@ -422,7 +423,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupTheme();
   setupEventListeners();
 
-  // Pre-fill state from URL params
   const urlParams = new URLSearchParams(window.location.search);
   const urlQuery = urlParams.get("q");
   if (urlQuery) {
@@ -494,7 +494,6 @@ function hideModal(modalEl) {
 function setupEventListeners() {
   let searchTimeout;
 
-  // Theme Toggle Button
   if (DOM.themeBtn) {
     DOM.themeBtn.addEventListener("click", () => {
       const nextTheme = themeMode === "system" ? "light" : themeMode === "light" ? "dark" : "system";
@@ -504,7 +503,6 @@ function setupEventListeners() {
     });
   }
 
-  // Floating Action Menu
   if (DOM.menuBtn && DOM.actionMenu) {
     DOM.menuBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -520,7 +518,6 @@ function setupEventListeners() {
     });
   }
 
-  // Search Input (Debounced)
   const syncClearBtn = () => {
     if (DOM.searchWrap && DOM.searchInput) {
       DOM.searchWrap.classList.toggle("has-value", DOM.searchInput.value.length > 0);
@@ -557,7 +554,6 @@ function setupEventListeners() {
     });
   }
 
-  // Secondary Category Filter Buttons
   if (DOM.appFilterButtons) {
     DOM.appFilterButtons.addEventListener("click", (e) => {
       const filterBtn = e.target.closest(".filter-btn");
@@ -567,7 +563,6 @@ function setupEventListeners() {
     });
   }
 
-  // Sort Selector
   if (DOM.sortSelect) {
     DOM.sortSelect.addEventListener("change", (e) => {
       sortMode = e.target.value;
@@ -576,7 +571,6 @@ function setupEventListeners() {
     });
   }
 
-  // App Cards & Modal Delegate Click
   if (DOM.builds) {
     DOM.builds.addEventListener("click", (e) => {
       const collapsedCard = e.target.closest(".app-card:not([open])");
@@ -598,7 +592,6 @@ function setupEventListeners() {
     });
   }
 
-  // Downloads Modal Filter Delegate
   if (DOM.patchModal) {
     DOM.patchModal.addEventListener("click", (e) => {
       const filterBtn = e.target.closest(".modal-filter-btn");
@@ -631,7 +624,6 @@ function setupEventListeners() {
     });
   }
 
-  // Applied Patches Modal
   if (DOM.appliedPatchesModal) {
     DOM.appliedPatchesModal.addEventListener("click", (e) => {
       if (e.target.id === "appliedPatchesModal" || e.target.closest(".modal-close")) {
@@ -646,7 +638,6 @@ function setupEventListeners() {
     });
   }
 
-  // Obtainium Modal
   if (DOM.obtainiumBtn) {
     DOM.obtainiumBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -662,7 +653,6 @@ function setupEventListeners() {
     });
   }
 
-  // Global ESC key listener
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closePatchModal();
@@ -671,7 +661,6 @@ function setupEventListeners() {
     }
   });
 
-  // Infinite Scroll Observer
   const sentinel = document.createElement("div");
   sentinel.id = "scroll-sentinel";
   sentinel.style.height = "1px";
@@ -747,7 +736,7 @@ async function loadReleases() {
     allReleases = fetchedData;
     cacheReleases(allReleases);
     rebuildCatalogCache();
-    fetchMasterBuildData(); // Prefetch builds.json in background for instant modal opens
+    fetchMasterBuildData();
 
     if (DOM.loading) DOM.loading.style.display = "none";
     updateLastUpdateTimestamp();
@@ -810,7 +799,6 @@ function buildAppCatalog(releases) {
     const patchMetaFromRelease = extractPatchInfoFromRelease(release);
 
     (release.assets || []).forEach((asset) => {
-      // ONLY include specifically allowed formats (APK, EXE, DMG, Tarballs, Archives, Packages)
       if (!asset.name || !ALLOWED_EXT_REGEX.test(asset.name)) return;
 
       const arch = detectArchitecture(asset.name);
@@ -962,7 +950,6 @@ function buildAppCatalog(releases) {
 
   return Array.from(appMap.values())
     .map((app) => {
-      // Resolve archive fallbacks if no active build exists
       app.patches.forEach((patch) => {
         patch.variants.forEach((variant) => {
           if (!variant.latestStable && variant.latestArchiveStable) {
@@ -1001,14 +988,12 @@ function buildAppCatalog(releases) {
           };
         });
 
-      // Pre-compute O(1) metrics on app object for ultra-fast sorting
       const totalAppDownloads = patchesArray.reduce((sum, p) => sum + p.totalDownloads, 0);
       const latestAppTime = patchesArray.reduce(
         (latest, p) => Math.max(latest, new Date(p.latestPublishedAt).getTime() || 0),
         0
       );
 
-      // Pre-build search tokens corpus for fast searching
       const searchTerms = [app.appName, app.appKey];
       patchesArray.forEach((p) => {
         searchTerms.push(p.patchName, p.patchKey);
@@ -1064,19 +1049,10 @@ function filterAndRenderReleases() {
     appCategoryFilter = "all";
   }
 
-  // 1. Search Query Filter
   let apps = filterCatalogBySearch(cachedFullCatalog, searchTerm);
-
-  // 2. Category Filter
   apps = applyCategoryFilter(apps);
-
-  // 3. Fast Sort Mode (O(1) lookups)
   apps = applySortMode(apps);
-
-  // 4. Update Status Text
   updateCatalogStatus(apps);
-
-  // 5. Render
   renderAppCards(apps);
   updateAppFilterButtons();
   if (DOM.loading) DOM.loading.style.display = "none";
@@ -1122,7 +1098,6 @@ function applyCategoryFilter(apps) {
   return apps;
 }
 
-// O(1) Instant Property Comparisons
 function applySortMode(apps) {
   if (sortMode === "popular") {
     return [...apps].sort((a, b) => b.totalDownloads - a.totalDownloads);
@@ -1130,7 +1105,6 @@ function applySortMode(apps) {
   if (sortMode === "name") {
     return [...apps].sort((a, b) => a.appName.localeCompare(b.appName));
   }
-  // Default: recent
   return [...apps].sort((a, b) => b.latestPublishedAt - a.latestPublishedAt);
 }
 
@@ -1163,7 +1137,6 @@ function getAppSearchScore(app, query) {
   return Infinity;
 }
 
-// Progressive Rendering for App Cards
 function renderAppCards(apps) {
   if (!DOM.builds) return;
   currentAppCatalog = apps;
@@ -1198,7 +1171,6 @@ function renderNextChunk() {
   currentVisibleCount += RENDER_CHUNK_SIZE;
 }
 
-// Create App Card Markup
 function createAppCard(app) {
   const patchesMarkup = app.patches
     .map((patch) => createPatchMarkup(app, patch))
@@ -1257,14 +1229,12 @@ function createNoticeMarkup(notice) {
   `;
 }
 
-// Create Patch Entry Markup with Multi-Channel Variant Matrix
 function createPatchMarkup(app, patch) {
   const buildCount = patch.builds.length;
   const buildIconBadge = `<span class="patch-stat-badge" title="${buildCount} total builds">📦 ${buildCount}</span>`;
   const downloadCount = patch.totalDownloads || 0;
   const downloadIconBadge = `<span class="patch-stat-badge" title="${downloadCount.toLocaleString()} total downloads">📥 ${formatCompactNumber(downloadCount)}</span>`;
 
-  // Render variant rows
   const variantRowsHtml = patch.variants
     .map((variant) => {
       const channelBoxes = [];
@@ -1352,7 +1322,6 @@ function createPatchMarkup(app, patch) {
   `;
 }
 
-// Dynamic Filter Buttons Generator (Alphabetically Sorted)
 function getDynamicAppFilters(apps) {
   const wordToAppKeys = new Map();
 
@@ -1414,7 +1383,6 @@ function toFilterLabel(value) {
   return value.replace(/\b[a-z]/g, (char) => char.toUpperCase());
 }
 
-// Download Modal Controller
 function openPatchModal(appKey, patchKey, preferredChannel = "stable", preferredVariant = "default") {
   activeModalAppKey = appKey;
   activeModalPatchKey = patchKey;
@@ -1435,7 +1403,6 @@ function openPatchModal(appKey, patchKey, preferredChannel = "stable", preferred
   showModal(DOM.patchModal);
 }
 
-// Check if active build contains an Android package (.apk, .apks, .xapk, .apkm)
 function patchHasApk(patch, variantKey = "all", buildFilter = "stable") {
   if (!patch || !patch.builds) return false;
   let builds = patch.builds;
@@ -1471,7 +1438,6 @@ function renderOpenPatchModal() {
     DOM.patchModalTitle.textContent = `${app.appName} • ${patch.patchName}${variantText}`;
   }
 
-  // Display "Add to Obtainium" button IF AND ONLY IF an APK asset exists for current selection
   if (DOM.obtainiumBtn) {
     const hasApk = patchHasApk(patch, modalVariantFilter, modalBuildFilter);
     DOM.obtainiumBtn.style.display = hasApk ? "inline-flex" : "none";
@@ -1490,7 +1456,6 @@ function updateModalFilterButtons(patch) {
 
   filterContainer.innerHTML = "";
 
-  // Channel group (Stable / Beta)
   const channelGroup = document.createElement("div");
   channelGroup.className = "filter-pill-group";
   channelGroup.innerHTML = `
@@ -1499,7 +1464,6 @@ function updateModalFilterButtons(patch) {
   `;
   filterContainer.appendChild(channelGroup);
 
-  // Variant group with divider
   if (patch.variants && patch.variants.length > 0) {
     const divider = document.createElement("span");
     divider.className = "filter-group-divider";
@@ -1615,7 +1579,6 @@ function closePatchModal() {
   hideModal(DOM.patchModal);
 }
 
-// Master Build Metadata Store
 async function fetchMasterBuildData() {
   if (masterBuildDataCache) return masterBuildDataCache;
   try {
@@ -1632,7 +1595,6 @@ async function fetchMasterBuildData() {
   return masterBuildDataCache;
 }
 
-// Applied Patches Modal Controller
 async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   const app = currentAppCatalog.find((item) => item.appKey === appKey);
   const patch = app ? app.patches.find((item) => item.patchKey === patchKey) : null;
@@ -1656,7 +1618,6 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   let clUrl = null;
   let appliedPatches = null;
 
-  // Resolve applied patches from builds.json
   if (!appliedPatches) {
     const masterData = await fetchMasterBuildData();
     const appKeyNorm = normalizeForSearch(app.appKey || app.appName);
@@ -1820,41 +1781,34 @@ function closeAppliedPatchesModal() {
 
 // Helper to build Obtainium APK Filter Regex with multi-variant support
 function buildObtainiumRegex(app, patch, variantKey) {
-  const sampleAsset = patch?.builds?.[0]?.assets?.[0] || app?.patches?.[0]?.builds?.[0]?.assets?.[0];
+  let matchingAsset = null;
 
-  let appSlug = sampleAsset?.parsed?.rawAppSlug;
-  let patchSlug = sampleAsset?.parsed?.rawPatchSlug;
-
-  if (!appSlug || !patchSlug) {
-    if (sampleAsset?.name) {
-      const baseName = sampleAsset.name.replace(EXT_STRIP_REGEX, "");
-      const tokens = baseName.split("-").filter(Boolean);
-      const archSubTokens = new Set(CONFIG.knownArchs.flatMap((a) => a.split("-")));
-      const versionIndex = tokens.findIndex(
-        (t) => /^(v\w*\d|vbuild)/i.test(t) && !archSubTokens.has(t.toLowerCase())
-      );
-      const stopIndex = versionIndex >= 0 ? versionIndex : tokens.length;
-      const preMeta = tokens.slice(0, stopIndex);
-
-      let patchIdx = preMeta.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
-      if (patchIdx > 0) {
-        appSlug = preMeta.slice(0, patchIdx).join("-").toLowerCase();
-        let patchTokens = preMeta.slice(patchIdx);
-        while (
-          patchTokens.length > 1 &&
-          CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())
-        ) {
-          patchTokens.pop();
+  if (patch && patch.builds) {
+    for (const build of patch.builds) {
+      if (!build.assets) continue;
+      for (const asset of build.assets) {
+        if (!/\.(apk|apks|xapk|apkm)$/i.test(asset.name || "")) continue;
+        if (!variantKey || variantKey === "all" || variantKey === "default") {
+          matchingAsset = asset;
+          break;
         }
-        patchSlug = patchTokens.join("-").toLowerCase();
-      } else {
-        appSlug = preMeta.join("-").toLowerCase();
+        const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
+        if (vKey === variantKey) {
+          matchingAsset = asset;
+          break;
+        }
       }
+      if (matchingAsset) break;
     }
   }
 
-  if (!appSlug) appSlug = normalizeForSearch(app?.appName || "app");
-  if (!patchSlug) patchSlug = normalizeForSearch(patch?.patchName || "official");
+  if (matchingAsset && matchingAsset.parsed && matchingAsset.parsed.rawPrefix) {
+    const safePrefix = matchingAsset.parsed.rawPrefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
+    return `${safePrefix}.*\\.apk$`;
+  }
+
+  const appSlug = normalizeForSearch(app?.appName || "app");
+  const patchSlug = normalizeForSearch(patch?.patchName || "official");
 
   if (!variantKey || variantKey === "default" || variantKey === "all") {
     return `${appSlug}-${patchSlug}.*\\.apk$`;
@@ -1900,7 +1854,6 @@ function createObtainiumInstructions(app, patch) {
   const repoUrl = `https://github.com/${CONFIG.owner}/${CONFIG.repo}`;
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
 
-  // Filter variants to ONLY those that have at least ONE APK build
   const apkVariants = (patch?.variants || []).filter((v) =>
     patchHasApk(patch, v.variantKey, modalBuildFilter)
   );
@@ -2295,22 +2248,17 @@ function parseAssetDisplay(filename, arch, fileType) {
   let variantTokens = [];
 
   if (patchStartIndex >= 0) {
-    // Known patch token exists
     appTokens = preMetaTokens.slice(0, patchStartIndex);
     patchTokens = preMetaTokens.slice(patchStartIndex);
 
-    // Extract multi-variants cleanly from patchTokens
     while (patchTokens.length > 1 && CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
       variantTokens.unshift(patchTokens[patchTokens.length - 1]);
       patchTokens = patchTokens.slice(0, -1);
     }
   } else {
-    // NO patch token found -> NO GUESSWORK!
-    // All tokens before version/arch are treated as the application name
     appTokens = preMetaTokens;
     patchTokens = [];
 
-    // Extract trailing variant keywords if present
     while (appTokens.length > 1 && CONFIG.variantKeywords.has(appTokens[appTokens.length - 1].toLowerCase())) {
       variantTokens.unshift(appTokens[appTokens.length - 1]);
       appTokens = appTokens.slice(0, -1);
@@ -2340,11 +2288,14 @@ function parseAssetDisplay(filename, arch, fileType) {
   const appNameRaw = appTokens.length > 0 ? appTokens.join(" ") : (preMetaTokens.join(" ") || baseName);
   const patchNameRaw = patchTokens.length > 0 ? patchTokens.join(" ") : "Official";
 
+  const rawPrefix = preMetaTokens.join("-").toLowerCase();
+
   const result = {
     appName: formatBrandDisplayName(appNameRaw),
     patchName: formatBrandDisplayName(patchNameRaw),
     variant: variantDisplayName,
     rawVariant: rawVariant,
+    rawPrefix: rawPrefix,
     rawAppSlug: appTokens.join("-").toLowerCase() || preMetaTokens.join("-").toLowerCase(),
     rawPatchSlug: patchTokens.join("-").toLowerCase() || "official",
     version,
