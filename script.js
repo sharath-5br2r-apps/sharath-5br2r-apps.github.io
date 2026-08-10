@@ -329,19 +329,19 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["amazon", "primevideo"]
-      className: "amazon-signing-note
-      title: "Amazon Shared Permissions Issue"
-      text: "Due to disabling of shared permissions patch, All Amazon Apps have to be installed with common signature.
+      triggers: ["amazon", "primevideo"],
+      className: "amazon-signing-note",
+      title: "Amazon Shared Permissions Issue",
+      text: "Due to disabling of shared permissions patch, All Amazon Apps have to be installed with common signature.,
       linkz: [
         { label: "Download apps from here", url: "https://sharath-5br2r.github.io/my-patched-apks" },
       ],
     },
     {
-      triggers: ["dolphinemulator"]
-      className: "dolphin-note
-      title: "Dolphin Extra"
-      text: "It is a fork of Dolphin that incorporates aspects from DolphinCS and Better-Wii-Menu-DE."
+      triggers: ["dolphinemulator"],
+      className: "dolphin-not"e,
+      title: "Dolphin Extra",
+      text: "It is a fork of Dolphin that incorporates aspects from DolphinCS and Better-Wii-Menu-DE.",
       links: [
         { label: "Source Code", url: "https://github.com/sharath-5br2r/Dolphin-Extra" },
       ],
