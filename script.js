@@ -11,10 +11,10 @@ const CONFIG = {
 
   // App Categories for the filter buttons
   appCategories: {
-    amazon: ["amazon", "alexa", "primevideo", "amazonindia"],
+    amazon: ["amazon", "alexa", "primevideo", "amazonindia" ],
     google: ["youtube", "google", "gboard"],
     meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
-    vpn: ["1111warp", "vpnify", "vpn", "protonvpn"]
+    vpn: ["1111warp", "vpnify", "vpn" ],
   },
 
   // Words ignored in dynamic app filters (must be lowercase)
@@ -22,7 +22,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine/source name (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "Extra"
+    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch" , "Extra"
   ]),
 
   // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
@@ -58,7 +58,7 @@ const CONFIG = {
     "gfp",
     "stock",
     "Windows",
-    "Linux"
+    "Linux",
   ]),
 
   // Known architectures (used for regex parsing)
@@ -142,7 +142,7 @@ const CONFIG = {
     piko: "Piko",
     xshim: "X-Shim",
     jiohotstar: "JioHotstar",
-    dolphin: "Dolphin Emulator"
+    dolphin: "Dolphin Emulator",
   },
 
   // Map app slugs to Android Package IDs for Obtainium
@@ -334,7 +334,7 @@ const CONFIG = {
       title: "Amazon Shared Permissions Issue"
       text: "Due to disabling of shared permissions patch, All Amazon Apps have to be installed with common signature.
       linkz: [
-        { label: "Download apps from here", url: "/" },
+        { label: "Download apps from here", url: "https://sharath-5br2r.github.io/my-patched-apks" },
       ],
     },
     {
