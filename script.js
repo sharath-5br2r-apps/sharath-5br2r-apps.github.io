@@ -22,7 +22,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine/source name (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "Extra"
+    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch", "extra"
   ]),
 
   // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
@@ -57,9 +57,9 @@ const CONFIG = {
     "xshim",
     "gfp",
     "stock",
-    "Windows",
-    "Linux",
-    "Android",
+    "windows",
+    "linux",
+    "android",
   ]),
 
   // Known architectures (used for regex parsing)
