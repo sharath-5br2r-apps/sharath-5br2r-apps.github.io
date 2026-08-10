@@ -22,7 +22,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine/source name (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "extra", "signed"
+    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "Extra"
   ]),
 
   // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
@@ -57,9 +57,9 @@ const CONFIG = {
     "xshim",
     "gfp",
     "stock",
-    "windows",
-    "linux",
-    "android",
+    "Windows",
+    "Linux",
+    "Android",
   ]),
 
   // Known architectures (used for regex parsing)
@@ -351,7 +351,7 @@ const CONFIG = {
   ],
 };
 
-// Explicit Extension Matching (Includes .tar.{ext})
+// Explicit Extension Matching (Includes .tar.{ext} like .tar.gz, .tar.xz, .tar.bz2, .tar.zst)
 const ALLOWED_EXT_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
 const EXT_STRIP_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
 
@@ -1469,7 +1469,7 @@ function renderOpenPatchModal() {
     DOM.patchModalTitle.textContent = `${app.appName} • ${patch.patchName}${variantText}`;
   }
 
-  // Display "Add to Obtainium" button IF AND ONLY IF an APK asset exists
+  // Display "Add to Obtainium" button IF AND ONLY IF an APK asset exists for current selection
   if (DOM.obtainiumBtn) {
     const hasApk = patchHasApk(patch, modalVariantFilter, modalBuildFilter);
     DOM.obtainiumBtn.style.display = hasApk ? "inline-flex" : "none";
@@ -1898,30 +1898,15 @@ function createObtainiumInstructions(app, patch) {
   const repoUrl = `https://github.com/${CONFIG.owner}/${CONFIG.repo}`;
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
 
-  const regexPattern = buildObtainiumRegex(app, patch, modalVariantFilter);
-
-  const mainPackageId = getAppPackageId(app, patch, modalVariantFilter || "default");
-  const mainSafeId = mainPackageId || `${CONFIG.owner}_${app?.appKey || "app"}_${patch?.patchKey || "patch"}`.replace(/[^a-zA-Z0-9_]/g, "_");
-  const mainLabel = `${app?.appName || "App"} (${patch?.patchName || "Patch"})`;
-  const mainAdditionalSettings = { apkFilterRegEx: regexPattern };
-  if (modalBuildFilter === "beta") {
-    mainAdditionalSettings.includePrereleases = true;
-  }
-
-  const mainConfig = {
-    id: mainSafeId,
-    name: mainLabel,
-    author: CONFIG.owner,
-    url: repoUrl,
-    additionalSettings: JSON.stringify(mainAdditionalSettings),
-  };
-  const rawObtainiumUri = `obtainium://app/${JSON.stringify(mainConfig)}`;
-  const mainDirectUrl = rawObtainiumUri;
-  const mainFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(rawObtainiumUri)}`;
+  // Filter variants to ONLY those that have at least ONE APK build
+  const apkVariants = (patch?.variants || []).filter((v) =>
+    patchHasApk(patch, v.variantKey, modalBuildFilter)
+  );
 
   let step4Content = "";
-  if (patch && patch.variants && patch.variants.length > 1) {
-    const examples = patch.variants.map((v, index) => {
+
+  if (apkVariants.length > 1) {
+    const examples = apkVariants.map((v, index) => {
       const vRegex = buildObtainiumRegex(app, patch, v.variantKey);
       const vLabel = `${app.appName} (${patch.patchName} - ${v.variantName})`;
       const vPackageId = getAppPackageId(app, patch, v.variantKey);
@@ -1939,9 +1924,10 @@ function createObtainiumInstructions(app, patch) {
         url: repoUrl,
         additionalSettings: JSON.stringify(vAdditionalSettings),
       };
-      const vRawUri = `obtainium://app/${JSON.stringify(vConfig)}`;
-      const vDirectUrl = vRawUri;
-      const vFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(vRawUri)}`;
+
+      const encodedVConfig = encodeURIComponent(JSON.stringify(vConfig));
+      const vDirectUrl = `obtainium://app/${encodedVConfig}`;
+      const vFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(vConfig)}`)}`;
 
       return `
         <div style="margin-top: 8px;">
@@ -1952,7 +1938,7 @@ function createObtainiumInstructions(app, patch) {
             <code>${escapeHtml(vRegex)}</code>
             <a href="${vDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
             <a href="${vFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium (Fallback)</a>
-            <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(vRegex)}', 'Regex copied!')" type="button">Copy</button>
+            <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(vRegex)}', 'Regex copied!')" type="button">Copy</button>
           </div>
         </div>
       `;
@@ -1964,12 +1950,35 @@ function createObtainiumInstructions(app, patch) {
       </div>
     `;
   } else {
+    const activeVariantKey = apkVariants.length === 1 ? apkVariants[0].variantKey : modalVariantFilter;
+    const regexPattern = buildObtainiumRegex(app, patch, activeVariantKey);
+
+    const mainPackageId = getAppPackageId(app, patch, activeVariantKey || "default");
+    const mainSafeId = mainPackageId || `${CONFIG.owner}_${app?.appKey || "app"}_${patch?.patchKey || "patch"}`.replace(/[^a-zA-Z0-9_]/g, "_");
+    const mainLabel = `${app?.appName || "App"} (${patch?.patchName || "Patch"})`;
+    const mainAdditionalSettings = { apkFilterRegEx: regexPattern };
+    if (modalBuildFilter === "beta") {
+      mainAdditionalSettings.includePrereleases = true;
+    }
+
+    const mainConfig = {
+      id: mainSafeId,
+      name: mainLabel,
+      author: CONFIG.owner,
+      url: repoUrl,
+      additionalSettings: JSON.stringify(mainAdditionalSettings),
+    };
+
+    const encodedMainConfig = encodeURIComponent(JSON.stringify(mainConfig));
+    const mainDirectUrl = `obtainium://app/${encodedMainConfig}`;
+    const mainFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(mainConfig)}`)}`;
+
     step4Content = `
       <div class="instruction-code" style="margin-top: 6px;">
         <code>${escapeHtml(regexPattern)}</code>
         <a href="${mainDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
         <a href="${mainFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium (Fallback)</a>
-        <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(regexPattern)}', 'Regex copied!')" type="button">Copy</button>
+        <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexPattern)}', 'Regex copied!')" type="button">Copy</button>
       </div>
     `;
   }
@@ -1985,7 +1994,7 @@ function createObtainiumInstructions(app, patch) {
         <li>In the <strong>App Source URL</strong> box, enter:
           <div class="instruction-code code-with-copy">
             <code>${repoUrl}</code>
-            <button class="copy-btn" onclick="copyToClipboard('${repoUrl}', 'Repository URL copied!')" type="button">Copy</button>
+            <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(repoUrl)}', 'Repository URL copied!')" type="button">Copy</button>
           </div>
         </li>
         <li>Scroll down to <strong>Filter APKs by regular expression</strong> and enter:
@@ -2115,6 +2124,13 @@ function closeObtainiumModal() {
 }
 
 // Clipboard & Toast Utilities
+function escapeJsString(str) {
+  return String(str || "")
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
+    .replace(/"/g, '\\"');
+}
+
 function copyToClipboard(text, successMessage = "Copied to clipboard!") {
   if (navigator.clipboard && window.isSecureContext) {
     navigator.clipboard.writeText(text).then(() => {
@@ -2327,6 +2343,8 @@ function parseAssetDisplay(filename, arch, fileType) {
     patchName: formatBrandDisplayName(patchNameRaw),
     variant: variantDisplayName,
     rawVariant: rawVariant,
+    rawAppSlug: appTokens.join("-").toLowerCase() || preMetaTokens.join("-").toLowerCase(),
+    rawPatchSlug: patchTokens.join("-").toLowerCase() || "official",
     version,
     fileType,
   };
