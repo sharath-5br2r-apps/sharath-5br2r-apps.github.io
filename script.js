@@ -347,7 +347,7 @@ const CONFIG = {
       ],
     },
   ],
-};
+},
 
 // Cached DOM references
 const DOM = {};
