@@ -339,7 +339,7 @@ const CONFIG = {
     },
     {
       triggers: ["dolphinemulator"],
-      className: "dolphin-not"e,
+      className: "dolphin-note",
       title: "Dolphin Extra",
       text: "It is a fork of Dolphin that incorporates aspects from DolphinCS and Better-Wii-Menu-DE.",
       links: [
