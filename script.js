@@ -22,7 +22,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine/source name (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "Extra"
+    "revanced", "morphe", "anddea", "rvx", "xposed", "instafel", "lspatch", "npatch", "extra"
   ]),
 
   // Known variant keywords — INCLUDES DEVELOPERS & PATCHERS
