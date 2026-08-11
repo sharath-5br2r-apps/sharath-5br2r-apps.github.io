@@ -910,8 +910,8 @@ function buildAppCatalog(releases) {
       }
 
       const buildKey = isArchive
-        ? `archive-${releaseType}-${parsed.version}`
-        : String(release.id);
+        ? `archive-${releaseType}-${parsed.version}-${variantKey}`
+        : `${release.id}-${variantKey}`;
 
       if (!patchEntry.builds.has(buildKey)) {
         patchEntry.builds.set(buildKey, {
@@ -1457,13 +1457,45 @@ function updateModalFilterButtons(patch) {
 
   filterContainer.innerHTML = "";
 
-  const channelGroup = document.createElement("div");
-  channelGroup.className = "filter-pill-group";
-  channelGroup.innerHTML = `
-    <button class="modal-filter-btn ${modalBuildFilter === "stable" ? "active" : ""}" data-filter="stable" type="button">Stable</button>
-    <button class="modal-filter-btn ${modalBuildFilter === "beta" ? "active" : ""}" data-filter="beta" type="button">Beta</button>
-  `;
-  filterContainer.appendChild(channelGroup);
+  let hasStable = false;
+  let hasBeta = false;
+
+  if (patch.builds) {
+    for (const b of patch.builds) {
+      const matchingAssets = b.assets.filter((a) => {
+        const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "default") || "default";
+        return vKey === modalVariantFilter || modalVariantFilter === "all";
+      });
+
+      if (matchingAssets.length > 0) {
+        if (b.releaseType === "stable") hasStable = true;
+        if (b.releaseType === "beta") hasBeta = true;
+      }
+      if (hasStable && hasBeta) break;
+    }
+  }
+
+  // Auto-switch build filter if the currently selected one has no builds
+  if (!hasStable && modalBuildFilter === "stable" && hasBeta) {
+    modalBuildFilter = "beta";
+  } else if (!hasBeta && modalBuildFilter === "beta" && hasStable) {
+    modalBuildFilter = "stable";
+  }
+
+  let channelHtml = "";
+  if (hasStable) {
+    channelHtml += `<button class="modal-filter-btn ${modalBuildFilter === "stable" ? "active" : ""}" data-filter="stable" type="button">Stable</button>\n`;
+  }
+  if (hasBeta) {
+    channelHtml += `<button class="modal-filter-btn ${modalBuildFilter === "beta" ? "active" : ""}" data-filter="beta" type="button">Beta</button>\n`;
+  }
+
+  if (channelHtml) {
+    const channelGroup = document.createElement("div");
+    channelGroup.className = "filter-pill-group";
+    channelGroup.innerHTML = channelHtml;
+    filterContainer.appendChild(channelGroup);
+  }
 
   if (patch.variants && patch.variants.length > 0) {
     const divider = document.createElement("span");
@@ -1500,7 +1532,7 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
       .map((b) => ({
         ...b,
         assets: b.assets.filter((a) => {
-          const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "default");
+          const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "default") || "default";
           return vKey === variantFilter;
         }),
       }))
@@ -1649,11 +1681,12 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
       );
     }
 
-    function resolveVersionFromDict(dict, rawVer, specificTag, isArchive) {
+    // Direct O(1) version & tag dictionary lookup (no dead engine loops)
+    function resolveVersionFromDict(dict, rawVer, specificTag, isArchive, preferredReleaseType) {
       if (!dict || typeof dict !== "object") return null;
       if (isPatchEntry(dict)) return dict;
 
-      const cleanVer = (rawVer || "").toLowerCase().replace(/^v(?=\d)/i, "").trim();
+      const cleanVer = (rawVer || "").toLowerCase().replace(/^v(?=[a-z0-9])/i, "").trim();
       if (!cleanVer) return null;
 
       const candidate = dict[cleanVer] || dict[`v${cleanVer}`] || dict[rawVer];
@@ -1669,6 +1702,18 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
           if (!isNaN(na) && !isNaN(nb)) return nb - na;
           return b.localeCompare(a);
         });
+        
+        // If we have a preferred release type (for archives), try to find a matching tag first
+        if (preferredReleaseType) {
+          for (const tagKey of tagKeys) {
+            if (tagToReleaseType[tagKey] === preferredReleaseType && isPatchEntry(candidate[tagKey])) {
+              return candidate[tagKey];
+            }
+          }
+          return null;
+        }
+
+        // Only fallback to the latest available if no specific type was requested
         for (const tagKey of tagKeys) {
           if (isPatchEntry(candidate[tagKey])) return candidate[tagKey];
         }
@@ -1677,22 +1722,32 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     }
 
     const specificTag = isArchiveBuild ? null : (build?.build || null);
-    const cleanBuildVer = (build?.version || "").replace(/^v(?=\d)/i, "").trim();
+    const cleanBuildVer = (build?.version || "").replace(/^v(?=[a-z0-9])/i, "").trim();
     const versionsToTry = cleanBuildVer ? [cleanBuildVer, `v${cleanBuildVer}`] : [];
+
+    // Map build tag to releaseType to prefer the right patches for archive builds
+    const tagToReleaseType = {};
+    if (patch && patch.builds) {
+      for (const b of patch.builds.values()) {
+        if (b.build && b.releaseType) {
+          tagToReleaseType[b.build] = b.releaseType;
+        }
+      }
+    }
 
     let resolved = null;
     if (variantNorm) {
       for (const ver of versionsToTry) {
         resolved =
-          resolveVersionFromDict(masterData[rawVariantTargetKey], ver, specificTag, isArchiveBuild) ||
-          resolveVersionFromDict(masterData[variantTargetKey], ver, specificTag, isArchiveBuild);
+          resolveVersionFromDict(masterData[rawVariantTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
+          resolveVersionFromDict(masterData[variantTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType);
         if (resolved) break;
       }
     } else {
       for (const ver of versionsToTry) {
         resolved =
-          resolveVersionFromDict(masterData[rawTargetKey], ver, specificTag, isArchiveBuild) ||
-          resolveVersionFromDict(masterData[targetKey], ver, specificTag, isArchiveBuild);
+          resolveVersionFromDict(masterData[rawTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
+          resolveVersionFromDict(masterData[targetKey], ver, specificTag, isArchiveBuild, build?.releaseType);
         if (resolved) break;
       }
     }
@@ -1713,11 +1768,11 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   if (DOM.appliedPatchesMeta) {
     const patchNamesList = Array.isArray(pNames)
       ? pNames
-      : (typeof pNames === "string" ? pNames.split(/,\s*/).filter(Boolean) : []);
+      : (typeof pNames === "string" ? pNames.split(/[,\s]+/).filter(Boolean) : []);
 
     const changelogList = Array.isArray(clUrl)
       ? clUrl
-      : (typeof clUrl === "string" ? clUrl.split(/,\s*/).filter(Boolean) : (clUrl ? [clUrl] : []));
+      : (typeof clUrl === "string" ? clUrl.split(/[,\s]+/).filter(Boolean) : (clUrl ? [clUrl] : []));
 
     const badgesHtml = patchNamesList.map((name, index) => {
       const url = changelogList[index] || (changelogList.length === 1 ? changelogList[0] : null);
@@ -2268,7 +2323,7 @@ function parseAssetDisplay(filename, arch, fileType) {
 
   let version = "Version unknown";
   if (versionIndex >= 0) {
-    const versionParts = [tokens[versionIndex].replace(/^v(?=\d)/i, "")];
+    const versionParts = [tokens[versionIndex].replace(/^v(?=[a-z0-9])/i, "")];
     for (let i = versionIndex + 1; i < tokens.length; i++) {
       const t = tokens[i].toLowerCase();
       const isArchToken = CONFIG.knownArchs.some((a) => a.split("-").includes(t));
