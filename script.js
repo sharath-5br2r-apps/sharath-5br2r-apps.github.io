@@ -5,8 +5,15 @@
  * ==========================================
  */
 const CONFIG = {
-  owner: "sharath-5br2r",
-  repo: "my-patched-apks",
+  // Support for multiple GitHub repositories
+  repos: [
+    { owner: "sharath-5br2r", repo: "my-patched-apks" },
+    // Add additional repositories here, e.g.:
+    // { owner: "another-owner", repo: "another-repo" },
+    // "another-owner/another-repo"
+  ],
+  owner: "sharath-5br2r", // Default / Fallback owner
+  repo: "my-patched-apks", // Default / Fallback repo
   cacheDuration: 1, // Cache duration in minutes
 
   // App Categories for the filter buttons
@@ -356,6 +363,23 @@ const CONFIG = {
   ],
 };
 
+// Helper to normalize configured repositories list
+function getConfigRepos() {
+  if (Array.isArray(CONFIG.repos) && CONFIG.repos.length > 0) {
+    return CONFIG.repos.map((r) => {
+      if (typeof r === "string") {
+        const [owner, repo] = r.split("/");
+        return { owner, repo };
+      }
+      return r;
+    });
+  }
+  if (CONFIG.owner && CONFIG.repo) {
+    return [{ owner: CONFIG.owner, repo: CONFIG.repo }];
+  }
+  return [{ owner: "sharath-5br2r", repo: "my-patched-apks" }];
+}
+
 // Explicit Extension Matching (Includes .tar.{ext} like .tar.gz, .tar.xz, .tar.bz2, .tar.zst)
 const ALLOWED_EXT_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
 const EXT_STRIP_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
@@ -392,12 +416,23 @@ function initDOM() {
   DOM.obtainiumBtn = document.getElementById("obtainiumBtn");
   DOM.toastNotification = document.getElementById("toastNotification");
   DOM.themeColorMeta = document.getElementById("themeColorMeta");
+
+  // Dynamically insert Repository filter snackbar element above categories if missing
+  DOM.repoFilterButtons = document.getElementById("repoFilterButtons");
+  if (!DOM.repoFilterButtons && DOM.appFilterButtons) {
+    DOM.repoFilterButtons = document.createElement("div");
+    DOM.repoFilterButtons.id = "repoFilterButtons";
+    DOM.repoFilterButtons.className = "filter-buttons-wrap repo-filter-buttons";
+    DOM.repoFilterButtons.style.marginBottom = "8px";
+    DOM.appFilterButtons.parentNode.insertBefore(DOM.repoFilterButtons, DOM.appFilterButtons);
+  }
 }
 
 // State
 let allReleases = [];
 let cachedFullCatalog = [];
 let searchTerm = "";
+let repoFilter = "all"; // "all" | "owner/repo"
 let appCategoryFilter = "all"; // "all" | "google" | "meta" | "vpn" | "word-..."
 let sortMode = "recent"; // "recent" | "popular" | "name"
 let dynamicAppFilters = [];
@@ -556,6 +591,16 @@ function setupEventListeners() {
       searchTerm = "";
       syncClearBtn();
       syncUrlParams();
+      filterAndRenderReleases();
+    });
+  }
+
+  // Repository Selection Filter Buttons
+  if (DOM.repoFilterButtons) {
+    DOM.repoFilterButtons.addEventListener("click", (e) => {
+      const filterBtn = e.target.closest(".repo-pill-btn");
+      if (!filterBtn) return;
+      repoFilter = filterBtn.dataset.repo || "all";
       filterAndRenderReleases();
     });
   }
@@ -739,12 +784,32 @@ async function loadReleases() {
     }
 
     if (useFallback) {
-      const response = await fetch(
-        `https://api.github.com/repos/${CONFIG.owner}/${CONFIG.repo}/releases`,
-        { headers: { Accept: "application/vnd.github.v3+json" } }
-      );
-      if (!response.ok) throw new Error(`Failed to fetch data: ${response.status}`);
-      fetchedData = await response.json();
+      const repos = getConfigRepos();
+      const fetchPromises = repos.map(async (r) => {
+        try {
+          const response = await fetch(
+            `https://api.github.com/repos/${r.owner}/${r.repo}/releases`,
+            { headers: { Accept: "application/vnd.github.v3+json" } }
+          );
+          if (!response.ok) return [];
+          const data = await response.json();
+          if (Array.isArray(data)) {
+            return data.map((release) => ({
+              ...release,
+              repoOwner: r.owner,
+              repoName: r.repo,
+              repoUrl: `https://github.com/${r.owner}/${r.repo}`,
+            }));
+          }
+          return [];
+        } catch (err) {
+          console.warn(`Failed to fetch releases for ${r.owner}/${r.repo}:`, err);
+          return [];
+        }
+      });
+
+      const repoResults = await Promise.all(fetchPromises);
+      fetchedData = repoResults.flat();
     }
 
     allReleases = fetchedData;
@@ -829,11 +894,20 @@ function buildAppCatalog(releases) {
           latestStable: null,
           latestBeta: null,
           patches: new Map(),
+          repos: new Set(),
         });
       }
 
       const appEntry = appMap.get(appKey);
       setLatestBuildMeta(appEntry, releaseType, release);
+
+      const primaryRepo = getConfigRepos()[0];
+      const repoOwner = release.repoOwner || (release.html_url ? release.html_url.split("/")[3] : primaryRepo.owner);
+      const repoName = release.repoName || (release.html_url ? release.html_url.split("/")[4] : primaryRepo.repo);
+      const repoUrl = release.repoUrl || (release.html_url ? release.html_url.split("/releases/")[0] : `https://github.com/${repoOwner}/${repoName}`);
+      const repoSlug = `${repoOwner}/${repoName}`;
+
+      appEntry.repos.add(repoSlug);
 
       const patchKey = normalizeForSearch(parsed.patchName) || "official";
       if (!appEntry.patches.has(patchKey)) {
@@ -923,8 +997,8 @@ function buildAppCatalog(releases) {
       }
 
       const buildKey = isArchive
-        ? `archive-${releaseType}-${parsed.version}-${variantKey}`
-        : `${release.id}-${variantKey}`;
+        ? `archive-${repoOwner}-${repoName}-${releaseType}-${parsed.version}-${variantKey}`
+        : `${repoOwner}-${repoName}-${release.id}-${variantKey}`;
 
       if (!patchEntry.builds.has(buildKey)) {
         patchEntry.builds.set(buildKey, {
@@ -938,6 +1012,10 @@ function buildAppCatalog(releases) {
             ? asset.updated_at || asset.created_at || release.published_at
             : release.published_at,
           releaseUrl: release.html_url,
+          repoOwner,
+          repoName,
+          repoUrl,
+          repoSlug,
           version: parsed.version,
           patchMeta: {
             ...patchMetaFromRelease,
@@ -1034,6 +1112,7 @@ function buildAppCatalog(releases) {
         latestPublishedAt: latestAppTime,
         searchCorpus,
         appTokens,
+        repos: Array.from(app.repos),
         patches: patchesArray,
       };
     })
@@ -1055,8 +1134,30 @@ function extractPatchInfoFromRelease(release) {
   };
 }
 
+// Render Repository Filter Buttons / Snackbar
+function renderRepoFilterButtons() {
+  if (!DOM.repoFilterButtons) return;
+
+  const repos = getConfigRepos();
+  if (repos.length <= 1) {
+    DOM.repoFilterButtons.style.display = "none";
+    return;
+  }
+
+  DOM.repoFilterButtons.style.display = "flex";
+  let html = `<button class="filter-btn repo-pill-btn ${repoFilter === "all" ? "active" : ""}" data-repo="all" type="button">All Repositories</button>`;
+
+  repos.forEach((r) => {
+    const slug = `${r.owner}/${r.repo}`;
+    html += `<button class="filter-btn repo-pill-btn ${repoFilter === slug ? "active" : ""}" data-repo="${escapeHtml(slug)}" type="button">📁 ${escapeHtml(r.repo)}</button>`;
+  });
+
+  DOM.repoFilterButtons.innerHTML = html;
+}
+
 // Filter and Render Catalog
 function filterAndRenderReleases() {
+  renderRepoFilterButtons();
   renderDynamicAppFilterButtons(dynamicAppFilters);
 
   if (
@@ -1068,6 +1169,11 @@ function filterAndRenderReleases() {
 
   // 1. Search Query Filter
   let apps = filterCatalogBySearch(cachedFullCatalog, searchTerm);
+
+  // 1.5 Repository Filter
+  if (repoFilter !== "all") {
+    apps = apps.filter((app) => (app.repos || []).includes(repoFilter));
+  }
 
   // 2. Category Filter
   apps = applyCategoryFilter(apps);
@@ -1100,6 +1206,9 @@ function updateCatalogStatus(apps) {
 function updateAppFilterButtons() {
   document.querySelectorAll("#appFilterButtons .filter-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.filter === appCategoryFilter);
+  });
+  document.querySelectorAll("#repoFilterButtons .repo-pill-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.repo === repoFilter);
   });
 }
 
@@ -1222,11 +1331,16 @@ function createAppCard(app) {
       ? `<span class="patch-stat-badge" title="${formatCompactNumber(totalDownloads)} Total Downloads">📥 ${formatCompactNumber(totalDownloads)}</span>`
       : "";
 
+  const repoSubheading = (app.repos && app.repos.length > 0)
+    ? `<div class="app-repo-subheading" style="font-size: 0.78rem; opacity: 0.75; font-weight: 500; margin-top: 2px;">📁 Repo: ${escapeHtml(app.repos.join(" • "))}</div>`
+    : "";
+
   return `
     <details class="build-card app-card">
       <summary class="app-card-summary">
         <div class="app-title-group">
           <div class="app-name">${escapeHtml(app.appName)}</div>
+          ${repoSubheading}
         </div>
         <div class="app-badge-group">
           ${dlBadge}
@@ -1741,7 +1855,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
           if (!isNaN(na) && !isNaN(nb)) return nb - na;
           return b.localeCompare(a);
         });
-        
+
         // If we have a preferred release type (for archives), try to find a matching tag first
         if (preferredReleaseType) {
           for (const tagKey of tagKeys) {
@@ -1947,7 +2061,11 @@ function openObtainiumModal() {
 }
 
 function createObtainiumInstructions(app, patch) {
-  const repoUrl = `https://github.com/${CONFIG.owner}/${CONFIG.repo}`;
+  const sampleBuild = patch?.builds?.find((b) => b.assets && b.assets.length > 0) || patch?.builds?.[0];
+  const primaryRepo = getConfigRepos()[0];
+  const repoOwner = sampleBuild?.repoOwner || primaryRepo.owner;
+  const repoName = sampleBuild?.repoName || primaryRepo.repo;
+  const repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
 
   const apkVariants = (patch?.variants || []).filter((v) =>
@@ -1961,7 +2079,7 @@ function createObtainiumInstructions(app, patch) {
       const vRegex = buildObtainiumRegex(app, patch, v.variantKey);
       const vLabel = `${app.appName} (${patch.patchName} - ${v.variantName})`;
       const vPackageId = getAppPackageId(app, patch, v.variantKey);
-      const vSafeId = vPackageId || `${CONFIG.owner}_${app.appKey}_${patch.patchKey}_${v.variantKey}_${index}`.replace(/[^a-zA-Z0-9_]/g, "_");
+      const vSafeId = vPackageId || `${repoOwner}_${app.appKey}_${patch.patchKey}_${v.variantKey}_${index}`.replace(/[^a-zA-Z0-9_]/g, "_");
 
       const vAdditionalSettings = { apkFilterRegEx: vRegex };
       if (modalBuildFilter === "beta") {
@@ -1971,7 +2089,7 @@ function createObtainiumInstructions(app, patch) {
       const vConfig = {
         id: vSafeId,
         name: vLabel,
-        author: CONFIG.owner,
+        author: repoOwner,
         url: repoUrl,
         additionalSettings: JSON.stringify(vAdditionalSettings),
       };
@@ -2005,7 +2123,7 @@ function createObtainiumInstructions(app, patch) {
     const regexPattern = buildObtainiumRegex(app, patch, activeVariantKey);
 
     const mainPackageId = getAppPackageId(app, patch, activeVariantKey || "default");
-    const mainSafeId = mainPackageId || `${CONFIG.owner}_${app?.appKey || "app"}_${patch?.patchKey || "patch"}`.replace(/[^a-zA-Z0-9_]/g, "_");
+    const mainSafeId = mainPackageId || `${repoOwner}_${app?.appKey || "app"}_${patch?.patchKey || "patch"}`.replace(/[^a-zA-Z0-9_]/g, "_");
     const mainLabel = `${app?.appName || "App"} (${patch?.patchName || "Patch"})`;
     const mainAdditionalSettings = { apkFilterRegEx: regexPattern };
     if (modalBuildFilter === "beta") {
@@ -2015,7 +2133,7 @@ function createObtainiumInstructions(app, patch) {
     const mainConfig = {
       id: mainSafeId,
       name: mainLabel,
-      author: CONFIG.owner,
+      author: repoOwner,
       url: repoUrl,
       additionalSettings: JSON.stringify(mainAdditionalSettings),
     };
@@ -2264,14 +2382,11 @@ function getFileType(filename) {
   if (lower.endsWith(".flatpak")) return "Flatpak";
   if (lower.endsWith(".snap")) return "Snap";
 
-  if (lower.endsWith(".zip")) {
-    if (lower.includes("windows") || lower.includes("macos") || lower.includes("linux") || lower.includes("android")) {
-      return "Archive";
-    }
-    return "Module";
-  }
+  if (lower.includes("module")) return "Module";
 
-  if (/\.(tar(\.[a-z0-9]+)?|tgz|7z|rar)$/i.test(lower)) return "Archive";
+  if (lower.endsWith(".zip") || /\.(tar(\.[a-z0-9]+)?|tgz|7z|rar)$/i.test(lower)) {
+    return "Archive";
+  }
 
   return "File";
 }
@@ -2495,4 +2610,3 @@ function setPillState(state, text) {
     svgContainer.classList.remove("spin");
   }
 }
-
