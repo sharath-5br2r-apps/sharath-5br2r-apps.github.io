@@ -66,6 +66,14 @@
           "Enable speed control ",
           "Skip ads "
         ]
+      },
+      "260033": {
+        "patches": "hoo-dles/patches-1.40.0.mpp",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.40.0",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
       }
     }
   },
@@ -128,6 +136,14 @@
         ]
       },
       "260025": {
+        "patches": "Paresh-Maheshwari/patches-1.19.0.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.19.0",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
+      },
+      "260033": {
         "patches": "Paresh-Maheshwari/patches-1.19.0.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.19.0",
         "applied_patches": [
@@ -210,6 +226,14 @@
         ]
       },
       "260024": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
+      },
+      "260032": {
         "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
         "applied_patches": [
@@ -1641,6 +1665,81 @@
           "Force HDR10 ",
           "Premium unlock ",
           "Remove ads "
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo": {
+    "17.7.7.932364120-release": {
+      "260034": {
+        "patches": "jasonwu1994/patches-2.8.0-dev.2.mpp jkennethcarino/patches-1.3.1-dev.1.mpp",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/v2.8.0-dev.2 https://github.com/jkennethcarino/adobo/releases/tag/v1.3.1-dev.1",
+        "applied_patches": [
+          "AI Writing Tools ",
+          "Add Gboard Signature Bypass ",
+          "Advanced Voice Typing ",
+          "Always-incognito mode ",
+          "Clipboard Custom Character Limit ",
+          "Clipboard Enhancements ",
+          "Custom Symbols ",
+          "Developer options ",
+          "Emojis, stickers & GIFs Tab Order ",
+          "Enable Inline Autofill Suggestions ",
+          "Enable OCR / Scan Text ",
+          "Enable OCR feature ",
+          "Enable clipboard in incognito ",
+          "Enable voice typing in incognito ",
+          "English QWERTY Up-Flick Uppercase ",
+          "Grammar Checker ",
+          "Inline Suggestions ",
+          "Key Shape Selection ",
+          "Latin Globe Key Ignore Interval ",
+          "Long-Press Editing Shortcuts ",
+          "Settings Homepage Override ",
+          "Swipeable Custom Top Row ",
+          "Use Bluetooth Microphone ",
+          "Web Clipboard ",
+          "Zhuyin Bottom Row Key Sizes ",
+          "Zhuyin Quick Traditional/Simplified Toggle ",
+          "Zhuyin Slide Input "
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone": {
+    "17.7.7.932364120-release": {
+      "260034": {
+        "patches": "jasonwu1994/patches-2.8.0-dev.2.mpp jkennethcarino/patches-1.3.1-dev.1.mpp",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/v2.8.0-dev.2 https://github.com/jkennethcarino/adobo/releases/tag/v1.3.1-dev.1",
+        "applied_patches": [
+          "AI Writing Tools ",
+          "Add Gboard Signature Bypass ",
+          "Advanced Voice Typing ",
+          "Always-incognito mode ",
+          "Clipboard Custom Character Limit ",
+          "Clipboard Enhancements ",
+          "Custom Symbols ",
+          "Developer options ",
+          "Emojis, stickers & GIFs Tab Order ",
+          "Enable Inline Autofill Suggestions ",
+          "Enable OCR / Scan Text ",
+          "Enable OCR feature ",
+          "Enable clipboard in incognito ",
+          "Enable voice typing in incognito ",
+          "English QWERTY Up-Flick Uppercase ",
+          "Grammar Checker ",
+          "Inline Suggestions ",
+          "Key Shape Selection ",
+          "Latin Globe Key Ignore Interval ",
+          "Long-Press Editing Shortcuts ",
+          "Package Rename ",
+          "Settings Homepage Override ",
+          "Swipeable Custom Top Row ",
+          "Use Bluetooth Microphone ",
+          "Web Clipboard ",
+          "Zhuyin Bottom Row Key Sizes ",
+          "Zhuyin Quick Traditional/Simplified Toggle ",
+          "Zhuyin Slide Input "
         ]
       }
     }
