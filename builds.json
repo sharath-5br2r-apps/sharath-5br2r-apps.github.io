@@ -74,6 +74,14 @@
           "Enable speed control ",
           "Skip ads "
         ]
+      },
+      "260037": {
+        "patches": "hoo-dles/patches-1.40.0.mpp",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.40.0",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
       }
     }
   },
@@ -144,6 +152,14 @@
         ]
       },
       "260033": {
+        "patches": "Paresh-Maheshwari/patches-1.19.0.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.19.0",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
+      },
+      "260037": {
         "patches": "Paresh-Maheshwari/patches-1.19.0.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.19.0",
         "applied_patches": [
@@ -234,6 +250,14 @@
         ]
       },
       "260032": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
+      },
+      "260036": {
         "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
         "applied_patches": [
