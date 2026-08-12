@@ -1446,6 +1446,13 @@
         "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/1601",
         "applied_patches": []
       }
+    },
+    "341.13-Stable": {
+      "260047": {
+        "patches": "revenge-mod/app-release.apk",
+        "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/1601",
+        "applied_patches": []
+      }
     }
   },
   "amazon-india-morphe-rushiranpise": {
