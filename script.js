@@ -8,13 +8,11 @@ const CONFIG = {
   // Support for multiple GitHub repositories
   repos: [
     { owner: "sharath-5br2r", repo: "my-patched-apks" },
-    { owner: "sharath-5br2r", repo" "Dolphin-Extra" },
+    { owner: "sharath-5br2r", repo: "Dolphin-Extra" },
     // Add additional repositories here, e.g.:
     // { owner: "another-owner", repo: "another-repo" },
     // "another-owner/another-repo"
   ],
-  owner: "sharath-5br2r", // Default / Fallback owner
-  repo: "my-patched-apks", // Default / Fallback repo
   cacheDuration: 1, // Cache duration in minutes
 
   // App Categories for the filter buttons
