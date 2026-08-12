@@ -2449,3 +2449,4 @@ function setPillState(state, text) {
     svgContainer.classList.remove("spin");
   }
 }
+
