@@ -37,6 +37,7 @@ jobs:
         run: |
           REPOS=(
             "sharath-5br2r/my-patched-apks"
+            "sharath-5br2r/Dolphin-Extra"
             # Add additional repos here if needed, e.g.:
             # "another-owner/another-repo"
           )
