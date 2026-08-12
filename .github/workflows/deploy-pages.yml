@@ -44,10 +44,3 @@ jobs:
           attempt_limit: 3
           attempt_delay: 10000 # Wait 10 seconds between retries
 
-  trigger_notify_failure:
-    needs: [ deploy ]
-    if: failure()
-    uses: ./.github/workflows/notify.yml
-    with:
-      workflow_name: "Deploy to GitHub Pages"
-    secrets: inherit
