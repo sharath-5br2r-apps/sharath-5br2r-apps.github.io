@@ -4,7 +4,7 @@ on:
   repository_dispatch:
     types: [ update-catalog-cache ]
   schedule:
-    - cron: "0 2 * * *" # 02:00 AM UTC everyday
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 concurrency:
@@ -35,7 +35,31 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh api --paginate repos/nullcpy/rvb/releases > releases_new.json
+          REPOS=(
+            "sharath-5br2r/my-patched-apks"
+            # Add additional repos here if needed, e.g.:
+            # "another-owner/another-repo"
+          )
+
+          echo "[]" > releases_new.json
+
+          for repo in "${REPOS[@]}"; do
+            echo "Fetching releases for $repo..."
+            gh api --paginate "repos/$repo/releases" | jq --arg repo "$repo" '
+              if type == "array" then
+                map(. + {
+                  repoOwner: ($repo | split("/")[0]),
+                  repoName: ($repo | split("/")[1]),
+                  repoUrl: "https://github.com/\($repo)"
+                })
+              else
+                []
+              end
+            ' > tmp_repo.json
+
+            jq -s '.[0] + .[1]' releases_new.json tmp_repo.json > merged.json && mv merged.json releases_new.json
+          done
+          rm -f tmp_repo.json
 
           # Validate: must be a non-empty JSON array
           COUNT=$(jq 'if type == "array" then length else 0 end' releases_new.json)
@@ -44,7 +68,7 @@ jobs:
             exit 1
           fi
 
-          echo "Fetched $COUNT releases. Updating cache."
+          echo "Fetched $COUNT total releases. Updating cache."
           python3 .github/scripts/merge_build_meta.py
           rm -f releases_new.json
 
@@ -61,4 +85,3 @@ jobs:
     with:
       workflow_name: "Update Releases Cache"
     secrets: inherit
-
