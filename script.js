@@ -8,6 +8,7 @@ const CONFIG = {
   // Support for multiple GitHub repositories
   repos: [
     { owner: "sharath-5br2r", repo: "my-patched-apks" },
+    { owner: "sharath-5br2r", repo" "Dolphin-Extra" },
     // Add additional repositories here, e.g.:
     // { owner: "another-owner", repo: "another-repo" },
     // "another-owner/another-repo"
