@@ -1382,6 +1382,20 @@
           "Price history charts ",
           "Remove ads "
         ]
+      },
+      "260035": {
+        "patches": "rushiranpise/patches-1.18.0-dev.3.mpp",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.18.0-dev.3",
+        "applied_patches": [
+          "Dark mode ",
+          "Disable search suggestions tracking ",
+          "Disable video autoplay ",
+          "Disable video autoplay ",
+          "Fix Amazon manifest conflicts ",
+          "Open links in browser ",
+          "Price history charts ",
+          "Remove ads "
+        ]
       }
     }
   },
