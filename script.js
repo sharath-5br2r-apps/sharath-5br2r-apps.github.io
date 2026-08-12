@@ -1813,14 +1813,28 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     const masterData = await fetchMasterBuildData();
     const appKeyNorm = normalizeForSearch(app.appKey || app.appName);
     const patchKeyNorm = normalizeForSearch(patch.patchKey || patch.patchName);
-    // Use stored variantKey to get the correct variant — avoids cross-variant asset contamination
-    // (multiple variants share the same buildKey when from the same numbered release)
-    const variantNorm = (build?.variantKey && build.variantKey !== "default")
-      ? normalizeForSearch(build.variantKey)
+
+    // Get stored variantKey and create hyphenated & normalized versions
+    const rawVariantKey = build?.variantKey || "";
+    const variantHyphenated = (rawVariantKey && rawVariantKey !== "default")
+      ? rawVariantKey.replace(/\+/g, "-").toLowerCase()
+      : "";
+    const variantNorm = (rawVariantKey && rawVariantKey !== "default")
+      ? normalizeForSearch(rawVariantKey)
       : "";
 
     let rawSlugNorm = appKeyNorm;
+    let assetRawPrefix = "";
+    let assetRawAppSlug = "";
+    let assetRawPatchSlug = "";
+
     const asset = build?.assets?.[0];
+    if (asset?.parsed) {
+      assetRawPrefix = asset.parsed.rawPrefix || "";
+      assetRawAppSlug = asset.parsed.rawAppSlug || "";
+      assetRawPatchSlug = asset.parsed.rawPatchSlug || "";
+    }
+
     if (asset?.name) {
       const baseName = asset.name.replace(EXT_STRIP_REGEX, "");
       const tokens = baseName.split("-").filter(Boolean);
@@ -1830,10 +1844,33 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
       }
     }
 
-    const targetKey = `${appKeyNorm}-${patchKeyNorm}`;
-    const variantTargetKey = variantNorm ? `${appKeyNorm}-${patchKeyNorm}-${variantNorm}` : targetKey;
-    const rawTargetKey = `${rawSlugNorm}-${patchKeyNorm}`;
-    const rawVariantTargetKey = variantNorm ? `${rawSlugNorm}-${patchKeyNorm}-${variantNorm}` : rawTargetKey;
+    // Candidate keys to try directly in masterData
+    const candidateKeys = [];
+
+    // 1. Asset Raw Prefix (Exact prefix from asset filename e.g. "x-morphe-xshim-piko" or "gboard-morphe-jasonwu1994-adobo")
+    if (assetRawPrefix) candidateKeys.push(assetRawPrefix);
+
+    // 2. Hyphenated Variant Keys (e.g. "x-morphe-xshim-piko", "gboard-morphe-jasonwu1994-adobo")
+    if (variantHyphenated) {
+      candidateKeys.push(`${appKeyNorm}-${patchKeyNorm}-${variantHyphenated}`);
+      candidateKeys.push(`${rawSlugNorm}-${patchKeyNorm}-${variantHyphenated}`);
+      if (assetRawAppSlug && assetRawPatchSlug) {
+        candidateKeys.push(`${assetRawAppSlug}-${assetRawPatchSlug}-${variantHyphenated}`);
+      }
+    }
+
+    // 3. Plus or Normalized Variant Keys
+    if (variantNorm) {
+      candidateKeys.push(`${appKeyNorm}-${patchKeyNorm}-${variantNorm}`);
+      candidateKeys.push(`${rawSlugNorm}-${patchKeyNorm}-${variantNorm}`);
+    }
+
+    // 4. Base App + Patch Keys (without variants)
+    candidateKeys.push(`${appKeyNorm}-${patchKeyNorm}`);
+    candidateKeys.push(`${rawSlugNorm}-${patchKeyNorm}`);
+    if (assetRawAppSlug && assetRawPatchSlug) {
+      candidateKeys.push(`${assetRawAppSlug}-${assetRawPatchSlug}`);
+    }
 
     function isPatchEntry(obj) {
       return obj && typeof obj === "object" && (
@@ -1841,7 +1878,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
       );
     }
 
-    // Direct O(1) version & tag dictionary lookup (no dead engine loops)
+    // Direct O(1) version & tag dictionary lookup
     function resolveVersionFromDict(dict, rawVer, specificTag, isArchive, preferredReleaseType) {
       if (!dict || typeof dict !== "object") return null;
       if (isPatchEntry(dict)) return dict;
@@ -1897,18 +1934,34 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     }
 
     let resolved = null;
-    if (variantNorm) {
+
+    // First attempt: Try candidate keys directly on masterData
+    for (const candKey of candidateKeys) {
+      if (!candKey || !masterData[candKey]) continue;
       for (const ver of versionsToTry) {
-        resolved =
-          resolveVersionFromDict(masterData[rawVariantTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
-          resolveVersionFromDict(masterData[variantTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType);
+        resolved = resolveVersionFromDict(masterData[candKey], ver, specificTag, isArchiveBuild, build?.releaseType);
         if (resolved) break;
       }
-    } else {
-      for (const ver of versionsToTry) {
-        resolved =
-          resolveVersionFromDict(masterData[rawTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
-          resolveVersionFromDict(masterData[targetKey], ver, specificTag, isArchiveBuild, build?.releaseType);
+      if (resolved) break;
+    }
+
+    // Second attempt: Fallback normalized map lookup if direct candidate keys didn't match
+    if (!resolved) {
+      const masterDataNormalized = new Map();
+      for (const k of Object.keys(masterData)) {
+        masterDataNormalized.set(k.toLowerCase().replace(/[^a-z0-9]/g, ""), masterData[k]);
+      }
+
+      for (const candKey of candidateKeys) {
+        if (!candKey) continue;
+        const normCandKey = candKey.toLowerCase().replace(/[^a-z0-9]/g, "");
+        const dict = masterDataNormalized.get(normCandKey);
+        if (!dict) continue;
+
+        for (const ver of versionsToTry) {
+          resolved = resolveVersionFromDict(dict, ver, specificTag, isArchiveBuild, build?.releaseType);
+          if (resolved) break;
+        }
         if (resolved) break;
       }
     }
