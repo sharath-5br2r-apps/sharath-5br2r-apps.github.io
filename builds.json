@@ -114,6 +114,14 @@
           "Enable speed control ",
           "Skip ads "
         ]
+      },
+      "260053": {
+        "patches": "hoo-dles/patches-1.40.0.mpp",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.40.0",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
       }
     }
   },
@@ -330,6 +338,14 @@
         ]
       },
       "260050": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
+      },
+      "260052": {
         "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
         "applied_patches": [
