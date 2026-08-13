@@ -106,6 +106,14 @@
           "Enable speed control ",
           "Skip ads "
         ]
+      },
+      "260051": {
+        "patches": "hoo-dles/patches-1.40.0.mpp",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.40.0",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
       }
     }
   },
@@ -314,6 +322,14 @@
         ]
       },
       "260048": {
+        "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Proton VPN Premium "
+        ]
+      },
+      "260050": {
         "patches": "Paresh-Maheshwari/patches-1.20.0-dev.2.mpp",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/v1.20.0-dev.2",
         "applied_patches": [
@@ -546,6 +562,13 @@
         "applied_patches": [
           "Unlock Pro "
         ]
+      },
+      "260051": {
+        "patches": "arandomhooman/patches-1.44.0.mpp",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.44.0",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
       }
     }
   },
@@ -557,6 +580,13 @@
         "applied_patches": [
           "Unlock Premium "
         ]
+      },
+      "260051": {
+        "patches": "arandomhooman/patches-1.44.0.mpp",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.44.0",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
       }
     }
   },
@@ -565,6 +595,13 @@
       "260001": {
         "patches": "arandomhooman/patches-1.44.0-dev.3.mpp",
         "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.44.0-dev.3",
+        "applied_patches": [
+          "Remove ads "
+        ]
+      },
+      "260051": {
+        "patches": "arandomhooman/patches-1.44.0.mpp",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/v1.44.0",
         "applied_patches": [
           "Remove ads "
         ]
