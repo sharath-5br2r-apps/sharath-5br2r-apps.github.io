@@ -5,10 +5,9 @@
  * ==========================================
  */
 const CONFIG = {
-  // Support for multiple GitHub repositories
+  // Support for multiple GitHub APK release repositories
   repos: [
     { owner: "sharath-5br2r-apps", repo: "apks-dump" },
-    { owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" },
   ],
   cacheDuration: 1, // Cache duration in minutes
 
