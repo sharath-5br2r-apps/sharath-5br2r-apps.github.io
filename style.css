@@ -742,6 +742,19 @@ main {
     color: var(--accent-dolphin);
 }
 
+/* LeviLaunchroid Extra Notice (Purple Accent) */
+.levilaunchroid-note {
+    border: 1px dashed var(--accent-obtainium);
+    background: linear-gradient(90deg, var(--accent-obtainium-glow), transparent);
+}
+.levilaunchroid-note .app-notice-title {
+    color: var(--accent-obtainium);
+}
+.levilaunchroid-note .app-notice-links a {
+    border: 1px solid var(--accent-obtainium);
+    color: var(--accent-obtainium);
+}
+
 .asset-variant-tag {
     font-weight: 700;
     color: var(--accent);

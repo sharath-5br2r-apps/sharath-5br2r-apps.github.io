@@ -9,6 +9,7 @@ const CONFIG = {
   repos: [
     { owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" },
     { owner: "sharath-5br2r-apps", repo: "Dolphin-Extra" },
+    { owner: "sharath-5br2r-apps", repo: "LeviLaunchroid-Extra" },
   ],
   cacheDuration: 1, // Cache duration in minutes
 
@@ -149,6 +150,7 @@ const CONFIG = {
     dolphin: "Dolphin Emulator",
     official: "Official",
     gfp: "Game For Peace Spoof",
+    levilaunchroid: "LeviLaunchroid",
   },
 
   // Map app slugs to true Android Package IDs for Obtainium
@@ -363,6 +365,15 @@ const CONFIG = {
       text: "It is a fork of Dolphin that incorporates aspects from DolphinCS and Better-Wii-Menu-DE.",
       links: [
         { label: "Source Code", url: "https://github.com/sharath-5br2r-apps/Dolphin-Extra" },
+      ],
+    },
+    {
+      triggers: ["levilaunchroid"],
+      className: "levilaunchroid-note",
+      title: "LeviLaunchroid Extra",
+      text: "Additional modules and builds for LeviLaunchroid.",
+      links: [
+        { label: "Source Code", url: "https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra" },
       ],
     },
   ],
