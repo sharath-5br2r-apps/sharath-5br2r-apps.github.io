@@ -2531,9 +2531,9 @@ function getFileType(filename) {
   if (lower.endsWith(".flatpak")) return "Flatpak";
   if (lower.endsWith(".snap")) return "Snap";
 
-  if (lower.includes("module")) return "Module";
+  if (lower.includes("module") || lower.endsWith(".zip")) return "Module";
 
-  if (lower.endsWith(".zip") || /\.(tar(\.[a-z0-9]+)?|tgz|7z|rar)$/i.test(lower)) {
+  if (/\.(tar(\.[a-z0-9]+)?|tgz|7z|rar)$/i.test(lower)) {
     return "Archive";
   }
 
