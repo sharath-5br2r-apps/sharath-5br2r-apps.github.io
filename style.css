@@ -742,17 +742,17 @@ main {
     color: var(--accent-dolphin);
 }
 
-/* LeviLaunchroid Extra Notice (Purple Accent) */
+/* LeviLauncher / LeviLaunchroid Extra Notice (Green Accent) */
 .levilaunchroid-note {
-    border: 1px dashed var(--accent-obtainium);
-    background: linear-gradient(90deg, var(--accent-obtainium-glow), transparent);
+    border: 1px dashed var(--accent-stable);
+    background: linear-gradient(90deg, var(--accent-stable-glow), transparent);
 }
 .levilaunchroid-note .app-notice-title {
-    color: var(--accent-obtainium);
+    color: var(--accent-stable);
 }
 .levilaunchroid-note .app-notice-links a {
-    border: 1px solid var(--accent-obtainium);
-    color: var(--accent-obtainium);
+    border: 1px solid var(--accent-stable);
+    color: var(--accent-stable);
 }
 
 .asset-variant-tag {
