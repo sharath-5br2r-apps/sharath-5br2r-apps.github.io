@@ -37,7 +37,7 @@ jobs:
         run: |
           REPOS=(
             "sharath-5br2r-apps/revanced-morphe-xposed-builder"
-            "sharath-5br2r/Dolphin-Extra"
+            "sharath-5br2r-apps/Dolphin-Extra"
           )
 
           echo "[]" > releases_new.json

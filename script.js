@@ -8,7 +8,7 @@ const CONFIG = {
   // Support for multiple GitHub APK release repositories
   repos: [
     { owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" },
-    { owner: "sharath-5br2r", repo: "Dolphin-Extra" },
+    { owner: "sharath-5br2r-apps", repo: "Dolphin-Extra" },
   ],
   cacheDuration: 1, // Cache duration in minutes
 
@@ -362,7 +362,7 @@ const CONFIG = {
       title: "Dolphin Extra",
       text: "It is a fork of Dolphin that incorporates aspects from DolphinCS and Better-Wii-Menu-DE.",
       links: [
-        { label: "Source Code", url: "https://github.com/sharath-5br2r/Dolphin-Extra" },
+        { label: "Source Code", url: "https://github.com/sharath-5br2r-apps/Dolphin-Extra" },
       ],
     },
   ],
