@@ -2029,20 +2029,6 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
           resolved = resolveVersionFromDict(dict, ver, specificTag, isArchiveBuild, build?.releaseType);
           if (resolved) break;
         }
-=======
-        resolved =
-          resolveVersionFromDict(masterData[rawPatchVariantTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
-          resolveVersionFromDict(masterData[rawVariantTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
-          resolveVersionFromDict(masterData[variantTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType);
-        if (resolved) break;
-      }
-    } else {
-      for (const ver of versionsToTry) {
-        resolved =
-          resolveVersionFromDict(masterData[rawPatchTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
-          resolveVersionFromDict(masterData[rawTargetKey], ver, specificTag, isArchiveBuild, build?.releaseType) ||
-          resolveVersionFromDict(masterData[targetKey], ver, specificTag, isArchiveBuild, build?.releaseType);
->>>>>>> 531c2b018655b79632a7235e25796dc67cb6974e
         if (resolved) break;
       }
     }
@@ -2350,7 +2336,6 @@ function getAppPackageId(app, patch, variantKey) {
     }
   }
   let mapping = null;
-  const candidates = [rawSlug, app.appKey, appKeyNorm, appNameNorm];
   for (const cand of candidates) {
     if (!cand) continue;
     if (CONFIG.appIds[cand]) {
