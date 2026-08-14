@@ -8,6 +8,7 @@ const CONFIG = {
   // Support for multiple GitHub APK release repositories
   repos: [
     { owner: "sharath-5br2r-apps", repo: "apks-dump" },
+    { owner: "sharath-5br2r", repo: "Dolphin-Extra" },
   ],
   cacheDuration: 1, // Cache duration in minutes
 
