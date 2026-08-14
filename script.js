@@ -7,7 +7,7 @@
 const CONFIG = {
   // Support for multiple GitHub APK release repositories
   repos: [
-    { owner: "sharath-5br2r-apps", repo: "apks-dump" },
+    { owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" },
     { owner: "sharath-5br2r", repo: "Dolphin-Extra" },
   ],
   cacheDuration: 1, // Cache duration in minutes
@@ -382,7 +382,7 @@ function getConfigRepos() {
   if (CONFIG.owner && CONFIG.repo) {
     return [{ owner: CONFIG.owner, repo: CONFIG.repo }];
   }
-  return [{ owner: "sharath-5br2r-apps", repo: "apks-dump" }];
+  return [{ owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" }];
 }
 
 // Explicit Extension Matching (Includes .tar.{ext} like .tar.gz, .tar.xz, .tar.bz2, .tar.zst)
