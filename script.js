@@ -151,6 +151,7 @@ const CONFIG = {
     official: "Official",
     gfp: "Game For Peace Spoof",
     levilaunchroid: "LeviLaunchroid",
+    levilaunchroidextra: "LeviLaunchroid Extra",
   },
 
   // Map app slugs to true Android Package IDs for Obtainium
@@ -224,6 +225,8 @@ const CONFIG = {
     jiohotstar: "in.startv.hotstar",
     kinestop: "com.urbandroid.kinestop",
     komoothikebikerun: "de.komoot.android",
+    levilaunchroid: "com.levilaunchroid.app",
+    levilaunchroidextra: "com.levilaunchroid.app",
     luminawallpapers: "com.lumina.wallpapers",
     macrodroid: "com.arlosoft.macrodroid",
     medium: "com.medium.reader",
@@ -368,7 +371,7 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["levilaunchroid"],
+      triggers: ["levilaunchroid", "levilaunchroidextra"],
       className: "levilaunchroid-note",
       title: "LeviLaunchroid Extra",
       text: "Additional modules and builds for LeviLaunchroid.",
