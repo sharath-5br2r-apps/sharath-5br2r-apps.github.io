@@ -1389,8 +1389,18 @@ function createAppCard(app) {
       ? `<span class="patch-stat-badge" title="${formatCompactNumber(totalDownloads)} Total Downloads">📥 ${formatCompactNumber(totalDownloads)}</span>`
       : "";
 
-  const repoSubheading = (app.repos && app.repos.length > 0)
-    ? `<div class="app-repo-subheading" style="font-size: 0.78rem; opacity: 0.75; font-weight: 500; margin-top: 2px;">📁 Repo: ${escapeHtml(app.repos.join(" • "))}</div>`
+  const repoLinksMarkup = (app.repos && app.repos.length > 0)
+    ? app.repos
+        .map((slug) => {
+          const url = `https://github.com/${slug}`;
+          const repoName = slug.split("/")[1] || slug;
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: var(--accent); text-decoration: underline; font-weight: 600;">${escapeHtml(repoName)}</a>`;
+        })
+        .join(" • ")
+    : "";
+
+  const repoSubheading = repoLinksMarkup
+    ? `<div class="app-repo-subheading" style="font-size: 0.78rem; opacity: 0.85; font-weight: 500; margin-top: 2px;">📁 Repo: ${repoLinksMarkup}</div>`
     : "";
 
   return `
