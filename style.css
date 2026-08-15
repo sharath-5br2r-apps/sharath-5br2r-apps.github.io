@@ -50,46 +50,49 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Zen-inspired light mode: warm paper bg, blue+green accents */
+/* Material 3 Light Mode */
 body.light-mode {
-    --bg-primary: #faf8f5;
+    --bg-primary: #f8f9fa;
     --bg-secondary: #ffffff;
-    --bg-tertiary: #f2ede6;
-    --bg-card: rgba(255, 255, 255, 0.98);
-    --bg-card-hover: #ffffff;
-    --text-primary: #1c1a17;
-    --text-secondary: #3d3730;
-    --text-muted: #7a6e64;
-    /* Blue/green buttons: white text for contrast */
+    --bg-tertiary: #f1f3f4;
+    --bg-surface: #ffffff;
+    --bg-surface-low: #f8f9fa;
+    --bg-surface-container: #f0f4f9;
+    --bg-surface-high: #e9eef6;
+    --bg-surface-highest: #e1e8f5;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f4f6f8;
+
+    --text-primary: #1f1f1f;
+    --text-secondary: #444746;
+    --text-muted: #747775;
     --btn-on-accent: #ffffff;
 
-    /* Deeper versions of the logo palette for light bg readability */
-    --accent: #0969da;
-    /* GitHub blue (light) */
-    --accent-glow: rgba(9, 105, 218, 0.12);
-    --accent-stable: #1a7f37;
-    /* GitHub green (light) */
-    --accent-stable-glow: rgba(26, 127, 55, 0.12);
-    --accent-beta: #bc4c00;
-    /* warm orange — beta channel (light) */
-    --accent-beta-glow: rgba(188, 76, 0, 0.12);
-    --accent-obtainium: #8250df;
-    /* signature purple — Obtainium buttons (light) */
-    --accent-obtainium-glow: rgba(130, 80, 223, 0.20);
-    --accent-danger: #cf222e;
-    /* GitHub danger */
+    /* Material 3 Standard Light Accents */
+    --accent: #0b57d0;
+    --accent-glow: rgba(11, 87, 208, 0.12);
+    --accent-stable: #146c2e;
+    --accent-stable-glow: rgba(20, 108, 46, 0.12);
+    --accent-beta: #c2410c;
+    --accent-beta-glow: rgba(194, 65, 12, 0.12);
+    --accent-amazon: #ea580c;
+    --accent-amazon-glow: rgba(234, 88, 12, 0.12);
+    --accent-dolphin: #0284c7;
+    --accent-dolphin-glow: rgba(2, 132, 199, 0.12);
+    --accent-obtainium: #6750a4;
+    --accent-obtainium-glow: rgba(103, 80, 164, 0.16);
+    --accent-danger: #b3261e;
     --accent-warning: #9a6700;
     --accent-archive: #9a6700;
-    /* dark golden yellow (light) */
-    --accent-archive-bg: rgba(154, 103, 0, 0.10);
-    --accent-archive-border: rgba(154, 103, 0, 0.35);
+    --accent-archive-bg: rgba(154, 103, 0, 0.08);
+    --accent-archive-border: rgba(154, 103, 0, 0.30);
 
-    --border: #e8e0d5;
-    --border-hover: #0969da;
-    --border-stable: rgba(26, 127, 55, 0.4);
-    --border-beta: rgba(188, 76, 0, 0.4);
-    --shadow: 0 2px 16px -2px rgba(28, 26, 23, 0.08), 0 0 0 1px var(--border);
-    --shadow-hover: 0 10px 24px -4px rgba(28, 26, 23, 0.14), 0 0 0 1px rgba(9, 105, 218, 0.3);
+    --border: #e0e2e5;
+    --border-hover: #0b57d0;
+    --border-stable: rgba(20, 108, 46, 0.35);
+    --border-beta: rgba(194, 65, 12, 0.35);
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 0 0 1px var(--border);
+    --shadow-hover: 0 8px 24px rgba(11, 87, 208, 0.12), 0 0 0 1px rgba(11, 87, 208, 0.28);
 }
 
 * {
