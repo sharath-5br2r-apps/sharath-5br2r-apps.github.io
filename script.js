@@ -16,10 +16,16 @@ const CONFIG = {
   // App Categories for the filter buttons
   appCategories: {
     amazon: ["amazon", "alexa", "primevideo", "amazonindia"],
-    androidtv: ["primevideo", "plutotv", "moviebox", "disneyplus", "hbomax", "tubi", "vix", "at4klauncher", "projectivylauncher", "peacock", "netflix"],
+    //androidtv: ["primevideo", "plutotv", "moviebox", "disneyplus", "hbomax", "tubi", "vix", "at4klauncher", "projectivylauncher", "peacock", "netflix"],
     google: ["youtube", "google", "gboard"],
     meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
     vpn: ["1111warp", "vpnify", "vpn"],
+    emulator: ["dolphin"],
+    games: ["dolphin", "levilauncher"],
+    social: ["x", "discord", "youtube", "threads", "instagram", "messenger", "facebook", "tiktok"],
+    video: ["youtube", "primevideo", "tiktok", "jiohotstar"],
+    docs: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader" ],
+    music: ["youtubemusic", "symfonium"],
   },
 
   // Words ignored in the dynamic app filters (must be lowercase)
@@ -27,7 +33,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch name starts (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch", "extra"
+    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch"
   ]),
 
   // Known tokens indicating a variant (must be lowercase)
@@ -85,7 +91,7 @@ const CONFIG = {
 
   // Brand name overrides (keys must be lowercase)
   brandOverrides: {
-    adm: "ADM",
+    adm: "Advanced Download Manager",
     youtube: "YouTube",
     revanced: "ReVanced",
     tiktok: "TikTok",
@@ -159,10 +165,8 @@ const CONFIG = {
     dh6k: "dh6k",
     bitwarden: "Bitwarden",
     oxygenupdater: "Oxygen Updater",
-    pcremote: "PC Remote",
-    microsoftword: "Microsoft Word",
-    microsoftexcel: "Microsoft Excel",
-    bravebeta: "Brave Beta",
+    pc: "PC",
+    bravebeta: "Brave Browser Beta",
     bravestable: "Brave Browser",
   },
 
@@ -171,7 +175,7 @@ const CONFIG = {
     "1111warp": "com.cloudflare.onedotonedotonedotone",
     acalendar: "org.withouthat.acalendar",
     adguard: "com.adguard.android",
-    adm: "com.dv.adm",
+    advanceddownloadmanager: "com.dv.adm",
     adobeacrobat: "com.adobe.reader",
     adobelightroom: "com.adobe.lrmobile",
     adobephotoshopmix: "com.adobe.photoshopmix",
