@@ -2748,6 +2748,13 @@
         "applied_patches": [
           "Unlock Premium "
         ]
+      },
+      "260071": {
+        "patches": "",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
       }
     }
   },
@@ -4363,6 +4370,13 @@
         ]
       },
       "260069": {
+        "patches": "",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Remove ads "
+        ]
+      },
+      "260071": {
         "patches": "",
         "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
         "applied_patches": [
