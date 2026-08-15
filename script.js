@@ -16,6 +16,7 @@ const CONFIG = {
   // App Categories for the filter buttons
   appCategories: {
     amazon: ["amazon", "alexa", "primevideo", "amazonindia"],
+    androidtv: ["primevideo", "plutotv", "moviebox", "disneyplus", "hbomax", "tubi", "vix", "at4klauncher", "projectivylauncher", "peacock", "netflix"],
     google: ["youtube", "google", "gboard"],
     meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
     vpn: ["1111warp", "vpnify", "vpn"],
@@ -263,6 +264,7 @@ const CONFIG = {
     },
     mxplayer: "com.mxtech.videoplayer.pro",
     myfitnesspal: "com.myfitnesspal.android",
+    netflix: { androidtv: "com.netflix.ninja" },
     niagaralauncher: "bitpit.launcher",
     ninjavpn: "app.ninjavpn.android",
     novalauncher: "com.teslacoilsw.launcher",
@@ -290,6 +292,7 @@ const CONFIG = {
     soundcloud: "com.soundcloud.android",
     snorelab: "com.snorelab.app",
     speedtest: "org.zwanoo.android.speedtest",
+    strava: "com.strava",
     symfonium: "app.symfonik.music.player",
     telegram: {
       default: "org.telegram.messenger",
@@ -562,7 +565,7 @@ function showModal(modalEl) {
 function hideModal(modalEl) {
   if (!modalEl) return;
   modalEl.classList.add("closing");
-  
+
   // Prevent accessibility warnings by removing focus from modal elements before hiding
   if (document.activeElement && modalEl.contains(document.activeElement)) {
     document.activeElement.blur();
@@ -628,21 +631,30 @@ function setupEventListeners() {
 
     DOM.searchInput.addEventListener("focus", (e) => {
       if (window.innerWidth <= 768) {
-        const searchBox = e.target.closest(".search-box") || e.target;
-        const y = searchBox.getBoundingClientRect().top + window.scrollY - 15;
-        window.scrollTo({ top: y, behavior: "smooth" });
+        // Wait for the virtual keyboard to finish animating (usually ~300ms)
+        // Otherwise, the programmatic smooth scroll conflicts with the keyboard scroll,
+        // permanently breaking hit-testing areas on mobile Chrome/Safari.
+        setTimeout(() => {
+          const searchBox = e.target.closest(".search-box") || e.target;
+          const y = searchBox.getBoundingClientRect().top + window.scrollY - 85;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }, 300);
       }
     });
   }
 
   if (DOM.searchClearBtn && DOM.searchInput) {
-    DOM.searchClearBtn.addEventListener("click", () => {
+    const handleClear = (e) => {
+      e.preventDefault(); // Prevent input blur, keeping keyboard open and stopping layout shifts
+      if (DOM.searchInput.value === "") return;
       DOM.searchInput.value = "";
       searchTerm = "";
       syncClearBtn();
       syncUrlParams();
       filterAndRenderReleases();
-    });
+    };
+    DOM.searchClearBtn.addEventListener("pointerdown", handleClear);
+    DOM.searchClearBtn.addEventListener("click", handleClear);
   }
 
   // Repository Selection Filter Buttons
@@ -693,14 +705,14 @@ function setupEventListeners() {
       if (card) {
         const isSummaryClick = e.target.closest(".app-card-summary");
         const isOpen = card.classList.contains("open");
-        
+
         if (isSummaryClick || !isOpen) {
           if (!isOpen) {
             document.querySelectorAll(".app-card.open").forEach(c => {
               if (c !== card) c.classList.remove("open");
             });
             card.classList.add("open");
-            
+
             setTimeout(() => {
               const rect = card.getBoundingClientRect();
               if (rect.top < 20 || rect.height > window.innerHeight) {
@@ -725,7 +737,7 @@ function setupEventListeners() {
         const isHeaderClick = e.target.closest(".modal-build-header");
         const isOpen = card.classList.contains("open");
         const isInteractive = e.target.closest("a, button, .patch-applied-btn");
-        
+
         if (isHeaderClick || (!isOpen && !isInteractive)) {
           if (!isOpen) {
             const modalBody = card.closest(".modal-body");
@@ -735,16 +747,16 @@ function setupEventListeners() {
               });
             }
             card.classList.add("open");
-            
+
             setTimeout(() => {
               const modalBody = card.closest(".modal-body");
               if (modalBody) {
                 const containerRect = modalBody.getBoundingClientRect();
                 const rect = card.getBoundingClientRect();
-                
+
                 const offsetTop = rect.top - containerRect.top;
                 const offsetBottom = rect.bottom - containerRect.bottom;
-                
+
                 if (offsetTop < 0 || rect.height > containerRect.height) {
                   modalBody.scrollBy({ top: offsetTop - 8, behavior: "smooth" });
                 } else if (offsetBottom > 0) {
@@ -2271,8 +2283,9 @@ function createObtainiumInstructions(app, patch) {
 
       return `
         <div style="margin-top: 8px;">
-          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px;">
-            ${escapeHtml(vLabel)}:
+          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: flex; flex-direction: column;">
+            <span>${escapeHtml(vLabel)}</span>
+            ${vPackageId ? `<span style="font-family: monospace; opacity: 0.8; font-weight: normal; margin-top: 2px; cursor: pointer; width: fit-content; word-break: break-all;" onclick="copyToClipboard('${escapeHtml(vPackageId)}', 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(vPackageId)}</span>` : ''}
           </div>
           <div class="instruction-code">
             <code>${escapeHtml(vRegex)}</code>
@@ -2314,11 +2327,18 @@ function createObtainiumInstructions(app, patch) {
     const mainFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(mainConfig)}`)}`;
 
     step4Content = `
-      <div class="instruction-code" style="margin-top: 6px;">
-        <code>${escapeHtml(regexPattern)}</code>
-        <a href="${mainDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
-        <a href="${mainFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium (Fallback)</a>
-        <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexPattern)}', 'Regex copied!')" type="button">Copy</button>
+      <div style="margin-top: 6px;">
+        ${mainPackageId ? `
+        <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: flex; flex-direction: column;">
+          <span style="font-family: monospace; opacity: 0.8; font-weight: normal; cursor: pointer; width: fit-content; word-break: break-all;" onclick="copyToClipboard('${escapeJsString(mainPackageId)}', 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(mainPackageId)}</span>
+        </div>
+        ` : ''}
+        <div class="instruction-code">
+          <code>${escapeHtml(regexPattern)}</code>
+          <a href="${mainDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
+          <a href="${mainFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium (Fallback)</a>
+          <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexPattern)}', 'Regex copied!')" type="button">Copy</button>
+        </div>
       </div>
     `;
   }
@@ -2362,7 +2382,7 @@ function getAppPackageId(app, patch, variantKey) {
     rawSlug = parsedAsset.rawAppSlug || "";
     rawPatch = parsedAsset.rawPatchToken || "";
   }
-  
+
   const appKeyNorm = normalizeForSearch(app.appKey || app.appName || "");
   const appNameNorm = normalizeForSearch(app.appName || "");
 
