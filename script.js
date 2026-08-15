@@ -519,6 +519,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (DOM.sortSelect) DOM.sortSelect.value = sortMode;
   }
 
+  const urlRepo = urlParams.get("repo");
+  if (urlRepo) {
+    repoFilter = urlRepo;
+  }
+
+  const urlCat = urlParams.get("cat");
+  if (urlCat) {
+    appCategoryFilter = urlCat;
+  }
+
   loadReleases();
 });
 
@@ -660,9 +670,15 @@ function setupEventListeners() {
   // Repository Selection Filter Buttons
   if (DOM.repoFilterButtons) {
     DOM.repoFilterButtons.addEventListener("click", (e) => {
-      const filterBtn = e.target.closest(".repo-pill-btn");
+      const filterBtn = e.target.closest(".repo-pill-btn") || e.target.closest(".filter-btn");
       if (!filterBtn) return;
-      repoFilter = filterBtn.dataset.repo || "all";
+      const selectedRepo = filterBtn.dataset.repo || "all";
+      if (repoFilter === selectedRepo && selectedRepo !== "all") {
+        repoFilter = "all";
+      } else {
+        repoFilter = selectedRepo;
+      }
+      syncUrlParams();
       filterAndRenderReleases();
     });
   }
@@ -672,10 +688,31 @@ function setupEventListeners() {
     DOM.appFilterButtons.addEventListener("click", (e) => {
       const filterBtn = e.target.closest(".filter-btn");
       if (!filterBtn) return;
-      appCategoryFilter = filterBtn.dataset.filter || "all";
+      const selectedFilter = filterBtn.dataset.filter || "all";
+      if (appCategoryFilter === selectedFilter && selectedFilter !== "all") {
+        appCategoryFilter = "all";
+      } else {
+        appCategoryFilter = selectedFilter;
+      }
+      syncUrlParams();
       filterAndRenderReleases();
     });
   }
+
+  // Handle Browser Back/Forward Navigation
+  window.addEventListener("popstate", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    searchTerm = (urlParams.get("q") || "").toLowerCase();
+    if (DOM.searchInput) {
+      DOM.searchInput.value = urlParams.get("q") || "";
+      DOM.searchWrap?.classList.toggle("has-value", Boolean(searchTerm));
+    }
+    sortMode = urlParams.get("sort") || "recent";
+    if (DOM.sortSelect) DOM.sortSelect.value = sortMode;
+    repoFilter = urlParams.get("repo") || "all";
+    appCategoryFilter = urlParams.get("cat") || "all";
+    filterAndRenderReleases();
+  });
 
   // Sort Selector
   if (DOM.sortSelect) {
@@ -867,6 +904,12 @@ function syncUrlParams() {
 
   if (sortMode !== "recent") url.searchParams.set("sort", sortMode);
   else url.searchParams.delete("sort");
+
+  if (repoFilter && repoFilter !== "all") url.searchParams.set("repo", repoFilter);
+  else url.searchParams.delete("repo");
+
+  if (appCategoryFilter && appCategoryFilter !== "all") url.searchParams.set("cat", appCategoryFilter);
+  else url.searchParams.delete("cat");
 
   history.replaceState(null, "", url);
 }
@@ -1249,11 +1292,12 @@ function renderRepoFilterButtons() {
   }
 
   DOM.repoFilterButtons.style.display = "flex";
-  let html = `<button class="filter-btn repo-pill-btn ${repoFilter === "all" ? "active" : ""}" data-repo="all" type="button">All Repositories</button>`;
+  let html = `<button class="filter-btn repo-pill-btn ${repoFilter === "all" ? "active" : ""}" data-repo="all" type="button" aria-pressed="${repoFilter === "all"}">All Repositories</button>`;
 
   repos.forEach((r) => {
     const slug = `${r.owner}/${r.repo}`;
-    html += `<button class="filter-btn repo-pill-btn ${repoFilter === slug ? "active" : ""}" data-repo="${escapeHtml(slug)}" type="button">📁 ${escapeHtml(r.repo)}</button>`;
+    const isActive = repoFilter === slug;
+    html += `<button class="filter-btn repo-pill-btn ${isActive ? "active" : ""}" data-repo="${escapeHtml(slug)}" type="button" aria-pressed="${isActive}">📁 ${escapeHtml(r.repo)}</button>`;
   });
 
   DOM.repoFilterButtons.innerHTML = html;
@@ -1309,10 +1353,14 @@ function updateCatalogStatus(apps) {
 
 function updateAppFilterButtons() {
   document.querySelectorAll("#appFilterButtons .filter-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.filter === appCategoryFilter);
+    const isActive = btn.dataset.filter === appCategoryFilter;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
-  document.querySelectorAll("#repoFilterButtons .repo-pill-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.repo === repoFilter);
+  document.querySelectorAll("#repoFilterButtons .repo-pill-btn, #repoFilterButtons .filter-btn").forEach((btn) => {
+    const isActive = btn.dataset.repo === repoFilter;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
 }
 
