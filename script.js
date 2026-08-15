@@ -16,20 +16,25 @@ const CONFIG = {
   // App Categories for the filter buttons
   appCategories: {
     amazon: ["amazon", "alexa", "primevideo", "amazonindia"],
-    //androidtv: ["primevideo", "plutotv", "moviebox", "disneyplus", "hbomax", "tubi", "vix", "at4klauncher", "projectivylauncher", "peacock", "netflix"],
-    google: ["youtube", "google", "gboard"],
+    google: ["google", "gboard"],
+    youtube: ["youtube"],
     meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
-    vpn: ["1111warp", "vpnify", "vpn"],
-    emulator: ["dolphin"],
-    games: ["dolphin", "levilauncher"],
-    social: ["x", "discord", "youtube", "threads", "instagram", "messenger", "facebook", "tiktok"],
-    video: ["youtube", "primevideo", "tiktok", "jiohotstar"],
-    docs: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader" ],
-    music: ["youtubemusic", "symfonium"],
+    vpn: ["1111warp", "vpnify", "vpn", "protonvpn"],
+    emulator: ["dolphin", "emulator"],
+    games: ["levilauncher", "levilaunchroid", "game", "games"],
+    social: ["twitter", "discord", "threads", "instagram", "messenger", "facebook", "tiktok", "reddit", "x-morphe", "xshim", "comtwitter", "!hbomax", "!vix", "!moviebox", "!terabox", "!netflix"],
+    video: ["youtube", "primevideo", "tiktok", "jiohotstar", "hbomax", "vix", "moviebox", "netflix", "!youtubemusic"],
+    docs: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "office"],
+    music: ["youtubemusic", "symfonium", "music"],
   },
 
   // Words ignored in the dynamic app filters (must be lowercase)
-  sharedAppWordStoplist: new Set(["messenger", "document", "reader"]),
+  sharedAppWordStoplist: new Set([
+    "messenger", "document", "reader", "extra", "builder", "signed", "clone",
+    "morphe", "revanced", "xposed", "app", "apps", "free", "pro", "premium",
+    "latest", "official", "release", "module", "mode", "tools", "utility",
+    "android", "desktop", "patch", "patches", "custom", "version", "v1", "v2"
+  ]),
 
   // Known tokens indicating a patch name starts (must be lowercase)
   knownPatchTokens: new Set([
@@ -1372,11 +1377,12 @@ function applyCategoryFilter(apps) {
   if (CONFIG.appCategories[appCategoryFilter]) {
     return apps.filter((app) => {
       const name = normalizeForSearch(app.appName);
+      const keyNorm = normalizeForSearch(app.appKey);
       const keywords = CONFIG.appCategories[appCategoryFilter];
       const includes = keywords.filter((k) => !k.startsWith("!"));
       const excludes = keywords.filter((k) => k.startsWith("!")).map((k) => k.slice(1));
-      const isIncluded = includes.some((keyword) => name.includes(keyword));
-      const isExcluded = excludes.some((keyword) => name.includes(keyword));
+      const isIncluded = includes.some((keyword) => name.includes(keyword) || keyNorm.includes(keyword));
+      const isExcluded = excludes.some((keyword) => name.includes(keyword) || keyNorm.includes(keyword));
       return isIncluded && !isExcluded;
     });
   }
@@ -1650,9 +1656,13 @@ function getDynamicAppFilters(apps) {
     });
   });
 
-  const categoryKeys = new Set(Object.keys(CONFIG.appCategories));
+  const categoryKeywords = new Set([
+    ...Object.keys(CONFIG.appCategories),
+    ...Object.values(CONFIG.appCategories).flat().map((k) => k.replace(/^!/, ""))
+  ]);
+
   const dynamicFilters = Array.from(wordToAppKeys.entries())
-    .filter(([word, appKeys]) => appKeys.size >= SHARED_APP_WORD_MIN_COUNT && !categoryKeys.has(word))
+    .filter(([word, appKeys]) => appKeys.size >= SHARED_APP_WORD_MIN_COUNT && !categoryKeywords.has(word))
     .map(([word]) => ({
       key: `word-${word}`,
       label: toFilterLabel(word),
