@@ -38,7 +38,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch name starts (must be lowercase)
   knownPatchTokens: new Set([
-    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch"
+    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch", "signed"
   ]),
 
   // Known tokens indicating a variant (must be lowercase)
