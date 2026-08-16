@@ -2257,39 +2257,43 @@ let activeBuildForModal = null;
 
 function formatChangelogForBuild(build) {
   const body = build?.patchMeta?.body || build?.patchMeta?.releaseBody || "";
-  const repoSlug = build?.repoSlug || "";
+  const repoSlug = build?.repoSlug || "sharath-5br2r-apps/Eden-Workflow";
   const releaseUrl = build?.releaseUrl || "#";
+  const buildTag = build?.build || build?.version || "";
 
+  let formattedBody = "";
   if (body) {
-    let formattedBody = escapeHtml(body)
-      .replace(/^### (.*$)/gim, '<h4 style="color: var(--accent); margin: 12px 0 6px;">$1</h4>')
-      .replace(/^## (.*$)/gim, '<h3 style="color: var(--text-primary); margin: 16px 0 8px; font-size: 1.05rem; border-bottom: 1px solid var(--border); padding-bottom: 4px;">$1</h3>')
+    formattedBody = escapeHtml(body)
+      .replace(/Pull request build #\[?(\d+)\]?\((https?:\/\/[^\s\)]+)\)/gi, '<div class="pr-badge-header" style="background: var(--accent-glow); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-hover); margin-bottom: 12px; font-weight: 600; color: var(--accent);">Pull Request Build <a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">#$1</a></div>')
+      .replace(/Commit:\s*\[`?([a-f0-9]+)`?\]\((https?:\/\/[^\s\)]+)\)/gi, '<strong>Commit:</strong> <a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-family: var(--font-mono);">$1</a>')
+      .replace(/Merge base:\s*\[`?([a-f0-9]+)`?\]\((https?:\/\/[^\s\)]+)\)/gi, '<strong>Merge Base:</strong> <a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-family: var(--font-mono);">$1</a>')
+      .replace(/^### (.*$)/gim, '<h4 style="color: var(--accent); margin: 14px 0 6px; font-size: 0.95rem;">$1</h4>')
+      .replace(/^## (.*$)/gim, '<h3 style="color: var(--text-primary); margin: 18px 0 8px; font-size: 1.05rem; border-bottom: 1px solid var(--border); padding-bottom: 4px;">$1</h3>')
       .replace(/^# (.*$)/gim, '<h2 style="color: var(--text-primary); margin: 20px 0 10px; font-size: 1.2rem;">$1</h2>')
       .replace(/^\* (.*$)/gim, '<li style="margin-left: 18px; margin-bottom: 4px;">$1</li>')
       .replace(/^- (.*$)/gim, '<li style="margin-left: 18px; margin-bottom: 4px;">$1</li>')
       .replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">$1</a>');
-
-    return `
-      <div class="changelog-container" style="text-align: left; padding: 4px 8px; line-height: 1.6; font-size: 0.92rem;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
-          <span style="font-weight: 600; color: var(--text-primary);">Release Notes (${escapeHtml(repoSlug)})</span>
-          <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 10px; text-decoration: none;">
-            <span>GitHub Release</span> ↗
-          </a>
-        </div>
-        <div class="changelog-body-content" style="max-height: 420px; overflow-y: auto; padding-right: 6px;">
-          ${formattedBody}
-        </div>
-      </div>
-    `;
   }
 
   return `
-    <div class="no-results" style="padding: 32px 20px; text-align: center; color: var(--text-secondary);">
-      <p style="margin-bottom: 14px; font-size: 0.95rem;">Build from <strong>${escapeHtml(repoSlug || "Repository")}</strong></p>
-      <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none;">
-        <span>View Release Notes & Changelog on GitHub</span> ↗
-      </a>
+    <div class="changelog-container" style="text-align: left; padding: 4px 8px; line-height: 1.6; font-size: 0.92rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-weight: 600; color: var(--text-primary);">${escapeHtml(repoSlug)}</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Build Tag: ${escapeHtml(buildTag)}</span>
+        </div>
+        <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 12px; text-decoration: none;">
+          <span>View on GitHub</span> ↗
+        </a>
+      </div>
+      ${formattedBody ? `<div class="changelog-body-content" style="max-height: 440px; overflow-y: auto; padding-right: 6px;">${formattedBody}</div>` : `
+        <div class="no-results" style="padding: 32px 20px; text-align: center; color: var(--text-secondary);">
+          <p style="margin-bottom: 14px; font-size: 0.95rem;">Build release notes from <strong>${escapeHtml(repoSlug)}</strong></p>
+          <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none;">
+            <span>View Release Details on GitHub</span> ↗
+          </a>
+        </div>
+      `}
     </div>
   `;
 }
