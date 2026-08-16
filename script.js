@@ -2632,17 +2632,23 @@ function getAppPackageId(app, patch, variantKey) {
       }
     }
 
-    // 1. Check variant overrides in activeMapping (e.g. clone, androidtv, foss)
-    if (normVariant && normVariant !== "default" && normVariant !== "all") {
-      if (typeof activeMapping[normVariant] === "string") return activeMapping[normVariant];
-      if (typeof mapping[normVariant] === "string") return mapping[normVariant];
+    // 1. Check variant overrides in activeMapping (e.g. clone, androidtv, foss, legacy, genshin)
+    if (variantKey && variantKey !== "default" && variantKey !== "all") {
+      const vKeyNorm = normalizeForSearch(variantKey);
+      if (typeof activeMapping[variantKey] === "string") return activeMapping[variantKey];
+      if (typeof activeMapping[vKeyNorm] === "string") return activeMapping[vKeyNorm];
+      if (typeof mapping[variantKey] === "string") return mapping[variantKey];
+      if (typeof mapping[vKeyNorm] === "string") return mapping[vKeyNorm];
 
       for (const tok of variantTokens) {
+        const tokNorm = normalizeForSearch(tok);
         if (typeof activeMapping[tok] === "string") return activeMapping[tok];
-        if (tok.includes("tv") && typeof activeMapping["androidtv"] === "string") return activeMapping["androidtv"];
-        if (tok.includes("clone") && typeof activeMapping["clone"] === "string") return activeMapping["clone"];
-        if (tok.includes("foss") && typeof activeMapping["foss"] === "string") return activeMapping["foss"];
+        if (typeof activeMapping[tokNorm] === "string") return activeMapping[tokNorm];
+        if (tokNorm.includes("tv") && typeof activeMapping["androidtv"] === "string") return activeMapping["androidtv"];
+        if (tokNorm.includes("clone") && typeof activeMapping["clone"] === "string") return activeMapping["clone"];
+        if (tokNorm.includes("foss") && typeof activeMapping["foss"] === "string") return activeMapping["foss"];
         if (typeof mapping[tok] === "string") return mapping[tok];
+        if (typeof mapping[tokNorm] === "string") return mapping[tokNorm];
       }
     }
 
