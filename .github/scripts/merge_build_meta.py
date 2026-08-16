@@ -12,7 +12,8 @@ ARCH_SUFFIXES_REGEX = re.compile(
 )
 VERSION_PREFIX_REGEX = re.compile(r"^v(?=[a-z0-9])", re.IGNORECASE)
 ASSET_FILENAME_REGEX = re.compile(
-    r"^([a-z0-9-]+)-v([a-zA-Z0-9._-]+?)(?:-(?:arm64-v8a|armeabi-v7a|x86_64|x86|universal|all))?\.(?:apk|zip)$"
+    r"^([a-z0-9-]+)-v([a-zA-Z0-9._-]+?)(?:-(?:arm64-v8a|armeabi-v7a|x86_64|x86|universal|all))?\.(?:apk|zip|exe|msi|appimage|dmg|7z|tar\.gz)$",
+    re.IGNORECASE
 )
 
 def load_script_js_config(filepath="script.js"):

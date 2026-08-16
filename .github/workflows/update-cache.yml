@@ -39,6 +39,7 @@ jobs:
             "sharath-5br2r-apps/revanced-morphe-xposed-builder"
             "sharath-5br2r-apps/Dolphin-Extra"
             "sharath-5br2r-apps/LeviLaunchroid-Extra"
+            "sharath-5br2r-apps/Eden-Workflow"
           )
 
           echo "[]" > releases_new.json
