@@ -2339,21 +2339,40 @@ function closeAppliedPatchesModal() {
   hideModal(DOM.appliedPatchesModal);
 }
 
-// Helper to build Obtainium APK Filter Regex with multi-variant support
+// Helper to build Obtainium APK Filter Regex with multi-variant support & alias handling
 function buildObtainiumRegex(app, patch, variantKey) {
   let matchingAsset = null;
+
+  function isMatchingVariant(assetVKey, targetVKey) {
+    if (!targetVKey || targetVKey === "all" || targetVKey === "default") return true;
+    if (!assetVKey) return false;
+
+    const aNorm = normalizeForSearch(assetVKey);
+    const tNorm = normalizeForSearch(targetVKey);
+    if (aNorm === tNorm) return true;
+
+    const genshinVariants = new Set([
+      "genshin", "genshinspoof", "optimized", "optimised",
+      "optimisedgenshinspoof", "optimizedgenshinspoof"
+    ]);
+    if (genshinVariants.has(aNorm) && genshinVariants.has(tNorm)) return true;
+
+    const legacyVariants = new Set(["legacy", "edenlegacy"]);
+    if (legacyVariants.has(aNorm) && legacyVariants.has(tNorm)) return true;
+
+    const standardVariants = new Set(["standard", "mainline", "default"]);
+    if (standardVariants.has(aNorm) && standardVariants.has(tNorm)) return true;
+
+    return false;
+  }
 
   if (patch && patch.builds) {
     for (const build of patch.builds) {
       if (!build.assets) continue;
       for (const asset of build.assets) {
         if (!/\.(apk|apks|xapk|apkm)$/i.test(asset.name || "")) continue;
-        if (!variantKey || variantKey === "all" || variantKey === "default") {
-          matchingAsset = asset;
-          break;
-        }
         const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
-        if (vKey === variantKey) {
+        if (isMatchingVariant(vKey, variantKey)) {
           matchingAsset = asset;
           break;
         }
@@ -2364,14 +2383,14 @@ function buildObtainiumRegex(app, patch, variantKey) {
 
   if (matchingAsset && matchingAsset.parsed && matchingAsset.parsed.rawPrefix) {
     const safePrefix = matchingAsset.parsed.rawPrefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
-    return `${safePrefix}.*\\.apk$`;
+    return `(?i)^${safePrefix}.*\\.apk$`;
   }
 
   const appSlug = normalizeForSearch(app?.appName || "app");
   const patchSlug = normalizeForSearch(patch?.patchName || "official");
 
   if (!variantKey || variantKey === "default" || variantKey === "all") {
-    return `${appSlug}-${patchSlug}.*\\.apk$`;
+    return `(?i)^${appSlug}.*\\.apk$`;
   }
 
   const variantPattern = variantKey
@@ -2380,7 +2399,7 @@ function buildObtainiumRegex(app, patch, variantKey) {
     .map((tok) => normalizeForSearch(tok))
     .join("-");
 
-  return `${appSlug}-${patchSlug}-${variantPattern}.*\\.apk$`;
+  return `(?i)^${appSlug}-${patchSlug}-${variantPattern}.*\\.apk$`;
 }
 
 // Obtainium Modal Controller
