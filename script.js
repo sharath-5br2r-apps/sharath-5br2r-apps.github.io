@@ -2383,23 +2383,22 @@ function buildObtainiumRegex(app, patch, variantKey) {
 
   if (matchingAsset && matchingAsset.parsed && matchingAsset.parsed.rawPrefix) {
     const safePrefix = matchingAsset.parsed.rawPrefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
-    return `(?i)^${safePrefix}.*\\.apk$`;
+    return `^${safePrefix}.*\\.apk$`;
   }
 
-  const appSlug = normalizeForSearch(app?.appName || "app");
-  const patchSlug = normalizeForSearch(patch?.patchName || "official");
+  const appSlug = app?.appName ? app.appName.toLowerCase().replace(/[^a-z0-9]/g, "") : "app";
+  const patchSlug = patch?.patchName ? patch.patchName.toLowerCase().replace(/[^a-z0-9]/g, "") : "official";
 
   if (!variantKey || variantKey === "default" || variantKey === "all") {
-    return `(?i)^${appSlug}.*\\.apk$`;
+    return `^${appSlug}.*\\.apk$`;
   }
 
   const variantPattern = variantKey
     .split(/[^a-z0-9]+/i)
     .filter(Boolean)
-    .map((tok) => normalizeForSearch(tok))
     .join("-");
 
-  return `(?i)^${appSlug}-${patchSlug}-${variantPattern}.*\\.apk$`;
+  return `^${appSlug}-${patchSlug}-${variantPattern}.*\\.apk$`;
 }
 
 // Obtainium Modal Controller
