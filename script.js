@@ -8,6 +8,7 @@ const CONFIG = {
   // Support for multiple GitHub APK release repositories
   repos: [
     { owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" },
+    { owner: "sharath-5br2r-apps", repo: "Eden-Workflow" },
     { owner: "sharath-5br2r-apps", repo: "Dolphin-Extra" },
     { owner: "sharath-5br2r-apps", repo: "LeviLaunchroid-Extra" },
   ],
@@ -78,6 +79,20 @@ const CONFIG = {
     "android",
     "stylus",
     "dh6k",
+    "legacy",
+    "optimized",
+    "optimised",
+    "clang",
+    "pgo",
+    "gcc",
+    "msvc",
+    "chromeos",
+    "steamdeck",
+    "rog-ally",
+    "rogally",
+    "lto",
+    "bolt",
+    "standard",
   ]),
 
   // Known architectures (used for regex parsing)
@@ -173,10 +188,54 @@ const CONFIG = {
     pc: "PC",
     bravebeta: "Brave Browser Beta",
     bravestable: "Brave Browser",
+    eden: "Eden Emulator",
+    edenemulator: "Eden Emulator",
+    edenlegacy: "Eden (Legacy)",
+    genshinspoof: "Genshin Spoof",
+    optimisedgenshinspoof: "Genshin Impact (Optimised -> Genshin Spoof)",
+    yuanshen: "Genshin Impact",
+    legacy: "Legacy",
+    optimized: "Optimised (Genshin Spoof)",
+    optimised: "Optimised (Genshin Spoof)",
+    clang: "Clang",
+    pgo: "PGO",
+    gcc: "GCC",
+    msvc: "MSVC",
+    chromeos: "ChromeOS",
+    steamdeck: "Steam Deck",
+    rogally: "ROG Ally (Zen 4)",
+    lto: "LTO",
+    bolt: "BOLT",
+    standard: "Standard",
   },
 
   // Map app slugs to true Android Package IDs for Obtainium
   appIds: {
+    eden: {
+      default: "dev.eden.eden_emulator",
+      legacy: "dev.legacy.eden_emulator",
+      genshin: "com.miHoYo.Yuanshen",
+      genshinspoof: "com.miHoYo.Yuanshen",
+      optimised: "com.miHoYo.Yuanshen",
+      optimized: "com.miHoYo.Yuanshen",
+      optimisedgenshinspoof: "com.miHoYo.Yuanshen",
+      optimizedgenshinspoof: "com.miHoYo.Yuanshen",
+    },
+    edenemulator: {
+      default: "dev.eden.eden_emulator",
+      legacy: "dev.legacy.eden_emulator",
+      genshin: "com.miHoYo.Yuanshen",
+      genshinspoof: "com.miHoYo.Yuanshen",
+      optimised: "com.miHoYo.Yuanshen",
+      optimized: "com.miHoYo.Yuanshen",
+      optimisedgenshinspoof: "com.miHoYo.Yuanshen",
+      optimizedgenshinspoof: "com.miHoYo.Yuanshen",
+    },
+    edenlegacy: "dev.legacy.eden_emulator",
+    edenemulatorlegacy: "dev.legacy.eden_emulator",
+    yuanshen: "com.miHoYo.Yuanshen",
+    genshinimpact: "com.miHoYo.Yuanshen",
+    genshinspoof: "com.miHoYo.Yuanshen",
     "1111warp": "com.cloudflare.onedotonedotonedotone",
     acalendar: "org.withouthat.acalendar",
     adguard: "com.adguard.android",
@@ -2642,7 +2701,15 @@ function getFileType(filename) {
   if (lower.endsWith(".flatpak")) return "Flatpak";
   if (lower.endsWith(".snap")) return "Snap";
 
-  if (lower.includes("module") || lower.endsWith(".zip")) return "Module";
+  if (lower.endsWith(".zip")) {
+    if (lower.includes("module") || lower.includes("magisk") || lower.includes("ksu") || lower.includes("apksu")) {
+      return "Module";
+    }
+    if (lower.includes("win") || lower.includes("windows") || lower.includes("x86") || lower.includes("x64")) {
+      return "Windows Zip";
+    }
+    return "Zip Archive";
+  }
 
   if (/\.(tar(\.[a-z0-9]+)?|tgz|7z|rar)$/i.test(lower)) {
     return "Archive";
@@ -2655,9 +2722,9 @@ function detectArchitecture(filename) {
   const name = (filename || "").toLowerCase();
   if (name.includes("arm64") || name.includes("aarch64") || name.includes("arm64-v8a")) return "arm64";
   if ((name.includes("arm") && !name.includes("arm64")) || name.includes("arm-v7a") || name.includes("armeabi")) return "arm32";
+  if (name.includes("x86_64") || name.includes("x86-64") || name.includes("x64") || name.includes("win64")) return "x86_64";
+  if (name.includes("x86") || name.includes("win32") || name.includes("i386") || name.includes("i686")) return "x86";
   if (name.includes("universal") || name.includes("-all.") || /^(?!.*arm|x86|x64|i386)[^-]*\.(apk|apks|xapk|apkm|exe|msi|zip)$/i.test(name)) return "universal";
-  if (name.includes("x86_64") || name.includes("x86-64") || name.includes("x64")) return "x86_64";
-  if (name.includes("x86") || name.includes("i386") || name.includes("i686")) return "x86";
   return "other";
 }
 
