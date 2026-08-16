@@ -2244,6 +2244,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   }
 
   activeAppliedPatchesList = appliedPatches;
+  activeBuildForModal = build;
   filterAppliedPatchesList("");
   showModal(DOM.appliedPatchesModal);
 
@@ -2252,14 +2253,55 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   }
 }
 
+let activeBuildForModal = null;
+
+function formatChangelogForBuild(build) {
+  const body = build?.patchMeta?.body || build?.patchMeta?.releaseBody || "";
+  const repoSlug = build?.repoSlug || "";
+  const releaseUrl = build?.releaseUrl || "#";
+
+  if (body) {
+    let formattedBody = escapeHtml(body)
+      .replace(/^### (.*$)/gim, '<h4 style="color: var(--accent); margin: 12px 0 6px;">$1</h4>')
+      .replace(/^## (.*$)/gim, '<h3 style="color: var(--text-primary); margin: 16px 0 8px; font-size: 1.05rem; border-bottom: 1px solid var(--border); padding-bottom: 4px;">$1</h3>')
+      .replace(/^# (.*$)/gim, '<h2 style="color: var(--text-primary); margin: 20px 0 10px; font-size: 1.2rem;">$1</h2>')
+      .replace(/^\* (.*$)/gim, '<li style="margin-left: 18px; margin-bottom: 4px;">$1</li>')
+      .replace(/^- (.*$)/gim, '<li style="margin-left: 18px; margin-bottom: 4px;">$1</li>')
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">$1</a>');
+
+    return `
+      <div class="changelog-container" style="text-align: left; padding: 4px 8px; line-height: 1.6; font-size: 0.92rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
+          <span style="font-weight: 600; color: var(--text-primary);">Release Notes (${escapeHtml(repoSlug)})</span>
+          <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 10px; text-decoration: none;">
+            <span>GitHub Release</span> ↗
+          </a>
+        </div>
+        <div class="changelog-body-content" style="max-height: 420px; overflow-y: auto; padding-right: 6px;">
+          ${formattedBody}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="no-results" style="padding: 32px 20px; text-align: center; color: var(--text-secondary);">
+      <p style="margin-bottom: 14px; font-size: 0.95rem;">Build from <strong>${escapeHtml(repoSlug || "Repository")}</strong></p>
+      <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none;">
+        <span>View Release Notes & Changelog on GitHub</span> ↗
+      </a>
+    </div>
+  `;
+}
+
 function filterAppliedPatchesList(query) {
   if (!DOM.appliedPatchesBody) return;
 
-  if (!activeAppliedPatchesList) {
+  if (!activeAppliedPatchesList || activeAppliedPatchesList.length === 0) {
     if (DOM.patchCountBadge) {
-      DOM.patchCountBadge.textContent = "0 patches";
+      DOM.patchCountBadge.textContent = "Release Notes";
     }
-    DOM.appliedPatchesBody.innerHTML = '<div class="no-results" style="padding: 36px 20px; text-align: center; color: var(--text-muted);">No applied patches data available for this build.</div>';
+    DOM.appliedPatchesBody.innerHTML = formatChangelogForBuild(activeBuildForModal);
     return;
   }
 
