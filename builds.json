@@ -2814,6 +2814,14 @@
           "Enable speed control ",
           "Skip ads "
         ]
+      },
+      "260083": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
       }
     },
     "3.0.466": {
@@ -5078,6 +5086,15 @@
         ]
       },
       "260080": {
+        "patches": ",",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "AMOLED dark theme ",
+          "Force system font (GitHub) ",
+          "Force system font (including monospace) (GitHub) "
+        ]
+      },
+      "260083": {
         "patches": ",",
         "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
         "applied_patches": [
