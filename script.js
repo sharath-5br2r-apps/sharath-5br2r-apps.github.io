@@ -1267,7 +1267,11 @@ function buildAppCatalog(releases) {
           repoUrl,
           repoSlug,
           version: parsed.version,
+          body: release.body || "",
+          releaseBody: release.body || "",
           patchMeta: {
+            body: release.body || "",
+            releaseBody: release.body || "",
             ...patchMetaFromRelease,
           },
           appliedPatches: null,
@@ -1376,6 +1380,8 @@ function extractPatchInfoFromRelease(release) {
   const changelogMatches = Array.from(body.matchAll(/\[Changelog\]\((https?:\/\/[^\s\)]+)\)/gi));
 
   return {
+    body,
+    releaseBody: body,
     cli: cliMatch ? cliMatch[1] : null,
     patches: patchMatches.map((m) => m[1]),
     changelogs: changelogMatches.map((m) => m[1]),
@@ -2737,7 +2743,19 @@ function openChangelogModal(appKey, patchKey, buildKey) {
     DOM.changelogMeta.textContent = `Build ${build.build || build.version || ""} • Published ${formatDate(build.publishedAt)}`;
   }
 
-  const rawBody = build.patchMeta?.body || build.patchMeta?.releaseBody || build.releaseBody || build.body || "";
+  let rawBody =
+    build.body ||
+    build.patchMeta?.body ||
+    build.patchMeta?.releaseBody ||
+    build.releaseBody ||
+    "";
+
+  if (!rawBody && build.releaseId && currentReleasesCache) {
+    const matchedRelease = currentReleasesCache.find((r) => String(r.id) === String(build.releaseId));
+    if (matchedRelease && matchedRelease.body) {
+      rawBody = matchedRelease.body;
+    }
+  }
 
   let html = "";
   if (rawBody) {
