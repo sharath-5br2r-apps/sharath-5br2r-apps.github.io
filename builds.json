@@ -4467,6 +4467,20 @@
           "Price history charts ",
           "Remove ads "
         ]
+      },
+      "260084": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Dark mode ",
+          "Disable search suggestions tracking ",
+          "Disable video autoplay ",
+          "Disable video autoplay ",
+          "Fix Amazon manifest conflicts ",
+          "Open links in browser ",
+          "Price history charts ",
+          "Remove ads "
+        ]
       }
     },
     "32.12.4.300": {
@@ -4578,6 +4592,13 @@
         "applied_patches": [
           "Adobe Acrobat Premium "
         ]
+      },
+      "260084": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Adobe Acrobat Premium "
+        ]
       }
     }
   },
@@ -4611,6 +4632,13 @@
         "applied_patches": [
           "Unlock Premium "
         ]
+      },
+      "260084": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
       }
     }
   },
@@ -4621,6 +4649,13 @@
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": [
           "Oxygen Updater Contributor "
+        ]
+      },
+      "260084": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Oxygen Updater — Remove Ads "
         ]
       }
     }
