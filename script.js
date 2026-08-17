@@ -532,6 +532,10 @@ function initDOM() {
   DOM.obtainiumTitle = document.getElementById("obtainiumTitle");
   DOM.obtainiumBody = document.getElementById("obtainiumBody");
   DOM.obtainiumBtn = document.getElementById("obtainiumBtn");
+  DOM.changelogModal = document.getElementById("changelogModal");
+  DOM.changelogTitle = document.getElementById("changelogTitle");
+  DOM.changelogMeta = document.getElementById("changelogMeta");
+  DOM.changelogBody = document.getElementById("changelogBody");
   DOM.toastNotification = document.getElementById("toastNotification");
   DOM.themeColorMeta = document.getElementById("themeColorMeta");
 
@@ -849,7 +853,7 @@ function setupEventListeners() {
       if (card) {
         const isHeaderClick = e.target.closest(".modal-build-header");
         const isOpen = card.classList.contains("open");
-        const isInteractive = e.target.closest("a, button, .patch-applied-btn");
+        const isInteractive = e.target.closest("a, button, .patch-applied-btn, .changelog-btn");
 
         if (isHeaderClick || (!isOpen && !isInteractive)) {
           if (!isOpen) {
@@ -908,6 +912,18 @@ function setupEventListeners() {
         return;
       }
 
+      const changelogTrigger = e.target.closest(".changelog-btn");
+      if (changelogTrigger) {
+        e.preventDefault();
+        e.stopPropagation();
+        openChangelogModal(
+          changelogTrigger.dataset.appKey,
+          changelogTrigger.dataset.patchKey,
+          changelogTrigger.dataset.buildKey
+        );
+        return;
+      }
+
       if (e.target.id === "patchModal" || e.target.closest(".modal-close")) {
         closePatchModal();
       }
@@ -919,6 +935,15 @@ function setupEventListeners() {
     DOM.appliedPatchesModal.addEventListener("click", (e) => {
       if (e.target.id === "appliedPatchesModal" || e.target.closest(".modal-close")) {
         closeAppliedPatchesModal();
+      }
+    });
+  }
+
+  // Changelog Modal
+  if (DOM.changelogModal) {
+    DOM.changelogModal.addEventListener("click", (e) => {
+      if (e.target.id === "changelogModal" || e.target.closest(".modal-close")) {
+        closeChangelogModal();
       }
     });
   }
@@ -1978,6 +2003,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
   const patchInfoBanner = `
     <div class="patch-info-actions">
       <button class="patch-applied-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" type="button">View Applied Patches</button>
+      <button class="changelog-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" type="button">View Changelog</button>
       <a href="${build.releaseUrl}" target="_blank" rel="noopener noreferrer" class="release-link-button">View Release Source</a>
     </div>
   `;
@@ -2693,6 +2719,56 @@ function getAppPackageId(app, patch, variantKey) {
 
 function closeObtainiumModal() {
   hideModal(DOM.obtainiumModal);
+}
+
+// Changelog Modal Controller (uses marked.js for markdown rendering)
+function openChangelogModal(appKey, patchKey, buildKey) {
+  const app = currentAppCatalog.find((item) => item.appKey === appKey);
+  const patch = app ? app.patches.find((item) => item.patchKey === patchKey) : null;
+  if (!app || !patch) return;
+
+  const build = patch.builds.find((b) => String(b.buildKey || b.releaseId) === String(buildKey)) || patch.builds[0];
+  if (!build) return;
+
+  const variantText = build.variant ? ` (${formatBrandDisplayName(build.variant)})` : "";
+  if (DOM.changelogTitle) {
+    DOM.changelogTitle.textContent = `${app.appName} • ${patch.patchName}${variantText}`;
+  }
+  if (DOM.changelogMeta) {
+    DOM.changelogMeta.textContent = `Build ${build.build || build.version || ""} • Published ${formatDate(build.publishedAt)}`;
+  }
+
+  const rawBody = build.patchMeta?.body || build.patchMeta?.releaseBody || build.releaseBody || build.body || "";
+
+  let html = "";
+  if (rawBody) {
+    if (typeof marked !== "undefined" && typeof marked.parse === "function") {
+      html = marked.parse(rawBody);
+    } else if (typeof marked === "function") {
+      html = marked(rawBody);
+    } else {
+      html = formatChangelogForBuild(build);
+    }
+  } else {
+    html = `
+      <div class="no-results" style="padding: 32px 20px; text-align: center; color: var(--text-secondary);">
+        <p style="margin-bottom: 14px; font-size: 0.95rem;">No release notes provided for this build.</p>
+        <a href="${escapeHtml(build.releaseUrl || "#")}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none;">
+          <span>View Release Details on GitHub</span> ↗
+        </a>
+      </div>
+    `;
+  }
+
+  if (DOM.changelogBody) {
+    DOM.changelogBody.innerHTML = `<div class="changelog-markdown-content">${html}</div>`;
+  }
+
+  showModal(DOM.changelogModal);
+}
+
+function closeChangelogModal() {
+  hideModal(DOM.changelogModal);
 }
 
 // Clipboard & Toast Utilities

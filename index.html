@@ -159,9 +159,28 @@
         </div>
     </div>
 
+    <!-- Release Changelog Modal -->
+    <div id="changelogModal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-card modal-card-wide" role="dialog" aria-modal="true" aria-labelledby="changelogTitle">
+            <div class="modal-header">
+                <div class="modal-header-top">
+                    <div class="modal-title-wrap">
+                        <h2 id="changelogTitle">Release Notes</h2>
+                        <div id="changelogMeta" class="applied-patches-meta"></div>
+                    </div>
+                    <div class="modal-header-right">
+                        <button type="button" class="modal-close" aria-label="Close popup">×</button>
+                    </div>
+                </div>
+            </div>
+            <div id="changelogBody" class="modal-body changelog-body"></div>
+        </div>
+    </div>
+
     <!-- Toast Notification -->
     <div id="toastNotification" class="toast-notification" aria-live="polite"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
 </body>
 
