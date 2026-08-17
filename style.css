@@ -1685,9 +1685,41 @@ body.light-mode .download-btn:hover {
 .applied-patches-meta {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     flex-wrap: wrap;
     font-size: 0.85rem;
+    padding: 12px 20px;
+    background: var(--bg-surface-high);
+    border-bottom: 1px solid var(--border);
+}
+
+.patch-engine-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--accent-glow);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+.patch-engine-link {
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.patch-engine-link:hover {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.patch-link-arrow {
+    width: 12px;
+    height: 12px;
 }
 
 .applied-patches-search-wrap {
@@ -1710,6 +1742,7 @@ body.light-mode .download-btn:hover {
     font-size: 0.9rem;
     height: 42px;
     box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 #patchCountBadge {
@@ -1720,35 +1753,56 @@ body.light-mode .download-btn:hover {
     display: inline-flex;
     align-items: center;
     box-sizing: border-box;
+    background: var(--bg-surface-high);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85rem;
 }
 
 #patchSearchInput:focus {
     outline: none;
     border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.applied-patches-body {
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
 }
 
 .applied-patches-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
 }
 
 .applied-patch-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
+    gap: 10px;
+    padding: 10px 14px;
     background: var(--bg-tertiary);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     font-size: 0.85rem;
     color: var(--text-primary);
+    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    word-break: break-word;
+}
+
+.applied-patch-item:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-surface-high);
+    transform: translateY(-1px);
 }
 
 .patch-check-icon {
-    color: var(--accent-stable);
+    color: #4caf50;
     font-weight: 800;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    flex-shrink: 0;
 }
 
 /* Obtainium Modal */

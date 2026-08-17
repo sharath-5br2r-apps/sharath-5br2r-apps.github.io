@@ -2342,9 +2342,15 @@ function filterAppliedPatchesList(query) {
 
   if (!activeAppliedPatchesList || activeAppliedPatchesList.length === 0) {
     if (DOM.patchCountBadge) {
-      DOM.patchCountBadge.textContent = "Release Notes";
+      DOM.patchCountBadge.textContent = "0 Patches";
     }
-    DOM.appliedPatchesBody.innerHTML = formatChangelogForBuild(activeBuildForModal);
+    DOM.appliedPatchesBody.innerHTML = `
+      <div class="no-results" style="padding: 40px 20px; text-align: center; color: var(--text-secondary);">
+        <div style="font-size: 2.2rem; margin-bottom: 8px;">📦</div>
+        <p style="font-weight: 700; margin-bottom: 6px; color: var(--text-primary); font-size: 1.05rem;">No Applied Patches Metadata</p>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 440px; margin: 0 auto; line-height: 1.45;">No applied patch list was recorded for this build in master build metadata (builds.json).</p>
+      </div>
+    `;
     return;
   }
 
@@ -2358,7 +2364,7 @@ function filterAppliedPatchesList(query) {
   }
 
   if (filtered.length === 0) {
-    DOM.appliedPatchesBody.innerHTML = '<div class="no-results" style="padding: 36px 20px; text-align: center; color: var(--text-muted);">No matching patches found.</div>';
+    DOM.appliedPatchesBody.innerHTML = '<div class="no-results" style="padding: 36px 20px; text-align: center; color: var(--text-secondary);">No matching patches found.</div>';
     return;
   }
 
