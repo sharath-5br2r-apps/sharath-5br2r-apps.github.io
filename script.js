@@ -2726,64 +2726,6 @@ function closeObtainiumModal() {
   hideModal(DOM.obtainiumModal);
 }
 
-// PR API Cache & Fetcher
-const prDataCache = new Map();
-
-async function fetchPRData(prType, prNum) {
-  const cacheKey = `${prType}-${prNum}`;
-  if (prDataCache.has(cacheKey)) {
-    return prDataCache.get(cacheKey);
-  }
-
-  try {
-    if (prType === "dolphin") {
-      const resp = await fetch(`https://api.github.com/repos/dolphin-emu/dolphin/pulls/${prNum}`, {
-        headers: { Accept: "application/vnd.github.v3+json" }
-      });
-      if (resp.ok) {
-        const data = await resp.json();
-        const prData = {
-          title: data.title || `Dolphin PR #${prNum}`,
-          author: data.user?.login || "Unknown",
-          authorUrl: data.user?.html_url || `https://github.com/${data.user?.login || ""}`,
-          prUrl: data.html_url || `https://github.com/dolphin-emu/dolphin/pull/${prNum}`,
-          state: data.merged ? "Merged" : (data.state || "Open"),
-          mergedAt: data.merged_at || data.closed_at || data.created_at,
-          additions: data.additions,
-          deletions: data.deletions,
-          changedFiles: data.changed_files,
-          body: data.body || "",
-        };
-        prDataCache.set(cacheKey, prData);
-        return prData;
-      }
-    } else if (prType === "eden") {
-      const resp = await fetch(`https://git.eden-emu.dev/api/v1/repos/eden-emu/eden/pulls/${prNum}`);
-      if (resp.ok) {
-        const data = await resp.json();
-        const prData = {
-          title: data.title || `Eden PR #${prNum}`,
-          author: data.user?.username || data.user?.login || "Unknown",
-          authorUrl: data.user ? `https://git.eden-emu.dev/${data.user.username || data.user.login}` : "#",
-          prUrl: data.html_url || `https://git.eden-emu.dev/eden-emu/eden/pulls/${prNum}`,
-          state: data.merged ? "Merged" : (data.state || "Open"),
-          mergedAt: data.merged_at || data.closed_at || data.created_at,
-          additions: null,
-          deletions: null,
-          changedFiles: null,
-          body: data.body || "",
-        };
-        prDataCache.set(cacheKey, prData);
-        return prData;
-      }
-    }
-  } catch (e) {
-    console.warn(`Could not fetch PR data for ${prType} #${prNum}:`, e);
-  }
-
-  return null;
-}
-
 // Format PR & Tag Changelog Banner Header Helper
 function formatChangelogHeader(build, rawBody) {
   const repoSlug = build?.repoSlug || "";
@@ -2828,7 +2770,7 @@ function formatChangelogHeader(build, rawBody) {
 }
 
 // Changelog Modal Controller (uses marked.js for markdown rendering)
-async function openChangelogModal(appKey, patchKey, buildKey) {
+function openChangelogModal(appKey, patchKey, buildKey) {
   const app = currentAppCatalog.find((item) => item.appKey === appKey);
   const patch = app ? app.patches.find((item) => item.patchKey === patchKey) : null;
   if (!app || !patch) return;
@@ -2862,79 +2804,35 @@ async function openChangelogModal(appKey, patchKey, buildKey) {
     }
   }
 
-  const buildTag = build?.build || build?.version || "";
-  const repoSlug = build?.repoSlug || "";
+  const headerBanner = formatChangelogHeader(build, rawBody);
+  let parsedContent = "";
 
-  const dolphinPrMatch = (buildTag + " " + (build?.releaseTitle || "") + " " + rawBody).match(/dolphin-pr-(\d+)|Dolphin PR #?(\d+)/i);
-  const edenPrMatch = (buildTag + " " + rawBody).match(/Pull request build #\[?(\d+)\]?\((https?:\/\/[^\s\)]+)\)|pr-(\d+)/i);
-
-  let prType = null;
-  let prNum = null;
-  if (dolphinPrMatch || repoSlug.includes("Dolphin")) {
-    prType = "dolphin";
-    prNum = dolphinPrMatch ? (dolphinPrMatch[1] || dolphinPrMatch[2]) : null;
-  } else if (edenPrMatch) {
-    prType = "eden";
-    prNum = edenPrMatch[1] || edenPrMatch[3];
+  if (rawBody) {
+    if (typeof marked !== "undefined" && typeof marked.parse === "function") {
+      parsedContent = marked.parse(rawBody);
+    } else if (typeof marked === "function") {
+      parsedContent = marked(rawBody);
+    } else {
+      parsedContent = formatChangelogForBuild(build);
+    }
+  } else {
+    parsedContent = `
+      <div class="no-results" style="padding: 24px 20px; text-align: center; color: var(--text-secondary);">
+        <p style="margin-bottom: 12px; font-size: 0.95rem;">No release notes body attached to this build.</p>
+      </div>
+    `;
   }
-
-  showModal(DOM.changelogModal);
-
-  // Initial render while fetching PR metadata
-  const fallbackHeader = formatChangelogHeader(build, rawBody);
-  let parsedContent = rawBody
-    ? (typeof marked !== "undefined" && typeof marked.parse === "function" ? marked.parse(rawBody) : escapeHtml(rawBody))
-    : '<div class="no-results" style="padding: 24px 20px; text-align: center; color: var(--text-secondary);"><p style="margin-bottom: 12px; font-size: 0.95rem;">No release notes body attached to this build.</p></div>';
 
   if (DOM.changelogBody) {
     DOM.changelogBody.innerHTML = `
       <div class="changelog-modal-wrapper">
-        ${fallbackHeader}
+        ${headerBanner}
         <div class="changelog-markdown-content">${parsedContent}</div>
       </div>
     `;
   }
 
-  // If PR build, fetch actual PR details asynchronously & update modal content
-  if (prType && prNum) {
-    const prData = await fetchPRData(prType, prNum);
-    if (prData) {
-      const prBody = prData.body || rawBody;
-      const prMarkdownContent = (typeof marked !== "undefined" && typeof marked.parse === "function")
-        ? marked.parse(prBody)
-        : escapeHtml(prBody);
-
-      const prHeaderHtml = `
-        <div class="pr-card-header" style="background: var(--bg-surface-high); border: 1px solid var(--accent-glow); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; flex-wrap: wrap;">
-            <span style="background: var(--accent-glow); color: var(--accent); font-weight: 700; font-size: 0.85rem; padding: 4px 10px; border-radius: var(--radius-sm);">
-              ${prType === 'dolphin' ? '🐬 Upstream Dolphin PR' : '🎮 Eden PR'} #${prNum} (${prData.state})
-            </span>
-            <a href="${escapeHtml(prData.prUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 12px; text-decoration: none;">
-              View PR Source ↗
-            </a>
-          </div>
-          <h3 style="margin: 0 0 10px 0; font-size: 1.15rem; color: var(--text-primary); font-weight: 700; line-height: 1.35;">
-            ${escapeHtml(prData.title)}
-          </h3>
-          <div style="font-size: 0.88rem; color: var(--text-secondary); display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-            <span>Author: <a href="${escapeHtml(prData.authorUrl)}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">@${escapeHtml(prData.author)}</a></span>
-            ${prData.mergedAt ? `<span>Merged: ${formatDate(prData.mergedAt)}</span>` : ''}
-            ${prData.additions != null ? `<span><strong style="color: #4caf50;">+${prData.additions}</strong> <strong style="color: #f44336;">-${prData.deletions}</strong> (${prData.changedFiles} files)</span>` : ''}
-          </div>
-        </div>
-      `;
-
-      if (DOM.changelogBody) {
-        DOM.changelogBody.innerHTML = `
-          <div class="changelog-modal-wrapper">
-            ${prHeaderHtml}
-            <div class="changelog-markdown-content">${prMarkdownContent}</div>
-          </div>
-        `;
-      }
-    }
-  }
+  showModal(DOM.changelogModal);
 }
 
 function closeChangelogModal() {
