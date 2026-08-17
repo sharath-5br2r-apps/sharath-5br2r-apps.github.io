@@ -1398,7 +1398,7 @@ function renderRepoFilterButtons() {
   repos.forEach((r) => {
     const slug = `${r.owner}/${r.repo}`;
     const isActive = repoFilter === slug;
-    html += `<button class="filter-btn repo-pill-btn ${isActive ? "active" : ""}" data-repo="${escapeHtml(slug)}" type="button" aria-pressed="${isActive}">📁 ${escapeHtml(r.repo)}</button>`;
+    html += `<button class="filter-btn repo-pill-btn ${isActive ? "active" : ""}" data-repo="${escapeHtml(slug)}" type="button" aria-pressed="${isActive}">📁 ${escapeHtml(slug)}</button>`;
   });
 
   DOM.repoFilterButtons.innerHTML = html;
@@ -1589,8 +1589,7 @@ function createAppCard(app) {
     ? app.repos
         .map((slug) => {
           const url = `https://github.com/${slug}`;
-          const repoName = slug.split("/")[1] || slug;
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: var(--accent); text-decoration: underline; font-weight: 600;">${escapeHtml(repoName)}</a>`;
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: var(--accent); text-decoration: underline; font-weight: 600;">${escapeHtml(slug)}</a>`;
         })
         .join(" • ")
     : "";
