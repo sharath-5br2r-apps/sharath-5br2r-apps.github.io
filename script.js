@@ -2750,8 +2750,12 @@ function openChangelogModal(appKey, patchKey, buildKey) {
     build.releaseBody ||
     "";
 
-  if (!rawBody && build.releaseId && currentReleasesCache) {
-    const matchedRelease = currentReleasesCache.find((r) => String(r.id) === String(build.releaseId));
+  if (!rawBody && Array.isArray(allReleases)) {
+    const matchedRelease = allReleases.find((r) =>
+      String(r.id) === String(build.releaseId) ||
+      String(r.tag_name) === String(build.build) ||
+      (r.html_url && build.releaseUrl && r.html_url === build.releaseUrl)
+    );
     if (matchedRelease && matchedRelease.body) {
       rawBody = matchedRelease.body;
     }
