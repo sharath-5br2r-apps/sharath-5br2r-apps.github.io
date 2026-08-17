@@ -2726,6 +2726,49 @@ function closeObtainiumModal() {
   hideModal(DOM.obtainiumModal);
 }
 
+// Format PR & Tag Changelog Banner Header Helper
+function formatChangelogHeader(build, rawBody) {
+  const repoSlug = build?.repoSlug || "";
+  const buildTag = build?.build || build?.version || "";
+  const releaseUrl = build?.releaseUrl || "#";
+
+  // Check Dolphin PR pattern
+  const dolphinPrMatch = (buildTag + " " + (build?.releaseTitle || "") + " " + rawBody).match(/dolphin-pr-(\d+)|Dolphin PR #?(\d+)/i);
+  if (dolphinPrMatch || repoSlug.includes("Dolphin")) {
+    const prNum = dolphinPrMatch ? (dolphinPrMatch[1] || dolphinPrMatch[2]) : null;
+    const prUrl = prNum ? `https://github.com/dolphin-emu/dolphin/pull/${prNum}` : releaseUrl;
+    const prLabel = prNum ? `#${prNum}` : buildTag;
+
+    return `
+      <div class="pr-badge-header" style="background: var(--accent-glow); padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-hover); margin-bottom: 14px; font-weight: 600; color: var(--accent); display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+        <span>🐬 Dolphin Upstream Pull Request <a href="${escapeHtml(prUrl)}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">${escapeHtml(prLabel)}</a></span>
+        <a href="${escapeHtml(prUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.78rem; padding: 3px 10px; text-decoration: none;">View Upstream PR ↗</a>
+      </div>
+    `;
+  }
+
+  // Check Eden PR pattern
+  const edenPrMatch = (buildTag + " " + rawBody).match(/Pull request build #\[?(\d+)\]?\((https?:\/\/[^\s\)]+)\)|pr-(\d+)/i);
+  if (edenPrMatch) {
+    const prNum = edenPrMatch[1] || edenPrMatch[3];
+    const prUrl = edenPrMatch[2] || (prNum ? `https://git.eden-emu.dev/eden-emu/eden/pulls/${prNum}` : releaseUrl);
+    return `
+      <div class="pr-badge-header" style="background: var(--accent-glow); padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-hover); margin-bottom: 14px; font-weight: 600; color: var(--accent); display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+        <span>🎮 Forgejo Pull Request <a href="${escapeHtml(prUrl)}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">#${escapeHtml(prNum)}</a></span>
+        <a href="${escapeHtml(prUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.78rem; padding: 3px 10px; text-decoration: none;">View PR Details ↗</a>
+      </div>
+    `;
+  }
+
+  // Default Release Tag Header (for LeviLaunchroid and tagged releases)
+  return `
+    <div class="release-header-banner" style="background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-bottom: 14px; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+      <span>🏷️ Tag: <code style="color: var(--accent); font-family: var(--font-mono);">${escapeHtml(buildTag)}</code></span>
+      <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.78rem; padding: 3px 10px; text-decoration: none;">View Release ↗</a>
+    </div>
+  `;
+}
+
 // Changelog Modal Controller (uses marked.js for markdown rendering)
 function openChangelogModal(appKey, patchKey, buildKey) {
   const app = currentAppCatalog.find((item) => item.appKey === appKey);
@@ -2761,28 +2804,32 @@ function openChangelogModal(appKey, patchKey, buildKey) {
     }
   }
 
-  let html = "";
+  const headerBanner = formatChangelogHeader(build, rawBody);
+  let parsedContent = "";
+
   if (rawBody) {
     if (typeof marked !== "undefined" && typeof marked.parse === "function") {
-      html = marked.parse(rawBody);
+      parsedContent = marked.parse(rawBody);
     } else if (typeof marked === "function") {
-      html = marked(rawBody);
+      parsedContent = marked(rawBody);
     } else {
-      html = formatChangelogForBuild(build);
+      parsedContent = formatChangelogForBuild(build);
     }
   } else {
-    html = `
-      <div class="no-results" style="padding: 32px 20px; text-align: center; color: var(--text-secondary);">
-        <p style="margin-bottom: 14px; font-size: 0.95rem;">No release notes provided for this build.</p>
-        <a href="${escapeHtml(build.releaseUrl || "#")}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none;">
-          <span>View Release Details on GitHub</span> ↗
-        </a>
+    parsedContent = `
+      <div class="no-results" style="padding: 24px 20px; text-align: center; color: var(--text-secondary);">
+        <p style="margin-bottom: 12px; font-size: 0.95rem;">No release notes body attached to this build.</p>
       </div>
     `;
   }
 
   if (DOM.changelogBody) {
-    DOM.changelogBody.innerHTML = `<div class="changelog-markdown-content">${html}</div>`;
+    DOM.changelogBody.innerHTML = `
+      <div class="changelog-modal-wrapper">
+        ${headerBanner}
+        <div class="changelog-markdown-content">${parsedContent}</div>
+      </div>
+    `;
   }
 
   showModal(DOM.changelogModal);
