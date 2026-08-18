@@ -5112,6 +5112,11 @@
         "patches": "",
         "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
         "applied_patches": []
+      },
+      "260094": {
+        "patches": "",
+        "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
+        "applied_patches": []
       }
     },
     "340.13-Stable": {
