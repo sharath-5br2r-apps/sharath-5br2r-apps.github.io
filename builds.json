@@ -2404,6 +2404,15 @@
           "Brave Origin "
         ]
       }
+    },
+    "1.94.112": {
+      "260088": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
     }
   },
   "brave-beta-morphe-dh6k-x86_64": {
@@ -2416,6 +2425,15 @@
         ]
       },
       "260086": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    },
+    "1.94.112": {
+      "260088": {
         "patches": "",
         "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
         "applied_patches": [
