@@ -2396,12 +2396,26 @@
         "applied_patches": [
           "Brave Origin "
         ]
+      },
+      "260086": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
       }
     }
   },
   "brave-beta-morphe-dh6k-x86_64": {
     "1.94.109": {
       "260067": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      },
+      "260086": {
         "patches": "",
         "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -4429,6 +4443,155 @@
           "Support external downloader "
         ]
       }
+    },
+    "12.17.0-release.0": {
+      "260087": {
+        "patches": "",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": [
+          "Add ability to copy media link ",
+          "Block redirecting to X Lite ",
+          "Block update screen ",
+          "Change app icon ",
+          "Change version code ",
+          "Clear tracking params ",
+          "Control video auto scroll ",
+          "Custom download folder ",
+          "Custom emoji font ",
+          "Custom font ",
+          "Custom share menu ",
+          "Custom sharing domain ",
+          "Customise post font size ",
+          "Customize Inline action Bar items ",
+          "Customize Navigation Bar items ",
+          "Customize default reply sorting ",
+          "Customize explore tabs ",
+          "Customize notification tabs ",
+          "Customize profile tabs ",
+          "Customize search suggestions ",
+          "Customize search tab items ",
+          "Customize side bar items ",
+          "Customize timeline top bar ",
+          "Delete from database ",
+          "Disable auto timeline scroll on launch ",
+          "Disable chirp font ",
+          "Download patch ",
+          "Dynamic color ",
+          "Enable PiP mode automatically ",
+          "Enable Undo Posts ",
+          "Enable debug menu for posts ",
+          "Enable force HD videos ",
+          "Force enable translate ",
+          "Handle custom twitter links ",
+          "Hide Banner ",
+          "Hide Community Notes ",
+          "Hide FAB ",
+          "Hide FAB Menu Buttons ",
+          "Hide Live Threads ",
+          "Hide Recommended Users ",
+          "Hide badges from navigation bar icons ",
+          "Hide bookmark icon in timeline ",
+          "Hide community badges ",
+          "Hide followed by context ",
+          "Hide hidden replies ",
+          "Hide immersive player ",
+          "Hide nudge button ",
+          "Hide post metrics ",
+          "Hide promote button ",
+          "Hide recommendation items ",
+          "Hook feature flag ",
+          "Import/Export login token ",
+          "Legacy share links ",
+          "Log server response ",
+          "More information on profile ",
+          "Native downloader ",
+          "Native reader mode ",
+          "Native translator ",
+          "No shortened URL ",
+          "Pause search suggestions ",
+          "Remove Ads ",
+          "Remove premium upsell ",
+          "Remove search suggestions ",
+          "Remove view count ",
+          "Round off numbers ",
+          "Selectable Text ",
+          "Share Tweet as Image ",
+          "Show changelogs ",
+          "Show poll results ",
+          "Show post source label ",
+          "Show sensitive media ",
+          "Support external downloader "
+        ]
+      },
+      "260086": {
+        "patches": "",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": [
+          "Add ability to copy media link ",
+          "Block redirecting to X Lite ",
+          "Change app icon ",
+          "Change version code ",
+          "Clear tracking params ",
+          "Control video auto scroll ",
+          "Custom download folder ",
+          "Custom emoji font ",
+          "Custom font ",
+          "Custom sharing domain ",
+          "Customise post font size ",
+          "Customize Inline action Bar items ",
+          "Customize Navigation Bar items ",
+          "Customize default reply sorting ",
+          "Customize explore tabs ",
+          "Customize notification tabs ",
+          "Customize profile tabs ",
+          "Customize search suggestions ",
+          "Customize search tab items ",
+          "Customize side bar items ",
+          "Customize timeline top bar ",
+          "Delete from database ",
+          "Disable auto timeline scroll on launch ",
+          "Disable chirp font ",
+          "Download patch ",
+          "Dynamic color ",
+          "Enable PiP mode automatically ",
+          "Enable Undo Posts ",
+          "Enable debug menu for posts ",
+          "Force enable translate ",
+          "Handle custom twitter links ",
+          "Hide Banner ",
+          "Hide Community Notes ",
+          "Hide FAB ",
+          "Hide FAB Menu Buttons ",
+          "Hide Live Threads ",
+          "Hide Recommended Users ",
+          "Hide badges from navigation bar icons ",
+          "Hide bookmark icon in timeline ",
+          "Hide community badges ",
+          "Hide followed by context ",
+          "Hide hidden replies ",
+          "Hide immersive player ",
+          "Hide nudge button ",
+          "Hide post metrics ",
+          "Hide promote button ",
+          "Hide recommendation items ",
+          "Hook feature flag ",
+          "Import/Export login token ",
+          "Legacy share links ",
+          "Log server response ",
+          "No shortened URL ",
+          "Pause search suggestions ",
+          "Remove Ads ",
+          "Remove premium upsell ",
+          "Remove search suggestions ",
+          "Remove view count ",
+          "Round off numbers ",
+          "Selectable Text ",
+          "Show changelogs ",
+          "Show poll results ",
+          "Show post source label ",
+          "Show sensitive media "
+        ]
+      }
     }
   },
   "discord-npatch-revenge": {
@@ -4483,6 +4646,20 @@
         ]
       },
       "260085": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Dark mode ",
+          "Disable search suggestions tracking ",
+          "Disable video autoplay ",
+          "Disable video autoplay ",
+          "Fix Amazon manifest conflicts ",
+          "Open links in browser ",
+          "Price history charts ",
+          "Remove ads "
+        ]
+      },
+      "260086": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -4620,6 +4797,13 @@
         "applied_patches": [
           "Adobe Acrobat Premium "
         ]
+      },
+      "260086": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
       }
     }
   },
@@ -4643,6 +4827,13 @@
           "Unlock Excel "
         ]
       }
+    },
+    "16.0.20326.20034": {
+      "260086": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": []
+      }
     }
   },
   "pc-remote-morphe-rushiranpise": {
@@ -4662,6 +4853,13 @@
         ]
       },
       "260085": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
+      },
+      "260086": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -4705,6 +4903,13 @@
       "260001": {
         "patches": "",
         "changelog": "",
+        "applied_patches": []
+      }
+    },
+    "2.2.704406.0": {
+      "260086": {
+        "patches": "",
+        "changelog": "passthrough",
         "applied_patches": []
       }
     }
@@ -5165,6 +5370,26 @@
         ]
       },
       "260083": {
+        "patches": ",",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "AMOLED dark theme ",
+          "Force system font (GitHub) ",
+          "Force system font (including monospace) (GitHub) "
+        ]
+      }
+    },
+    "1.272.0": {
+      "260087": {
+        "patches": ",",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "AMOLED dark theme ",
+          "Force system font (GitHub) ",
+          "Force system font (including monospace) (GitHub) "
+        ]
+      },
+      "260086": {
         "patches": ",",
         "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
         "applied_patches": [
