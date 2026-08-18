@@ -200,6 +200,11 @@
         "patches": "",
         "changelog": "https://github.com/crimera/piko/releases/tag/latest",
         "applied_patches": []
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": []
       }
     }
   },
@@ -742,6 +747,87 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue ",
+          "Alternative thumbnails ",
+          "Ambient mode ",
+          "Bypass image region restrictions ",
+          "Bypass link redirects ",
+          "Captions ",
+          "Change form factor ",
+          "Change header ",
+          "Change start page ",
+          "Check watch history domain name resolution ",
+          "Copy video link ",
+          "Custom branding ",
+          "Custom player overlay opacity ",
+          "Disable DRC audio ",
+          "Disable QUIC protocol ",
+          "Disable Shorts resuming on startup ",
+          "Disable double tap actions ",
+          "Disable fullscreen gestures ",
+          "Disable haptic feedback ",
+          "Disable layout updates ",
+          "Disable player popup panels ",
+          "Disable rolling number animations ",
+          "Disable sign in to TV popup ",
+          "Disable video codecs ",
+          "Double tap to seek ",
+          "Downloads ",
+          "Enable debugging ",
+          "Exit fullscreen mode ",
+          "Force original audio ",
+          "GmsCore support ",
+          "Hide Shorts components ",
+          "Hide ads ",
+          "Hide autoplay preview ",
+          "Hide end screen cards ",
+          "Hide end screen suggested video ",
+          "Hide info cards ",
+          "Hide layout components ",
+          "Hide player flyout menu components ",
+          "Hide player overlay buttons ",
+          "Hide related video overlay ",
+          "Hide related videos ",
+          "Hide timestamp ",
+          "Hide video action buttons ",
+          "Loop video ",
+          "Media notification controls ",
+          "Miniplayer ",
+          "Navigation bar ",
+          "Network proxy ",
+          "Open Shorts in regular player ",
+          "Open channel of live avatar ",
+          "Open links externally ",
+          "Open system share sheet ",
+          "Open videos fullscreen ",
+          "Override YouTube Music buttons ",
+          "Play all ",
+          "Playback in feeds ",
+          "Playback speed ",
+          "Reload video ",
+          "Remove background playback restrictions ",
+          "Remove viewer discretion dialog ",
+          "Return YouTube Dislike ",
+          "Sanitize sharing links ",
+          "Save to watch later ",
+          "Seekbar ",
+          "Settings menu filter ",
+          "Shorts autoplay ",
+          "SponsorBlock ",
+          "Spoof app version ",
+          "Spoof device dimensions ",
+          "Spoof video streams ",
+          "Swipe controls ",
+          "Theme ",
+          "Video quality ",
+          "Voice over translation ",
+          "Wide search bar "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -1405,6 +1491,51 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks ",
+          "Change header ",
+          "Change miniplayer color ",
+          "Change start page ",
+          "Check watch history domain name resolution ",
+          "Crossfade ",
+          "Custom branding ",
+          "Disable DRC audio ",
+          "Disable QUIC protocol ",
+          "Disable dislike redirection ",
+          "Downloads ",
+          "Enable debugging ",
+          "Enable exclusive audio playback ",
+          "Enable forced miniplayer ",
+          "Enable swipe to dismiss miniplayer ",
+          "Force original audio ",
+          "GmsCore support ",
+          "Hide ads ",
+          "Hide buttons ",
+          "Hide filter bar ",
+          "Hide flyout menu components ",
+          "Hide layout components ",
+          "Hide music action buttons ",
+          "Miniplayer previous and next buttons ",
+          "Navigation bar ",
+          "Network proxy ",
+          "Remember repeat state ",
+          "Remember shuffle state ",
+          "Remove background playback restrictions ",
+          "Remove viewer discretion dialog ",
+          "Return YouTube Dislike ",
+          "Sanitize sharing links ",
+          "Scrobbling ",
+          "Settings menu filter ",
+          "SponsorBlock ",
+          "Spoof app version ",
+          "Spoof video streams ",
+          "Theme ",
+          "Third-party lyrics "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -2477,6 +2608,11 @@
         "patches": "",
         "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
         "applied_patches": []
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": []
       }
     }
   },
@@ -2621,6 +2757,13 @@
         "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
         "applied_patches": []
       }
+    },
+    "9.32.51": {
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": []
+      }
     }
   },
   "speedtest-morphe-xtra": {
@@ -2642,6 +2785,14 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+        "applied_patches": [
+          "AdFree Account ",
+          "Disable Logging(analytics) "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
         "applied_patches": [
@@ -2670,6 +2821,14 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/binarymend/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Make UI look like Pro ",
+          "Unlock Moon+ Reader Pro "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/binarymend/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -2710,6 +2869,13 @@
         "applied_patches": [
           "Brave Origin "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
       }
     }
   },
@@ -2744,6 +2910,13 @@
         "applied_patches": [
           "Brave Origin "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
       }
     }
   },
@@ -2762,6 +2935,13 @@
         "applied_patches": [
           "Brave Origin "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
       }
     }
   },
@@ -2775,6 +2955,13 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -2895,6 +3082,14 @@
           "Enable clipboard in incognito ",
           "Enable voice typing in incognito "
         ]
+      },
+      "260095": {
+        "patches": ",",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "Enable clipboard in incognito ",
+          "Enable voice typing in incognito "
+        ]
       }
     }
   },
@@ -3007,6 +3202,14 @@
     },
     "18.0.3.954559732": {
       "260093": {
+        "patches": ",",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "Enable clipboard in incognito ",
+          "Enable voice typing in incognito "
+        ]
+      },
+      "260095": {
         "patches": ",",
         "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
         "applied_patches": [
@@ -3201,6 +3404,14 @@
           "Enable speed control ",
           "Skip ads "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
       }
     },
     "3.0.466": {
@@ -3285,6 +3496,13 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -3566,6 +3784,40 @@
           "Translate comments ",
           "Disable screen capture detection "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/latest",
+        "applied_patches": [
+          "Always show publish date ",
+          "Copy comments without username ",
+          "Custom offline videos limit ",
+          "Disable login requirement ",
+          "Disable long-press quick share ",
+          "Downloads ",
+          "Enable Live search ",
+          "Enable non-personalized search ",
+          "Feature Gate Lab ",
+          "Feed filter ",
+          "Feed tab navigation ",
+          "Fix Google login ",
+          "Hide CAPTCHA popups ",
+          "Hide floating promotions ",
+          "Hide quick comment reactions ",
+          "Hold-and-slide 2x lock ",
+          "Open external links directly ",
+          "Playback speed ",
+          "Remember clear display ",
+          "Resume videos after scrolling ",
+          "SIM spoof ",
+          "Sanitize sharing links ",
+          "Settings ",
+          "Show seekbar ",
+          "Show seekbar thumbnail ",
+          "Stop video looping ",
+          "Translate comments ",
+          "Disable screen capture detection "
+        ]
       }
     },
     "43.8.3": {
@@ -3616,6 +3868,13 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Fing Premium "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
         "applied_patches": [
@@ -3939,6 +4198,19 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Bypass signature check ",
+          "Enable all codecs ",
+          "Enable screen mirroring ",
+          "Enable screenshots ",
+          "Force HDR10 ",
+          "Premium unlock ",
+          "Remove ads "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
         "applied_patches": [
@@ -5093,6 +5365,75 @@
           "Show post source label ",
           "Show sensitive media "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": [
+          "Add ability to copy media link ",
+          "Block redirecting to X Lite ",
+          "Change app icon ",
+          "Change version code ",
+          "Clear tracking params ",
+          "Control video auto scroll ",
+          "Custom download folder ",
+          "Custom emoji font ",
+          "Custom font ",
+          "Custom sharing domain ",
+          "Customise post font size ",
+          "Customize Inline action Bar items ",
+          "Customize Navigation Bar items ",
+          "Customize default reply sorting ",
+          "Customize explore tabs ",
+          "Customize notification tabs ",
+          "Customize profile tabs ",
+          "Customize search suggestions ",
+          "Customize search tab items ",
+          "Customize side bar items ",
+          "Customize timeline top bar ",
+          "Delete from database ",
+          "Disable auto timeline scroll on launch ",
+          "Disable chirp font ",
+          "Download patch ",
+          "Dynamic color ",
+          "Enable PiP mode automatically ",
+          "Enable Undo Posts ",
+          "Enable debug menu for posts ",
+          "Force enable translate ",
+          "Handle custom twitter links ",
+          "Hide Banner ",
+          "Hide Community Notes ",
+          "Hide FAB ",
+          "Hide FAB Menu Buttons ",
+          "Hide Live Threads ",
+          "Hide Recommended Users ",
+          "Hide badges from navigation bar icons ",
+          "Hide bookmark icon in timeline ",
+          "Hide community badges ",
+          "Hide followed by context ",
+          "Hide hidden replies ",
+          "Hide immersive player ",
+          "Hide nudge button ",
+          "Hide post metrics ",
+          "Hide promote button ",
+          "Hide recommendation items ",
+          "Hook feature flag ",
+          "Import/Export login token ",
+          "Legacy share links ",
+          "Log server response ",
+          "No shortened URL ",
+          "Pause search suggestions ",
+          "Remove Ads ",
+          "Remove premium upsell ",
+          "Remove search suggestions ",
+          "Remove view count ",
+          "Round off numbers ",
+          "Selectable Text ",
+          "Show changelogs ",
+          "Show poll results ",
+          "Show post source label ",
+          "Show sensitive media "
+        ]
       }
     }
   },
@@ -5114,6 +5455,11 @@
         "applied_patches": []
       },
       "260094": {
+        "patches": "",
+        "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
+        "applied_patches": []
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
         "applied_patches": []
@@ -5200,6 +5546,20 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Dark mode ",
+          "Disable search suggestions tracking ",
+          "Disable video autoplay ",
+          "Disable video autoplay ",
+          "Fix Amazon manifest conflicts ",
+          "Open links in browser ",
+          "Price history charts ",
+          "Remove ads "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -5358,6 +5718,13 @@
         "applied_patches": [
           "Unlock Pro "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
       }
     }
   },
@@ -5380,6 +5747,11 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": []
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": []
@@ -5408,6 +5780,11 @@
         "applied_patches": []
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": []
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": []
@@ -5457,6 +5834,13 @@
         "applied_patches": [
           "Unlock Premium "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
       }
     }
   },
@@ -5496,6 +5880,13 @@
         "applied_patches": [
           "Remove Ads "
         ]
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Remove Ads "
+        ]
       }
     }
   },
@@ -5522,6 +5913,11 @@
         "patches": "",
         "changelog": "passthrough",
         "applied_patches": []
+      },
+      "260095": {
+        "patches": "",
+        "changelog": "passthrough",
+        "applied_patches": []
       }
     }
   },
@@ -5537,6 +5933,13 @@
     },
     "2026.7.1-bwpm": {
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "Force system font (Bitwarden) "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/ch3thanhs/stylus/releases/tag/latest",
         "applied_patches": [
@@ -5583,6 +5986,13 @@
         ]
       },
       "260093": {
+        "patches": "",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Remove ads "
+        ]
+      },
+      "260095": {
         "patches": "",
         "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -6033,6 +6443,15 @@
         ]
       },
       "260093": {
+        "patches": ",",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "AMOLED dark theme ",
+          "Force system font (GitHub) ",
+          "Force system font (including monospace) (GitHub) "
+        ]
+      },
+      "260095": {
         "patches": ",",
         "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
         "applied_patches": [
