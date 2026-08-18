@@ -5626,6 +5626,20 @@
           "Price history charts ",
           "Remove ads "
         ]
+      },
+      "260100": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Dark mode ",
+          "Disable search suggestions tracking ",
+          "Disable video autoplay ",
+          "Disable video autoplay ",
+          "Fix Amazon manifest conflicts ",
+          "Open links in browser ",
+          "Price history charts ",
+          "Remove ads "
+        ]
       }
     },
     "32.12.4.300": {
@@ -5793,6 +5807,13 @@
         "applied_patches": [
           "Unlock Pro "
         ]
+      },
+      "260100": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
       }
     }
   },
@@ -5839,6 +5860,13 @@
         "applied_patches": [
           "Unlock Word "
         ]
+      },
+      "260100": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Word "
+        ]
       }
     }
   },
@@ -5879,6 +5907,11 @@
         "applied_patches": []
       },
       "260099": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": []
+      },
+      "260100": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": []
@@ -5949,6 +5982,13 @@
         "applied_patches": [
           "Unlock Premium "
         ]
+      },
+      "260100": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
       }
     }
   },
@@ -6004,6 +6044,13 @@
         ]
       },
       "260099": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Remove Ads "
+        ]
+      },
+      "260100": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": [
