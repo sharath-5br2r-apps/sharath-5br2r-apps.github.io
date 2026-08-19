@@ -5822,6 +5822,22 @@
           "Unlock Pro "
         ]
       }
+    },
+    "26.7.2": {
+      "260103": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
+      },
+      "260102": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
+      }
     }
   },
   "microsoft-word-morphe-rushiranpise": {
