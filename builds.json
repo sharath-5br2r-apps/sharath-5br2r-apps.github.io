@@ -210,6 +210,11 @@
         "patches": "",
         "changelog": "https://github.com/crimera/piko/releases/tag/latest",
         "applied_patches": []
+      },
+      "260107": {
+        "patches": "",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": []
       }
     }
   },
