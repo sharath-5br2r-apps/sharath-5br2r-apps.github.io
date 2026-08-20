@@ -404,6 +404,7 @@ const CONFIG = {
     protonmail: "ch.protonmail.android",
     protonvpn: "ch.protonvpn.android",
     projectivylauncher: "com.spocky.projengmenu",
+    sdmaid: "eu.darken.sdmse",
     sdmaid2se: "eu.darken.sdmse",
     showly: "com.michaldrabik.showly2",
     smartlauncher6: "ginlemon.flowerfree",
