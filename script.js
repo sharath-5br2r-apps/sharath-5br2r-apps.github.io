@@ -181,6 +181,7 @@ const CONFIG = {
     hooman: "Hoomans",
     rushiranpise: "RushiRanpise",
     hoodles: "Hoodles",
+    hoodlesshared: "Hoodles Shared",
     binarymend: "BinaryMend",
     paresh: "Paresh",
     xtra: "Xtra",
