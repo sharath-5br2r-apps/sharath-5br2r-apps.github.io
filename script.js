@@ -299,6 +299,7 @@ const CONFIG = {
     caloriecounter: "com.fatsecret.android",
     chess: "com.chess",
     hillclimbracing: "com.fingersoft.hillclimb",
+    jetpackjoyride: "com.halfbrick.jetpackjoyride",
     camscanner: "com.intsig.camscanner",
     xrecorder: "videoeditor.videorecorder.screenrecorder",
     microsoftlens: "com.microsoft.office.officelens",
