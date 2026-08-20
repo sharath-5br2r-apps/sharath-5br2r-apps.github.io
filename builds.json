@@ -223,6 +223,18 @@
           "Change version code "
         ]
       }
+    },
+    "443.0.0.48.82": {
+      "260112": {
+        "patches": "",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": [
+          "Change version code ",
+          "Disable Reels scrolling ",
+          "Download voice message ",
+          "Mark chat as read manually "
+        ]
+      }
     }
   },
   "prime-video-morphe-androidtv": {
