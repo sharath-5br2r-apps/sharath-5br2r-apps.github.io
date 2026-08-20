@@ -95,7 +95,8 @@ const CONFIG = {
     "lto",
     "bolt",
     "standard",
-    "beta"
+    "beta",
+    "stable"
   ]),
 
   // Known architectures (used for regex parsing)
@@ -3053,6 +3054,11 @@ function parseAssetDisplay(filename, arch, fileType) {
       variantTokens.unshift(appTokens[appTokens.length - 1]);
       appTokens = appTokens.slice(0, -1);
     }
+  }
+
+  while (appTokens.length > 1 && (CONFIG.variantKeywords.has(appTokens[appTokens.length - 1].toLowerCase()) || ["stable", "beta", "nightly", "dev", "alpha"].includes(appTokens[appTokens.length - 1].toLowerCase()))) {
+    variantTokens.unshift(appTokens[appTokens.length - 1]);
+    appTokens = appTokens.slice(0, -1);
   }
 
   let version = "Version unknown";
