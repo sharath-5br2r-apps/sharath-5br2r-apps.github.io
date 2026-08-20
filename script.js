@@ -23,6 +23,7 @@ const CONFIG = {
     vpn: ["1111warp", "vpnify", "vpn", "protonvpn"],
     emulator: ["dolphin", "emulator"],
     games: ["levilauncher", "levilaunchroid", "game", "games"],
+    launchers: ["at4k", "at4klauncher", "niagara", "nova", "smartlauncher", "projectivy", "launcher", "!levilauncher", "!levilaunchroid", "!levilaunchroidextra"],
     social: ["twitter", "discord", "threads", "instagram", "messenger", "facebook", "tiktok", "reddit", "x-morphe", "xshim", "comtwitter", "!hbomax", "!vix", "!moviebox", "!terabox", "!netflix"],
     video: ["youtube", "primevideo", "tiktok", "jiohotstar", "hbomax", "vix", "moviebox", "netflix", "!youtubemusic"],
     docs: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "office"],
