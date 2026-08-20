@@ -7178,6 +7178,16 @@
           "Enable Premium "
         ]
       }
+    },
+    "7.20.0.2606230000": {
+      "260120": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Enable Premium "
+        ]
+      }
     }
   },
   "smart-launcher-6-morphe-hoodles": {
@@ -7199,6 +7209,27 @@
         "applied_patches": [
           "Enable Prime "
         ]
+      }
+    }
+  },
+  "soundcloud-morphe-hoodles": {
+    "2026.04.27-release": {
+      "260120": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Enable SoundCloud Go "
+        ]
+      }
+    }
+  },
+  "microsoft-lens-morphe": {
+    "16.0.19628.20008": {
+      "260120": {
+        "patches": "",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": []
       }
     }
   }
