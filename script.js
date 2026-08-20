@@ -185,6 +185,7 @@ const CONFIG = {
     paresh: "Paresh",
     xtra: "Xtra",
     icysymmetra: "IcySymmetra",
+    kondratjev: "Kondratjev",
     jasonwu1994: "jasonwu1994",
     piko: "Piko",
     xshim: "X-Shim",
