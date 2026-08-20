@@ -234,6 +234,11 @@
           "Download voice message ",
           "Mark chat as read manually "
         ]
+      },
+      "260113": {
+        "patches": "",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": []
       }
     }
   },
