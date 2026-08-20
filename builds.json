@@ -7092,12 +7092,27 @@
         "applied_patches": [
           "Unlock Premium "
         ]
+      },
+      "260118": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
       }
     }
   },
   "1111-warp-morphe-rushiranpise": {
     "6.38.9": {
       "260116": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable Analytics / Telemetry ",
+          "Spoof WARP+ Unlimited UI "
+        ]
+      },
+      "260118": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -7115,6 +7130,13 @@
         "applied_patches": [
           "Unlock Lifetime Premium "
         ]
+      },
+      "260118": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Lifetime Premium "
+        ]
       }
     }
   },
@@ -7126,12 +7148,29 @@
         "applied_patches": [
           "Enable Pro "
         ]
+      },
+      "260118": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro "
+        ]
       }
     }
   },
   "camscanner-morphe-hoodles": {
     "7.23.5.2608050000": {
       "260117": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Enable Premium "
+        ]
+      }
+    },
+    "7.24.0.2608130000": {
+      "260118": {
         "patches": "",
         "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
         "applied_patches": [
