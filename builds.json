@@ -7117,5 +7117,28 @@
         ]
       }
     }
+  },
+  "xrecorder-morphe-hoodles": {
+    "2.5.4.1": {
+      "260117": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro "
+        ]
+      }
+    }
+  },
+  "camscanner-morphe-hoodles": {
+    "7.23.5.2608050000": {
+      "260117": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable telemetry ",
+          "Enable Premium "
+        ]
+      }
+    }
   }
 }
