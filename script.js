@@ -409,6 +409,7 @@ const CONFIG = {
     showly: "com.michaldrabik.showly2",
     smartlauncher6: "ginlemon.flowerfree",
     solidexplorer: "pl.solidexplorer2",
+    smashhit: "com.mediocre.smashhit",
     soundcloud: "com.soundcloud.android",
     snorelab: "com.snorelab.app",
     speedtest: "org.zwanoo.android.speedtest",
