@@ -7179,5 +7179,27 @@
         ]
       }
     }
+  },
+  "smart-launcher-6-morphe-hoodles": {
+    "6.6build016": {
+      "260119": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro "
+        ]
+      }
+    }
+  },
+  "nova-launcher-morphe-hoodles": {
+    "88800(8.8.8)": {
+      "260119": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Prime "
+        ]
+      }
+    }
   }
 }
