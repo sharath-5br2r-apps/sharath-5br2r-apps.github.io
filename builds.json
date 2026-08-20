@@ -1547,6 +1547,22 @@
           "Fing Premium "
         ]
       }
+    },
+    "12.13.2": {
+      "260003": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Fing Premium "
+        ]
+      },
+      "260002": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Fing Premium "
+        ]
+      }
     }
   },
   "proton-vpn-morphe-paresh": {
@@ -1584,6 +1600,34 @@
   "jiohotstar-morphe-paresh": {
     "26.04.27.10": {
       "260001": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Bypass signature check ",
+          "Enable all codecs ",
+          "Enable screen mirroring ",
+          "Enable screenshots ",
+          "Force HDR10 ",
+          "Premium unlock ",
+          "Remove ads "
+        ]
+      }
+    },
+    "26.08.03.2": {
+      "260003": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Bypass signature check ",
+          "Enable all codecs ",
+          "Enable screen mirroring ",
+          "Enable screenshots ",
+          "Force HDR10 ",
+          "Premium unlock ",
+          "Remove ads "
+        ]
+      },
+      "260002": {
         "patches": "",
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
         "applied_patches": [
@@ -2300,6 +2344,13 @@
         "applied_patches": [
           "Enable Prime "
         ]
+      },
+      "260003": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Prime "
+        ]
       }
     }
   },
@@ -2334,12 +2385,28 @@
           "Hill Climb Racing Free Store ",
           "Hill Climb Racing Instant Rewarded Video Rewards "
         ]
+      },
+      "260003": {
+        "patches": "",
+        "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Hill Climb Racing Ad Removal ",
+          "Hill Climb Racing Free Store ",
+          "Hill Climb Racing Instant Rewarded Video Rewards "
+        ]
       }
     }
   },
   "jetpack-joyride-morphe-byehi98": {
     "1.104.1": {
       "260001": {
+        "patches": "",
+        "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Jetpack Joyride Billing Bypass "
+        ]
+      },
+      "260003": {
         "patches": "",
         "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -2424,6 +2491,13 @@
         "applied_patches": [
           "Enable Pro "
         ]
+      },
+      "260003": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro "
+        ]
       }
     }
   },
@@ -2436,12 +2510,27 @@
           "Enable Pro ",
           "MicroG integration "
         ]
+      },
+      "260003": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro ",
+          "MicroG integration "
+        ]
       }
     }
   },
   "poweramp-morphe-hooman": {
     "build-1025-bundle-play": {
       "260001": {
+        "patches": "",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
+      },
+      "260003": {
         "patches": "",
         "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -2485,6 +2574,20 @@
         "applied_patches": [
           "Unlock Pro "
         ]
+      },
+      "260003": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
+      },
+      "260002": {
+        "patches": "",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Unlock Pro "
+        ]
       }
     }
   },
@@ -2511,6 +2614,22 @@
   "beta-maniac-morphe-rushiranpise": {
     "0.9.4": {
       "260001": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "GmsCore support (MicroG) ",
+          "Unlock Premium "
+        ]
+      },
+      "260003": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "GmsCore support (MicroG) ",
+          "Unlock Premium "
+        ]
+      },
+      "260002": {
         "patches": "",
         "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
         "applied_patches": [
