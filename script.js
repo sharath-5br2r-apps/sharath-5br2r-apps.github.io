@@ -433,6 +433,7 @@ const CONFIG = {
     reddit: "com.reddit.frontpage",
     rumble: "com.rumble.battles",
     ventusky: "cz.ackee.ventusky",
+    vector: "com.nekki.vector",
     viber: "com.viber.voip",
     vix: "com.univision.prendetv",
     vpnify: "com.vpn.free.hotspot.secure.vpnify",
