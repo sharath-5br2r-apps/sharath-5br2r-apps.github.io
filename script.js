@@ -95,6 +95,7 @@ const CONFIG = {
     "lto",
     "bolt",
     "standard",
+    "beta"
   ]),
 
   // Known architectures (used for regex parsing)
@@ -215,6 +216,7 @@ const CONFIG = {
     lto: "LTO",
     bolt: "BOLT",
     standard: "Standard",
+    byair: "ByAir"
   },
 
   // Map app slugs to true Android Package IDs for Obtainium
@@ -258,12 +260,19 @@ const CONFIG = {
     amazonindia: "in.amazon.mShop.android.shopping",
     accuweather: "com.accuweather.android",
     alldocumentreader: "alldocumentsreader.docuemntviewer",
+    amazonindia: "in.amazon.mShop.android.shopping",
     at4klauncher: "com.overdevs.at4k",
     automate: "com.llamalab.automate",
     autosync: "com.ttxapps.autosync",
+    backdrops: "com.backdrops.wallpapers",
     batteryguru: "com.paget96.batteryguru",
     betamaniac: "it.mirko.beta",
-    bravebrowser: "com.brave.browser",
+    bravebrowser: {
+      default: "com.brave.browser",
+      beta: "com.brave.browser_beta",
+      nightly: "com.brave.browser_nightly"
+    },
+    byair: "com.byairapp.android",
     calcnote: "com.appumstudios.calcnote",
     caloriecounter: "com.fatsecret.android",
     camscanner: "com.intsig.camscanner",
@@ -292,6 +301,7 @@ const CONFIG = {
       clone: "dev.jason.com.google.android.inputmethod.latin"
     },
     googlenews: "com.google.android.apps.magazines",
+    googlephone: "com.google.android.dialer",
     googlephotos: {
       revanced: "app.revanced.android.apps.photos",
       morphe: "app.morphe.android.apps.photos",
@@ -324,7 +334,7 @@ const CONFIG = {
     macrodroid: "com.arlosoft.macrodroid",
     medium: "com.medium.reader",
     merriamwebsterdictionary: "com.merriamwebster",
-    messenger: "com.facebook.orca",
+    messenger: { default: "com.facebook.orca", morphe: "app.morphe.messenger.orca" },
     microsoftlens: "com.microsoft.office.officelens",
     microsoftedge: "com.microsoft.emmx",
     microsoftword: "com.microsoft.office.word",
