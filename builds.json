@@ -7083,5 +7083,39 @@
         ]
       }
     }
+  },
+  "windscribe-vpn-morphe-rushiranpise": {
+    "4.2.2328": {
+      "260116": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium "
+        ]
+      }
+    }
+  },
+  "1111-warp-morphe-rushiranpise": {
+    "6.38.9": {
+      "260116": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable Analytics / Telemetry ",
+          "Spoof WARP+ Unlimited UI "
+        ]
+      }
+    }
+  },
+  "adguard-morphe-rushiranpise": {
+    "4.13.1": {
+      "260116": {
+        "patches": "",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Lifetime Premium "
+        ]
+      }
+    }
   }
 }
