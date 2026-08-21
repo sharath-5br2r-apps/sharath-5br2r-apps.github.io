@@ -73,6 +73,15 @@
           "Enable clipboard in incognito ",
           "Enable voice typing in incognito "
         ]
+      },
+      "260009": {
+        "patches": ",",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "Developer options ",
+          "Enable clipboard in incognito ",
+          "Enable voice typing in incognito "
+        ]
       }
     }
   },
@@ -99,6 +108,16 @@
         ]
       },
       "260008": {
+        "patches": ",",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "Developer options ",
+          "Enable clipboard in incognito ",
+          "Enable voice typing in incognito ",
+          "Package Rename "
+        ]
+      },
+      "260009": {
         "patches": ",",
         "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
         "applied_patches": [
