@@ -512,5 +512,14 @@
         ]
       }
     }
+  },
+  "discord-npatch-revenge-v341.13-stable-all.apk": {
+    "341.13-Stable": {
+      "260008": {
+        "patches": "revenge-mod/revenge-xposed",
+        "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
+        "applied_patches": []
+      }
+    }
   }
 }
