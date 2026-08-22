@@ -521,5 +521,205 @@
         "applied_patches": []
       }
     }
+  },
+  "amazon-india-morphe-rushiranpise-v32.15.0.300-all.apk": {
+    "32.15.0.300": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Dark mode",
+          "Disable search suggestions tracking",
+          "Disable video autoplay",
+          "Disable video autoplay",
+          "Fix Amazon manifest conflicts",
+          "Open links in browser",
+          "Price history charts",
+          "Remove ads"
+        ]
+      }
+    }
+  },
+  "adobe-acrobat-morphe-rushiranpise-v26.7.2.47372-arm64-v8a.apk": {
+    "26.7.2.47372": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
+      }
+    }
+  },
+  "adobe-acrobat-morphe-rushiranpise-v26.7.2-x86_64.apk": {
+    "26.7.2": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
+      }
+    }
+  },
+  "microsoft-word-morphe-rushiranpise-v16.0.20326.20034-arm64-v8a.apk": {
+    "16.0.20326.20034": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Word"
+        ]
+      }
+    }
+  },
+  "microsoft-word-morphe-rushiranpise-v16.0.20326.20034-arm-v7a.apk": {
+    "16.0.20326.20034": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Word"
+        ]
+      }
+    }
+  },
+  "microsoft-word-morphe-rushiranpise-v16.0.20326.20034-x86_64.apk": {
+    "16.0.20326.20034": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Word"
+        ]
+      }
+    }
+  },
+  "microsoft-excel-morphe-rushiranpise-v16.0.20326.20034-arm64-v8a.apk": {
+    "16.0.20326.20034": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Excel"
+        ]
+      }
+    }
+  },
+  "microsoft-excel-morphe-rushiranpise-v16.0.20326.20034-arm-v7a.apk": {
+    "16.0.20326.20034": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Excel"
+        ]
+      }
+    }
+  },
+  "microsoft-excel-morphe-rushiranpise-v16.0.20326.20034-x86_64.apk": {
+    "16.0.20326.20034": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Excel"
+        ]
+      }
+    }
+  },
+  "pc-remote-morphe-rushiranpise-v8.3.5-all.apk": {
+    "8.3.5": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "oxygen-updater-morphe-rushiranpise-v7.1.0-all.apk": {
+    "7.1.0": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Remove Ads"
+        ]
+      }
+    }
+  },
+  "windscribe-vpn-morphe-rushiranpise-v4.2.2328-all.apk": {
+    "4.2.2328": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "1111-warp-morphe-rushiranpise-v6.38.9-all.apk": {
+    "6.38.9": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable Analytics / Telemetry",
+          "Spoof WARP+ Unlimited UI"
+        ]
+      }
+    }
+  },
+  "adguard-morphe-rushiranpise-v4.13.1-all.apk": {
+    "4.13.1": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Lifetime Premium"
+        ]
+      }
+    }
+  },
+  "beta-maniac-morphe-rushiranpise-v0.10.0-all.apk": {
+    "0.10.0": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "GmsCore support (MicroG)",
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "duolingo-morphe-rushiranpise-v6.90.3-arm64-v8a.apk": {
+    "6.90.3": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Debug Menu",
+          "GmsCore support (MicroG)",
+          "Unlock Subscription"
+        ]
+      }
+    }
+  },
+  "duolingo-morphe-rushiranpise-v6.90.3-arm-v7a.apk": {
+    "6.90.3": {
+      "260006": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.10",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Debug Menu",
+          "GmsCore support (MicroG)",
+          "Unlock Subscription"
+        ]
+      }
+    }
   }
 }
