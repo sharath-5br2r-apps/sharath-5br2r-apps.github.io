@@ -1,1 +1,148 @@
-{}
+{
+  "brave-beta-morphe-dh6k-arm64-v8a": {
+    "1.95.88": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "brave-beta-morphe-dh6k-arm-v7a": {
+    "1.95.88": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "brave-beta-morphe-dh6k-x86_64": {
+    "1.95.88": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "brave-beta-morphe-dh6k-x86": {
+    "1.95.88": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "brave-nightly-morphe-dh6k-arm64-v8a": {
+    "1.96.8": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "brave-nightly-morphe-dh6k-arm-v7a": {
+    "1.96.8": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "brave-nightly-morphe-dh6k-x86_64": {
+    "1.96.8": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "brave-nightly-morphe-dh6k-x86": {
+    "1.96.8": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin "
+        ]
+      }
+    }
+  },
+  "github-morphe-hoodles-stylus": {
+    "1.273.0": {
+      "260002": {
+        "patches": ",",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "AMOLED dark theme ",
+          "Force system font (GitHub) ",
+          "Force system font (including monospace) (GitHub) "
+        ]
+      }
+    }
+  },
+  "prime-video-morphe-hoodles": {
+    "3.0.468.1747": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control ",
+          "Rename shared permissions ",
+          "Skip ads "
+        ]
+      }
+    }
+  },
+  "prime-video-morphe-hoodles-shared": {
+    "3.0.468": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control ",
+          "Skip ads "
+        ]
+      }
+    }
+  },
+  "discord-npatch-revenge": {
+    "341.13-Stable": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
+        "applied_patches": []
+      }
+    }
+  },
+  "bitwarden-morphe-stylus": {
+    "2026.8.0": {
+      "260002": {
+        "patches": "",
+        "changelog": "https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "Force system font (Bitwarden) "
+        ]
+      }
+    }
+  }
+}
