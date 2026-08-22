@@ -8,12 +8,29 @@
           "Disable telemetry",
           "Enable Premium"
         ]
+      },
+      "260002": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Enable Premium"
+        ]
       }
     }
   },
   "soundcloud-morphe-kondratjev-v2026.07.23-arm64-v8a.apk": {
     "2026.07.23": {
       "260001": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
+      },
+      "260002": {
         "patches": "kondratjev/morphe-patches@1.19.0",
         "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -34,6 +51,15 @@
           "Disable consent popup",
           "Enable SoundCloud Go"
         ]
+      },
+      "260002": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
       }
     }
   },
@@ -47,12 +73,30 @@
           "Disable consent popup",
           "Enable SoundCloud Go"
         ]
+      },
+      "260002": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
       }
     }
   },
   "soundcloud-morphe-kondratjev-v2026.07.23-x86.apk": {
     "2026.07.23": {
       "260001": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
+      },
+      "260002": {
         "patches": "kondratjev/morphe-patches@1.19.0",
         "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
         "applied_patches": [
@@ -77,6 +121,19 @@
           "Premium unlock",
           "Remove ads"
         ]
+      },
+      "260002": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Bypass signature check",
+          "Enable all codecs",
+          "Enable screen mirroring",
+          "Enable screenshots",
+          "Force HDR10",
+          "Premium unlock",
+          "Remove ads"
+        ]
       }
     }
   },
@@ -87,6 +144,509 @@
         "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
         "applied_patches": [
           "Unlock Pro"
+        ]
+      },
+      "260002": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-arm64-v8a.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-arm64-v8a.zip": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-arm-v7a.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-arm-v7a.zip": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-x86_64.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-x86_64.zip": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-x86.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-x86.zip": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-arm64-v8a.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-arm-v7a.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-x86_64.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-x86.apk": {
+    "18.0.3.954559732": {
+      "260002": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
         ]
       }
     }
