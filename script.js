@@ -2500,9 +2500,7 @@ function filterAppliedPatchesList(query) {
         <span><strong>Densities</strong>${escapeHtml((activeBuildMetadata.densities || []).join(", ") || "Unknown")}</span>
       </div>
     </section>` : "";
-
-  DOM.appliedPatchesBody.innerHTML = `
-    ${apkInfo}
+  const appliedSection = (activeAppliedPatchesList || []).length ? `
     <section class="patch-metadata-section applied-patches-section">
       <h3>✅ Applied Patches <span>${filtered.length}</span></h3>
       <div class="applied-patches-grid">
@@ -2513,7 +2511,11 @@ function filterAppliedPatchesList(query) {
         </div>
       `).join("")}
       </div>
-    </section>
+    </section>` : "";
+
+  DOM.appliedPatchesBody.innerHTML = `
+    ${apkInfo}
+    ${appliedSection}
     ${renderPatchSection("Failed Patches", activeFailedPatchesList, "⚠️", "failed-patches-section")}
     ${renderPatchSection("Skipped Patches", activeSkippedPatchesList, "⏭️", "skipped-patches-section")}
   `;
