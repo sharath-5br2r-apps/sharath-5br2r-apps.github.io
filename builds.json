@@ -838,5 +838,133 @@
         ]
       }
     }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-arm64-v8a.apk": {
+    "2.2.704787.0": {
+      "260004": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-arm-v7a.apk": {
+    "2.2.704787.0": {
+      "260004": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-x86_64.apk": {
+    "2.2.704787.0": {
+      "260004": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-x86.apk": {
+    "2.2.704787.0": {
+      "260004": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "bitwarden-morphe-stylus-v2026.8.0-all.apk": {
+    "2026.8.0": {
+      "260004": {
+        "patches": "ch3thanhs/stylus@1.4.0",
+        "changelog": "https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "Force system font (Bitwarden)"
+        ]
+      }
+    }
+  },
+  "tiktok-morphe-icysymmetra-v46.2.3-all.apk": {
+    "46.2.3": {
+      "260004": {
+        "patches": "icysymmetra/tiktok-patches-for-morphe@0.7.0",
+        "changelog": "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/latest",
+        "applied_patches": [
+          "Always show publish date",
+          "Copy comments without username",
+          "Custom offline videos limit",
+          "Disable login requirement",
+          "Disable long-press quick share",
+          "Disable long-press repost",
+          "Downloads",
+          "Enable Live search",
+          "Enable non-personalized search",
+          "Feature Gate Lab",
+          "Feed filter",
+          "Feed tab navigation",
+          "Fix Google login",
+          "Hide CAPTCHA popups",
+          "Hide floating promotions",
+          "Hide quick comment reactions",
+          "Hold-and-slide 2x lock",
+          "Open external links directly",
+          "Playback speed",
+          "Remember clear display",
+          "Resume videos after scrolling",
+          "SIM spoof",
+          "Sanitize sharing links",
+          "Settings",
+          "Show seekbar",
+          "Show seekbar thumbnail",
+          "Stop video looping",
+          "Translate comments",
+          "Disable screen capture detection"
+        ]
+      }
+    }
+  },
+  "tiktok-morphe-hxreborn-v46.2.3-all.apk": {
+    "46.2.3": {
+      "260004": {
+        "patches": "hxreborn/hxreborn-tiktok-patches@0.11.4",
+        "changelog": "https://github.com/hxreborn/hxreborn-tiktok-patches/releases/tag/latest",
+        "applied_patches": [
+          "Always show publish date",
+          "Copy comments without username",
+          "Custom offline videos limit",
+          "Disable login requirement",
+          "Disable long-press quick share",
+          "Disable telemetry",
+          "Downloads",
+          "Enable Live search",
+          "Enable non-personalized search",
+          "Expand activity list",
+          "Feature Gate Lab",
+          "Feed filter",
+          "Feed tab navigation",
+          "Fix Google login",
+          "Hide BdTuring CAPTCHA popups",
+          "Hide CAPTCHA popups",
+          "Hide inbox stories",
+          "Hide quick comment reactions",
+          "Hide suggested accounts",
+          "Hold-and-slide 2x lock",
+          "Open external links directly",
+          "Playback speed",
+          "Remember clear display",
+          "Resume videos after scrolling",
+          "SIM spoof",
+          "Sanitize sharing links",
+          "Settings",
+          "Show seekbar",
+          "Show seekbar thumbnail",
+          "Stop video looping",
+          "Translate comments",
+          "Disable screen capture detection"
+        ]
+      }
+    }
   }
 }
