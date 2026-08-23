@@ -110,7 +110,7 @@ def parse_asset_filename(filename):
 
 def merge_entry_into_master(master_build, target_key, info, release_tag=None):
     """
-    Store the release build.json entry by its exact artifact filename.
+    Store the release build.json entry under its release tag and exact artifact filename.
     The release asset already contains the complete metadata record.
     """
     if not isinstance(info, dict):
@@ -122,7 +122,10 @@ def merge_entry_into_master(master_build, target_key, info, release_tag=None):
         entry["changelog"] = entry.pop("changlog")
     if release_tag:
         entry["release_tag"] = release_tag
-    master_build[target_key] = entry
+    bucket_key = release_tag or "untagged"
+    if bucket_key not in master_build or not isinstance(master_build.get(bucket_key), dict):
+        master_build[bucket_key] = {}
+    master_build[bucket_key][target_key] = entry
 
 def prune_stale_metadata(builds, releases):
     """
@@ -226,10 +229,11 @@ def main():
         return
 
     # Rebuild from the complete release cache so deleted/replaced artifacts do
-    # not leave stale metadata behind in the flat builds.json file.
+    # not leave stale metadata behind in builds.json.
     master_build = {}
 
     new_build_data_count = 0
+    new_artifact_count = 0
 
     for rel in releases:
         # Strip any legacy embedded build_data so releases.json remains a clean GitHub API dump
@@ -256,13 +260,14 @@ def main():
                     if isinstance(build_data, dict):
                         for target_key, info in build_data.items():
                             merge_entry_into_master(master_build, target_key, info, rel.get('tag_name'))
+                            new_artifact_count += 1
             except Exception as e:
                 print(f"Warning: Could not fetch build.json for {rel.get('tag_name')}: {e}")
 
-    # Save flat builds.json (single source of truth for all build metadata)
+    # Save nested builds.json grouped by release tag.
     with open(MASTER_BUILD_FILE, "w", encoding="utf-8") as f:
         json.dump(master_build, f, indent=2, ensure_ascii=False)
-    print(f"[OK] Successfully wrote {MASTER_BUILD_FILE} ({len(master_build)} artifacts)")
+    print(f"[OK] Successfully wrote {MASTER_BUILD_FILE} ({new_artifact_count} artifacts across {len(master_build)} release tags)")
 
     # Save 100% clean releases.json cache
     with open("releases.json", "w", encoding="utf-8") as f:

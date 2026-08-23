@@ -1314,6 +1314,7 @@ function buildAppCatalog(releases) {
         patchEntry.builds.set(buildKey, {
           buildKey,
           releaseId: release.id,
+          releaseTag: release.tag_name || "",
           build: isArchive ? parsed.version : getBuildNumberLabel(release),
           releaseType,
           isArchive,
@@ -2056,7 +2057,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
           </div>
           <div class="asset-right">
             <span class="btn-text">${sizeStr} • 📥 ${downloads}</span>
-            ${masterBuildDataCache?.[asset.name] ? `<button class="patch-applied-btn asset-info-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" data-asset-name="${escapeHtml(asset.name)}" type="button" title="View build information">Info</button>` : ""}
+            ${hasBuildMetadataForAsset(masterBuildDataCache, asset.name, build.releaseTag) ? `<button class="patch-applied-btn asset-info-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" data-asset-name="${escapeHtml(asset.name)}" type="button" title="View build information">Info</button>` : ""}
             <a href="${asset.browser_download_url}" class="download-action-btn" download title="Download ${asset.name}">Download</a>
           </div>
         </div>
@@ -2112,8 +2113,8 @@ async function fetchMasterBuildData() {
     const resp = await fetch(`builds.json?v=${cacheBuster}`);
     if (resp.ok) {
       const data = await resp.json();
-      // builds.json is keyed by the complete asset filename. Keep the map as-is
-      // so lookups can use the exact filename before trying older slug formats.
+      // builds.json may be grouped by release tag or kept in the legacy flat shape.
+      // Keep the map as-is so lookups can resolve both layouts.
       masterBuildDataCache = data && typeof data === "object" ? data : {};
     } else {
       masterBuildDataCache = {};
@@ -2125,14 +2126,41 @@ async function fetchMasterBuildData() {
   return masterBuildDataCache;
 }
 
-// Resolve metadata from the current asset's filename. The current builds.json
-// format is: { "file.apk": { "version": { "build": metadata } } }.
+function getBuildBucket(masterData, releaseTag) {
+  if (!masterData || typeof masterData !== "object") return null;
+  if (releaseTag && masterData[releaseTag] && typeof masterData[releaseTag] === "object") {
+    return masterData[releaseTag];
+  }
+  return null;
+}
+
+function hasBuildMetadataForAsset(masterData, assetName, releaseTag = "") {
+  const entry = findBuildDetails(masterData, { name: assetName }, { releaseTag });
+  return Boolean(entry);
+}
+
+// Resolve metadata from the current asset's filename. builds.json supports:
+// { "file.apk": metadata } and { "releaseTag": { "file.apk": metadata } }.
 function findBuildDetails(masterData, asset, build) {
   if (!masterData || !asset?.name) return null;
 
-  // Current build.json format stores all metadata directly under the asset:
-  // { "file.apk": { name, arch, version, min_sdk, patches, ... } }.
-  const directEntry = masterData[asset.name];
+  const releaseTag = String(build?.releaseTag || build?.tag_name || build?.release_tag || "").trim();
+  const releaseBucket = getBuildBucket(masterData, releaseTag);
+  const lookupRoots = [];
+
+  if (releaseBucket) lookupRoots.push(releaseBucket);
+  lookupRoots.push(masterData);
+
+  for (const root of lookupRoots) {
+    const directEntry = root[asset.name];
+    if (directEntry && typeof directEntry === "object" &&
+        (directEntry.version || directEntry.applied_patches || directEntry.min_sdk)) {
+      return directEntry;
+    }
+  }
+
+  const root = releaseBucket || masterData;
+  const directEntry = root[asset.name];
   if (directEntry && typeof directEntry === "object" &&
       (directEntry.version || directEntry.applied_patches || directEntry.min_sdk)) {
     return directEntry;
@@ -2141,10 +2169,10 @@ function findBuildDetails(masterData, asset, build) {
   // Also accept the previous version/build nested format.
   const dictionaries = [directEntry];
   const normalizedName = asset.name.toLowerCase().replace(/[^a-z0-9]/g, "");
-  const matchingKey = Object.keys(masterData).find(
+  const matchingKey = Object.keys(root).find(
     (key) => key.toLowerCase().replace(/[^a-z0-9]/g, "") === normalizedName
   );
-  if (matchingKey && matchingKey !== asset.name) dictionaries.push(masterData[matchingKey]);
+  if (matchingKey && matchingKey !== asset.name) dictionaries.push(root[matchingKey]);
 
   const version = String(build?.version || "").replace(/^v(?=[a-z0-9])/i, "");
   const buildNumber = String(build?.build || "");
@@ -2356,7 +2384,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
 
     if (resolved) {
       buildMetadata = resolved;
-      if (Array.isArray(resolved.applied_patches) && resolved.applied_patches.length > 0) {
+      if (Array.isArray(resolved.applied_patches)) {
         appliedPatches = resolved.applied_patches;
       }
       if (resolved.patches) {
@@ -2451,11 +2479,8 @@ function formatChangelogForBuild(build) {
 function filterAppliedPatchesList(query) {
   if (!DOM.appliedPatchesBody) return;
 
-  const hasExtraMetadata = activeBuildMetadata && (
-    activeSkippedPatchesList.length > 0 || activeFailedPatchesList.length > 0 ||
-    activeBuildMetadata.arch || activeBuildMetadata.min_sdk
-  );
-  if ((!activeAppliedPatchesList || activeAppliedPatchesList.length === 0) && !hasExtraMetadata) {
+  const appliedPatchesList = Array.isArray(activeAppliedPatchesList) ? activeAppliedPatchesList : [];
+  if (appliedPatchesList.length === 0 && !activeBuildMetadata) {
     if (DOM.patchCountBadge) {
       DOM.patchCountBadge.textContent = "0 Patches";
     }
@@ -2470,15 +2495,15 @@ function filterAppliedPatchesList(query) {
   }
 
   const normalized = (query || "").toLowerCase().trim();
-  const filtered = (activeAppliedPatchesList || []).filter((p) =>
-    p.toLowerCase().includes(normalized)
+  const filtered = appliedPatchesList.filter((p) =>
+    String(p || "").toLowerCase().includes(normalized)
   );
 
   if (DOM.patchCountBadge) {
-    DOM.patchCountBadge.textContent = `${filtered.length} of ${activeAppliedPatchesList.length} patches`;
+    DOM.patchCountBadge.textContent = `${filtered.length} of ${appliedPatchesList.length} patches`;
   }
 
-  if (filtered.length === 0) {
+  if (filtered.length === 0 && appliedPatchesList.length > 0) {
     DOM.appliedPatchesBody.innerHTML = '<div class="no-results" style="padding: 36px 20px; text-align: center; color: var(--text-secondary);">No matching patches found.</div>';
     return;
   }
@@ -2502,7 +2527,7 @@ function filterAppliedPatchesList(query) {
         <span><strong>Densities</strong>${escapeHtml((activeBuildMetadata.densities || []).join(", ") || "Unknown")}</span>
       </div>
     </section>` : "";
-  const appliedSection = (activeAppliedPatchesList || []).length ? `
+  const appliedSection = appliedPatchesList.length ? `
     <section class="patch-metadata-section applied-patches-section">
       <h3>✅ Applied Patches <span>${filtered.length}</span></h3>
       <div class="applied-patches-grid">
@@ -2513,7 +2538,13 @@ function filterAppliedPatchesList(query) {
         </div>
       `).join("")}
       </div>
-    </section>` : "";
+    </section>` : `
+    <section class="patch-metadata-section applied-patches-section">
+      <h3>✅ Applied Patches <span>0</span></h3>
+      <div class="no-results" style="padding: 24px 20px; text-align: center; color: var(--text-secondary);">
+        No applied patches were recorded for this build.
+      </div>
+    </section>`;
 
   DOM.appliedPatchesBody.innerHTML = `
     ${apkInfo}
