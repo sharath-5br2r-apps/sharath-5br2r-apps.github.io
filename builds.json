@@ -1,1 +1,4366 @@
-{}
+{
+  "youtube-morphe-anddea-v20.51.39-all.apk": {
+    "20.51.39": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Alternative thumbnails",
+          "Ambient mode control",
+          "Bypass URL redirects",
+          "Bypass image region restrictions",
+          "Change form factor",
+          "Change player flyout menu toggles",
+          "Change share sheet",
+          "Change start page",
+          "Custom DPI",
+          "Custom Shorts action buttons",
+          "Custom branding for YouTube",
+          "Custom double tap length",
+          "Description components",
+          "Disable QUIC protocol",
+          "Disable forced auto captions",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable resuming Miniplayer on startup",
+          "Disable resuming Shorts on startup",
+          "Disable sign in to TV popup",
+          "Enable debug logging",
+          "Enable gradient loading screen",
+          "Force original audio",
+          "Force player buttons background",
+          "Fullscreen components",
+          "GmsCore support",
+          "Hide action buttons",
+          "Hide ads",
+          "Hide comments components",
+          "Hide feed components",
+          "Hide feed flyout menu",
+          "Hide layout components",
+          "Hide player buttons",
+          "Hide player flyout menu",
+          "Hook download actions",
+          "MaterialYou",
+          "Miniplayer",
+          "Navigation bar components",
+          "Open links externally",
+          "Overlay buttons",
+          "Override YouTube Music buttons",
+          "Playback in feeds",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Seekbar components",
+          "Set transcript cookies",
+          "Settings menu filter",
+          "Shorts components",
+          "Snack bar components",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Spoof watch history",
+          "Swipe controls",
+          "Theme",
+          "Toolbar components",
+          "Translations for YouTube",
+          "Video playback",
+          "Voice Over Translation",
+          "Wide search bar",
+          "Visual preferences icons for YouTube",
+          "Reload video",
+          "Settings for YouTube"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-anddea-module-v20.51.39-all.zip": {
+    "20.51.39": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Alternative thumbnails",
+          "Ambient mode control",
+          "Bypass URL redirects",
+          "Bypass image region restrictions",
+          "Change form factor",
+          "Change player flyout menu toggles",
+          "Change share sheet",
+          "Change start page",
+          "Custom DPI",
+          "Custom Shorts action buttons",
+          "Custom branding for YouTube",
+          "Custom double tap length",
+          "Description components",
+          "Disable QUIC protocol",
+          "Disable forced auto captions",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable resuming Miniplayer on startup",
+          "Disable resuming Shorts on startup",
+          "Disable sign in to TV popup",
+          "Enable debug logging",
+          "Enable gradient loading screen",
+          "Force original audio",
+          "Force player buttons background",
+          "Fullscreen components",
+          "Hide action buttons",
+          "Hide ads",
+          "Hide comments components",
+          "Hide feed components",
+          "Hide feed flyout menu",
+          "Hide layout components",
+          "Hide player buttons",
+          "Hide player flyout menu",
+          "Hook download actions",
+          "MaterialYou",
+          "Miniplayer",
+          "Navigation bar components",
+          "Open links externally",
+          "Overlay buttons",
+          "Override YouTube Music buttons",
+          "Playback in feeds",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Seekbar components",
+          "Set transcript cookies",
+          "Settings menu filter",
+          "Shorts components",
+          "Snack bar components",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Spoof watch history",
+          "Swipe controls",
+          "Theme",
+          "Toolbar components",
+          "Translations for YouTube",
+          "Video playback",
+          "Voice Over Translation",
+          "Wide search bar",
+          "Visual preferences icons for YouTube",
+          "Reload video",
+          "Settings for YouTube"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-anddea-amoled-v20.51.39-all.apk": {
+    "20.51.39": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Alternative thumbnails",
+          "Ambient mode control",
+          "Bypass URL redirects",
+          "Bypass image region restrictions",
+          "Change form factor",
+          "Change player flyout menu toggles",
+          "Change share sheet",
+          "Change start page",
+          "Custom DPI",
+          "Custom Shorts action buttons",
+          "Custom branding for YouTube",
+          "Custom double tap length",
+          "Description components",
+          "Disable QUIC protocol",
+          "Disable forced auto captions",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable resuming Miniplayer on startup",
+          "Disable resuming Shorts on startup",
+          "Disable sign in to TV popup",
+          "Enable debug logging",
+          "Enable gradient loading screen",
+          "Force original audio",
+          "Force player buttons background",
+          "Fullscreen components",
+          "GmsCore support",
+          "Hide action buttons",
+          "Hide ads",
+          "Hide comments components",
+          "Hide feed components",
+          "Hide feed flyout menu",
+          "Hide layout components",
+          "Hide player buttons",
+          "Hide player flyout menu",
+          "Hook download actions",
+          "MaterialYou",
+          "Miniplayer",
+          "Navigation bar components",
+          "Open links externally",
+          "Overlay buttons",
+          "Override YouTube Music buttons",
+          "Playback in feeds",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Seekbar components",
+          "Set transcript cookies",
+          "Settings menu filter",
+          "Shorts components",
+          "Snack bar components",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Spoof watch history",
+          "Swipe controls",
+          "Theme",
+          "Toolbar components",
+          "Translations for YouTube",
+          "Video playback",
+          "Voice Over Translation",
+          "Wide search bar",
+          "Visual preferences icons for YouTube",
+          "Reload video",
+          "Settings for YouTube"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-anddea-amoled-module-v20.51.39-all.zip": {
+    "20.51.39": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Alternative thumbnails",
+          "Ambient mode control",
+          "Bypass URL redirects",
+          "Bypass image region restrictions",
+          "Change form factor",
+          "Change player flyout menu toggles",
+          "Change share sheet",
+          "Change start page",
+          "Custom DPI",
+          "Custom Shorts action buttons",
+          "Custom branding for YouTube",
+          "Custom double tap length",
+          "Description components",
+          "Disable QUIC protocol",
+          "Disable forced auto captions",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable resuming Miniplayer on startup",
+          "Disable resuming Shorts on startup",
+          "Disable sign in to TV popup",
+          "Enable debug logging",
+          "Enable gradient loading screen",
+          "Force original audio",
+          "Force player buttons background",
+          "Fullscreen components",
+          "Hide action buttons",
+          "Hide ads",
+          "Hide comments components",
+          "Hide feed components",
+          "Hide feed flyout menu",
+          "Hide layout components",
+          "Hide player buttons",
+          "Hide player flyout menu",
+          "Hook download actions",
+          "MaterialYou",
+          "Miniplayer",
+          "Navigation bar components",
+          "Open links externally",
+          "Overlay buttons",
+          "Override YouTube Music buttons",
+          "Playback in feeds",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Seekbar components",
+          "Set transcript cookies",
+          "Settings menu filter",
+          "Shorts components",
+          "Snack bar components",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Spoof watch history",
+          "Swipe controls",
+          "Theme",
+          "Toolbar components",
+          "Translations for YouTube",
+          "Video playback",
+          "Voice Over Translation",
+          "Wide search bar",
+          "Visual preferences icons for YouTube",
+          "Reload video",
+          "Settings for YouTube"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-v9.15.51-arm64-v8a.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-module-v9.15.51-arm64-v8a.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-v9.15.51-arm-v7a.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-module-v9.15.51-arm-v7a.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-v9.15.51-x86_64.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-module-v9.15.51-x86_64.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-v9.15.51-x86.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-module-v9.15.51-x86.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-v9.15.51-arm64-v8a.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-module-v9.15.51-arm64-v8a.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-v9.15.51-arm-v7a.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-module-v9.15.51-arm-v7a.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-v9.15.51-x86_64.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-module-v9.15.51-x86_64.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-v9.15.51-x86.apk": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "GmsCore support",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-anddea-amoled-module-v9.15.51-x86.zip": {
+    "9.15.51": {
+      "260001": {
+        "patches": "anddea/revanced-patches@4.3.0-dev.2",
+        "changelog": "https://github.com/anddea/revanced-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bitrate default value",
+          "Bypass image region restrictions",
+          "Certificate spoof",
+          "Change share sheet",
+          "Change start page",
+          "Custom branding for YouTube Music",
+          "Disable Cairo splash animation",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Disable forced auto captions",
+          "Enable debug logging",
+          "Enable landscape mode",
+          "Flyout menu components",
+          "Force original audio",
+          "Hide account components",
+          "Hide action bar components",
+          "Hide ads",
+          "Hide layout components",
+          "Navigation bar components",
+          "Player components",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Restore old style library shelf",
+          "Return YouTube Dislike",
+          "Return YouTube Username",
+          "Sanitize sharing links",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof app version for lyrics",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics",
+          "Track crossfade",
+          "Translations for YouTube Music",
+          "Video playback",
+          "Watch history",
+          "Visual preferences icons for YouTube Music",
+          "Settings for YouTube Music"
+        ]
+      }
+    }
+  },
+  "speedtest-morphe-xtra-v7.0.7-arm64-v8a.apk": {
+    "7.0.7": {
+      "260001": {
+        "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+        "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+        "applied_patches": [
+          "AdFree Account",
+          "Disable Logging(analytics)"
+        ]
+      }
+    }
+  },
+  "speedtest-morphe-xtra-v7.0.7-arm-v7a.apk": {
+    "7.0.7": {
+      "260001": {
+        "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+        "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+        "applied_patches": [
+          "AdFree Account",
+          "Disable Logging(analytics)"
+        ]
+      }
+    }
+  },
+  "speedtest-morphe-xtra-v7.0.7-x86_64.apk": {
+    "7.0.7": {
+      "260001": {
+        "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+        "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+        "applied_patches": [
+          "AdFree Account",
+          "Disable Logging(analytics)"
+        ]
+      }
+    }
+  },
+  "speedtest-morphe-xtra-v7.0.7-x86.apk": {
+    "7.0.7": {
+      "260001": {
+        "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+        "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+        "applied_patches": [
+          "AdFree Account",
+          "Disable Logging(analytics)"
+        ]
+      }
+    }
+  },
+  "moonplus-reader-morphe-binarymend-v10.5-all.apk": {
+    "10.5": {
+      "260001": {
+        "patches": "binarymend/morphe-patches@1.3.1",
+        "changelog": "https://github.com/binarymend/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Make UI look like Pro",
+          "Unlock Moon+ Reader Pro"
+        ]
+      }
+    }
+  },
+  "hill-climb-racing-morphe-byehi98-v1.71.1-all.apk": {
+    "1.71.1": {
+      "260001": {
+        "patches": "byehi98/okish-morphe-patches@1.14.0",
+        "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Hill Climb Racing Ad Removal",
+          "Hill Climb Racing Free Store",
+          "Hill Climb Racing Instant Rewarded Video Rewards"
+        ]
+      }
+    }
+  },
+  "jetpack-joyride-morphe-byehi98-v1.104.1-all.apk": {
+    "1.104.1": {
+      "260001": {
+        "patches": "byehi98/okish-morphe-patches@1.14.0",
+        "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Jetpack Joyride Billing Bypass"
+        ]
+      }
+    }
+  },
+  "smash-hit-morphe-byehi98-v1.5.14-all.apk": {
+    "1.5.14": {
+      "260001": {
+        "patches": "byehi98/okish-morphe-patches@1.14.0",
+        "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Smash Hit Premium Unlock"
+        ]
+      }
+    }
+  },
+  "vector-morphe-byehi98-v2.10.0-all.apk": {
+    "2.10.0": {
+      "260001": {
+        "patches": "byehi98/okish-morphe-patches@1.14.0",
+        "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Vector Ad Spoof"
+        ]
+      }
+    }
+  },
+  "chess-morphe-prathxm-v4.10.0-all.apk": {
+    "4.10.0": {
+      "260001": {
+        "patches": "PrathxmOp/Prathxm-Patches@1.13.1-dev.3",
+        "changelog": "https://github.com/PrathxmOp/Prathxm-Patches/releases/tag/latest",
+        "applied_patches": [
+          "Ad-Free",
+          "Custom Titles",
+          "Global Crash Handler",
+          "Lichess Puzzles",
+          "Local Stockfish Analysis",
+          "Unlock All Bots"
+        ]
+      }
+    }
+  },
+  "chess-morphe-prathxm-clone-v4.10.0-all.apk": {
+    "4.10.0": {
+      "260001": {
+        "patches": "PrathxmOp/Prathxm-Patches@1.13.1-dev.3",
+        "changelog": "https://github.com/PrathxmOp/Prathxm-Patches/releases/tag/latest",
+        "applied_patches": [
+          "Ad-Free",
+          "Custom Titles",
+          "Global Crash Handler",
+          "Lichess Puzzles",
+          "Local Stockfish Analysis",
+          "Unlock All Bots",
+          "Clone Chess.com"
+        ]
+      }
+    }
+  },
+  "brave-stable-morphe-dh6k-v1.93.138-arm64-v8a.apk": {
+    "1.93.138": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "brave-stable-morphe-dh6k-v1.93.138-arm-v7a.apk": {
+    "1.93.138": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "brave-stable-morphe-dh6k-v1.93.138-x86_64.apk": {
+    "1.93.138": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "brave-stable-morphe-dh6k-v1.93.138-x86.apk": {
+    "1.93.138": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "brave-beta-morphe-dh6k-v1.95.88-arm64-v8a.apk": {
+    "1.95.88": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "brave-beta-morphe-dh6k-v1.95.88-arm-v7a.apk": {
+    "1.95.88": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "brave-beta-morphe-dh6k-v1.95.88-x86_64.apk": {
+    "1.95.88": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "brave-beta-morphe-dh6k-v1.95.88-x86.apk": {
+    "1.95.88": {
+      "260001": {
+        "patches": "dh6k/morphe-patches@1.3.0",
+        "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Brave Origin"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-arm64-v8a.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-arm64-v8a.zip": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-arm-v7a.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-arm-v7a.zip": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-x86_64.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-x86_64.zip": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-x86.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-module-v18.0.3.954559732-x86.zip": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-arm64-v8a.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-arm-v7a.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-x86_64.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "gboard-morphe-jasonwu1994-adobo-clone-v18.0.3.954559732-x86.apk": {
+    "18.0.3.954559732": {
+      "260001": {
+        "patches": "jasonwu1994/Gboard-patches@1.4.0-dev.2",
+        "changelog": "https://github.com/jasonwu1994/Gboard-patches/releases/tag/latest https://github.com/jkennethcarino/adobo/releases/tag/latest",
+        "applied_patches": [
+          "AI Writing Tools",
+          "Access Points menu style",
+          "Add Gboard Signature Bypass",
+          "Advanced Voice Typing",
+          "Change emoji size",
+          "Clipboard Custom Character Limit",
+          "Clipboard Enhancements",
+          "Close Proactive Suggestions",
+          "Custom Symbols",
+          "Developer options",
+          "Emojis, stickers & GIFs Tab Order",
+          "Enable Inline Autofill Suggestions",
+          "Enable OCR / Scan Text",
+          "Enable accessibility layout",
+          "Enable clipboard in incognito",
+          "Enable cursor trackpad mode",
+          "Enable split keyboard",
+          "Enable voice typing in incognito",
+          "English QWERTY Up-Flick Uppercase",
+          "G Logo on Spacebar",
+          "Grammar Checker",
+          "Hyperspeed Typing Animation",
+          "Inline Suggestions",
+          "Key Shape Selection",
+          "Latin Globe Key Ignore Interval",
+          "Long-Press Editing Shortcuts",
+          "Package Rename",
+          "Quick Insert",
+          "Settings Homepage Override",
+          "Swipeable Custom Top Row",
+          "Use Bluetooth Microphone",
+          "Web Clipboard",
+          "Zhuyin Bottom Row Key Sizes",
+          "Zhuyin Quick Traditional/Simplified Toggle",
+          "Zhuyin Slide Input"
+        ]
+      }
+    }
+  },
+  "github-morphe-hoodles-stylus-v1.273.0-all.apk": {
+    "1.273.0": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.4.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "AMOLED dark theme",
+          "Force system font (GitHub)",
+          "Force system font (including monospace) (GitHub)"
+        ]
+      }
+    }
+  },
+  "prime-video-morphe-hoodles-v3.0.469.1947-arm64-v8a.apk": {
+    "3.0.469.1947": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control",
+          "Rename shared permissions",
+          "Skip ads"
+        ]
+      }
+    }
+  },
+  "prime-video-morphe-hoodles-shared-v3.0.469-arm64-v8a.apk": {
+    "3.0.469": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control",
+          "Skip ads"
+        ]
+      }
+    }
+  },
+  "xrecorder-morphe-hoodles-v2.5.4.1-all.apk": {
+    "2.5.4.1": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro"
+        ]
+      }
+    }
+  },
+  "camscanner-morphe-hoodles-v7.20.0.2606230000-arm64-v8a.apk": {
+    "7.20.0.2606230000": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Enable Premium"
+        ]
+      }
+    }
+  },
+  "nova-launcher-morphe-hoodles-v88900(8.8.9)-all.apk": {
+    "88900(8.8.9)": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Prime"
+        ]
+      }
+    }
+  },
+  "xodo-morphe-hoodles-v11.0.0-arm64-v8a.apk": {
+    "11.0.0": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro"
+        ]
+      }
+    }
+  },
+  "xodo-morphe-hoodles-v11.0.0-arm-v7a.apk": {
+    "11.0.0": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro"
+        ]
+      }
+    }
+  },
+  "xodo-morphe-hoodles-v11.0.0-x86_64.apk": {
+    "11.0.0": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro"
+        ]
+      }
+    }
+  },
+  "xodo-morphe-hoodles-v11.0.0-x86.apk": {
+    "11.0.0": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro"
+        ]
+      }
+    }
+  },
+  "solid-explorer-morphe-hoodles-v3.5.19-all.apk": {
+    "3.5.19": {
+      "260001": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Pro",
+          "MicroG integration"
+        ]
+      }
+    }
+  },
+  "symfonium-morphe-hooman-v14.1.0-all.apk": {
+    "14.1.0": {
+      "260001": {
+        "patches": "arandomhooman/hoomans-morphe-patches@1.50.3",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "adm-morphe-hooman-v14.0.39-all.apk": {
+    "14.0.39": {
+      "260001": {
+        "patches": "arandomhooman/hoomans-morphe-patches@1.50.3",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Remove ads"
+        ]
+      }
+    }
+  },
+  "batteryguru-morphe-hooman-v2.5.0.7-all.apk": {
+    "2.5.0.7": {
+      "260001": {
+        "patches": "arandomhooman/hoomans-morphe-patches@1.50.3",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock PRO"
+        ]
+      }
+    }
+  },
+  "poweramp-morphe-hooman-vbuild-1025-bundle-play-arm64-v8a.apk": {
+    "build-1025-bundle-play": {
+      "260001": {
+        "patches": "arandomhooman/hoomans-morphe-patches@1.50.3",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "twitch-morphe-hooman-v30.7.2-all.apk": {
+    "30.7.2": {
+      "260001": {
+        "patches": "arandomhooman/hoomans-morphe-patches@1.50.3",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "7TV and BTTV emotes",
+          "Auto claim channel points",
+          "Block live ads",
+          "Fix login",
+          "Hide display ads",
+          "Show deleted messages"
+        ]
+      }
+    }
+  },
+  "soundcloud-morphe-kondratjev-v2026.07.23-arm64-v8a.apk": {
+    "2026.07.23": {
+      "260001": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
+      }
+    }
+  },
+  "soundcloud-morphe-kondratjev-v2026.07.23-arm-v7a.apk": {
+    "2026.07.23": {
+      "260001": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
+      }
+    }
+  },
+  "soundcloud-morphe-kondratjev-v2026.07.23-x86_64.apk": {
+    "2026.07.23": {
+      "260001": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
+      }
+    }
+  },
+  "soundcloud-morphe-kondratjev-v2026.07.23-x86.apk": {
+    "2026.07.23": {
+      "260001": {
+        "patches": "kondratjev/morphe-patches@1.19.0",
+        "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable analytics",
+          "Disable consent popup",
+          "Enable SoundCloud Go"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-v21.34.243-all.apk": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "GmsCore support",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-module-v21.34.243-all.zip": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-amoled-v21.34.243-all.apk": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "GmsCore support",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-amoled-module-v21.34.243-all.zip": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-exp-v21.34.243-all.apk": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "GmsCore support",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-exp-module-v21.34.243-all.zip": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-exp-amoled-v21.34.243-all.apk": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "GmsCore support",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-morphe-exp-amoled-module-v21.34.243-all.zip": {
+    "21.34.243": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Add to queue",
+          "Alternative thumbnails",
+          "Ambient mode",
+          "Bypass image region restrictions",
+          "Bypass link redirects",
+          "Captions",
+          "Change form factor",
+          "Change header",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Copy video link",
+          "Custom branding",
+          "Custom player overlay opacity",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable Shorts resuming on startup",
+          "Disable double tap actions",
+          "Disable fullscreen gestures",
+          "Disable haptic feedback",
+          "Disable layout updates",
+          "Disable player popup panels",
+          "Disable rolling number animations",
+          "Disable sign in to TV popup",
+          "Disable video codecs",
+          "Double tap to seek",
+          "Downloads",
+          "Enable debugging",
+          "Exit fullscreen mode",
+          "Force original audio",
+          "Hide Shorts components",
+          "Hide ads",
+          "Hide autoplay preview",
+          "Hide end screen cards",
+          "Hide end screen suggested video",
+          "Hide info cards",
+          "Hide layout components",
+          "Hide player flyout menu components",
+          "Hide player overlay buttons",
+          "Hide related video overlay",
+          "Hide related videos",
+          "Hide timestamp",
+          "Hide video action buttons",
+          "Loop video",
+          "Media notification controls",
+          "Miniplayer",
+          "Navigation bar",
+          "Open Shorts in regular player",
+          "Open channel of live avatar",
+          "Open links externally",
+          "Open system share sheet",
+          "Open videos fullscreen",
+          "Override YouTube Music buttons",
+          "Play all",
+          "Playback in feeds",
+          "Playback speed",
+          "Reload video",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Save to watch later",
+          "Seekbar",
+          "Settings menu filter",
+          "Shorts autoplay",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof device dimensions",
+          "Spoof video streams",
+          "Swipe controls",
+          "Theme",
+          "Video quality",
+          "Voice over translation",
+          "Wide search bar"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-v9.33.52-arm64-v8a.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-module-v9.33.52-arm64-v8a.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-v9.33.52-arm-v7a.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-module-v9.33.52-arm-v7a.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-v9.33.52-x86_64.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-module-v9.33.52-x86_64.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-v9.33.52-x86.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-module-v9.33.52-x86.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.19",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-v9.33.52-arm64-v8a.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-module-v9.33.52-arm64-v8a.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-v9.33.52-arm-v7a.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-module-v9.33.52-arm-v7a.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-v9.33.52-x86_64.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-module-v9.33.52-x86_64.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-v9.33.52-x86.apk": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "GmsCore support",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "youtube-music-morphe-exp-amoled-module-v9.33.52-x86.zip": {
+    "9.33.52": {
+      "260001": {
+        "patches": "MorpheApp/morphe-patches@1.40.0-dev.20",
+        "changelog": "https://github.com/MorpheApp/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "clash-of-clans-nulls-v18.400.7-all.apk": {
+    "18.400.7": {
+      "260001": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "clash-royale-nulls-v15.535.13-all.apk": {
+    "15.535.13": {
+      "260001": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "brawl-stars-nulls-v68.279-all.apk": {
+    "68.279": {
+      "260001": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": [
+          "Bypass certificate checks",
+          "Change header",
+          "Change miniplayer color",
+          "Change start page",
+          "Check watch history domain name resolution",
+          "Crossfade",
+          "Custom branding",
+          "Disable DRC audio",
+          "Disable QUIC protocol",
+          "Disable dislike redirection",
+          "Downloads",
+          "Enable debugging",
+          "Enable exclusive audio playback",
+          "Enable forced miniplayer",
+          "Enable swipe to dismiss miniplayer",
+          "Force original audio",
+          "Hide ads",
+          "Hide buttons",
+          "Hide filter bar",
+          "Hide flyout menu components",
+          "Hide layout components",
+          "Hide music action buttons",
+          "Miniplayer previous and next buttons",
+          "Navigation bar",
+          "Remember repeat state",
+          "Remember shuffle state",
+          "Remove background playback restrictions",
+          "Remove viewer discretion dialog",
+          "Return YouTube Dislike",
+          "Sanitize sharing links",
+          "Scrobbling",
+          "Settings menu filter",
+          "SponsorBlock",
+          "Spoof app version",
+          "Spoof video streams",
+          "Theme",
+          "Third-party lyrics"
+        ]
+      }
+    }
+  },
+  "fing-morphe-paresh-v12.13.2-all.apk": {
+    "12.13.2": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Fing Premium"
+        ]
+      }
+    }
+  },
+  "proton-vpn-morphe-paresh-v5.19.78.0-all.apk": {
+    "5.19.78.0": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Proton VPN Premium"
+        ]
+      }
+    }
+  },
+  "jiohotstar-morphe-paresh-v26.08.03.2-all.apk": {
+    "26.08.03.2": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Bypass signature check",
+          "Enable all codecs",
+          "Enable screen mirroring",
+          "Enable screenshots",
+          "Force HDR10",
+          "Premium unlock",
+          "Remove ads"
+        ]
+      }
+    }
+  },
+  "sdmaid-morphe-paresh-v2.0.3-all.apk": {
+    "2.0.3": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
+      }
+    }
+  },
+  "truecaller-morphe-paresh-v26.10.6-arm64-v8a.apk": {
+    "26.10.6": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Disable update check",
+          "GMS sign-in bypass",
+          "Hide Assistant tab",
+          "Hide Family Protection button",
+          "Hide Premium from settings",
+          "Hide Premium tab",
+          "Hide Scams tab",
+          "Neutralize third-party SDKs",
+          "Truecaller Premium"
+        ]
+      }
+    }
+  },
+  "truecaller-morphe-paresh-module-v26.10.6-arm64-v8a.zip": {
+    "26.10.6": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Disable update check",
+          "GMS sign-in bypass",
+          "Hide Assistant tab",
+          "Hide Family Protection button",
+          "Hide Premium from settings",
+          "Hide Premium tab",
+          "Hide Scams tab",
+          "Neutralize third-party SDKs",
+          "Truecaller Premium"
+        ]
+      }
+    }
+  },
+  "truecaller-morphe-paresh-v26.10.6-arm-v7a.apk": {
+    "26.10.6": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Disable update check",
+          "GMS sign-in bypass",
+          "Hide Assistant tab",
+          "Hide Family Protection button",
+          "Hide Premium from settings",
+          "Hide Premium tab",
+          "Hide Scams tab",
+          "Neutralize third-party SDKs",
+          "Truecaller Premium"
+        ]
+      }
+    }
+  },
+  "truecaller-morphe-paresh-module-v26.10.6-arm-v7a.zip": {
+    "26.10.6": {
+      "260001": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Disable update check",
+          "GMS sign-in bypass",
+          "Hide Assistant tab",
+          "Hide Family Protection button",
+          "Hide Premium from settings",
+          "Hide Premium tab",
+          "Hide Scams tab",
+          "Neutralize third-party SDKs",
+          "Truecaller Premium"
+        ]
+      }
+    }
+  },
+  "instagram-morphe-piko-v439.0.0.37.89-arm64-v8a.apk": {
+    "439.0.0.37.89": {
+      "260001": {
+        "patches": "crimera/piko@3.9.0-dev.9",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": [
+          "Add settings",
+          "Allow user network certificate",
+          "Change like animation",
+          "Change version code",
+          "Copy comment",
+          "Custom sharing domain",
+          "Customise story ring size",
+          "Customise story timestamp",
+          "Disable Reels scrolling",
+          "Disable ads",
+          "Disable analytics",
+          "Disable comments",
+          "Disable discover people",
+          "Disable explore",
+          "Disable highlights",
+          "Disable onboarding permission prompts",
+          "Disable screenshot detection",
+          "Disable stories",
+          "Disable story flipping",
+          "Disable swipe to create",
+          "Disable typing status",
+          "Disable video autoplay",
+          "Download media",
+          "Download voice message",
+          "External downloader",
+          "Filter stories",
+          "Friendship status indicator",
+          "Hide group creation button on sharesheet",
+          "Hide navigation buttons",
+          "Hide notes tray",
+          "Hide reshare button",
+          "Hide stories tray",
+          "Hide suggested content",
+          "Improve image viewing",
+          "Limit feed to following profiles",
+          "Loop story",
+          "Make ephemeral media permanent",
+          "Mark chat as read manually",
+          "More options on post",
+          "More options on profile",
+          "Open links externally",
+          "Recommended flags",
+          "Remove build expired popup",
+          "Remove empty bottom space",
+          "Sanitize share links",
+          "Save deleted messages",
+          "Save media comment",
+          "Stories audio autoplay",
+          "Theme",
+          "Unlock Plus benefits",
+          "Unlock developer options",
+          "Unlock employee options",
+          "Validate links",
+          "View DMs anonymously",
+          "View live anonymously",
+          "View stories anonymously",
+          "View story mentions"
+        ]
+      }
+    }
+  },
+  "x-morphe-piko-v12.19.1-all.apk": {
+    "12.19.1": {
+      "260001": {
+        "patches": "crimera/piko@3.9.0-dev.9",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": [
+          "Add ability to copy media link",
+          "Block redirecting to X Lite",
+          "Block update screen",
+          "Change app icon",
+          "Change version code",
+          "Clear tracking params",
+          "Control video auto scroll",
+          "Custom download folder",
+          "Custom emoji font",
+          "Custom font",
+          "Custom share menu",
+          "Custom sharing domain",
+          "Customise post font size",
+          "Customize Inline action Bar items",
+          "Customize Navigation Bar items",
+          "Customize default reply sorting",
+          "Customize explore tabs",
+          "Customize notification tabs",
+          "Customize profile tabs",
+          "Customize search suggestions",
+          "Customize search tab items",
+          "Customize side bar items",
+          "Customize timeline top bar",
+          "Delete from database",
+          "Disable auto timeline scroll on launch",
+          "Disable chirp font",
+          "Download patch",
+          "Enable PiP mode automatically",
+          "Enable Undo Posts",
+          "Enable debug menu for posts",
+          "Enable force HD videos",
+          "Force enable translate",
+          "Handle custom twitter links",
+          "Hide Banner",
+          "Hide Community Notes",
+          "Hide FAB",
+          "Hide FAB Menu Buttons",
+          "Hide Live Threads",
+          "Hide Recommended Users",
+          "Hide badges from navigation bar icons",
+          "Hide bookmark icon in timeline",
+          "Hide community badges",
+          "Hide followed by context",
+          "Hide hidden replies",
+          "Hide immersive player",
+          "Hide nudge button",
+          "Hide post metrics",
+          "Hide promote button",
+          "Hide recommendation items",
+          "Hook feature flag",
+          "Import/Export login token",
+          "Legacy share links",
+          "Log server response",
+          "More information on profile",
+          "Native downloader",
+          "Native reader mode",
+          "Native translator",
+          "No shortened URL",
+          "Pause search suggestions",
+          "Remove Ads",
+          "Remove premium upsell",
+          "Remove search suggestions",
+          "Remove view count",
+          "Round off numbers",
+          "Selectable Text",
+          "Share Tweet as Image",
+          "Show changelogs",
+          "Show poll results",
+          "Show post source label",
+          "Show sensitive media",
+          "Support external downloader"
+        ]
+      }
+    }
+  },
+  "x-morphe-piko-materialyou-v12.19.1-release.0-all.apk": {
+    "12.19.1-release.0": {
+      "260001": {
+        "patches": "crimera/piko@3.9.0-dev.9",
+        "changelog": "https://github.com/crimera/piko/releases/tag/latest",
+        "applied_patches": [
+          "Add ability to copy media link",
+          "Block redirecting to X Lite",
+          "Block update screen",
+          "Change app icon",
+          "Change version code",
+          "Clear tracking params",
+          "Control video auto scroll",
+          "Custom download folder",
+          "Custom emoji font",
+          "Custom font",
+          "Custom share menu",
+          "Custom sharing domain",
+          "Customise post font size",
+          "Customize Inline action Bar items",
+          "Customize Navigation Bar items",
+          "Customize default reply sorting",
+          "Customize explore tabs",
+          "Customize notification tabs",
+          "Customize profile tabs",
+          "Customize search suggestions",
+          "Customize search tab items",
+          "Customize side bar items",
+          "Customize timeline top bar",
+          "Delete from database",
+          "Disable auto timeline scroll on launch",
+          "Disable chirp font",
+          "Download patch",
+          "Dynamic color",
+          "Enable PiP mode automatically",
+          "Enable Undo Posts",
+          "Enable debug menu for posts",
+          "Enable force HD videos",
+          "Force enable translate",
+          "Handle custom twitter links",
+          "Hide Banner",
+          "Hide Community Notes",
+          "Hide FAB",
+          "Hide FAB Menu Buttons",
+          "Hide Live Threads",
+          "Hide Recommended Users",
+          "Hide badges from navigation bar icons",
+          "Hide bookmark icon in timeline",
+          "Hide community badges",
+          "Hide followed by context",
+          "Hide hidden replies",
+          "Hide immersive player",
+          "Hide nudge button",
+          "Hide post metrics",
+          "Hide promote button",
+          "Hide recommendation items",
+          "Hook feature flag",
+          "Import/Export login token",
+          "Legacy share links",
+          "Log server response",
+          "More information on profile",
+          "Native downloader",
+          "Native reader mode",
+          "Native translator",
+          "No shortened URL",
+          "Pause search suggestions",
+          "Remove Ads",
+          "Remove premium upsell",
+          "Remove search suggestions",
+          "Remove view count",
+          "Round off numbers",
+          "Selectable Text",
+          "Share Tweet as Image",
+          "Show changelogs",
+          "Show poll results",
+          "Show post source label",
+          "Show sensitive media",
+          "Support external downloader"
+        ]
+      }
+    }
+  },
+  "discord-npatch-revenge-v341.13-all.apk": {
+    "341.13": {
+      "260001": {
+        "patches": "revenge-mod/revenge-xposed",
+        "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
+        "applied_patches": []
+      }
+    }
+  },
+  "amazon-india-morphe-rushiranpise-v32.15.0.300-all.apk": {
+    "32.15.0.300": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Dark mode",
+          "Disable search suggestions tracking",
+          "Disable video autoplay",
+          "Disable video autoplay",
+          "Fix Amazon manifest conflicts",
+          "Open links in browser",
+          "Price history charts",
+          "Remove ads"
+        ]
+      }
+    }
+  },
+  "adobe-acrobat-morphe-rushiranpise-v26.7.2.47372-arm64-v8a.apk": {
+    "26.7.2.47372": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
+      }
+    }
+  },
+  "adobe-acrobat-morphe-rushiranpise-v26.7.2-x86_64.apk": {
+    "26.7.2": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
+      }
+    }
+  },
+  "microsoft-word-morphe-rushiranpise-v16.0.20326.20034-arm64-v8a.apk": {
+    "16.0.20326.20034": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Word"
+        ]
+      }
+    }
+  },
+  "microsoft-word-morphe-rushiranpise-v16.0.20326.20034-arm-v7a.apk": {
+    "16.0.20326.20034": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Word"
+        ]
+      }
+    }
+  },
+  "microsoft-word-morphe-rushiranpise-v16.0.20326.20034-x86_64.apk": {
+    "16.0.20326.20034": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Word"
+        ]
+      }
+    }
+  },
+  "microsoft-excel-morphe-rushiranpise-v16.0.20326.20034-arm64-v8a.apk": {
+    "16.0.20326.20034": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Excel"
+        ]
+      }
+    }
+  },
+  "microsoft-excel-morphe-rushiranpise-v16.0.20326.20034-arm-v7a.apk": {
+    "16.0.20326.20034": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Excel"
+        ]
+      }
+    }
+  },
+  "microsoft-excel-morphe-rushiranpise-v16.0.20326.20034-x86_64.apk": {
+    "16.0.20326.20034": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Excel"
+        ]
+      }
+    }
+  },
+  "pc-remote-morphe-rushiranpise-v8.3.5-all.apk": {
+    "8.3.5": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "oxygen-updater-morphe-rushiranpise-v7.1.0-all.apk": {
+    "7.1.0": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Remove Ads"
+        ]
+      }
+    }
+  },
+  "windscribe-vpn-morphe-rushiranpise-v4.2.2328-all.apk": {
+    "4.2.2328": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "1111-warp-morphe-rushiranpise-v6.38.9-all.apk": {
+    "6.38.9": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable Analytics / Telemetry",
+          "Spoof WARP+ Unlimited UI"
+        ]
+      }
+    }
+  },
+  "adguard-morphe-rushiranpise-v4.13.1-all.apk": {
+    "4.13.1": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Lifetime Premium"
+        ]
+      }
+    }
+  },
+  "beta-maniac-morphe-rushiranpise-v0.10.0-all.apk": {
+    "0.10.0": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "GmsCore support (MicroG)",
+          "Unlock Premium"
+        ]
+      }
+    }
+  },
+  "duolingo-morphe-rushiranpise-v6.90.3-arm64-v8a.apk": {
+    "6.90.3": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Debug Menu",
+          "GmsCore support (MicroG)",
+          "Unlock Subscription"
+        ]
+      }
+    }
+  },
+  "duolingo-morphe-rushiranpise-v6.90.3-arm-v7a.apk": {
+    "6.90.3": {
+      "260001": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Debug Menu",
+          "GmsCore support (MicroG)",
+          "Unlock Subscription"
+        ]
+      }
+    }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-arm64-v8a.apk": {
+    "2.2.704787.0": {
+      "260001": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-arm-v7a.apk": {
+    "2.2.704787.0": {
+      "260001": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-x86_64.apk": {
+    "2.2.704787.0": {
+      "260001": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "amazon-alexa-signed-v2.2.704787.0-x86.apk": {
+    "2.2.704787.0": {
+      "260001": {
+        "patches": "none",
+        "changelog": "passthrough",
+        "applied_patches": []
+      }
+    }
+  },
+  "bitwarden-morphe-stylus-v2026.8.0-all.apk": {
+    "2026.8.0": {
+      "260001": {
+        "patches": "ch3thanhs/stylus@1.4.0",
+        "changelog": "https://github.com/ch3thanhs/stylus/releases/tag/latest",
+        "applied_patches": [
+          "Force system font (Bitwarden)"
+        ]
+      }
+    }
+  },
+  "tiktok-morphe-icysymmetra-v46.2.3-all.apk": {
+    "46.2.3": {
+      "260001": {
+        "patches": "icysymmetra/tiktok-patches-for-morphe@0.7.0",
+        "changelog": "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/latest",
+        "applied_patches": [
+          "Always show publish date",
+          "Copy comments without username",
+          "Custom offline videos limit",
+          "Disable login requirement",
+          "Disable long-press quick share",
+          "Disable long-press repost",
+          "Downloads",
+          "Enable Live search",
+          "Enable non-personalized search",
+          "Feature Gate Lab",
+          "Feed filter",
+          "Feed tab navigation",
+          "Fix Google login",
+          "Hide CAPTCHA popups",
+          "Hide floating promotions",
+          "Hide quick comment reactions",
+          "Hold-and-slide 2x lock",
+          "Open external links directly",
+          "Playback speed",
+          "Remember clear display",
+          "Resume videos after scrolling",
+          "SIM spoof",
+          "Sanitize sharing links",
+          "Settings",
+          "Show seekbar",
+          "Show seekbar thumbnail",
+          "Stop video looping",
+          "Translate comments",
+          "Disable screen capture detection"
+        ]
+      }
+    }
+  },
+  "tiktok-morphe-hxreborn-v46.2.3-all.apk": {
+    "46.2.3": {
+      "260001": {
+        "patches": "hxreborn/hxreborn-tiktok-patches@0.11.4",
+        "changelog": "https://github.com/hxreborn/hxreborn-tiktok-patches/releases/tag/latest",
+        "applied_patches": [
+          "Always show publish date",
+          "Copy comments without username",
+          "Custom offline videos limit",
+          "Disable login requirement",
+          "Disable long-press quick share",
+          "Disable telemetry",
+          "Downloads",
+          "Enable Live search",
+          "Enable non-personalized search",
+          "Expand activity list",
+          "Feature Gate Lab",
+          "Feed filter",
+          "Feed tab navigation",
+          "Fix Google login",
+          "Hide BdTuring CAPTCHA popups",
+          "Hide CAPTCHA popups",
+          "Hide inbox stories",
+          "Hide quick comment reactions",
+          "Hide suggested accounts",
+          "Hold-and-slide 2x lock",
+          "Open external links directly",
+          "Playback speed",
+          "Remember clear display",
+          "Resume videos after scrolling",
+          "SIM spoof",
+          "Sanitize sharing links",
+          "Settings",
+          "Show seekbar",
+          "Show seekbar thumbnail",
+          "Stop video looping",
+          "Translate comments",
+          "Disable screen capture detection"
+        ]
+      }
+    }
+  }
+}
