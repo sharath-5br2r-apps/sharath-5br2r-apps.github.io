@@ -20,22 +20,24 @@ const CONFIG = {
     google: ["google", "gboard"],
     youtube: ["youtube"],
     meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
-    vpn: ["1111warp", "vpnify", "vpn", "protonvpn"],
+    vpn: ["1111warp", "vpnify", "windscribevpn", "protonvpn", "vpn", "warp"],
     emulator: ["dolphin", "emulator"],
     games: ["levilauncher", "levilaunchroid", "game", "games"],
     launcher: ["niagara", "nova", "smartlauncher", "launcher", "!levilauncher", "!levilaunchroid", "!levilaunchroidextra"],
     social: ["twitter", "discord", "threads", "instagram", "messenger", "facebook", "tiktok", "reddit", "x-morphe", "xshim", "comtwitter", "!hbomax", "!vix", "!moviebox", "!terabox", "!netflix"],
     video: ["youtube", "primevideo", "tiktok", "jiohotstar", "hbomax", "vix", "moviebox", "netflix", "!youtubemusic"],
     docs: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "office"],
-    music: ["youtubemusic", "symfonium", "music"],
+    music: ["youtubemusic", "symfonium", "soundcloud", "poweramp", "music"],
   },
+
 
   // Words ignored in the dynamic app filters (must be lowercase)
   sharedAppWordStoplist: new Set([
     "messenger", "document", "reader", "extra", "builder", "signed", "clone",
     "morphe", "revanced", "xposed", "app", "apps", "free", "pro", "premium",
     "latest", "official", "release", "module", "mode", "tools", "utility",
-    "android", "desktop", "patch", "patches", "custom", "version", "v1", "v2"
+    "android", "desktop", "patch", "patches", "custom", "version", "v1", "v2",
+    "video", "music", "launcher", "browser", "theme", "online", "mobile"
   ]),
 
   // Known tokens indicating a patch name starts (must be lowercase)
@@ -160,8 +162,6 @@ const CONFIG = {
     microsoftlens: "Microsoft Lens",
     soundcloud: "SoundCloud",
     batteryguru: "Battery Guru",
-    windscribe: "Windscribe VPN",
-    windscribevpn: "Windscribe VPN",
     androidtv: "Android TV",
     disneyplus: "Disney+",
     hbomax: "HBO Max",
@@ -615,6 +615,9 @@ let modalBuildFilter = "all";
 let modalVariantFilter = "all";
 let themeMode = "system";
 let activeAppliedPatchesList = [];
+let activeSkippedPatchesList = [];
+let activeFailedPatchesList = [];
+let activeBuildMetadata = null;
 
 // Progressive Render State
 let currentVisibleCount = 0;
@@ -2172,6 +2175,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   let pNames = null;
   let clUrl = null;
   let appliedPatches = null;
+  let buildMetadata = null;
 
   // Resolve applied patches from builds.json
   if (!appliedPatches) {
@@ -2344,6 +2348,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     }
 
     if (resolved) {
+      buildMetadata = resolved;
       if (Array.isArray(resolved.applied_patches) && resolved.applied_patches.length > 0) {
         appliedPatches = resolved.applied_patches;
       }
@@ -2377,6 +2382,11 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
   }
 
   activeAppliedPatchesList = appliedPatches;
+  activeBuildMetadata = buildMetadata;
+  activeSkippedPatchesList = Array.isArray(buildMetadata?.skipped_patches) ? buildMetadata.skipped_patches : [];
+  activeFailedPatchesList = Array.isArray(buildMetadata?.failed_patches)
+    ? buildMetadata.failed_patches
+    : (Array.isArray(buildMetadata?.failed) ? buildMetadata.failed : []);
   activeBuildForModal = build;
   filterAppliedPatchesList("");
   showModal(DOM.appliedPatchesModal);
@@ -2434,7 +2444,11 @@ function formatChangelogForBuild(build) {
 function filterAppliedPatchesList(query) {
   if (!DOM.appliedPatchesBody) return;
 
-  if (!activeAppliedPatchesList || activeAppliedPatchesList.length === 0) {
+  const hasExtraMetadata = activeBuildMetadata && (
+    activeSkippedPatchesList.length > 0 || activeFailedPatchesList.length > 0 ||
+    activeBuildMetadata.arch || activeBuildMetadata.min_sdk
+  );
+  if ((!activeAppliedPatchesList || activeAppliedPatchesList.length === 0) && !hasExtraMetadata) {
     if (DOM.patchCountBadge) {
       DOM.patchCountBadge.textContent = "0 Patches";
     }
@@ -2449,7 +2463,7 @@ function filterAppliedPatchesList(query) {
   }
 
   const normalized = (query || "").toLowerCase().trim();
-  const filtered = activeAppliedPatchesList.filter((p) =>
+  const filtered = (activeAppliedPatchesList || []).filter((p) =>
     p.toLowerCase().includes(normalized)
   );
 
@@ -2462,15 +2476,41 @@ function filterAppliedPatchesList(query) {
     return;
   }
 
+  const renderPatchSection = (title, items, icon, className) => items.length ? `
+    <section class="patch-metadata-section ${className}">
+      <h3>${icon} ${title} <span>${items.length}</span></h3>
+      <div class="applied-patches-grid">
+        ${items.map((patchName) => `<div class="applied-patch-item"><span class="patch-check-icon">${icon}</span><span>${escapeHtml(patchName)}</span></div>`).join("")}
+      </div>
+    </section>` : "";
+
+  const apkInfo = activeBuildMetadata ? `
+    <section class="patch-metadata-section apk-info-section">
+      <h3>📦 APK Information</h3>
+      <div class="apk-info-grid">
+        <span><strong>Architecture</strong>${escapeHtml(activeBuildMetadata.arch || "Unknown")}</span>
+        <span><strong>Minimum SDK</strong>${escapeHtml(activeBuildMetadata.min_sdk || "Unknown")}</span>
+        <span><strong>Format</strong>${escapeHtml(activeBuildMetadata.ext || "Unknown")}</span>
+        <span><strong>Native libraries</strong>${escapeHtml((activeBuildMetadata.native_libraries || []).join(", ") || "None")}</span>
+        <span><strong>Densities</strong>${escapeHtml((activeBuildMetadata.densities || []).join(", ") || "Unknown")}</span>
+      </div>
+    </section>` : "";
+
   DOM.appliedPatchesBody.innerHTML = `
-    <div class="applied-patches-grid">
+    ${apkInfo}
+    ${renderPatchSection("Skipped Patches", activeSkippedPatchesList, "⏭️", "skipped-patches-section")}
+    ${renderPatchSection("Failed Patches", activeFailedPatchesList, "⚠️", "failed-patches-section")}
+    <section class="patch-metadata-section applied-patches-section">
+      <h3>✅ Applied Patches <span>${filtered.length}</span></h3>
+      <div class="applied-patches-grid">
       ${filtered.map((patchName) => `
         <div class="applied-patch-item">
           <span class="patch-check-icon">✓</span>
           <span>${escapeHtml(patchName)}</span>
         </div>
       `).join("")}
-    </div>
+      </div>
+    </section>
   `;
 }
 
@@ -3182,6 +3222,10 @@ function parseAssetDisplay(filename, arch, fileType) {
 }
 
 function formatBrandDisplayName(value) {
+  const compoundKey = normalizeForSearch(value);
+  if (compoundKey && CONFIG.brandOverrides[compoundKey]) {
+    return CONFIG.brandOverrides[compoundKey];
+  }
   return (value || "")
     .replace(/\s+/g, " ")
     .trim()

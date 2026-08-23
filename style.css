@@ -2138,3 +2138,36 @@ footer a:hover {
         font-size: 0.78rem;
     }
 }
+/* Build metadata details */
+.patch-metadata-section {
+  margin: 0 0 18px;
+}
+.patch-metadata-section h3 {
+  margin: 0 0 10px;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+}
+.patch-metadata-section h3 span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.apk-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px;
+}
+.apk-info-grid span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+.apk-info-grid strong { color: var(--text-primary); font-size: 0.72rem; }
+.skipped-patches-section .applied-patch-item { border-color: color-mix(in srgb, #eab308 35%, var(--border)); }
+.failed-patches-section .applied-patch-item { border-color: color-mix(in srgb, #ef4444 40%, var(--border)); }
