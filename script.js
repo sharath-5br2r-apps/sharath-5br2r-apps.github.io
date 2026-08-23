@@ -2503,8 +2503,6 @@ function filterAppliedPatchesList(query) {
 
   DOM.appliedPatchesBody.innerHTML = `
     ${apkInfo}
-    ${renderPatchSection("Skipped Patches", activeSkippedPatchesList, "⏭️", "skipped-patches-section")}
-    ${renderPatchSection("Failed Patches", activeFailedPatchesList, "⚠️", "failed-patches-section")}
     <section class="patch-metadata-section applied-patches-section">
       <h3>✅ Applied Patches <span>${filtered.length}</span></h3>
       <div class="applied-patches-grid">
@@ -2516,6 +2514,8 @@ function filterAppliedPatchesList(query) {
       `).join("")}
       </div>
     </section>
+    ${renderPatchSection("Failed Patches", activeFailedPatchesList, "⚠️", "failed-patches-section")}
+    ${renderPatchSection("Skipped Patches", activeSkippedPatchesList, "⏭️", "skipped-patches-section")}
   `;
 }
 
