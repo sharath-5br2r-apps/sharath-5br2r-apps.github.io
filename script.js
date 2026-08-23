@@ -1081,6 +1081,7 @@ async function loadReleases() {
       allReleases = cached;
       if (DOM.loading) DOM.loading.style.display = "none";
       if (DOM.error) DOM.error.style.display = "none";
+      await fetchMasterBuildData();
       rebuildCatalogCache();
       updateLastUpdateTimestamp();
       filterAndRenderReleases();
@@ -1138,12 +1139,8 @@ async function loadReleases() {
 
     allReleases = fetchedData;
     cacheReleases(allReleases);
+    await fetchMasterBuildData();
     rebuildCatalogCache();
-    fetchMasterBuildData().then(() => {
-      // Metadata controls per-asset Info buttons; refresh an open build modal
-      // once the local builds.json file has finished loading.
-      if (DOM.patchModal?.classList.contains("open")) renderOpenPatchModal();
-    });
 
     if (DOM.loading) DOM.loading.style.display = "none";
     updateLastUpdateTimestamp();
