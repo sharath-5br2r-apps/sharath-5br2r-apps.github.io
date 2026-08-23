@@ -902,6 +902,21 @@ function setupEventListeners() {
   // Downloads Modal Filter Delegate
   if (DOM.patchModal) {
     DOM.patchModal.addEventListener("click", (e) => {
+      // Handle per-asset Info buttons before the build-card accordion logic.
+      // This prevents the parent card from consuming the click.
+      const appliedTrigger = e.target.closest(".patch-applied-btn");
+      if (appliedTrigger) {
+        e.preventDefault();
+        e.stopPropagation();
+        openAppliedPatchesModal(
+          appliedTrigger.dataset.appKey,
+          appliedTrigger.dataset.patchKey,
+          appliedTrigger.dataset.buildKey,
+          appliedTrigger.dataset.assetName
+        );
+        return;
+      }
+
       const card = e.target.closest(".modal-build-card");
       if (card) {
         const isHeaderClick = e.target.closest(".modal-build-header");
@@ -950,19 +965,6 @@ function setupEventListeners() {
           modalBuildFilter = filterType;
         }
         renderOpenPatchModal();
-        return;
-      }
-
-      const appliedTrigger = e.target.closest(".patch-applied-btn");
-      if (appliedTrigger) {
-        e.preventDefault();
-        e.stopPropagation();
-        openAppliedPatchesModal(
-          appliedTrigger.dataset.appKey,
-          appliedTrigger.dataset.patchKey,
-          appliedTrigger.dataset.buildKey,
-          appliedTrigger.dataset.assetName
-        );
         return;
       }
 
