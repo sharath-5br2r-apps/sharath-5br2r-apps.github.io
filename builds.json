@@ -16,6 +16,14 @@
           "Disable telemetry",
           "Enable Premium"
         ]
+      },
+      "260007": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Disable telemetry",
+          "Enable Premium"
+        ]
       }
     }
   },
