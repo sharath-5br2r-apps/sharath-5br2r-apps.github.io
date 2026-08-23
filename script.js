@@ -2097,17 +2097,56 @@ async function fetchMasterBuildData() {
   if (masterBuildDataCache) return masterBuildDataCache;
   try {
     const cacheBuster = Date.now();
+    // Metadata is generated and committed by the Python cache updater.
+    // Never fetch build metadata directly from GitHub in the browser.
     const resp = await fetch(`builds.json?v=${cacheBuster}`);
     if (resp.ok) {
-      masterBuildDataCache = await resp.json();
+      const data = await resp.json();
+      // builds.json is keyed by the complete asset filename. Keep the map as-is
+      // so lookups can use the exact filename before trying older slug formats.
+      masterBuildDataCache = data && typeof data === "object" ? data : {};
     } else {
       masterBuildDataCache = {};
     }
   } catch (e) {
-    console.warn("Could not load builds.json:", e);
+      console.warn("Could not load local builds.json:", e);
     masterBuildDataCache = {};
   }
   return masterBuildDataCache;
+}
+
+// Resolve metadata from the current asset's filename. The current builds.json
+// format is: { "file.apk": { "version": { "build": metadata } } }.
+function findBuildDetails(masterData, asset, build) {
+  if (!masterData || !asset?.name) return null;
+
+  // Current build.json format stores all metadata directly under the asset:
+  // { "file.apk": { name, arch, version, min_sdk, patches, ... } }.
+  const directEntry = masterData[asset.name];
+  if (directEntry && typeof directEntry === "object" &&
+      (directEntry.version || directEntry.applied_patches || directEntry.min_sdk)) {
+    return directEntry;
+  }
+
+  // Also accept the previous version/build nested format.
+  const dictionaries = [directEntry];
+  const normalizedName = asset.name.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const matchingKey = Object.keys(masterData).find(
+    (key) => key.toLowerCase().replace(/[^a-z0-9]/g, "") === normalizedName
+  );
+  if (matchingKey && matchingKey !== asset.name) dictionaries.push(masterData[matchingKey]);
+
+  const version = String(build?.version || "").replace(/^v(?=[a-z0-9])/i, "");
+  const buildNumber = String(build?.build || "");
+  for (const dictionary of dictionaries) {
+    if (!dictionary || typeof dictionary !== "object") continue;
+    const versionEntry = dictionary[version] || dictionary[`v${version}`] || dictionary[build?.version];
+    if (!versionEntry || typeof versionEntry !== "object") continue;
+    if (versionEntry[buildNumber]) return versionEntry[buildNumber];
+    const key = Object.keys(versionEntry).find((candidate) => String(candidate) === buildNumber);
+    if (key) return versionEntry[key];
+  }
+  return null;
 }
 
 // Applied Patches Modal Controller
@@ -2174,8 +2213,9 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
       }
     }
 
-    // Candidate keys to try directly in masterData
-    const candidateKeys = [];
+    // Candidate keys to try directly in masterData. Exact filename is the
+    // primary key in the current builds.json format.
+    const candidateKeys = asset?.name ? [asset.name] : [];
 
     // 1. Asset Raw Prefix (Exact prefix from asset filename e.g. "x-morphe-xshim-piko" or "gboard-morphe-jasonwu1994-adobo")
     if (assetRawPrefix) candidateKeys.push(assetRawPrefix);
@@ -2259,7 +2299,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     // Map build tag to releaseType to prefer the right patches for archive builds
     const tagToReleaseType = {};
     if (patch && patch.builds) {
-      for (const b of patch.builds.values()) {
+      for (const b of (Array.isArray(patch.builds) ? patch.builds : Array.from(patch.builds.values()))) {
         if (b.build && b.releaseType) {
           tagToReleaseType[b.build] = b.releaseType;
         }
@@ -2268,8 +2308,12 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
 
     let resolved = null;
 
+    // Current format: exact asset filename -> version -> build number.
+    resolved = findBuildDetails(masterData, asset, build);
+
     // First attempt: Try candidate keys directly on masterData
     for (const candKey of candidateKeys) {
+      if (resolved) break;
       if (!candKey || !masterData[candKey]) continue;
       for (const ver of versionsToTry) {
         resolved = resolveVersionFromDict(masterData[candKey], ver, specificTag, isArchiveBuild, build?.releaseType);

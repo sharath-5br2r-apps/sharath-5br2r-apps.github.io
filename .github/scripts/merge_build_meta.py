@@ -110,36 +110,19 @@ def parse_asset_filename(filename):
 
 def merge_entry_into_master(master_build, target_key, info, release_tag=None):
     """
-    Merge a build_data entry into builds.json strictly by its exact target_key.
-    Structure: builds[target_key][version][release_tag]
+    Store the release build.json entry by its exact artifact filename.
+    The release asset already contains the complete metadata record.
     """
     if not isinstance(info, dict):
         return
 
-    target_key = target_key.lower().strip()
-    raw_ver = str(info.get("version") or "").strip()
-    version = VERSION_PREFIX_REGEX.sub("", raw_ver) if raw_ver else ""
-    version = ARCH_SUFFIXES_REGEX.sub("", version)
-    patches = info.get("patches", "")
-    changelog = info.get("changlog") or info.get("changelog") or ""
-    applied_patches = info.get("applied_patches", [])
-
-    entry_data = {
-        "patches": patches,
-        "changelog": changelog,
-        "applied_patches": applied_patches
-    }
-
-    if target_key not in master_build or not isinstance(master_build[target_key], dict):
-        master_build[target_key] = {}
-
-    if version:
-        if version not in master_build[target_key] or not isinstance(master_build[target_key][version], dict):
-            master_build[target_key][version] = {}
-        if release_tag:
-            master_build[target_key][version][release_tag] = entry_data.copy()
-        else:
-            master_build[target_key][version] = entry_data.copy()
+    target_key = target_key.strip()
+    entry = dict(info)
+    if "changelog" not in entry and "changlog" in entry:
+        entry["changelog"] = entry.pop("changlog")
+    if release_tag:
+        entry["release_tag"] = release_tag
+    master_build[target_key] = entry
 
 def prune_stale_metadata(builds, releases):
     """
@@ -242,20 +225,11 @@ def main():
         print("Releases is empty or not a list.")
         return
 
-    # Load old releases to extract previously processed asset IDs
-    old_releases = load_json("releases.json") or []
-    processed_asset_ids = set()
-    if isinstance(old_releases, list):
-        for old_r in old_releases:
-            for a in old_r.get("assets", []):
-                if a.get("name") in ["build.json", "manifest.json"]:
-                    processed_asset_ids.add(a.get("id"))
-
-    # Load existing master build metadata
-    master_build = load_json(MASTER_BUILD_FILE) or {}
+    # Rebuild from the complete release cache so deleted/replaced artifacts do
+    # not leave stale metadata behind in the flat builds.json file.
+    master_build = {}
 
     new_build_data_count = 0
-    skipped_count = 0
 
     for rel in releases:
         # Strip any legacy embedded build_data so releases.json remains a clean GitHub API dump
@@ -268,11 +242,6 @@ def main():
             None
         )
         if build_json_asset and "browser_download_url" in build_json_asset:
-            asset_id = build_json_asset.get("id")
-            if asset_id in processed_asset_ids:
-                skipped_count += 1
-                continue
-
             try:
                 url = build_json_asset["browser_download_url"]
                 req = urllib.request.Request(
@@ -290,18 +259,15 @@ def main():
             except Exception as e:
                 print(f"Warning: Could not fetch build.json for {rel.get('tag_name')}: {e}")
 
-    # Prune stale metadata based on live inventory across all releases
-    master_build = prune_stale_metadata(master_build, releases)
-
-    # Save clean builds.json (single source of truth for all builds)
+    # Save flat builds.json (single source of truth for all build metadata)
     with open(MASTER_BUILD_FILE, "w", encoding="utf-8") as f:
         json.dump(master_build, f, indent=2, ensure_ascii=False)
-    print(f"[OK] Successfully wrote {MASTER_BUILD_FILE} ({len(master_build)} apps)")
+    print(f"[OK] Successfully wrote {MASTER_BUILD_FILE} ({len(master_build)} artifacts)")
 
     # Save 100% clean releases.json cache
     with open("releases.json", "w", encoding="utf-8") as f:
         json.dump(releases, f, separators=(",", ":"))
-    print(f"[OK] Successfully wrote clean releases.json ({len(releases)} releases, {new_build_data_count} newly ingested, {skipped_count} skipped)")
+    print(f"[OK] Successfully wrote clean releases.json ({len(releases)} releases, {new_build_data_count} metadata files ingested)")
 
 if __name__ == "__main__":
     main()
