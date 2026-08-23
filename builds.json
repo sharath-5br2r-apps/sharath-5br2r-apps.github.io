@@ -152,6 +152,20 @@
         "applied_patches": [
           "Unlock Pro"
         ]
+      },
+      "260006": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.19.0",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
+      },
+      "260005": {
+        "patches": "Paresh-Maheshwari/paresh-patches@1.20.0-dev.2",
+        "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+        "applied_patches": [
+          "Unlock Pro"
+        ]
       }
     }
   },
@@ -810,6 +824,14 @@
           "GmsCore support (MicroG)",
           "Unlock Premium"
         ]
+      },
+      "260005": {
+        "patches": "rushiranpise/morphe-patches@1.20.0-dev.11",
+        "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "GmsCore support (MicroG)",
+          "Unlock Premium"
+        ]
       }
     }
   },
@@ -963,6 +985,53 @@
           "Stop video looping",
           "Translate comments",
           "Disable screen capture detection"
+        ]
+      }
+    }
+  },
+  "prime-video-morphe-hoodles-v3.0.469.1947-arm64-v8a.apk": {
+    "3.0.469.1947": {
+      "260006": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control",
+          "Rename shared permissions",
+          "Skip ads"
+        ]
+      }
+    }
+  },
+  "prime-video-morphe-hoodles-shared-v3.0.469-arm64-v8a.apk": {
+    "3.0.469": {
+      "260006": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable speed control",
+          "Skip ads"
+        ]
+      }
+    }
+  },
+  "nova-launcher-morphe-hoodles-v88900(8.8.9)-all.apk": {
+    "88900(8.8.9)": {
+      "260006": {
+        "patches": "hoo-dles/morphe-patches@1.41.0",
+        "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Enable Prime"
+        ]
+      }
+    }
+  },
+  "poweramp-morphe-hooman-vbuild-1025-bundle-play-arm64-v8a.apk": {
+    "build-1025-bundle-play": {
+      "260006": {
+        "patches": "arandomhooman/hoomans-morphe-patches@1.50.3",
+        "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+        "applied_patches": [
+          "Unlock Premium"
         ]
       }
     }
