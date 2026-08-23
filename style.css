@@ -2171,3 +2171,4 @@ footer a:hover {
 .apk-info-grid strong { color: var(--text-primary); font-size: 0.72rem; }
 .skipped-patches-section .applied-patch-item { border-color: color-mix(in srgb, #eab308 35%, var(--border)); }
 .failed-patches-section .applied-patch-item { border-color: color-mix(in srgb, #ef4444 40%, var(--border)); }
+.asset-info-btn { cursor: pointer; }

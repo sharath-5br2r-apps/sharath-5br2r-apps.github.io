@@ -960,7 +960,8 @@ function setupEventListeners() {
         openAppliedPatchesModal(
           appliedTrigger.dataset.appKey,
           appliedTrigger.dataset.patchKey,
-          appliedTrigger.dataset.buildKey
+          appliedTrigger.dataset.buildKey,
+          appliedTrigger.dataset.assetName
         );
         return;
       }
@@ -1136,7 +1137,11 @@ async function loadReleases() {
     allReleases = fetchedData;
     cacheReleases(allReleases);
     rebuildCatalogCache();
-    fetchMasterBuildData(); // Prefetch builds.json in background for instant modal opens
+    fetchMasterBuildData().then(() => {
+      // Metadata controls per-asset Info buttons; refresh an open build modal
+      // once the local builds.json file has finished loading.
+      if (DOM.patchModal?.classList.contains("open")) renderOpenPatchModal();
+    });
 
     if (DOM.loading) DOM.loading.style.display = "none";
     updateLastUpdateTimestamp();
@@ -2049,6 +2054,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
           </div>
           <div class="asset-right">
             <span class="btn-text">${sizeStr} • 📥 ${downloads}</span>
+            ${masterBuildDataCache?.[asset.name] ? `<button class="patch-applied-btn asset-info-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" data-asset-name="${escapeHtml(asset.name)}" type="button" title="View build information">Info</button>` : ""}
             <a href="${asset.browser_download_url}" class="download-action-btn" download title="Download ${asset.name}">Download</a>
           </div>
         </div>
@@ -2060,7 +2066,6 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
 
   const patchInfoBanner = `
     <div class="patch-info-actions">
-      <button class="patch-applied-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" type="button">View Applied Patches</button>
       <button class="changelog-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" type="button">View Changelog</button>
       <a href="${build.releaseUrl}" target="_blank" rel="noopener noreferrer" class="release-link-button">View Release Source</a>
     </div>
@@ -2153,7 +2158,7 @@ function findBuildDetails(masterData, asset, build) {
 }
 
 // Applied Patches Modal Controller
-async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
+async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "") {
   const app = currentAppCatalog.find((item) => item.appKey === appKey);
   const patch = app ? app.patches.find((item) => item.patchKey === patchKey) : null;
   if (!app || !patch) return;
@@ -2198,7 +2203,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey) {
     let assetRawAppSlug = "";
     let assetRawPatchSlug = "";
 
-    const asset = build?.assets?.[0];
+    const asset = build?.assets?.find((candidate) => !assetName || candidate.name === assetName) || build?.assets?.[0];
     if (asset?.parsed) {
       assetRawPrefix = asset.parsed.rawPrefix || "";
       assetRawAppSlug = asset.parsed.rawAppSlug || "";
