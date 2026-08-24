@@ -500,7 +500,7 @@ const CONFIG = {
       title: "Login Issue",
       text: "Since October 2025, Twitter has started checking whether the app is modified or if phone integrity fails during login.",
       links: [
-        { label: "Workarounds", url: "https://t.me/pikopatches/1/59772" },
+        { label: "Workarounds", url: "https://github.com/orgs/sharath-5br2r-apps/discussions" },
       ],
     },
     {
