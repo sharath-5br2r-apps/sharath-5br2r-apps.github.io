@@ -2697,6 +2697,9 @@ function buildObtainiumRegex(app, patch, variantKey) {
   if (patch && patch.builds) {
     for (const build of patch.builds) {
       if (!build.assets) continue;
+      if (modalBuildFilter && modalBuildFilter !== "all" && build.releaseType && build.releaseType !== modalBuildFilter) {
+        continue;
+      }
       for (const asset of build.assets) {
         if (!/\.(apk|apks|xapk|apkm)$/i.test(asset.name || "")) continue;
         const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
@@ -2714,10 +2717,13 @@ function buildObtainiumRegex(app, patch, variantKey) {
     const extMatch = assetFileName.match(/\.(apk|apks|xapk|apkm)$/i);
     const ext = extMatch ? extMatch[1] : "apk";
 
-    // Extract prefix up to version or arch token (e.g. "brave-beta-morphe-dh6k" from "brave-beta-morphe-dh6k-v1.95.88-arm64-v8a.apk")
+    // Extract prefix up to version or arch token (e.g. "brave-beta-morphe-dh6k" from "brave-beta-morphe-dh6k-v1.95.88-arm64-v8a.apk" or "dolphin-extra-android-gfp" from "dolphin-extra-android-gfp-vpr14736-arm64-v8a.apk")
     const baseName = assetFileName.replace(EXT_STRIP_REGEX, "");
-    const vIdx = baseName.search(/-v?\d+(\.\d+)*/i);
-    const archIdx = baseName.search(/-(arm64-v8a|armeabi-v7a|x86_64|x86|universal|all)/i);
+    const vMatch = baseName.match(/-(v\d+|vpr\d+|v[a-zA-Z0-9._-]+?)(?:-(?:arm64-v8a|armeabi-v7a|x86_64|x86|universal|all))?$/i) || baseName.match(/-(v\d+[a-zA-Z0-9._-]*)/i);
+    const archMatch = baseName.match(/-(arm64-v8a|armeabi-v7a|x86_64|x86|universal|all)$/i);
+
+    let vIdx = vMatch ? baseName.indexOf(vMatch[0]) : -1;
+    let archIdx = archMatch ? baseName.indexOf(archMatch[0]) : -1;
 
     let prefix = baseName;
     if (vIdx > 0 && archIdx > 0) {
