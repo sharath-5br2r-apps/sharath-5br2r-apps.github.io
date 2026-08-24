@@ -584,6 +584,8 @@ function initDOM() {
   DOM.obtainiumTitle = document.getElementById("obtainiumTitle");
   DOM.obtainiumBody = document.getElementById("obtainiumBody");
   DOM.obtainiumBtn = document.getElementById("obtainiumBtn");
+  DOM.creditsBtn = document.getElementById("creditsBtn");
+  DOM.creditsModal = document.getElementById("creditsModal");
   DOM.changelogModal = document.getElementById("changelogModal");
   DOM.changelogTitle = document.getElementById("changelogTitle");
   DOM.changelogMeta = document.getElementById("changelogMeta");
@@ -1028,12 +1030,29 @@ function setupEventListeners() {
     });
   }
 
+  // Credits Modal
+  if (DOM.creditsBtn) {
+    DOM.creditsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (DOM.creditsModal) showModal(DOM.creditsModal);
+    });
+  }
+
+  if (DOM.creditsModal) {
+    DOM.creditsModal.addEventListener("click", (e) => {
+      if (e.target.id === "creditsModal" || e.target.closest(".modal-close")) {
+        hideModal(DOM.creditsModal);
+      }
+    });
+  }
+
   // Global ESC key listener
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closePatchModal();
       closeAppliedPatchesModal();
       closeObtainiumModal();
+      if (DOM.creditsModal) hideModal(DOM.creditsModal);
     }
   });
 
@@ -2653,6 +2672,7 @@ function createObtainiumInstructions(app, patch) {
   const repoName = sampleBuild?.repoName || primaryRepo.repo;
   const repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
+  const obtainXLatestUrl = "https://github.com/bikram-agarwal/ObtainX/releases";
 
   const apkVariants = (patch?.variants || []).filter((v) =>
     patchHasApk(patch, v.variantKey, modalBuildFilter)
@@ -2749,7 +2769,7 @@ function createObtainiumInstructions(app, patch) {
   return `
     <div class="obtainium-instructions">
       <div style="margin-bottom: 12px;">
-        Make sure you have <strong>Obtainium</strong> installed, if not install from <a href="${obtainiumLatestUrl}" target="_blank" rel="noopener noreferrer">GitHub</a>. Press the <strong>Add to Obtainium</strong> button to add the app(s) automatically or you can follow the instructions below to add them manually:
+        Make sure you have <strong>Obtainium</strong> (<a href="${obtainiumLatestUrl}" target="_blank" rel="noopener noreferrer">GitHub</a>) or <strong>ObtainX</strong> (<a href="${obtainXLatestUrl}" target="_blank" rel="noopener noreferrer">Releases</a>) installed. Press the <strong>Add to Obtainium</strong> button to add the app(s) automatically or follow the instructions below to add them manually:
       </div>
       <ol>
         <li>Open Obtainium on your device.</li>
