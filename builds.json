@@ -8294,5 +8294,24 @@
       ],
       "release_tag": "260001"
     }
+  },
+  "levilaunchroid-v1.5.15-r4": {
+    "levilaunchroid-extra-v1.5.15-4-all.apk": {
+      "name": "levilaunchroid-extra-v1.5.15-4-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "1.5.15-4",
+      "min_sdk": "28",
+      "patches": "levilaunchroid-extra",
+      "changelog": "Built against upstream release `v1.5.15`.\n\nCustom version:\n`1.5.15-4`\n\n**Full Changelog**: https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra/compare/levilaunchroid-v1.5.15-r4...levilaunchroid-v1.5.15-r4\n",
+      "applied_patches": [
+        "Removed Google Play store verification requirement",
+        "Removed package name lock (imported MC APKs not limited to com.mojang.minecraftpe)",
+        "Restored memory editor feature",
+        "Removed forced version isolation for custom versions",
+        "CurseForge API integration for mod discovery"
+      ],
+      "release_tag": "levilaunchroid-v1.5.15-r4"
+    }
   }
 }
