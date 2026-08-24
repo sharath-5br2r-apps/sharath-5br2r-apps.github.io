@@ -1,4 +1,126 @@
 {
+  "260007": {
+    "brave-stable-morphe-dh6k-v1.94.115-arm64-v8a.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0-dev.4",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260007"
+    },
+    "brave-stable-morphe-dh6k-v1.94.115-arm-v7a.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0-dev.4",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260007"
+    },
+    "brave-stable-morphe-dh6k-v1.94.115-x86_64.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0-dev.4",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260007"
+    },
+    "brave-stable-morphe-dh6k-v1.94.115-x86.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "x86",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0-dev.4",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260007"
+    }
+  },
   "260006": {
     "brave-beta-morphe-dh6k-v1.95.89-arm64-v8a.apk": {
       "name": "brave-beta-morphe-dh6k",
@@ -8537,6 +8659,128 @@
         "Diagnostic tools (default)"
       ],
       "release_tag": "260001"
+    }
+  },
+  "260008": {
+    "brave-stable-morphe-dh6k-v1.94.115-arm64-v8a.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260008"
+    },
+    "brave-stable-morphe-dh6k-v1.94.115-arm-v7a.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260008"
+    },
+    "brave-stable-morphe-dh6k-v1.94.115-x86_64.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260008"
+    },
+    "brave-stable-morphe-dh6k-v1.94.115-x86.apk": {
+      "name": "brave-stable-morphe-dh6k",
+      "arch": "x86",
+      "ext": ".apk",
+      "version": "1.94.115",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86"
+      ],
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260008"
     }
   },
   "dolphin-pr-14736-r3": {
