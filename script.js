@@ -54,6 +54,7 @@ const CONFIG = {
     "hooman",
     "rushiranpise",
     "hoodles",
+    "hoodlesshared",
     "paresh",
     "xtra",
     "icysymmetra",
@@ -61,11 +62,15 @@ const CONFIG = {
     "piko",
     "inotia00",
     "revenge",
+    "hxreborn",
     "exp",
     "nord",
     "mocha",
     "privacy",
     "materialu",
+    "materialyou",
+    "amoled",
+    "shared",
     "foss",
     "gplay",
     "adobo",
@@ -2629,11 +2634,6 @@ function buildObtainiumRegex(app, patch, variantKey) {
     const tNorm = normalizeForSearch(targetVKey);
     if (aNorm === tNorm) return true;
 
-    // Check subset matching for compound multi-variants (e.g. "morphe+hoodles")
-    const aParts = aNorm.split(/[+\-_]/).filter(Boolean);
-    const tParts = tNorm.split(/[+\-_]/).filter(Boolean);
-    if (tParts.every((tp) => aParts.includes(tp))) return true;
-
     const genshinVariants = new Set([
       "genshin", "genshinspoof", "optimized", "optimised",
       "optimisedgenshinspoof", "optimizedgenshinspoof"
@@ -3280,16 +3280,14 @@ function parseAssetDisplay(filename, arch, fileType) {
     appTokens = preMetaTokens.slice(0, patchStartIndex);
     patchTokens = preMetaTokens.slice(patchStartIndex);
 
-    // Extract all trailing tokens that are known variant keywords
     while (patchTokens.length > 1 && CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
       variantTokens.unshift(patchTokens[patchTokens.length - 1]);
       patchTokens = patchTokens.slice(0, -1);
     }
   } else {
-    appTokens = [...preMetaTokens];
+    appTokens = preMetaTokens;
     patchTokens = [];
 
-    // Extract all trailing variant keywords from appTokens
     while (appTokens.length > 1 && CONFIG.variantKeywords.has(appTokens[appTokens.length - 1].toLowerCase())) {
       variantTokens.unshift(appTokens[appTokens.length - 1]);
       appTokens = appTokens.slice(0, -1);
