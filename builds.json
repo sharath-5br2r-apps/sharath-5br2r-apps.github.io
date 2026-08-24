@@ -8295,6 +8295,36 @@
       "release_tag": "260001"
     }
   },
+  "dolphin-pr-14736-r2": {
+    "dolphin-extra-android-stock-vpr14736-all.apk": {
+      "name": "dolphin-extra-android-stock-vpr14736-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14736: Auto assign wii controllers in netplay + Custom Storage Location (Update 2)",
+      "min_sdk": "21",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom release-sync branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14736`.\n\n### Upstream Dolphin PR [#14736](https://github.com/dolphin-emu/dolphin/pull/14736)\n**Title:** Auto assign wii controllers in netplay\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nJust copy the gamecube logic and automatically assign players to the first empty slot.\n\nMore consistent with GameCube and helps Android hosts where there is no UI for managing controller mappings currently.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "release_tag": "dolphin-pr-14736-r2"
+    },
+    "dolphin-extra-android-gfp-vpr14736-all.apk": {
+      "name": "dolphin-extra-android-gfp-vpr14736-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14736: Auto assign wii controllers in netplay + Custom Storage Location (Update 2)",
+      "min_sdk": "21",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom release-sync branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14736`.\n\n### Upstream Dolphin PR [#14736](https://github.com/dolphin-emu/dolphin/pull/14736)\n**Title:** Auto assign wii controllers in netplay\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nJust copy the gamecube logic and automatically assign players to the first empty slot.\n\nMore consistent with GameCube and helps Android hosts where there is no UI for managing controller mappings currently.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "release_tag": "dolphin-pr-14736-r2"
+    }
+  },
   "levilaunchroid-v1.5.15-r4": {
     "levilaunchroid-extra-v1.5.15-4-all.apk": {
       "name": "levilaunchroid-extra-v1.5.15-4-all.apk",
