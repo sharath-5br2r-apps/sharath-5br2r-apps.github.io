@@ -246,6 +246,46 @@ const CONFIG = {
     byair: "ByAir"
   },
 
+  // Android SDK level to Android version mapping
+  sdkToAndroidVersion: {
+    "1": "1.0",
+    "2": "1.1",
+    "3": "1.5",
+    "4": "1.6",
+    "5": "2.0",
+    "6": "2.0.1",
+    "7": "2.1",
+    "8": "2.2",
+    "9": "2.3",
+    "10": "2.3.3",
+    "11": "3.0",
+    "12": "3.1",
+    "13": "3.2",
+    "14": "4.0",
+    "15": "4.0.3",
+    "16": "4.1",
+    "17": "4.2",
+    "18": "4.3",
+    "19": "4.4",
+    "20": "4.4W",
+    "21": "5.0",
+    "22": "5.1",
+    "23": "6.0",
+    "24": "7.0",
+    "25": "7.1",
+    "26": "8.0",
+    "27": "8.1",
+    "28": "9.0",
+    "29": "10.0",
+    "30": "11.0",
+    "31": "12.0",
+    "32": "12L",
+    "33": "13.0",
+    "34": "14.0",
+    "35": "15.0",
+    "36": "16.0"
+  },
+
   // Map app slugs to true Android Package IDs for Obtainium
   appIds: {
     eden: {
@@ -2560,8 +2600,21 @@ function filterAppliedPatchesList(query) {
   const fileExt = meta.ext || (assetObj?.name ? assetObj.name.split(".").pop() : "") || "apk";
   const extLower = String(fileExt).toLowerCase();
 
+  const rawSdk = String(meta.min_sdk || "").trim();
+  let minAndroidDisplay = "Unknown";
+
+  if (rawSdk && rawSdk !== "Unknown") {
+    const androidVer = CONFIG.sdkToAndroidVersion[rawSdk];
+    if (androidVer) {
+      minAndroidDisplay = `Android ${androidVer}+ (SDK ${rawSdk})`;
+    } else if (/^\d+$/.test(rawSdk)) {
+      minAndroidDisplay = `(SDK ${rawSdk})`;
+    } else {
+      minAndroidDisplay = rawSdk;
+    }
+  }
+
   const archVal = meta.arch || (assetObj?.parsed?.arch) || (assetObj?.arch) || "universal";
-  const minSdkVal = meta.min_sdk || "Unknown";
   const nativeLibsVal = (meta.native_libraries || []).join(", ") || "None";
   const densitiesVal = (meta.densities || []).join(", ") || "Unknown";
 
@@ -2570,7 +2623,7 @@ function filterAppliedPatchesList(query) {
       <h3>📦 ${extLower === "zip" ? "Module / Package Information" : "APK Information"}</h3>
       <div class="apk-info-grid">
         <span><strong>Architecture</strong>${escapeHtml(archVal)}</span>
-        <span><strong>Minimum SDK</strong>${escapeHtml(minSdkVal)}</span>
+        <span><strong>Minimum Android</strong>${escapeHtml(minAndroidDisplay)}</span>
         <span><strong>Format</strong>${escapeHtml(extLower)}</span>
         <span><strong>Native libraries</strong>${escapeHtml(nativeLibsVal)}</span>
         <span><strong>Densities</strong>${escapeHtml(densitiesVal)}</span>
