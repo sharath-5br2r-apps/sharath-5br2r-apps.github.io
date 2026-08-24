@@ -74,11 +74,8 @@
                 </div>
 
                 <!-- Category & Filter Toolbar -->
-                <div class="filter-toolbar">
-                    <div class="filter-buttons" id="appFilterButtons">
-                        <button class="filter-btn active" data-filter="all" type="button">All Apps</button>
-                    </div>
-                    <div class="filter-selectors-group" style="display: flex; gap: 12px; align-items: center;">
+                <div class="filter-toolbar" style="flex-direction: column; align-items: stretch; gap: 12px;">
+                    <div class="filter-selectors-row" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                         <div class="sort-selector-wrap" id="repoSelectWrap">
                             <label for="repoSelect" class="sort-label">Repo:</label>
                             <select id="repoSelect" class="sort-select" aria-label="Select Repository">
@@ -93,6 +90,9 @@
                                 <option value="name">🔤 Name (A-Z)</option>
                             </select>
                         </div>
+                    </div>
+                    <div class="filter-buttons" id="appFilterButtons">
+                        <button class="filter-btn active" data-filter="all" type="button">All Apps</button>
                     </div>
                 </div>
 
