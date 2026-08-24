@@ -1663,26 +1663,11 @@ function createAppCard(app) {
       ? `<span class="patch-stat-badge" title="${formatCompactNumber(totalDownloads)} Total Downloads">📥 ${formatCompactNumber(totalDownloads)}</span>`
       : "";
 
-  const repoLinksMarkup = (app.repos && app.repos.length > 0)
-    ? app.repos
-        .map((slug) => {
-          const url = `https://github.com/${slug}`;
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: var(--accent); text-decoration: underline; font-weight: 600;">${escapeHtml(slug)}</a>`;
-        })
-        .join(" • ")
-    : "";
-
-  const repoHeader = repoLinksMarkup || escapeHtml(app.appName);
-  const appSubheading = repoLinksMarkup
-    ? `<div class="app-subheading" style="font-size: 0.78rem; opacity: 0.85; font-weight: 500; margin-top: 2px; color: var(--text-secondary);">📱 App: ${escapeHtml(app.appName)}</div>`
-    : "";
-
   return `
     <div class="build-card app-card">
       <div class="app-card-summary" role="button" tabindex="0">
         <div class="app-title-group">
-          <div class="app-name">📁 ${repoHeader}</div>
-          ${appSubheading}
+          <div class="app-name">${escapeHtml(app.appName)}</div>
         </div>
         <div class="app-badge-group">
           ${dlBadge}
@@ -2041,7 +2026,23 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
     return '<div class="no-results" style="padding: 40px 20px;">No builds matching these filters.</div>';
   }
 
-  return builds
+  const repoLinksMarkup = (app.repos && app.repos.length > 0)
+    ? app.repos
+        .map((slug) => {
+          const url = `https://github.com/${slug}`;
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600; text-decoration: underline;">${escapeHtml(slug)}</a>`;
+        })
+        .join(" • ")
+    : "";
+
+  const repoBanner = repoLinksMarkup
+    ? `<div class="modal-repo-banner" style="background: var(--bg-tertiary); border: 1px solid var(--border); padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 16px; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;">
+        <span style="opacity: 0.85;">📁 Repository:</span>
+        <div>${repoLinksMarkup}</div>
+      </div>`
+    : "";
+
+  return repoBanner + builds
     .map((build, index) => createModalBuildMarkup(app, patch, build, index === 0))
     .join("");
 }
