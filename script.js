@@ -2784,18 +2784,9 @@ function openObtainiumModal() {
 function createObtainiumInstructions(app, patch) {
   const sampleBuild = patch?.builds?.find((b) => b.assets && b.assets.length > 0) || patch?.builds?.[0];
   const primaryRepo = getConfigRepos()[0];
-  let repoOwner = sampleBuild?.repoOwner || primaryRepo.owner;
-  let repoName = sampleBuild?.repoName || primaryRepo.repo;
-  let repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
-
-  const isBraveApp = normalizeForSearch(app?.appName || app?.appKey || "").includes("brave");
-  const isStableFilter = modalBuildFilter === "stable" || sampleBuild?.releaseType === "stable";
-
-  if (isBraveApp && isStableFilter) {
-    repoOwner = "kveld9";
-    repoName = "kveld-morphe-patches";
-    repoUrl = "https://github.com/kveld9/kveld-morphe-patches";
-  }
+  const repoOwner = sampleBuild?.repoOwner || primaryRepo.owner;
+  const repoName = sampleBuild?.repoName || primaryRepo.repo;
+  const repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
 
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
   const obtainXLatestUrl = "https://github.com/bikram-agarwal/ObtainX/releases";
