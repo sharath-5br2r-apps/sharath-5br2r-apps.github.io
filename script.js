@@ -2637,19 +2637,37 @@ function buildObtainiumRegex(app, patch, variantKey) {
     }
   }
 
-  if (matchingAsset && matchingAsset.parsed && matchingAsset.parsed.rawPrefix) {
-    const safePrefix = matchingAsset.parsed.rawPrefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
-    return `^${safePrefix}.*\\.apk$`;
+  if (matchingAsset && matchingAsset.name) {
+    const assetFileName = matchingAsset.name;
+    const extMatch = assetFileName.match(/\.(apk|apks|xapk|apkm)$/i);
+    const ext = extMatch ? extMatch[1] : "apk";
+
+    // Extract prefix up to version or arch string
+    const baseName = assetFileName.replace(EXT_STRIP_REGEX, "");
+    const vIdx = baseName.search(/-v?\d+(\.\d+)*/i);
+    const archIdx = baseName.search(/-(arm64-v8a|armeabi-v7a|x86_64|x86|universal|all)/i);
+
+    let prefix = baseName;
+    if (vIdx > 0 && archIdx > 0) {
+      prefix = baseName.substring(0, Math.min(vIdx, archIdx));
+    } else if (vIdx > 0) {
+      prefix = baseName.substring(0, vIdx);
+    } else if (archIdx > 0) {
+      prefix = baseName.substring(0, archIdx);
+    }
+
+    const safePrefix = prefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
+    return `^${safePrefix}.*\\.${ext}$`;
   }
 
-  const appSlug = app?.appName ? app.appName.toLowerCase().replace(/[^a-z0-9]/g, "") : "app";
-  const patchSlug = patch?.patchName ? patch.patchName.toLowerCase().replace(/[^a-z0-9]/g, "") : "official";
+  const appSlug = app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "app";
+  const patchSlug = patch?.patchKey ? normalizeForSearch(patch.patchKey).replace(/[^a-z0-9]/g, "") : "official";
 
   if (!variantKey || variantKey === "default" || variantKey === "all") {
     return `^${appSlug}.*\\.apk$`;
   }
 
-  const variantPattern = variantKey
+  const variantPattern = normalizeForSearch(variantKey)
     .split(/[^a-z0-9]+/i)
     .filter(Boolean)
     .join("-");
