@@ -798,6 +798,26 @@ main {
     color: var(--accent-stable);
 }
 
+/* Null's Private Server Notice (Purple/Beta Accent) */
+.nulls-note {
+    border: 1px dashed var(--accent-beta);
+    background: linear-gradient(90deg, var(--accent-beta-glow), transparent);
+}
+.nulls-note .app-notice-title {
+    color: var(--accent-beta);
+}
+.nulls-note .app-notice-links a {
+    border: 1px solid var(--accent-beta);
+    color: var(--accent-beta);
+}@media (hover: hover) {
+
+
+.nulls-note .app-notice-links a:hover {
+    background: var(--accent-beta);
+    color: #ffffff;
+}
+}
+
 .asset-variant-tag {
     font-weight: 700;
     color: var(--accent);
