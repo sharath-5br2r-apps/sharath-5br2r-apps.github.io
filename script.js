@@ -2690,8 +2690,48 @@ function closeAppliedPatchesModal() {
   hideModal(DOM.appliedPatchesModal);
 }
 
-// Helper to build Obtainium APK Filter Regex
+// Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
 function buildObtainiumRegex(app, patch, variantKey) {
+  let matchingAsset = null;
+
+  if (patch && patch.builds) {
+    for (const build of patch.builds) {
+      if (!build.assets) continue;
+      for (const asset of build.assets) {
+        if (!/\.(apk|apks|xapk|apkm)$/i.test(asset.name || "")) continue;
+        const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
+        if (!variantKey || variantKey === "all" || variantKey === "default" || vKey === variantKey || normalizeForSearch(vKey) === normalizeForSearch(variantKey)) {
+          matchingAsset = asset;
+          break;
+        }
+      }
+      if (matchingAsset) break;
+    }
+  }
+
+  if (matchingAsset && matchingAsset.name) {
+    const assetFileName = matchingAsset.name;
+    const extMatch = assetFileName.match(/\.(apk|apks|xapk|apkm)$/i);
+    const ext = extMatch ? extMatch[1] : "apk";
+
+    // Extract prefix up to version or arch token (e.g. "brave-beta-morphe-dh6k" from "brave-beta-morphe-dh6k-v1.95.88-arm64-v8a.apk")
+    const baseName = assetFileName.replace(EXT_STRIP_REGEX, "");
+    const vIdx = baseName.search(/-v?\d+(\.\d+)*/i);
+    const archIdx = baseName.search(/-(arm64-v8a|armeabi-v7a|x86_64|x86|universal|all)/i);
+
+    let prefix = baseName;
+    if (vIdx > 0 && archIdx > 0) {
+      prefix = baseName.substring(0, Math.min(vIdx, archIdx));
+    } else if (vIdx > 0) {
+      prefix = baseName.substring(0, vIdx);
+    } else if (archIdx > 0) {
+      prefix = baseName.substring(0, archIdx);
+    }
+
+    const safePrefix = prefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
+    return `^${safePrefix}.*\\.${ext}$`;
+  }
+
   const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "app");
   const patchSlug = patch?.patchKey ? patch.patchKey.toLowerCase() : "official";
 
@@ -2700,7 +2740,6 @@ function buildObtainiumRegex(app, patch, variantKey) {
   }
 
   const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
-
   return `^${appSlug}-${patchSlug}-${cleanVariant}.*\\.apk$`;
 }
 
