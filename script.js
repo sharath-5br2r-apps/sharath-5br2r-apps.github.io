@@ -2550,20 +2550,27 @@ function filterAppliedPatchesList(query) {
     </div>
   `;
 
-  const extLower = activeBuildMetadata && activeBuildMetadata.ext ? activeBuildMetadata.ext.toLowerCase() : "";
-  const isPackageBuild = activeBuildMetadata && ["apk", "apks", "xapk", "apkm", "zip"].includes(extLower);
+  const meta = activeBuildMetadata || {};
+  const assetObj = activeBuildForModal?.assets?.[0];
+  const fileExt = meta.ext || (assetObj?.name ? assetObj.name.split(".").pop() : "") || "apk";
+  const extLower = String(fileExt).toLowerCase();
 
-  const apkInfo = isPackageBuild ? `
+  const archVal = meta.arch || (assetObj?.parsed?.arch) || (assetObj?.arch) || "universal";
+  const minSdkVal = meta.min_sdk || "Unknown";
+  const nativeLibsVal = (meta.native_libraries || []).join(", ") || "None";
+  const densitiesVal = (meta.densities || []).join(", ") || "Unknown";
+
+  const apkInfo = `
     <section class="patch-metadata-section apk-info-section">
       <h3>📦 ${extLower === "zip" ? "Module / Package Information" : "APK Information"}</h3>
       <div class="apk-info-grid">
-        <span><strong>Architecture</strong>${escapeHtml(activeBuildMetadata.arch || "Unknown")}</span>
-        <span><strong>Minimum SDK</strong>${escapeHtml(activeBuildMetadata.min_sdk || "Unknown")}</span>
-        <span><strong>Format</strong>${escapeHtml(activeBuildMetadata.ext || "Unknown")}</span>
-        <span><strong>Native libraries</strong>${escapeHtml((activeBuildMetadata.native_libraries || []).join(", ") || "None")}</span>
-        <span><strong>Densities</strong>${escapeHtml((activeBuildMetadata.densities || []).join(", ") || "Unknown")}</span>
+        <span><strong>Architecture</strong>${escapeHtml(archVal)}</span>
+        <span><strong>Minimum SDK</strong>${escapeHtml(minSdkVal)}</span>
+        <span><strong>Format</strong>${escapeHtml(extLower)}</span>
+        <span><strong>Native libraries</strong>${escapeHtml(nativeLibsVal)}</span>
+        <span><strong>Densities</strong>${escapeHtml(densitiesVal)}</span>
       </div>
-    </section>` : "";
+    </section>`;
 
   const appliedSection = filteredApplied.length ? `
     <section class="patch-metadata-section applied-patches-section">
