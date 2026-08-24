@@ -2690,71 +2690,8 @@ function closeAppliedPatchesModal() {
   hideModal(DOM.appliedPatchesModal);
 }
 
-// Helper to build Obtainium APK Filter Regex with multi-variant support & alias handling
+// Helper to build Obtainium APK Filter Regex
 function buildObtainiumRegex(app, patch, variantKey) {
-  let matchingAsset = null;
-
-  function isMatchingVariant(assetVKey, targetVKey) {
-    if (!targetVKey || targetVKey === "all" || targetVKey === "default") return true;
-    if (!assetVKey) return false;
-
-    const aNorm = normalizeForSearch(assetVKey);
-    const tNorm = normalizeForSearch(targetVKey);
-    if (aNorm === tNorm) return true;
-
-    const genshinVariants = new Set([
-      "genshin", "genshinspoof", "optimized", "optimised",
-      "optimisedgenshinspoof", "optimizedgenshinspoof"
-    ]);
-    if (genshinVariants.has(aNorm) && genshinVariants.has(tNorm)) return true;
-
-    const legacyVariants = new Set(["legacy", "edenlegacy"]);
-    if (legacyVariants.has(aNorm) && legacyVariants.has(tNorm)) return true;
-
-    const standardVariants = new Set(["standard", "mainline", "default", "stable", "bravestable"]);
-    if (standardVariants.has(aNorm) && standardVariants.has(tNorm)) return true;
-
-    return false;
-  }
-
-  if (patch && patch.builds) {
-    for (const build of patch.builds) {
-      if (!build.assets) continue;
-      for (const asset of build.assets) {
-        if (!/\.(apk|apks|xapk|apkm)$/i.test(asset.name || "")) continue;
-        const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
-        if (isMatchingVariant(vKey, variantKey)) {
-          matchingAsset = asset;
-          break;
-        }
-      }
-      if (matchingAsset) break;
-    }
-  }
-
-  if (matchingAsset && matchingAsset.name) {
-    const assetFileName = matchingAsset.name;
-    const extMatch = assetFileName.match(/\.(apk|apks|xapk|apkm)$/i);
-    const ext = extMatch ? extMatch[1] : "apk";
-
-    // Extract prefix up to version or arch string
-    const baseName = assetFileName.replace(EXT_STRIP_REGEX, "");
-    const vIdx = baseName.search(/-v?\d+(\.\d+)*/i);
-    const archIdx = baseName.search(/-(arm64-v8a|armeabi-v7a|x86_64|x86|universal|all)/i);
-
-    let prefix = baseName;
-    if (vIdx > 0 && archIdx > 0) {
-      prefix = baseName.substring(0, Math.min(vIdx, archIdx));
-    } else if (vIdx > 0) {
-      prefix = baseName.substring(0, vIdx);
-    } else if (archIdx > 0) {
-      prefix = baseName.substring(0, archIdx);
-    }
-
-    const safePrefix = prefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
-    return `^${safePrefix}.*\\.${ext}$`;
-  }
-
   const appSlug = app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "app";
   const patchSlug = patch?.patchKey ? normalizeForSearch(patch.patchKey).replace(/[^a-z0-9]/g, "") : "official";
 
