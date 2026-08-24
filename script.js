@@ -1603,11 +1603,20 @@ function applyCategoryFilter(apps) {
     return apps.filter((app) => {
       const name = normalizeForSearch(app.appName);
       const keyNorm = normalizeForSearch(app.appKey);
+      const appTokens = (app.appTokens || []).map((t) => normalizeForSearch(t));
       const keywords = CONFIG.appCategories[appCategoryFilter];
       const includes = keywords.filter((k) => !k.startsWith("!"));
       const excludes = keywords.filter((k) => k.startsWith("!")).map((k) => k.slice(1));
-      const isIncluded = includes.some((keyword) => name.includes(keyword) || keyNorm.includes(keyword));
-      const isExcluded = excludes.some((keyword) => name.includes(keyword) || keyNorm.includes(keyword));
+
+      const matchKeyword = (kw) => {
+        if (kw.length <= 2) {
+          return keyNorm === kw || appTokens.includes(kw);
+        }
+        return name.includes(kw) || keyNorm.includes(kw);
+      };
+
+      const isIncluded = includes.some(matchKeyword);
+      const isExcluded = excludes.some(matchKeyword);
       return isIncluded && !isExcluded;
     });
   }
