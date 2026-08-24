@@ -2703,7 +2703,12 @@ function buildObtainiumRegex(app, patch, variantKey) {
       for (const asset of build.assets) {
         if (!/\.(apk|apks|xapk|apkm)$/i.test(asset.name || "")) continue;
         const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
-        if (!variantKey || variantKey === "all" || variantKey === "default" || vKey === variantKey || normalizeForSearch(vKey) === normalizeForSearch(variantKey)) {
+        const normVKey = normalizeForSearch(vKey);
+        const normTarget = normalizeForSearch(variantKey || "");
+
+        const isStandardMatch = ["default", "all", "standard", "stable", ""].includes(normTarget) && ["default", "standard", "stable", ""].includes(normVKey);
+
+        if (!variantKey || variantKey === "all" || variantKey === "default" || vKey === variantKey || normVKey === normTarget || isStandardMatch) {
           matchingAsset = asset;
           break;
         }
