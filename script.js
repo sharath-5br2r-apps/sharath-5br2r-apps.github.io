@@ -321,7 +321,12 @@ const CONFIG = {
     adobelightroom: "com.adobe.lrmobile",
     adobephotoshopmix: "com.adobe.photoshopmix",
     bitwarden: "com.x8bit.bitwarden",
-    brave: "com.brave.browser",
+    brave: {
+      default: "com.brave.browser",
+      stable: "com.brave.browser",
+      beta: "com.brave.browser_beta",
+      nightly: "com.brave.browser_nightly"
+    },
     bravebeta: "com.brave.browser_beta",
     bravestable: "com.brave.browser",
     bravenightly: "com.brave.browser_nightly",
@@ -329,6 +334,7 @@ const CONFIG = {
     bravebrowsernightly: "com.brave.browser_nightly",
     bravebrowser: {
       default: "com.brave.browser",
+      stable: "com.brave.browser",
       beta: "com.brave.browser_beta",
       nightly: "com.brave.browser_nightly"
     },
@@ -3341,6 +3347,12 @@ function parseAssetDisplay(filename, arch, fileType) {
   if (patchStartIndex >= 0) {
     appTokens = preMetaTokens.slice(0, patchStartIndex);
     patchTokens = preMetaTokens.slice(patchStartIndex);
+
+    // If appTokens is ['brave', 'beta'] or ['brave', 'nightly'], move channel token to variantTokens
+    if (appTokens.length > 1 && appTokens[0].toLowerCase() === "brave" && ["beta", "nightly", "stable"].includes(appTokens[appTokens.length - 1].toLowerCase())) {
+      variantTokens.unshift(appTokens[appTokens.length - 1]);
+      appTokens = appTokens.slice(0, -1);
+    }
 
     while (patchTokens.length > 1 && CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
       variantTokens.unshift(patchTokens[patchTokens.length - 1]);
