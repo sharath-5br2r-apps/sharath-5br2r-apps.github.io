@@ -2566,9 +2566,12 @@ function filterAppliedPatchesList(query) {
     </div>
   `;
 
-  const apkInfo = activeBuildMetadata ? `
+  const extLower = activeBuildMetadata && activeBuildMetadata.ext ? activeBuildMetadata.ext.toLowerCase() : "";
+  const isPackageBuild = activeBuildMetadata && ["apk", "apks", "xapk", "apkm", "zip"].includes(extLower);
+
+  const apkInfo = isPackageBuild ? `
     <section class="patch-metadata-section apk-info-section">
-      <h3>📦 APK Information</h3>
+      <h3>📦 ${extLower === "zip" ? "Module / Package Information" : "APK Information"}</h3>
       <div class="apk-info-grid">
         <span><strong>Architecture</strong>${escapeHtml(activeBuildMetadata.arch || "Unknown")}</span>
         <span><strong>Minimum SDK</strong>${escapeHtml(activeBuildMetadata.min_sdk || "Unknown")}</span>
