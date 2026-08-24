@@ -26,7 +26,7 @@ const CONFIG = {
     music: ["youtubemusic", "symfonium", "soundcloud", "poweramp", "music", "audioplayer"],
     productivity: ["bitwarden", "pcremote", "monect", "adm", "sdmaid", "oxygenupdater", "betamaniac", "fing", "speedtest", "batteryguru", "github", "solidexplorer", "camscanner", "xodo", "adobe", "excel", "word"],
     shopping: ["amazon", "alexa", "amazonindia", "primevideo", "prime"],
-    social: ["twitter", "instagram", "tiktok", "facebook", "threads", "reddit", "x-morphe", "xshim", "comtwitter", "x", "discord", "twitch"],
+    social: ["twitter", "instagram", "tiktok", "facebook", "threads", "reddit", "x-morphe", "xshim", "comtwitter", "x", "discord", "twitch", "youtube", "!youtubemusic"],
     utilities: ["adguard", "gboard", "sdmaid", "speedtest", "fing", "batteryguru", "adm", "oxygenupdater", "solidexplorer", "github", "bitwarden", "pcremote", "1111warp", "warp", "vpn"],
     video: ["youtube", "primevideo", "tiktok", "jiohotstar", "hbomax", "vix", "moviebox", "netflix", "twitch", "xrecorder"],
     vpn: ["1111warp", "vpnify", "windscribevpn", "protonvpn", "vpn", "warp", "cloudflare", "1111", "adguard"],
