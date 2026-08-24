@@ -2711,7 +2711,7 @@ function buildObtainiumRegex(app, patch, variantKey) {
     const legacyVariants = new Set(["legacy", "edenlegacy"]);
     if (legacyVariants.has(aNorm) && legacyVariants.has(tNorm)) return true;
 
-    const standardVariants = new Set(["standard", "mainline", "default"]);
+    const standardVariants = new Set(["standard", "mainline", "default", "stable", "bravestable"]);
     if (standardVariants.has(aNorm) && standardVariants.has(tNorm)) return true;
 
     return false;
