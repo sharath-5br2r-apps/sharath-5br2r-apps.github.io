@@ -16,7 +16,7 @@ const CONFIG = {
 
   // App Categories for the filter buttons
   appCategories: {
-    browser: ["brave", "browser"],
+    browser: ["brave", "bravebeta", "bravenightly", "browser"],
     communication: ["discord", "truecaller", "messenger", "whatsapp", "telegram", "gboard"],
     documents: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "moonplusreader", "office", "xodo", "camscanner", "adobe", "excel", "word", "reader"],
     education: ["duolingo"],
