@@ -2784,9 +2784,19 @@ function openObtainiumModal() {
 function createObtainiumInstructions(app, patch) {
   const sampleBuild = patch?.builds?.find((b) => b.assets && b.assets.length > 0) || patch?.builds?.[0];
   const primaryRepo = getConfigRepos()[0];
-  const repoOwner = sampleBuild?.repoOwner || primaryRepo.owner;
-  const repoName = sampleBuild?.repoName || primaryRepo.repo;
-  const repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
+  let repoOwner = sampleBuild?.repoOwner || primaryRepo.owner;
+  let repoName = sampleBuild?.repoName || primaryRepo.repo;
+  let repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
+
+  const isBraveApp = normalizeForSearch(app?.appName || app?.appKey || "").includes("brave");
+  const isStableFilter = modalBuildFilter === "stable" || sampleBuild?.releaseType === "stable";
+
+  if (isBraveApp && isStableFilter) {
+    repoOwner = "kveld9";
+    repoName = "kveld-morphe-patches";
+    repoUrl = "https://github.com/kveld9/kveld-morphe-patches";
+  }
+
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
   const obtainXLatestUrl = "https://github.com/bikram-agarwal/ObtainX/releases";
 
@@ -2829,8 +2839,7 @@ function createObtainiumInstructions(app, patch) {
           <div class="instruction-code">
             <code>${escapeHtml(vRegex)}</code>
             <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(vRegex)}', 'Regex copied!')" type="button" title="Copy Regex">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              Copy
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
             <a href="${vDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
             <a href="${vFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
@@ -2878,8 +2887,7 @@ function createObtainiumInstructions(app, patch) {
         <div class="instruction-code">
           <code>${escapeHtml(regexPattern)}</code>
           <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexPattern)}', 'Regex copied!')" type="button" title="Copy Regex">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            Copy
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
           <a href="${mainDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
           <a href="${mainFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
@@ -2899,7 +2907,9 @@ function createObtainiumInstructions(app, patch) {
         <li>In the <strong>App Source URL</strong> box, enter:
           <div class="instruction-code code-with-copy">
             <code>${repoUrl}</code>
-            <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(repoUrl)}', 'Repository URL copied!')" type="button">Copy</button>
+            <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(repoUrl)}', 'Repository URL copied!')" type="button" title="Copy Repository URL">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
           </div>
         </li>
         <li>Scroll down to <strong>Filter APKs by regular expression</strong> and enter:
