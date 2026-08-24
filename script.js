@@ -16,18 +16,20 @@ const CONFIG = {
 
   // App Categories for the filter buttons
   appCategories: {
-    amazon: ["amazon", "alexa", "primevideo", "amazonindia"],
-    google: ["google", "gboard"],
-    youtube: ["youtube"],
-    meta: ["threads", "instagram", "messenger", "facebook", "!plusmessenger"],
-    vpn: ["1111warp", "vpnify", "windscribevpn", "protonvpn", "vpn", "warp"],
+    browser: ["brave", "browser"],
+    communication: ["discord", "truecaller", "messenger", "whatsapp", "telegram"],
+    documents: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "moonplusreader", "office", "xodo", "camscanner"],
+    education: ["duolingo"],
     emulator: ["dolphin", "emulator"],
-    games: ["levilauncher", "levilaunchroid", "game", "games"],
-    launcher: ["niagara", "nova", "smartlauncher", "launcher", "!levilauncher", "!levilaunchroid", "!levilaunchroidextra"],
-    social: ["twitter", "discord", "threads", "instagram", "messenger", "facebook", "tiktok", "reddit", "x-morphe", "xshim", "comtwitter", "!hbomax", "!vix", "!moviebox", "!terabox", "!netflix"],
-    video: ["youtube", "primevideo", "tiktok", "jiohotstar", "hbomax", "vix", "moviebox", "netflix", "!youtubemusic"],
-    docs: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "office"],
-    music: ["youtubemusic", "symfonium", "soundcloud", "poweramp", "music"],
+    games: ["brawlstars", "clashofclans", "clashroyale", "hillclimbracing", "jetpackjoyride", "nulls", "smashhit", "vector", "chess", "game", "games", "levilauncher", "levilaunchroid"],
+    launcher: ["nova", "smartlauncher", "niagara", "launcher", "!levilauncher", "!levilaunchroid", "!levilaunchroidextra"],
+    music: ["youtubemusic", "symfonium", "soundcloud", "poweramp", "music", "audioplayer"],
+    productivity: ["bitwarden", "pcremote", "monect", "adm", "sdmaid", "oxygenupdater", "betamaniac", "fing", "speedtest", "batteryguru", "github", "solidexplorer"],
+    shopping: ["amazon", "alexa", "amazonindia"],
+    social: ["twitter", "instagram", "tiktok", "facebook", "threads", "reddit", "x-morphe", "xshim", "comtwitter", "x"],
+    utilities: ["adguard", "gboard", "sdmaid", "speedtest", "fing", "batteryguru"],
+    video: ["youtube", "primevideo", "tiktok", "jiohotstar", "hbomax", "vix", "moviebox", "netflix", "twitch", "xrecorder", "!youtubemusic"],
+    vpn: ["1111warp", "vpnify", "windscribevpn", "protonvpn", "vpn", "warp", "cloudflare"],
   },
 
 
