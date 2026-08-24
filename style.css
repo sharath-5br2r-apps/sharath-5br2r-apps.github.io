@@ -2203,7 +2203,70 @@ footer a:hover {
   font-size: 0.78rem;
   overflow-wrap: anywhere;
 }
-.apk-info-grid strong { color: var(--text-primary); font-size: 0.72rem; }
-.skipped-patches-section .applied-patch-item { border-color: color-mix(in srgb, #eab308 35%, var(--border)); }
-.failed-patches-section .applied-patch-item { border-color: color-mix(in srgb, #ef4444 40%, var(--border)); }
-.asset-info-btn { cursor: pointer; }
+.filter-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.filter-selectors-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.sort-selector-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.sort-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.sort-select {
+    padding: 8px 12px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.84rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.sort-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-glow);
+}
+
+@media (max-width: 640px) {
+    .filter-selectors-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .sort-selector-wrap {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .sort-select {
+        flex: 1;
+        width: 100%;
+    }
+}
