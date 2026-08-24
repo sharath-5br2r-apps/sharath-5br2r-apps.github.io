@@ -2126,7 +2126,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
           <div class="asset-right">
             <span class="btn-text">${sizeStr} • 📥 ${downloads}</span>
             <div class="asset-action-group" style="display: inline-flex; align-items: center; gap: 6px;">
-              ${hasBuildMetadataForAsset(masterBuildDataCache, asset.name, build.releaseTag) ? `<button class="patch-applied-btn asset-info-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" data-asset-name="${escapeHtml(asset.name)}" type="button" title="View build information and patches">Info</button>` : ""}
+              ${hasBuildMetadataForAsset(masterBuildDataCache, asset.name, build.releaseTag) ? `<button class="patch-applied-btn asset-info-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" data-asset-name="${escapeHtml(asset.name)}" type="button" title="View build information and applied patches">Info / Applied Patches</button>` : ""}
               <a href="${asset.browser_download_url}" class="download-action-btn" download title="Download ${asset.name}">Download</a>
             </div>
           </div>
