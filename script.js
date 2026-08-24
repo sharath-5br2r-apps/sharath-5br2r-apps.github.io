@@ -2692,19 +2692,16 @@ function closeAppliedPatchesModal() {
 
 // Helper to build Obtainium APK Filter Regex
 function buildObtainiumRegex(app, patch, variantKey) {
-  const appSlug = app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "app";
-  const patchSlug = patch?.patchKey ? normalizeForSearch(patch.patchKey).replace(/[^a-z0-9]/g, "") : "official";
+  const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "app");
+  const patchSlug = patch?.patchKey ? patch.patchKey.toLowerCase() : "official";
 
   if (!variantKey || variantKey === "default" || variantKey === "all") {
     return `^${appSlug}.*\\.apk$`;
   }
 
-  const variantPattern = normalizeForSearch(variantKey)
-    .split(/[^a-z0-9]+/i)
-    .filter(Boolean)
-    .join("-");
+  const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
 
-  return `^${appSlug}-${patchSlug}-${variantPattern}.*\\.apk$`;
+  return `^${appSlug}-${patchSlug}-${cleanVariant}.*\\.apk$`;
 }
 
 // Obtainium Modal Controller
