@@ -1722,6 +1722,12 @@ body.light-mode .download-btn:hover {
     border-bottom: 1px solid var(--border);
 }
 
+.applied-patches-meta:empty {
+    display: none;
+    padding: 0;
+    border-bottom: none;
+}
+
 .patch-engine-badge {
     display: inline-flex;
     align-items: center;
