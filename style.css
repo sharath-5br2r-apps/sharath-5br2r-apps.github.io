@@ -190,6 +190,7 @@ textarea {
 #themeBtn,
 #issueBtn,
 #discussionBtn,
+#githubBtn,
 #creditsBtn,
 #announcementBtn {
     background: var(--bg-secondary);
@@ -218,6 +219,7 @@ textarea {
 #themeBtn:hover,
 #issueBtn:hover,
 #discussionBtn:hover,
+#githubBtn:hover,
 #creditsBtn:hover,
 #announcementBtn:hover {
     transform: scale(1.08);
