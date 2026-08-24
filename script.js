@@ -2495,7 +2495,10 @@ function filterAppliedPatchesList(query) {
   if (!DOM.appliedPatchesBody) return;
 
   const appliedPatchesList = Array.isArray(activeAppliedPatchesList) ? activeAppliedPatchesList : [];
-  if (appliedPatchesList.length === 0 && !activeBuildMetadata) {
+  const skippedPatchesList = Array.isArray(activeSkippedPatchesList) ? activeSkippedPatchesList : [];
+  const failedPatchesList = Array.isArray(activeFailedPatchesList) ? activeFailedPatchesList : [];
+
+  if (appliedPatchesList.length === 0 && skippedPatchesList.length === 0 && failedPatchesList.length === 0 && !activeBuildMetadata) {
     if (DOM.patchCountBadge) {
       DOM.patchCountBadge.textContent = "0 Patches";
     }
@@ -2510,24 +2513,39 @@ function filterAppliedPatchesList(query) {
   }
 
   const normalized = (query || "").toLowerCase().trim();
-  const filtered = appliedPatchesList.filter((p) =>
-    String(p || "").toLowerCase().includes(normalized)
-  );
+  const filteredApplied = appliedPatchesList.filter((p) => String(p || "").toLowerCase().includes(normalized));
+  const filteredSkipped = skippedPatchesList.filter((p) => String(p || "").toLowerCase().includes(normalized));
+  const filteredFailed = failedPatchesList.filter((p) => String(p || "").toLowerCase().includes(normalized));
+
+  const totalFiltered = filteredApplied.length + filteredSkipped.length + filteredFailed.length;
+  const totalAll = appliedPatchesList.length + skippedPatchesList.length + failedPatchesList.length;
 
   if (DOM.patchCountBadge) {
-    DOM.patchCountBadge.textContent = `${filtered.length} of ${appliedPatchesList.length} patches`;
+    DOM.patchCountBadge.textContent = `${totalFiltered} of ${totalAll} patches`;
   }
 
-  if (filtered.length === 0 && appliedPatchesList.length > 0) {
-    DOM.appliedPatchesBody.innerHTML = '<div class="no-results" style="padding: 36px 20px; text-align: center; color: var(--text-secondary);">No matching patches found.</div>';
-    return;
-  }
+  const pNames = activeBuildMetadata?.patches || activeBuildForModal?.patchMeta?.patches || [];
+  const clUrl = activeBuildMetadata?.changelog || activeBuildForModal?.patchMeta?.changelogs || [];
+  const patchNamesList = Array.isArray(pNames)
+    ? pNames
+    : (typeof pNames === "string" ? pNames.split(/[,\s]+/).filter(Boolean) : []);
+  const changelogList = Array.isArray(clUrl)
+    ? clUrl
+    : (typeof clUrl === "string" ? clUrl.split(/[,\s]+/).filter(Boolean) : (clUrl ? [clUrl] : []));
 
-  const renderPatchSection = (title, items, icon, className) => items.length ? `
-    <section class="patch-metadata-section ${className}">
-      <h3>${icon} ${title} <span>${items.length}</span></h3>
-      <div class="applied-patches-grid">
-        ${items.map((patchName) => `<div class="applied-patch-item"><span class="patch-check-icon">${icon}</span><span>${escapeHtml(patchName)}</span></div>`).join("")}
+  const badgesHtml = patchNamesList.map((name, index) => {
+    const url = changelogList[index] || (changelogList.length === 1 ? changelogList[0] : null);
+    if (url) {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="patch-engine-badge patch-engine-link" title="Open changelog for ${escapeHtml(name)}">${escapeHtml(name)}<svg class="patch-link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`;
+    }
+    return `<span class="patch-engine-badge">${escapeHtml(name)}</span>`;
+  }).join("");
+
+  const patchVersionBanner = badgesHtml ? `
+    <section class="patch-metadata-section patch-version-section" style="margin-bottom: 16px;">
+      <h3 style="margin-bottom: 8px; font-size: 0.88rem; color: var(--text-secondary);">⚙️ Patch Versions & Source</h3>
+      <div class="patch-chip-group" style="display: flex; flex-wrap: wrap; gap: 8px;">
+        ${badgesHtml}
       </div>
     </section>` : "";
 
@@ -2542,30 +2560,34 @@ function filterAppliedPatchesList(query) {
         <span><strong>Densities</strong>${escapeHtml((activeBuildMetadata.densities || []).join(", ") || "Unknown")}</span>
       </div>
     </section>` : "";
-  const appliedSection = appliedPatchesList.length ? `
+
+  const appliedSection = filteredApplied.length ? `
     <section class="patch-metadata-section applied-patches-section">
-      <h3>✅ Applied Patches <span>${filtered.length}</span></h3>
+      <h3>✅ Applied Patches <span>${filteredApplied.length}</span></h3>
       <div class="applied-patches-grid">
-      ${filtered.map((patchName) => `
+      ${filteredApplied.map((patchName) => `
         <div class="applied-patch-item">
           <span class="patch-check-icon">✓</span>
           <span>${escapeHtml(patchName)}</span>
         </div>
       `).join("")}
       </div>
-    </section>` : `
-    <section class="patch-metadata-section applied-patches-section">
-      <h3>✅ Applied Patches <span>0</span></h3>
-      <div class="no-results" style="padding: 24px 20px; text-align: center; color: var(--text-secondary);">
-        No applied patches were recorded for this build.
+    </section>` : (appliedPatchesList.length ? `<section class="patch-metadata-section applied-patches-section"><h3>✅ Applied Patches <span>0</span></h3><div class="no-results" style="padding: 16px 20px; text-align: center; color: var(--text-secondary);">No matching applied patches.</div></section>` : "");
+
+  const renderPatchSection = (title, items, icon, className) => items.length ? `
+    <section class="patch-metadata-section ${className}">
+      <h3>${icon} ${title} <span>${items.length}</span></h3>
+      <div class="applied-patches-grid">
+        ${items.map((patchName) => `<div class="applied-patch-item"><span class="patch-check-icon">${icon}</span><span>${escapeHtml(patchName)}</span></div>`).join("")}
       </div>
-    </section>`;
+    </section>` : "";
 
   DOM.appliedPatchesBody.innerHTML = `
     ${apkInfo}
+    ${patchVersionBanner}
     ${appliedSection}
-    ${renderPatchSection("Failed Patches", activeFailedPatchesList, "⚠️", "failed-patches-section")}
-    ${renderPatchSection("Skipped Patches", activeSkippedPatchesList, "⏭️", "skipped-patches-section")}
+    ${renderPatchSection("Failed Patches", filteredFailed, "⚠️", "failed-patches-section")}
+    ${renderPatchSection("Skipped Patches", filteredSkipped, "⏭️", "skipped-patches-section")}
   `;
 }
 
