@@ -2549,6 +2549,13 @@ function filterAppliedPatchesList(query) {
       </div>
     </section>` : "";
 
+  const filterSearchBar = `
+    <div class="applied-patches-search-wrap" style="padding: 10px 14px; margin-bottom: 16px; border-radius: var(--radius-md); border: 1px solid var(--border); background: var(--bg-tertiary);">
+      <input type="text" id="inlinePatchSearchInput" placeholder="Filter patches..." value="${escapeHtml(query)}" style="flex: 1; padding: 8px 12px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text-primary); font-size: 0.84rem;">
+      <span class="patch-count-badge" style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted); font-family: var(--font-mono);">${totalFiltered} of ${totalAll} patches</span>
+    </div>
+  `;
+
   const apkInfo = activeBuildMetadata ? `
     <section class="patch-metadata-section apk-info-section">
       <h3>📦 APK Information</h3>
@@ -2585,10 +2592,21 @@ function filterAppliedPatchesList(query) {
   DOM.appliedPatchesBody.innerHTML = `
     ${apkInfo}
     ${patchVersionBanner}
+    ${filterSearchBar}
     ${appliedSection}
     ${renderPatchSection("Failed Patches", filteredFailed, "⚠️", "failed-patches-section")}
     ${renderPatchSection("Skipped Patches", filteredSkipped, "⏭️", "skipped-patches-section")}
   `;
+
+  const inlineInput = document.getElementById("inlinePatchSearchInput");
+  if (inlineInput) {
+    inlineInput.focus();
+    const len = inlineInput.value.length;
+    inlineInput.setSelectionRange(len, len);
+    inlineInput.addEventListener("input", (e) => {
+      filterAppliedPatchesList(e.target.value);
+    });
+  }
 }
 
 function closeAppliedPatchesModal() {
