@@ -531,6 +531,15 @@ const CONFIG = {
         { label: "Source Code", url: "https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra" },
       ],
     },
+    {
+      triggers: ["nulls", "brawlstars", "clashofclans", "clashroyale"],
+      className: "nulls-note",
+      title: "Null's Games Notice",
+      text: "Null's Games (from nulls.gg) is a proprietary patch server release. Builds are scraped and hosted here for easy Obtainium tracking.",
+      links: [
+        { label: "nulls.gg", url: "https://nulls.gg/" },
+      ],
+    },
   ],
 };
 
