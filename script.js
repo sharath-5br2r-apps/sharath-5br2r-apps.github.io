@@ -565,6 +565,8 @@ function initDOM() {
   DOM.searchWrap = DOM.searchInput?.closest(".search-input-wrap");
   DOM.searchClearBtn = document.getElementById("searchClearBtn");
   DOM.sortSelect = document.getElementById("sortSelect");
+  DOM.repoSelect = document.getElementById("repoSelect");
+  DOM.repoSelectWrap = document.getElementById("repoSelectWrap");
   DOM.appFilterButtons = document.getElementById("appFilterButtons");
   DOM.catalogCountText = document.getElementById("catalogCountText");
   DOM.lastUpdateText = document.getElementById("lastUpdateText");
@@ -804,17 +806,10 @@ function setupEventListeners() {
     DOM.searchClearBtn.addEventListener("click", handleClear);
   }
 
-  // Repository Selection Filter Buttons
-  if (DOM.repoFilterButtons) {
-    DOM.repoFilterButtons.addEventListener("click", (e) => {
-      const filterBtn = e.target.closest(".repo-pill-btn") || e.target.closest(".filter-btn");
-      if (!filterBtn) return;
-      const selectedRepo = filterBtn.dataset.repo || "all";
-      if (repoFilter === selectedRepo && selectedRepo !== "all") {
-        repoFilter = "all";
-      } else {
-        repoFilter = selectedRepo;
-      }
+  // Repository Dropdown Selection Filter
+  if (DOM.repoSelect) {
+    DOM.repoSelect.addEventListener("change", (e) => {
+      repoFilter = e.target.value || "all";
       syncUrlParams();
       filterAndRenderReleases();
     });
@@ -1467,26 +1462,26 @@ function extractPatchInfoFromRelease(release) {
   };
 }
 
-// Render Repository Filter Buttons / Snackbar
+// Render Repository Filter Dropdown (next to Sort)
 function renderRepoFilterButtons() {
-  if (!DOM.repoFilterButtons) return;
+  if (!DOM.repoSelect) return;
 
   const repos = getConfigRepos();
   if (repos.length <= 1) {
-    DOM.repoFilterButtons.style.display = "none";
+    if (DOM.repoSelectWrap) DOM.repoSelectWrap.style.display = "none";
     return;
   }
 
-  DOM.repoFilterButtons.style.display = "flex";
-  let html = `<button class="filter-btn repo-pill-btn ${repoFilter === "all" ? "active" : ""}" data-repo="all" type="button" aria-pressed="${repoFilter === "all"}">All Repositories</button>`;
+  if (DOM.repoSelectWrap) DOM.repoSelectWrap.style.display = "flex";
 
+  let html = `<option value="all"${repoFilter === "all" ? " selected" : ""}>📁 All Repositories</option>`;
   repos.forEach((r) => {
     const slug = `${r.owner}/${r.repo}`;
-    const isActive = repoFilter === slug;
-    html += `<button class="filter-btn repo-pill-btn ${isActive ? "active" : ""}" data-repo="${escapeHtml(slug)}" type="button" aria-pressed="${isActive}">📁 ${escapeHtml(slug)}</button>`;
+    const isSelected = repoFilter === slug;
+    html += `<option value="${escapeHtml(slug)}"${isSelected ? " selected" : ""}>📁 ${escapeHtml(slug)}</option>`;
   });
 
-  DOM.repoFilterButtons.innerHTML = html;
+  DOM.repoSelect.innerHTML = html;
 }
 
 // Filter and Render Catalog
@@ -1543,11 +1538,9 @@ function updateAppFilterButtons() {
     btn.classList.toggle("active", isActive);
     btn.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
-  document.querySelectorAll("#repoFilterButtons .repo-pill-btn, #repoFilterButtons .filter-btn").forEach((btn) => {
-    const isActive = btn.dataset.repo === repoFilter;
-    btn.classList.toggle("active", isActive);
-    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-  });
+  if (DOM.repoSelect) {
+    DOM.repoSelect.value = repoFilter;
+  }
 }
 
 function applyCategoryFilter(apps) {
@@ -1679,16 +1672,17 @@ function createAppCard(app) {
         .join(" • ")
     : "";
 
-  const repoSubheading = repoLinksMarkup
-    ? `<div class="app-repo-subheading" style="font-size: 0.78rem; opacity: 0.85; font-weight: 500; margin-top: 2px;">📁 Repo: ${repoLinksMarkup}</div>`
+  const repoHeader = repoLinksMarkup || escapeHtml(app.appName);
+  const appSubheading = repoLinksMarkup
+    ? `<div class="app-subheading" style="font-size: 0.78rem; opacity: 0.85; font-weight: 500; margin-top: 2px; color: var(--text-secondary);">📱 App: ${escapeHtml(app.appName)}</div>`
     : "";
 
   return `
     <div class="build-card app-card">
       <div class="app-card-summary" role="button" tabindex="0">
         <div class="app-title-group">
-          <div class="app-name">${escapeHtml(app.appName)}</div>
-          ${repoSubheading}
+          <div class="app-name">📁 ${repoHeader}</div>
+          ${appSubheading}
         </div>
         <div class="app-badge-group">
           ${dlBadge}
