@@ -1,4 +1,60 @@
 {
+  "260003": {
+    "discord-npatch-revenge-v342.16-all.apk": {
+      "name": "discord-npatch-revenge",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "342.16",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "revenge-mod/revenge-xposed",
+      "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
+      "applied_patches": [],
+      "release_tag": "260003"
+    }
+  },
+  "260002": {
+    "discord-npatch-revenge-v342.16-all.apk": {
+      "name": "discord-npatch-revenge",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "342.16",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "revenge-mod/revenge-xposed",
+      "changelog": "https://github.com/revenge-mod/revenge-xposed/releases/tag/latest",
+      "applied_patches": [],
+      "release_tag": "260002"
+    }
+  },
   "260001": {
     "tiktok-morphe-icysymmetra-v46.2.3-all.apk": {
       "name": "tiktok-morphe-icysymmetra",
