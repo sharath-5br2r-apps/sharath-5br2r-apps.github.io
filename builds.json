@@ -1,4 +1,78 @@
 {
+  "260010": {
+    "github-morphe-hoodles-stylus-v1.271.1-all.apk": {
+      "name": "github-morphe-hoodles-stylus",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.271.1",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "hoo-dles/morphe-patches@1.4.0",
+      "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+      "applied_patches": [
+        "AMOLED dark theme"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260010"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.271.1-all.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.271.1",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "hoo-dles/morphe-patches@1.4.0",
+      "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "260010"
+    }
+  },
   "260009": {
     "gboard-morphe-jasonwu1994-adobo-v18.0.3.954559732-arm64-v8a.apk": {
       "name": "gboard-morphe-jasonwu1994-adobo",
