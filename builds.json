@@ -1,4 +1,102 @@
 {
+  "260021": {
+    "soundcloud-morphe-kondratjev-v2026.07.23-arm64-v8a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.07.23",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "patches": "kondratjev/morphe-patches@1.19.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260021"
+    },
+    "soundcloud-morphe-kondratjev-v2026.07.23-arm-v7a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.07.23",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "patches": "kondratjev/morphe-patches@1.19.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260021"
+    },
+    "soundcloud-morphe-kondratjev-v2026.07.23-x86_64.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2026.07.23",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "patches": "kondratjev/morphe-patches@1.19.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260021"
+    }
+  },
   "260019": {
     "camscanner-morphe-hoodles-v7.20.0.2606230000-all.apk": {
       "name": "camscanner-morphe-hoodles",
