@@ -1,4 +1,192 @@
 {
+  "260013": {
+    "speedtest-morphe-xtra-v7.0.4-arm64-v8a.apk": {
+      "name": "speedtest-morphe-xtra",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "7.0.4",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+      "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+      "applied_patches": [
+        "AdFree Account",
+        "Disable Logging(analytics)"
+      ],
+      "skipped_patches": [
+        "Bypass ADB/Developer Options Detection (default)",
+        "Disable Firebase(Google) Analytics (default)",
+        "Disable Facebook SDK Tracking (default)"
+      ],
+      "release_tag": "260013"
+    },
+    "speedtest-morphe-xtra-v7.0.4-arm-v7a.apk": {
+      "name": "speedtest-morphe-xtra",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "7.0.4",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+      "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+      "applied_patches": [
+        "AdFree Account",
+        "Disable Logging(analytics)"
+      ],
+      "skipped_patches": [
+        "Bypass ADB/Developer Options Detection (default)",
+        "Disable Firebase(Google) Analytics (default)",
+        "Disable Facebook SDK Tracking (default)"
+      ],
+      "release_tag": "260013"
+    },
+    "speedtest-morphe-xtra-v7.0.4-x86_64.apk": {
+      "name": "speedtest-morphe-xtra",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "7.0.4",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+      "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+      "applied_patches": [
+        "AdFree Account",
+        "Disable Logging(analytics)"
+      ],
+      "skipped_patches": [
+        "Bypass ADB/Developer Options Detection (default)",
+        "Disable Firebase(Google) Analytics (default)",
+        "Disable Facebook SDK Tracking (default)"
+      ],
+      "release_tag": "260013"
+    },
+    "speedtest-morphe-xtra-exp-v7.0.7-arm64-v8a.apk": {
+      "name": "speedtest-morphe-xtra-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "7.0.7",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+      "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+      "applied_patches": [
+        "AdFree Account",
+        "Disable Logging(analytics)"
+      ],
+      "skipped_patches": [
+        "Bypass ADB/Developer Options Detection (default)",
+        "Disable Firebase(Google) Analytics (default)",
+        "Disable Facebook SDK Tracking (default)"
+      ],
+      "release_tag": "260013"
+    },
+    "speedtest-morphe-xtra-exp-v7.0.7-arm-v7a.apk": {
+      "name": "speedtest-morphe-xtra-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "7.0.7",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+      "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+      "applied_patches": [
+        "AdFree Account",
+        "Disable Logging(analytics)"
+      ],
+      "skipped_patches": [
+        "Bypass ADB/Developer Options Detection (default)",
+        "Disable Firebase(Google) Analytics (default)",
+        "Disable Facebook SDK Tracking (default)"
+      ],
+      "release_tag": "260013"
+    },
+    "speedtest-morphe-xtra-exp-v7.0.7-x86_64.apk": {
+      "name": "speedtest-morphe-xtra-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "7.0.7",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "patches": "BholeyKaBhakt/revanced-patches-xtra@2.12.0",
+      "changelog": "https://github.com/BholeyKaBhakt/revanced-patches-xtra/releases/tag/latest",
+      "applied_patches": [
+        "AdFree Account",
+        "Disable Logging(analytics)"
+      ],
+      "skipped_patches": [
+        "Bypass ADB/Developer Options Detection (default)",
+        "Disable Firebase(Google) Analytics (default)",
+        "Disable Facebook SDK Tracking (default)"
+      ],
+      "release_tag": "260013"
+    }
+  },
   "260012": {
     "youtube-morphe-anddea-v20.51.39-all.apk": {
       "name": "youtube-morphe-anddea",
