@@ -1,4 +1,120 @@
 {
+  "260015": {
+    "smash-hit-morphe-byehi98-v1.5.14-all.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "byehi98/okish-morphe-patches@1.17.0",
+      "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260015"
+    },
+    "vector-morphe-byehi98-v2.10.0-all.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86_64"
+      ],
+      "patches": "byehi98/okish-morphe-patches@1.17.0",
+      "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260015"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.70.0-all.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.70.0",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "patches": "byehi98/okish-morphe-patches@1.17.0",
+      "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260015"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-all.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "byehi98/okish-morphe-patches@1.17.0",
+      "changelog": "https://github.com/byehi98/okish-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260015"
+    }
+  },
   "260014": {
     "moonplus-reader-morphe-binarymend-v10.5-all.apk": {
       "name": "moonplus-reader-morphe-binarymend",
