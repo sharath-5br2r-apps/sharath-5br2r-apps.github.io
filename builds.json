@@ -1,4 +1,78 @@
 {
+  "260016": {
+    "chess-morphe-prathxm-v4.10.0-all.apk": {
+      "name": "chess-morphe-prathxm",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "4.10.0",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "PrathxmOp/Prathxm-Patches@1.13.0",
+      "changelog": "https://github.com/PrathxmOp/Prathxm-Patches/releases/tag/latest",
+      "applied_patches": [
+        "Ad-Free",
+        "Custom Titles",
+        "Global Crash Handler",
+        "Lichess Puzzles",
+        "Local Stockfish Analysis",
+        "Unlock All Bots"
+      ],
+      "skipped_patches": [
+        "Clone Chess.com (default)"
+      ],
+      "release_tag": "260016"
+    },
+    "chess-morphe-prathxm-clone-v4.10.0-all.apk": {
+      "name": "chess-morphe-prathxm-clone",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "4.10.0",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "PrathxmOp/Prathxm-Patches@1.13.0",
+      "changelog": "https://github.com/PrathxmOp/Prathxm-Patches/releases/tag/latest",
+      "applied_patches": [
+        "Ad-Free",
+        "Custom Titles",
+        "Global Crash Handler",
+        "Lichess Puzzles",
+        "Local Stockfish Analysis",
+        "Unlock All Bots",
+        "Clone Chess.com"
+      ],
+      "release_tag": "260016"
+    }
+  },
   "260015": {
     "smash-hit-morphe-byehi98-v1.5.14-all.apk": {
       "name": "smash-hit-morphe-byehi98",
