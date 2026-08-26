@@ -9323,6 +9323,148 @@
       "release_tag": "260001"
     }
   },
+  "260020": {
+    "symfonium-morphe-hooman-v14.1.0-all.apk": {
+      "name": "symfonium-morphe-hooman",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "14.1.0",
+      "min_sdk": "32",
+      "densities": [
+        "160",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "arandomhooman/hoomans-morphe-patches@1.51.1",
+      "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "release_tag": "260020"
+    },
+    "adm-morphe-hooman-v14.0.39-all.apk": {
+      "name": "adm-morphe-hooman",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "14.0.39",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "arandomhooman/hoomans-morphe-patches@1.51.1",
+      "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Remove ads"
+      ],
+      "release_tag": "260020"
+    },
+    "twitch-morphe-hooman-v30.7.2-all.apk": {
+      "name": "twitch-morphe-hooman",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "30.7.2",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "arandomhooman/hoomans-morphe-patches@1.51.1",
+      "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "7TV and BTTV emotes",
+        "Auto claim channel points",
+        "Block live ads",
+        "Fix login",
+        "Hide display ads",
+        "Show deleted messages"
+      ],
+      "release_tag": "260020"
+    },
+    "batteryguru-morphe-hooman-v2.5.0.6-all.apk": {
+      "name": "batteryguru-morphe-hooman",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.5.0.6",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "arandomhooman/hoomans-morphe-patches@1.51.1",
+      "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock PRO"
+      ],
+      "release_tag": "260020"
+    },
+    "batteryguru-morphe-hooman-exp-v2.5.0.6-all.apk": {
+      "name": "batteryguru-morphe-hooman-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.5.0.6",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "patches": "arandomhooman/hoomans-morphe-patches@1.51.1",
+      "changelog": "https://github.com/arandomhooman/hoomans-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock PRO"
+      ],
+      "release_tag": "260020"
+    }
+  },
   "dolphin-pr-14736-r3": {
     "dolphin-extra-android-stock-vpr14736-all.apk": {
       "name": "dolphin-extra-android-stock-vpr14736-all.apk",
