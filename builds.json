@@ -1,4 +1,120 @@
 {
+  "260121": {
+    "brave-stable-morphe-kveld9-v1.93.138-arm64-v8a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.93.138",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kveld9/kveld-morphe-patches@1.7.0",
+      "changelog": "https://github.com/kveld9/kveld-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Locale PAK Slimmer",
+        "Native Bloat Slimmer",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260121"
+    },
+    "brave-stable-morphe-kveld9-v1.93.138-arm-v7a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.93.138",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kveld9/kveld-morphe-patches@1.7.0",
+      "changelog": "https://github.com/kveld9/kveld-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Locale PAK Slimmer",
+        "Native Bloat Slimmer",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260121"
+    },
+    "brave-stable-morphe-kveld9-v1.93.138-x86_64.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.93.138",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kveld9/kveld-morphe-patches@1.7.0",
+      "changelog": "https://github.com/kveld9/kveld-morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Locale PAK Slimmer",
+        "Native Bloat Slimmer",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260121"
+    }
+  },
   "260118": {
     "brave-stable-morphe-kveld9-v1.93.138-arm-v7a.apk": {
       "name": "brave-stable-morphe-kveld9",
