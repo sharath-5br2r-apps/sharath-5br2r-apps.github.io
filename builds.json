@@ -26657,10 +26657,7 @@
       "min_sdk": "28",
       "densities": [],
       "native_libraries": [
-        "arm64-v8a",
-        "armeabi-v7a",
-        "x86",
-        "x86_64"
+        "arm64-v8a"
       ],
       "patches": "levilaunchroid-extra",
       "changelog": "Built against upstream release `v1.5.16`.\n\nCustom version:\n`1.5.16-1`\n\n### Upstream Release Notes (v1.5.16)\n## More controls, clearer overlays, and launcher news\n\nThis update expands the built-in overlay tools and introduces an easier way to follow every launcher update.\n\n### Built-in mods\n\n- [Added the More Buttons built-in mod.](https://github.com/LiteLDev/LeviLaunchroid/commit/9c3193026a987758acdc4f44f361c3a4ec5923dd)\n- [Added the Hotbar Slot built-in mod.](https://github.com/LiteLDev/LeviLaunchroid/commit/e6d3941531086f176ec8a390b11300b8ed2a2167)\n\n### Launcher experience\n\n- [Updated button icons for overlays.](https://github.com/LiteLDev/LeviLaunchroid/commit/43dfa62f45849e0ec416161160035233af4aa9c6)\n- Added Launcher news with live notifications, unread indicators, offline caching, and a one-time What’s new dialog after updates.\n\n**Full Changelog**: https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra/compare/levilaunchroid-v1.5.16...levilaunchroid-v1.5.16\n",
@@ -26672,103 +26669,6 @@
         "CurseForge API integration for mod discovery"
       ],
       "release_tag": "levilaunchroid-v1.5.16"
-    }
-  },
-  "levilaunchroid-v1.5.15-r7": {
-    "levilaunchroid-extra-v1.5.15-7-all.apk": {
-      "name": "levilaunchroid-extra-v1.5.15-7-all.apk",
-      "arch": "universal",
-      "ext": "apk",
-      "version": "1.5.15-7",
-      "min_sdk": "28",
-      "densities": [],
-      "native_libraries": [
-        "arm64-v8a",
-        "armeabi-v7a",
-        "x86",
-        "x86_64"
-      ],
-      "patches": "levilaunchroid-extra",
-      "changelog": "Built against upstream release `v1.5.15`.\n\nCustom version:\n`1.5.15-7`\n\n**Full Changelog**: https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra/compare/levilaunchroid-v1.5.15-r7...levilaunchroid-v1.5.15-r7\n",
-      "applied_patches": [
-        "Removed Google Play store verification requirement",
-        "Removed package name lock (imported MC APKs not limited to com.mojang.minecraftpe)",
-        "Restored memory editor feature",
-        "Removed forced version isolation for custom versions",
-        "CurseForge API integration for mod discovery"
-      ],
-      "release_tag": "levilaunchroid-v1.5.15-r7"
-    }
-  },
-  "levilaunchroid-v1.5.15-r6": {
-    "levilaunchroid-extra-v1.5.15-6-all.apk": {
-      "name": "levilaunchroid-extra-v1.5.15-6-all.apk",
-      "arch": "universal",
-      "ext": "apk",
-      "version": "1.5.15-6",
-      "min_sdk": "28",
-      "densities": [],
-      "native_libraries": [
-        "arm64-v8a",
-        "armeabi-v7a",
-        "x86",
-        "x86_64"
-      ],
-      "patches": "levilaunchroid-extra",
-      "changelog": "Built against upstream release `v1.5.15`.\n\nCustom version:\n`1.5.15-6`\n\n**Full Changelog**: https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra/compare/levilaunchroid-v1.5.15-r6...levilaunchroid-v1.5.15-r6\n",
-      "applied_patches": [
-        "Removed Google Play store verification requirement",
-        "Removed package name lock (imported MC APKs not limited to com.mojang.minecraftpe)",
-        "Restored memory editor feature",
-        "Removed forced version isolation for custom versions",
-        "CurseForge API integration for mod discovery"
-      ],
-      "release_tag": "levilaunchroid-v1.5.15-r6"
-    }
-  },
-  "levilaunchroid-v1.5.15-r5": {
-    "levilaunchroid-extra-v1.5.15-5-all.apk": {
-      "name": "levilaunchroid-extra-v1.5.15-5-all.apk",
-      "arch": "universal",
-      "ext": "apk",
-      "version": "1.5.15-5",
-      "min_sdk": "28",
-      "densities": [],
-      "native_libraries": [
-        "arm64-v8a",
-        "armeabi-v7a",
-        "x86",
-        "x86_64"
-      ],
-      "patches": "levilaunchroid-extra",
-      "changelog": "Built against upstream release `v1.5.15`.\n\nCustom version:\n`1.5.15-5`\n\n**Full Changelog**: https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra/compare/levilaunchroid-v1.5.15-r5...levilaunchroid-v1.5.15-r5\n",
-      "applied_patches": [
-        "Removed Google Play store verification requirement",
-        "Removed package name lock (imported MC APKs not limited to com.mojang.minecraftpe)",
-        "Restored memory editor feature",
-        "Removed forced version isolation for custom versions",
-        "CurseForge API integration for mod discovery"
-      ],
-      "release_tag": "levilaunchroid-v1.5.15-r5"
-    }
-  },
-  "levilaunchroid-v1.5.15-r4": {
-    "levilaunchroid-extra-v1.5.15-4-all.apk": {
-      "name": "levilaunchroid-extra-v1.5.15-4-all.apk",
-      "arch": "universal",
-      "ext": "apk",
-      "version": "1.5.15-4",
-      "min_sdk": "28",
-      "patches": "levilaunchroid-extra",
-      "changelog": "Built against upstream release `v1.5.15`.\n\nCustom version:\n`1.5.15-4`\n\n**Full Changelog**: https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra/compare/levilaunchroid-v1.5.15-r4...levilaunchroid-v1.5.15-r4\n",
-      "applied_patches": [
-        "Removed Google Play store verification requirement",
-        "Removed package name lock (imported MC APKs not limited to com.mojang.minecraftpe)",
-        "Restored memory editor feature",
-        "Removed forced version isolation for custom versions",
-        "CurseForge API integration for mod discovery"
-      ],
-      "release_tag": "levilaunchroid-v1.5.15-r4"
     }
   },
   "4308-faaf1bac6405658755421b2764cc4a16f8b800b8": {
