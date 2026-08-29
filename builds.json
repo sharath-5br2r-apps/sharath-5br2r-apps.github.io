@@ -1,4 +1,702 @@
 {
+  "260123": {
+    "amazon-shopping-morphe-rushiranpise-exp-v32.13.2.100-arm-v7a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "32.13.2.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.20.0",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof SIM provider (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)"
+      ],
+      "release_tag": "260123"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.13.2.100-arm64-v8a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "32.13.2.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.20.0",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Change version code (default)",
+        "Predictive back gesture (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260123"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.13.2.100-all.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "32.13.2.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.20.0",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Change version code (default)",
+        "Predictive back gesture (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260123"
+    }
+  },
+  "260122": {
+    "amazon-shopping-morphe-rushiranpise-exp-v32.13.2.100-arm-v7a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "32.13.2.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.20.0",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Predictive back gesture (default)",
+        "Hide app icon (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260122"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.13.2.100-arm64-v8a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "32.13.2.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.20.0",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260122"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.13.2.100-all.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "32.13.2.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.20.0",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof SIM provider (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)"
+      ],
+      "release_tag": "260122"
+    }
+  },
+  "260121": {
+    "brave-beta-morphe-dh6k-v1.95.93-arm-v7a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.95.93",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260121"
+    },
+    "brave-beta-morphe-dh6k-v1.95.93-arm64-v8a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.95.93",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260121"
+    },
+    "brave-beta-morphe-dh6k-v1.95.93-x86_64.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.95.93",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260121"
+    },
+    "fing-morphe-paresh-exp-v12.13.3-all.apk": {
+      "name": "fing-morphe-paresh-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "12.13.3",
+      "min_sdk": "28",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "Paresh-Maheshwari/paresh-patches@1.19.0",
+      "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+      "applied_patches": [
+        "Fing Premium"
+      ],
+      "release_tag": "260121"
+    }
+  },
+  "260120": {
+    "brave-beta-morphe-dh6k-v1.95.93-arm64-v8a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.95.93",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260120"
+    },
+    "brave-beta-morphe-dh6k-v1.95.93-x86_64.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.95.93",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260120"
+    },
+    "fing-morphe-paresh-exp-v12.13.3-all.apk": {
+      "name": "fing-morphe-paresh-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "12.13.3",
+      "min_sdk": "28",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "Paresh-Maheshwari/paresh-patches@1.19.0",
+      "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+      "applied_patches": [
+        "Fing Premium"
+      ],
+      "release_tag": "260120"
+    },
+    "brave-beta-morphe-dh6k-v1.95.93-arm-v7a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.95.93",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "dh6k/morphe-patches@1.4.0",
+      "changelog": "https://github.com/dh6k/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260120"
+    }
+  },
   "260119": {
     "youtube-music-morphe-anddea-amoled-v9.15.51-arm64-v8a.apk": {
       "name": "youtube-music-morphe-anddea-amoled",
@@ -26572,6 +27270,50 @@
         "Spoof SIM provider (default)"
       ],
       "release_tag": "260118"
+    }
+  },
+  "dolphin-pr-14831": {
+    "dolphin-extra-android-gfp-vpr14831-all.apk": {
+      "name": "dolphin-extra-android-gfp-vpr14831-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14831: Fix netplay crash on pre API 31 devices + Custom Storage Location",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14831`.\n\n### Upstream Dolphin PR [#14831](https://github.com/dolphin-emu/dolphin/pull/14831)\n**Title:** Fix netplay crash on pre API 31 devices\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nTypedArray doesn't implement AutoCloseable on older devices so .use{} caused a crash.\n\nIt turned out the special handling for background colours was unnecessary anyway.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14831"
+    },
+    "dolphin-extra-android-stock-vpr14831-all.apk": {
+      "name": "dolphin-extra-android-stock-vpr14831-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14831: Fix netplay crash on pre API 31 devices + Custom Storage Location",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14831`.\n\n### Upstream Dolphin PR [#14831](https://github.com/dolphin-emu/dolphin/pull/14831)\n**Title:** Fix netplay crash on pre API 31 devices\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nTypedArray doesn't implement AutoCloseable on older devices so .use{} caused a crash.\n\nIt turned out the special handling for background colours was unnecessary anyway.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14831"
     }
   },
   "dolphin-pr-14736-r3": {
