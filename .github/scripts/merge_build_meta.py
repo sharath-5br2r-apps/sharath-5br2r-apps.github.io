@@ -239,30 +239,33 @@ def main():
         # Strip any legacy embedded build_data so releases.json remains a clean GitHub API dump
         rel.pop("build_data", None)
 
-        # Check for build.json asset in release
+        # Check for build.json / build.${x}.json / manifest.json asset in release
         assets = rel.get("assets", [])
-        build_json_asset = next(
-            (a for a in assets if a.get("name") in ["build.json", "manifest.json"]),
-            None
-        )
-        if build_json_asset and "browser_download_url" in build_json_asset:
-            try:
-                url = build_json_asset["browser_download_url"]
-                req = urllib.request.Request(
-                    url,
-                    headers={"User-Agent": "NullStore-Cache-Updater"}
-                )
-                with urllib.request.urlopen(req, timeout=10) as resp:
-                    build_data = json.loads(resp.read().decode("utf-8"))
-                    new_build_data_count += 1
-                    print(f"[OK] Ingested build.json for Release {rel.get('tag_name')}")
+        build_json_assets = [
+            a for a in assets
+            if a.get("name") in ["build.json", "manifest.json"] or (
+                a.get("name", "").startswith("build.") and a.get("name", "").endswith(".json")
+            )
+        ]
+        for build_json_asset in build_json_assets:
+            if "browser_download_url" in build_json_asset:
+                try:
+                    url = build_json_asset["browser_download_url"]
+                    req = urllib.request.Request(
+                        url,
+                        headers={"User-Agent": "NullStore-Cache-Updater"}
+                    )
+                    with urllib.request.urlopen(req, timeout=10) as resp:
+                        build_data = json.loads(resp.read().decode("utf-8"))
+                        new_build_data_count += 1
+                        print(f"[OK] Ingested {build_json_asset.get('name')} for Release {rel.get('tag_name')}")
 
-                    if isinstance(build_data, dict):
-                        for target_key, info in build_data.items():
-                            merge_entry_into_master(master_build, target_key, info, rel.get('tag_name'))
-                            new_artifact_count += 1
-            except Exception as e:
-                print(f"Warning: Could not fetch build.json for {rel.get('tag_name')}: {e}")
+                        if isinstance(build_data, dict):
+                            for target_key, info in build_data.items():
+                                merge_entry_into_master(master_build, target_key, info, rel.get('tag_name'))
+                                new_artifact_count += 1
+                except Exception as e:
+                    print(f"Warning: Could not fetch {build_json_asset.get('name')} for {rel.get('tag_name')}: {e}")
 
     # Save nested builds.json grouped by release tag.
     with open(MASTER_BUILD_FILE, "w", encoding="utf-8") as f:
