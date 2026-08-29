@@ -27618,6 +27618,29 @@
       "release_tag": "dolphin-pr-14736-r2"
     }
   },
+  "levilaunchroid-v1.5.16-r2": {
+    "levilaunchroid-extra-v1.5.16-2-all.apk": {
+      "name": "levilaunchroid-extra-v1.5.16-2-all.apk",
+      "arch": "arm64-v8a",
+      "ext": "apk",
+      "version": "1.5.16-2",
+      "min_sdk": "28",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "patches": "levilaunchroid-extra",
+      "changelog": "## More controls, clearer overlays, and launcher news\n\nThis update expands the built-in overlay tools and introduces an easier way to follow every launcher update.\n\n### Built-in mods\n\n- [Added the More Buttons built-in mod.](https://github.com/LiteLDev/LeviLaunchroid/commit/9c3193026a987758acdc4f44f361c3a4ec5923dd)\n- [Added the Hotbar Slot built-in mod.](https://github.com/LiteLDev/LeviLaunchroid/commit/e6d3941531086f176ec8a390b11300b8ed2a2167)\n\n### Launcher experience\n\n- [Updated button icons for overlays.](https://github.com/LiteLDev/LeviLaunchroid/commit/43dfa62f45849e0ec416161160035233af4aa9c6)\n- Added Launcher news with live notifications, unread indicators, offline caching, and a one-time What’s new dialog after updates.\n\n### Custom Build Info\nBuilt against upstream release `v1.5.16`.\nCustom version: `1.5.16-2`\n\n### Upstream Release Notes (v1.5.16)\n## More controls, clearer overlays, and launcher news\n\nThis update expands the built-in overlay tools and introduces an easier way to follow every launcher update.\n\n### Built-in mods\n\n- [Added the More Buttons built-in mod.](https://github.com/LiteLDev/LeviLaunchroid/commit/9c3193026a987758acdc4f44f361c3a4ec5923dd)\n- [Added the Hotbar Slot built-in mod.](https://github.com/LiteLDev/LeviLaunchroid/commit/e6d3941531086f176ec8a390b11300b8ed2a2167)\n\n### Launcher experience\n\n- [Updated button icons for overlays.](https://github.com/LiteLDev/LeviLaunchroid/commit/43dfa62f45849e0ec416161160035233af4aa9c6)\n- Added Launcher news with live notifications, unread indicators, offline caching, and a one-time What’s new dialog after updates.\n\n**Full Changelog**: https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra/compare/levilaunchroid-v1.5.16-r2...levilaunchroid-v1.5.16-r2\n",
+      "applied_patches": [
+        "Removed Google Play store verification requirement",
+        "Removed package name lock (imported MC APKs not limited to com.mojang.minecraftpe)",
+        "Restored memory editor feature",
+        "Removed forced version isolation for custom versions",
+        "CurseForge API integration for mod discovery"
+      ],
+      "release_tag": "levilaunchroid-v1.5.16-r2"
+    }
+  },
   "levilaunchroid-v1.5.16": {
     "levilaunchroid-extra-v1.5.16-1-all.apk": {
       "name": "levilaunchroid-extra-v1.5.16-1-all.apk",
