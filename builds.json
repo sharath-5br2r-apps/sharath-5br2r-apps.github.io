@@ -1,4 +1,144 @@
 {
+  "260125": {
+    "sdmaid-morphe-paresh-exp-v2.0.4-rc0-all.apk": {
+      "name": "sdmaid-morphe-paresh-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.0.4-rc0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "Paresh-Maheshwari/paresh-patches@1.19.0",
+      "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "release_tag": "260125"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.274.0-all.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.274.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "hoo-dles/morphe-patches@1.5.0",
+      "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "260125"
+    }
+  },
+  "260124": {
+    "github-morphe-hoodles-stylus-exp-v1.274.0-all.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.274.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "hoo-dles/morphe-patches@1.5.0",
+      "changelog": "https://github.com/hoo-dles/morphe-patches/releases/tag/latest https://github.com/ch3thanhs/stylus/releases/tag/latest",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "260124"
+    },
+    "sdmaid-morphe-paresh-exp-v2.0.4-rc0-all.apk": {
+      "name": "sdmaid-morphe-paresh-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.0.4-rc0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "Paresh-Maheshwari/paresh-patches@1.19.0",
+      "changelog": "https://gitlab.com/Paresh-Maheshwari/paresh-patches/-/releases/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "release_tag": "260124"
+    }
+  },
   "260123": {
     "amazon-shopping-morphe-rushiranpise-exp-v32.13.2.100-arm-v7a.apk": {
       "name": "amazon-shopping-morphe-rushiranpise-exp",
@@ -27270,6 +27410,94 @@
         "Spoof SIM provider (default)"
       ],
       "release_tag": "260118"
+    }
+  },
+  "dolphin-pr-14831-r3": {
+    "dolphin-extra-android-gfp-vpr14831-all.apk": {
+      "name": "dolphin-extra-android-gfp-vpr14831-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14831: Fix netplay crash on pre API 31 devices + Custom Storage Location (Update 3)",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14831`.\n\n### Upstream Dolphin PR [#14831](https://github.com/dolphin-emu/dolphin/pull/14831)\n**Title:** Fix netplay crash on pre API 31 devices\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nTypedArray doesn't implement AutoCloseable on older devices so .use{} caused a crash.\n\nIt turned out the special handling for background colours was unnecessary anyway.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14831-r3"
+    },
+    "dolphin-extra-android-stock-vpr14831-all.apk": {
+      "name": "dolphin-extra-android-stock-vpr14831-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14831: Fix netplay crash on pre API 31 devices + Custom Storage Location (Update 3)",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14831`.\n\n### Upstream Dolphin PR [#14831](https://github.com/dolphin-emu/dolphin/pull/14831)\n**Title:** Fix netplay crash on pre API 31 devices\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nTypedArray doesn't implement AutoCloseable on older devices so .use{} caused a crash.\n\nIt turned out the special handling for background colours was unnecessary anyway.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14831-r3"
+    }
+  },
+  "dolphin-pr-14831-r2": {
+    "dolphin-extra-android-gfp-vpr14831-all.apk": {
+      "name": "dolphin-extra-android-gfp-vpr14831-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14831: Fix netplay crash on pre API 31 devices + Custom Storage Location (Update 2)",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14831`.\n\n### Upstream Dolphin PR [#14831](https://github.com/dolphin-emu/dolphin/pull/14831)\n**Title:** Fix netplay crash on pre API 31 devices\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nTypedArray doesn't implement AutoCloseable on older devices so .use{} caused a crash.\n\nIt turned out the special handling for background colours was unnecessary anyway.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14831-r2"
+    },
+    "dolphin-extra-android-stock-vpr14831-all.apk": {
+      "name": "dolphin-extra-android-stock-vpr14831-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14831: Fix netplay crash on pre API 31 devices + Custom Storage Location (Update 2)",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14831`.\n\n### Upstream Dolphin PR [#14831](https://github.com/dolphin-emu/dolphin/pull/14831)\n**Title:** Fix netplay crash on pre API 31 devices\n**Author:** [@tom-pratt](https://github.com/tom-pratt)\n\n#### PR Description\nTypedArray doesn't implement AutoCloseable on older devices so .use{} caused a crash.\n\nIt turned out the special handling for background colours was unnecessary anyway.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14831-r2"
     }
   },
   "dolphin-pr-14831": {
