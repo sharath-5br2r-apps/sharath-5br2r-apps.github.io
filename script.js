@@ -356,8 +356,11 @@ const CONFIG = {
       beta: "com.brave.browser_beta",
       nightly: "com.brave.browser_nightly"
     },
+    "1111warp": "com.cloudflare.onedotonedotonedotone",
+    adm: "com.dv.adm",
     amazonalexa: "com.amazon.dee.app",
     amazonindia: "in.amazon.mShop.android.shopping",
+    amazonshopping: "com.amazon.mShop.android.shopping",
     accuweather: "com.accuweather.android",
     alldocumentreader: "alldocumentsreader.docuemntviewer",
     at4klauncher: "com.overdevs.at4k",
@@ -386,7 +389,9 @@ const CONFIG = {
     niagaralauncher: "bitpit.launcher",
     cricbuzz: "com.cricbuzz.android",
     cryptomator: "org.cryptomator",
+    docscanner: "com.cv.docscanner",
     documentscanner: "com.cv.docscanner",
+    droufus: "com.mixapplications.rufus",
     duolingo: "com.duolingo",
     disneyplus: "com.disney.disneyplus",
     dolphinemulator: {
@@ -395,8 +400,10 @@ const CONFIG = {
       gameforpeacespoof: "com.tencent.tmgp.pubgmhd",
     },
     discord: "com.discord",
+    eyecon: "com.eyecon.global",
     eyeconcalleridspamblock: "com.eyecon.global",
     facebook: "com.facebook.katana",
+    fing: "com.overlook.android.fing",
     fingnetworktools: "com.overlook.android.fing",
     github: "com.github.android",
     goodreads: "com.goodreads",
@@ -429,6 +436,7 @@ const CONFIG = {
       }
     },
     inshot: "com.camerasideas.instashot",
+    inshorts: "com.nis.app",
     inshortsnewsin60words: "com.nis.app",
     imdb: "com.imdb.mobile",
     jiohotstar: "in.startv.hotstar",
@@ -524,7 +532,9 @@ const CONFIG = {
     wpsoffice: "cn.wps.moffice_eng",
     twitter: "com.twitter.android",
     x: "com.twitter.android",
+    xodo: "com.xodo.pdf.reader",
     xodopdfreadereditor: "com.xodo.pdf.reader",
+    mxplayerpro: "com.mxtech.videoplayer.pro",
     xrecorder: "videoeditor.videorecorder.screenrecorder",
     youtube: {
       revanced: {
