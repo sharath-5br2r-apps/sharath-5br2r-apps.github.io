@@ -44,7 +44,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine starts (must be lowercase)
   patchEngineTokens: new Set([
-    "revanced", "morphe", "lspatch", "npatch", "sign"
+    "revanced", "morphe", "lspatch", "npatch", "sign", "signed"
   ]),
 
   // Known tokens indicating a patch name/type
@@ -1725,8 +1725,10 @@ function filterAndRenderReleases() {
           }
 
           if (patchFilter === "none") {
-            const hasPatchName = patchObj.patchName && patchObj.patchName.trim() !== "";
-            const hasPatchList = patchObj.patchNameList && patchObj.patchNameList.length > 0;
+            const patchNameClean = (patchObj.patchName || "").trim().toLowerCase();
+            const patchListClean = (patchObj.patchNameList || []).filter((p) => p && p.trim().toLowerCase() !== "official");
+            const hasPatchName = patchNameClean !== "" && patchNameClean !== "official";
+            const hasPatchList = patchListClean.length > 0;
             if (hasPatchName || hasPatchList) {
               return;
             }
