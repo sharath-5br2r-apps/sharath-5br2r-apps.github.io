@@ -690,6 +690,8 @@ function initDOM() {
   DOM.changelogBody = document.getElementById("changelogBody");
   DOM.toastNotification = document.getElementById("toastNotification");
   DOM.themeColorMeta = document.getElementById("themeColorMeta");
+  DOM.filterToolbar = document.getElementById("filterToolbar");
+  DOM.filterToggleBtn = document.getElementById("filterToggleBtn");
 
   // Dynamically insert Repository filter snackbar element above categories if missing
   DOM.repoFilterButtons = document.getElementById("repoFilterButtons");
@@ -900,6 +902,14 @@ function setupEventListeners() {
     };
     DOM.searchClearBtn.addEventListener("pointerdown", handleClear);
     DOM.searchClearBtn.addEventListener("click", handleClear);
+  }
+
+  // Collapsible Filter Toolbar Toggle
+  if (DOM.filterToggleBtn && DOM.filterToolbar) {
+    DOM.filterToggleBtn.addEventListener("click", () => {
+      const isCollapsed = DOM.filterToolbar.classList.toggle("collapsed");
+      DOM.filterToggleBtn.setAttribute("aria-expanded", !isCollapsed);
+    });
   }
 
   // Repository Dropdown Selection Filter
