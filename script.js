@@ -692,6 +692,12 @@ function initDOM() {
   DOM.themeColorMeta = document.getElementById("themeColorMeta");
   DOM.filterToolbar = document.getElementById("filterToolbar");
   DOM.filterToggleBtn = document.getElementById("filterToggleBtn");
+  DOM.engineSelect = document.getElementById("engineSelect");
+  DOM.engineSelectWrap = document.getElementById("engineSelectWrap");
+  DOM.patchSelect = document.getElementById("patchSelect");
+  DOM.patchSelectWrap = document.getElementById("patchSelectWrap");
+  DOM.osSelect = document.getElementById("osSelect");
+  DOM.osSelectWrap = document.getElementById("osSelectWrap");
 
   // Dynamically insert Repository filter snackbar element above categories if missing
   DOM.repoFilterButtons = document.getElementById("repoFilterButtons");
@@ -709,6 +715,9 @@ let allReleases = [];
 let cachedFullCatalog = [];
 let searchTerm = "";
 let repoFilter = "all"; // "all" | "owner/repo"
+let engineFilter = "all"; // "all" | "morphe" | "revanced" | etc.
+let patchFilter = "all"; // "all" | patch token / slug
+let osFilter = "all"; // "all" | "android" | "windows" | etc.
 let appCategoryFilter = "all"; // "all" | "google" | "meta" | "vpn" | "word-..."
 let sortMode = "recent"; // "recent" | "popular" | "name"
 let dynamicAppFilters = [];
@@ -1612,6 +1621,30 @@ function filterAndRenderReleases() {
   // 1.5 Repository Filter
   if (repoFilter !== "all") {
     apps = apps.filter((app) => (app.repos || []).includes(repoFilter));
+  }
+
+  // 1.6 Engine, Patch, OS Filters
+  if (engineFilter !== "all" || patchFilter !== "all" || osFilter !== "all") {
+    apps = apps.filter((app) => {
+      let matches = false;
+      app.patches.forEach((patchObj) => {
+        if (engineFilter !== "all" && (patchObj.engineToken || "").toLowerCase() !== engineFilter.toLowerCase()) {
+          return;
+        }
+        if (osFilter !== "all" && (patchObj.targetOS || "").toLowerCase() !== osFilter.toLowerCase()) {
+          return;
+        }
+        if (patchFilter !== "all") {
+          const pKeyNorm = normalizeForSearch(patchObj.patchName || "");
+          const pKeyListNorm = (patchObj.patchNameList || []).map((p) => normalizeForSearch(p));
+          if (pKeyNorm !== patchFilter && !pKeyListNorm.includes(patchFilter)) {
+            return;
+          }
+        }
+        matches = true;
+      });
+      return matches;
+    });
   }
 
   // 2. Category Filter
