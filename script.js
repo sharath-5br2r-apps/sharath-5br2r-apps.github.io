@@ -930,6 +930,33 @@ function setupEventListeners() {
     });
   }
 
+  // Engine Dropdown Selection Filter
+  if (DOM.engineSelect) {
+    DOM.engineSelect.addEventListener("change", (e) => {
+      engineFilter = e.target.value || "all";
+      syncUrlParams();
+      filterAndRenderReleases();
+    });
+  }
+
+  // Patch Dropdown Selection Filter
+  if (DOM.patchSelect) {
+    DOM.patchSelect.addEventListener("change", (e) => {
+      patchFilter = e.target.value || "all";
+      syncUrlParams();
+      filterAndRenderReleases();
+    });
+  }
+
+  // OS Dropdown Selection Filter
+  if (DOM.osSelect) {
+    DOM.osSelect.addEventListener("change", (e) => {
+      osFilter = e.target.value || "all";
+      syncUrlParams();
+      filterAndRenderReleases();
+    });
+  }
+
   // Secondary Category Filter Buttons
   if (DOM.appFilterButtons) {
     DOM.appFilterButtons.addEventListener("click", (e) => {
@@ -1603,9 +1630,55 @@ function renderRepoFilterButtons() {
   DOM.repoSelect.innerHTML = html;
 }
 
+// Render 4-tier Filter Dropdowns (Engine, Patch, OS)
+function renderTieredFilterDropdowns() {
+  const engines = new Set();
+  const patches = new Set();
+  const oses = new Set();
+
+  cachedFullCatalog.forEach((app) => {
+    app.patches.forEach((p) => {
+      if (p.engineToken) engines.add(p.engineToken.toLowerCase());
+      if (p.targetOS) oses.add(p.targetOS.toLowerCase());
+      if (p.patchName) patches.add(p.patchName);
+      if (p.patchNameList) {
+        p.patchNameList.forEach((pn) => patches.add(pn.replace(/^🧩\s*/, "")));
+      }
+    });
+  });
+
+  if (DOM.engineSelect) {
+    let html = `<option value="all"${engineFilter === "all" ? " selected" : ""}>⚡ All Engines</option>`;
+    Array.from(engines).sort().forEach((eng) => {
+      const label = formatBrandDisplayName(eng);
+      html += `<option value="${escapeHtml(eng)}"${engineFilter === eng ? " selected" : ""}>⚡ ${escapeHtml(label)}</option>`;
+    });
+    DOM.engineSelect.innerHTML = html;
+  }
+
+  if (DOM.patchSelect) {
+    let html = `<option value="all"${patchFilter === "all" ? " selected" : ""}>🧩 All Patches</option>`;
+    Array.from(patches).sort().forEach((pt) => {
+      const slug = normalizeForSearch(pt);
+      html += `<option value="${escapeHtml(slug)}"${patchFilter === slug ? " selected" : ""}>🧩 ${escapeHtml(pt)}</option>`;
+    });
+    DOM.patchSelect.innerHTML = html;
+  }
+
+  if (DOM.osSelect) {
+    let html = `<option value="all"${osFilter === "all" ? " selected" : ""}>📱 All OS</option>`;
+    Array.from(oses).sort().forEach((osKey) => {
+      const label = formatOSBadge(osKey);
+      html += `<option value="${escapeHtml(osKey)}"${osFilter === osKey ? " selected" : ""}>${escapeHtml(label)}</option>`;
+    });
+    DOM.osSelect.innerHTML = html;
+  }
+}
+
 // Filter and Render Catalog
 function filterAndRenderReleases() {
   renderRepoFilterButtons();
+  renderTieredFilterDropdowns();
   renderDynamicAppFilterButtons(dynamicAppFilters);
 
   if (
