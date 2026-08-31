@@ -44,7 +44,7 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine starts (must be lowercase)
   patchEngineTokens: new Set([
-    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch", "signed"
+    "revanced", "morphe", "lspatch", "npatch", "sign"
   ]),
 
   // Known tokens indicating a patch name/type
@@ -52,12 +52,14 @@ const CONFIG = {
     "extended", "custom", "patch", "anddea", "binarymend", "bholeykabhakt", "browzomje",
     "byehi98", "hooman", "rushiranpise", "hoodles", "hoodlesshared", "paresh", "xtra",
     "icysymmetra", "jasonwu1994", "kondratjev", "kveld9", "lain", "nulls", "piko",
-    "prathxm", "inotia00", "revenge", "hxreborn", "adobo", "patcheddit"
+    "prathxm", "inotia00", "revenge", "hxreborn", "adobo", "patcheddit", "rvx",
+    "dh6k", "stylus"
   ]),
 
   // Known tokens indicating a variant (must be lowercase)
   variantTokens: new Set([
     "sign",
+    "clone",
     "exp",
     "nord",
     "mocha",
@@ -1349,6 +1351,8 @@ function buildAppCatalog(releases) {
         appEntry.patches.set(patchKey, {
           patchKey,
           patchName: parsed.patchName,
+          patchNameList: parsed.patchNameList,
+          engineToken: parsed.engineToken,
           targetOS: parsed.osToken ? detectOS(parsed.osToken) : detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`),
           latestVersion: null,
           latestPublishedAt: 0,
@@ -1887,12 +1891,23 @@ function createPatchMarkup(app, patch) {
     })
     .join("");
 
+  const engineBadgeHtml = patch.engineToken
+    ? `<span class="patch-engine-badge" title="Patch Engine">⚡ ${escapeHtml(formatBrandDisplayName(patch.engineToken))}</span>`
+    : `<span class="patch-engine-badge" title="Patch Engine">⚡ Morphe</span>`;
+
+  const patchBadgesHtml = (patch.patchNameList || [patch.patchName])
+    .map((p) => `<span class="patch-name-badge" title="Applied Patch">${escapeHtml(p.startsWith("🧩") ? p : `🧩 ${p}`)}</span>`)
+    .join(" ");
+
+  const osBadgeHtml = `<span class="os-tag-badge" title="Target Operating System">${escapeHtml(formatOSBadge(patch.targetOS || "android"))}</span>`;
+
   return `
     <div class="patch-entry">
       <div class="patch-entry-header">
         <div class="patch-chip-group">
-          <span class="patch-engine-badge" title="Patch Engine">${escapeHtml(patch.patchName)}</span>
-          <span class="os-tag-badge" title="Target Operating System">${escapeHtml(formatOSBadge(patch.targetOS || "android"))}</span>
+          ${engineBadgeHtml}
+          ${patchBadgesHtml}
+          ${osBadgeHtml}
           ${buildIconBadge}
           ${downloadIconBadge}
         </div>
@@ -3350,7 +3365,14 @@ function parseAssetDisplay(filename, arch, fileType) {
   const stopIndex = stopIndexCandidates.length > 0 ? Math.min(...stopIndexCandidates) : tokens.length;
   const preMetaTokens = tokens.slice(0, stopIndex);
 
-  let patchStartIndex = preMetaTokens.findIndex((token) => CONFIG.patchEngineTokens.has(token.toLowerCase()) || CONFIG.patchTokens.has(token.toLowerCase()));
+  let engineToken = null;
+  const engineIdx = preMetaTokens.findIndex((token) => CONFIG.patchEngineTokens.has(token.toLowerCase()));
+  if (engineIdx >= 0) {
+    engineToken = preMetaTokens[engineIdx].toLowerCase();
+    preMetaTokens.splice(engineIdx, 1);
+  }
+
+  let patchStartIndex = preMetaTokens.findIndex((token) => CONFIG.patchTokens.has(token.toLowerCase()));
 
   let appTokens = [];
   let patchTokens = [];
@@ -3406,7 +3428,10 @@ function parseAssetDisplay(filename, arch, fileType) {
     : null;
 
   const appNameRaw = appTokens.length > 0 ? appTokens.join(" ") : (preMetaTokens.join(" ") || baseName);
-  const patchNameRaw = patchTokens.length > 0 ? patchTokens.join(" ") : "Official";
+  const patchNameList = patchTokens.length > 0
+    ? patchTokens.map((p) => `🧩 ${formatBrandDisplayName(p)}`)
+    : ["🧩 Official"];
+  const patchNameRaw = patchTokens.length > 0 ? patchTokens.map((p) => formatBrandDisplayName(p)).join(" + ") : "Official";
 
   const rawPrefix = preMetaTokens.join("-").toLowerCase();
   const rawAppSlug = appTokens.length > 0 ? appTokens.join("-").toLowerCase() : (preMetaTokens.join("-").toLowerCase() || baseName.toLowerCase());
@@ -3415,6 +3440,8 @@ function parseAssetDisplay(filename, arch, fileType) {
   const result = {
     appName: formatBrandDisplayName(appNameRaw),
     patchName: formatBrandDisplayName(patchNameRaw),
+    patchNameList,
+    engineToken,
     variant: variantDisplayName,
     rawVariant: rawVariant,
     rawPrefix: rawPrefix,
