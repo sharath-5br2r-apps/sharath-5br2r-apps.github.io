@@ -2768,7 +2768,10 @@ function buildObtainiumRegex(app, patch, variantKey) {
   }
 
   if (rawPatchKey && rawPatchKey !== "official" && rawPatchKey !== "default") {
-    parts.push(rawPatchKey);
+    const cleanPatchKey = rawPatchKey.replace(/\s+/g, "-");
+    if (cleanPatchKey && !parts.includes(cleanPatchKey)) {
+      parts.push(cleanPatchKey);
+    }
   }
 
   // Include targetOS if non-default (e.g., android-legacy, chromeos, android-tv)
