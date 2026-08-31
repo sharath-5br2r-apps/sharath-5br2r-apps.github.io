@@ -2752,44 +2752,23 @@ function closeAppliedPatchesModal() {
 }
 
 // Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
-function buildObtainiumRegex(app, patch, variantKey, mode = "default") {
-  const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "");
-  const patchSlug = patch?.patchKey ? patch.patchKey.toLowerCase() : "";
-  const cleanVariant = (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard")
-    ? variantKey.replace(/\+/g, "-").toLowerCase()
-    : "";
-
-  // Special handling for 1.1.1.1 WARP / 1111-warp
-  if (appSlug.includes("1111") || appSlug.includes("warp") || (patchSlug && patchSlug.includes("warp"))) {
-    if (mode === "app_only") {
-      return `^1111-warp.*\\.apk$`;
-    } else if (mode === "strict" || mode === "third_option") {
-      return `^1111-warp-morphe.*\\.apk$`;
-    }
-    const parts = ["1111-warp"];
-    if (patchSlug && patchSlug !== "official" && patchSlug !== "default") parts.push(patchSlug);
-    if (cleanVariant) parts.push(cleanVariant);
-    return `^${parts.join("-")}.*\\.apk$`;
-  }
-
-  if (mode === "app_only") {
-    return appSlug ? `^${appSlug}.*\\.apk$` : `^.*\\.apk$`;
-  }
-
+function buildObtainiumRegex(app, patch, variantKey) {
   const parts = [];
+
+  const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "");
   if (appSlug) parts.push(appSlug);
+
+  const patchSlug = patch?.patchKey ? patch.patchKey.toLowerCase() : "";
   if (patchSlug && patchSlug !== "official" && patchSlug !== "default") {
     parts.push(patchSlug);
   }
-  if (cleanVariant) {
-    parts.push(cleanVariant);
+
+  if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
+    const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
+    if (cleanVariant) parts.push(cleanVariant);
   }
 
   const prefix = parts.join("-");
-  if (mode === "strict" || mode === "third_option") {
-    return prefix ? `^${prefix}.*\\.apk$` : `^.*\\.apk$`;
-  }
-
   return prefix ? `^${prefix}-v.*\\.apk$` : `^.*-v.*\\.apk$`;
 }
 
@@ -2885,72 +2864,42 @@ function createObtainiumInstructions(app, patch) {
     `;
   } else {
     const activeVariantKey = apkVariants.length === 1 ? apkVariants[0].variantKey : modalVariantFilter;
-    const regexPattern = buildObtainiumRegex(app, patch, activeVariantKey, "default");
-    const regexAppOnly = buildObtainiumRegex(app, patch, activeVariantKey, "app_only");
-    const regexThirdOption = buildObtainiumRegex(app, patch, activeVariantKey, "third_option");
+    const regexPattern = buildObtainiumRegex(app, patch, activeVariantKey);
 
     const mainPackageId = getAppPackageId(app, patch, activeVariantKey || "default");
     const mainSafeId = mainPackageId || `${repoOwner}_${app?.appKey || "app"}_${patch?.patchKey || "patch"}`.replace(/[^a-zA-Z0-9_]/g, "_");
     const mainLabel = `${app?.appName || "App"} (${patch?.patchName || "Patch"})`;
-    
-    const buildConfigForRegex = (pattern, idSuffix = "") => {
-      const settings = { apkFilterRegEx: pattern };
-      if (modalBuildFilter === "beta") settings.includePrereleases = true;
-      const cfg = {
-        id: idSuffix ? `${mainSafeId}_${idSuffix}` : mainSafeId,
-        name: idSuffix ? `${mainLabel} (${idSuffix})` : mainLabel,
-        author: repoOwner,
-        url: repoUrl,
-        additionalSettings: JSON.stringify(settings),
-      };
-      const direct = `obtainium://app/${encodeURIComponent(JSON.stringify(cfg))}`;
-      const fallback = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(cfg)}`)}`;
-      return { direct, fallback };
+    const mainAdditionalSettings = { apkFilterRegEx: regexPattern };
+    if (modalBuildFilter === "beta") {
+      mainAdditionalSettings.includePrereleases = true;
+    }
+
+    const mainConfig = {
+      id: mainSafeId,
+      name: mainLabel,
+      author: repoOwner,
+      url: repoUrl,
+      additionalSettings: JSON.stringify(mainAdditionalSettings),
     };
 
-    const mainUrls = buildConfigForRegex(regexPattern);
-    const appOnlyUrls = buildConfigForRegex(regexAppOnly, "app_only");
-    const thirdOptionUrls = buildConfigForRegex(regexThirdOption, "strict");
+    const encodedMainConfig = encodeURIComponent(JSON.stringify(mainConfig));
+    const mainDirectUrl = `obtainium://app/${encodedMainConfig}`;
+    const mainFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(mainConfig)}`)}`;
 
     step4Content = `
       <div style="margin-top: 6px;">
         ${mainPackageId ? `
-        <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; display: flex; flex-direction: column;">
+        <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: flex; flex-direction: column;">
           <span style="font-family: monospace; opacity: 0.8; font-weight: normal; cursor: pointer; width: fit-content; word-break: break-all;" onclick="copyToClipboard('${escapeJsString(mainPackageId)}', 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(mainPackageId)}</span>
         </div>
         ` : ''}
-        
-        <!-- Option 1: Standard Regex -->
-        <div style="font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); margin-top: 4px; margin-bottom: 2px;">Default Regex Pattern:</div>
-        <div class="instruction-code" style="margin-bottom: 8px;">
+        <div class="instruction-code">
           <code>${escapeHtml(regexPattern)}</code>
           <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexPattern)}', 'Regex copied!')" type="button" title="Copy Regex">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
-          <a href="${mainUrls.direct}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
-          <a href="${mainUrls.fallback}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
-        </div>
-
-        <!-- Option 2: App Name Only Regex -->
-        <div style="font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); margin-top: 4px; margin-bottom: 2px;">App Name Variant Regex:</div>
-        <div class="instruction-code" style="margin-bottom: 8px;">
-          <code>${escapeHtml(regexAppOnly)}</code>
-          <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexAppOnly)}', 'Regex copied!')" type="button" title="Copy Regex">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          </button>
-          <a href="${appOnlyUrls.direct}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add App Only</a>
-          <a href="${appOnlyUrls.fallback}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
-        </div>
-
-        <!-- Option 3: Clean / Strict Regex (e.g. ^1111-warp-morphe.*\.apk$) -->
-        <div style="font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); margin-top: 4px; margin-bottom: 2px;">Clean Match Regex (Option 3):</div>
-        <div class="instruction-code">
-          <code>${escapeHtml(regexThirdOption)}</code>
-          <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexThirdOption)}', 'Regex copied!')" type="button" title="Copy Regex">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          </button>
-          <a href="${thirdOptionUrls.direct}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add Clean Match</a>
-          <a href="${thirdOptionUrls.fallback}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
+          <a href="${mainDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
+          <a href="${mainFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
         </div>
       </div>
     `;
