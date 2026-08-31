@@ -1647,7 +1647,7 @@ function renderTieredFilterDropdowns() {
     });
   });
 
-  if (DOM.engineSelect) {
+  if (DOM.engineSelect && document.activeElement !== DOM.engineSelect) {
     let html = `<option value="all"${engineFilter === "all" ? " selected" : ""}>⚡ All Engines</option>`;
     Array.from(engines).sort().forEach((eng) => {
       const label = formatBrandDisplayName(eng);
@@ -1656,7 +1656,7 @@ function renderTieredFilterDropdowns() {
     DOM.engineSelect.innerHTML = html;
   }
 
-  if (DOM.patchSelect) {
+  if (DOM.patchSelect && document.activeElement !== DOM.patchSelect) {
     let html = `<option value="all"${patchFilter === "all" ? " selected" : ""}>🧩 All Patches</option>`;
     Array.from(patches).sort().forEach((pt) => {
       const slug = normalizeForSearch(pt);
@@ -1665,7 +1665,7 @@ function renderTieredFilterDropdowns() {
     DOM.patchSelect.innerHTML = html;
   }
 
-  if (DOM.osSelect) {
+  if (DOM.osSelect && document.activeElement !== DOM.osSelect) {
     let html = `<option value="all"${osFilter === "all" ? " selected" : ""}>📱 All OS</option>`;
     Array.from(oses).sort().forEach((osKey) => {
       const label = formatOSBadge(osKey);
