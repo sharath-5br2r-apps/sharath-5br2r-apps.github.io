@@ -2783,7 +2783,7 @@ function buildObtainiumRegex(app, patch, variantKey) {
 
     // Extract prefix up to version or arch token (e.g. "brave-beta-morphe-dh6k" from "brave-beta-morphe-dh6k-v1.95.88-arm64-v8a.apk" or "dolphin-extra-android-gfp" from "dolphin-extra-android-gfp-vpr14736-arm64-v8a.apk")
     const baseName = assetFileName.replace(EXT_STRIP_REGEX, "");
-    const vMatch = baseName.match(/-(v\d+|vpr\d+|v[a-zA-Z0-9._-]+?)(?:-(?:arm64-v8a|armeabi-v7a|x86_64|x86|universal|all))?$/i) || baseName.match(/-(v\d+[a-zA-Z0-9._-]*)/i);
+    const vMatch = baseName.match(/-(v\d+[a-zA-Z0-9._-]*|vpr\d+[a-zA-Z0-9._-]*|\d+\.\d+[a-zA-Z0-9._-]*)(?:-(?:arm64-v8a|armeabi-v7a|x86_64|x86|universal|all))?$/i) || baseName.match(/-(v\d+[a-zA-Z0-9._-]*)/i);
     const archMatch = baseName.match(/-(arm64-v8a|armeabi-v7a|x86_64|x86|universal|all)$/i);
 
     let vIdx = vMatch ? baseName.indexOf(vMatch[0]) : -1;
