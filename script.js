@@ -2746,25 +2746,35 @@ function closeAppliedPatchesModal() {
 // Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
 function buildObtainiumRegex(app, patch, variantKey) {
   // Find a matching sample asset for this variant to extract exact filename prefix
-  const matchingBuild = patch?.builds?.find((b) => b.assets && b.assets.length > 0);
-  if (matchingBuild && matchingBuild.assets) {
+  if (patch?.builds && patch.builds.length > 0) {
     const isSpecificVar = variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard";
     const cleanVar = isSpecificVar ? variantKey.replace(/\+/g, "-").toLowerCase() : "";
 
     let asset = null;
-    if (isSpecificVar) {
-      asset = matchingBuild.assets.find((a) => a.name && a.name.endsWith(".apk") && a.name.toLowerCase().includes(cleanVar));
-    } else {
-      // For standard/default, pick an asset that does NOT contain other variant tokens if possible
-      const otherVariantTokens = (patch?.variants || [])
-        .map((v) => v.variantKey.replace(/\+/g, "-").toLowerCase())
-        .filter((vk) => vk && vk !== "default" && vk !== "all" && vk !== "standard");
+    for (const b of patch.builds) {
+      if (!b.assets || b.assets.length === 0) continue;
+      if (isSpecificVar) {
+        asset = b.assets.find((a) => a.name && a.name.endsWith(".apk") && a.name.toLowerCase().includes(cleanVar));
+      } else {
+        const otherVariantTokens = (patch?.variants || [])
+          .map((v) => v.variantKey.replace(/\+/g, "-").toLowerCase())
+          .filter((vk) => vk && vk !== "default" && vk !== "all" && vk !== "standard");
 
-      asset = matchingBuild.assets.find((a) => {
-        if (!a.name || !a.name.endsWith(".apk")) return false;
-        const nameLower = a.name.toLowerCase();
-        return !otherVariantTokens.some((tok) => nameLower.includes(tok));
-      }) || matchingBuild.assets.find((a) => a.name && a.name.endsWith(".apk"));
+        asset = b.assets.find((a) => {
+          if (!a.name || !a.name.endsWith(".apk")) return false;
+          const nameLower = a.name.toLowerCase();
+          return !otherVariantTokens.some((tok) => nameLower.includes(tok));
+        });
+      }
+      if (asset) break;
+    }
+
+    if (!asset) {
+      for (const b of patch.builds) {
+        if (!b.assets) continue;
+        asset = b.assets.find((a) => a.name && a.name.endsWith(".apk"));
+        if (asset) break;
+      }
     }
 
     if (asset && asset.name) {
@@ -2786,13 +2796,6 @@ function buildObtainiumRegex(app, patch, variantKey) {
 
   // Fallback if no asset filename is available
   const parts = [];
-  let appSlug = app?.appKey ? app.appKey.toLowerCase().replace(/\s+/g, "-") : "";
-  if (appSlug) parts.push(appSlug);
-
-  const engineSlug = patch?.engineToken ? patch.engineToken.toLowerCase() : "";
-  if (engineSlug && engineSlug !== "official" && engineSlug !== "default") {
-    parts.push(engineSlug);
-  }
 
   let rawPatchKey = patch?.patchKey ? patch.patchKey.toLowerCase() : "";
   if (rawPatchKey.includes("__os_")) {
@@ -2800,22 +2803,27 @@ function buildObtainiumRegex(app, patch, variantKey) {
   }
 
   if (rawPatchKey && rawPatchKey !== "official" && rawPatchKey !== "default") {
-    const cleanPatchKey = rawPatchKey.replace(/\s+/g, "-");
-    if (cleanPatchKey && !parts.includes(cleanPatchKey)) {
-      parts.push(cleanPatchKey);
+    parts.push(rawPatchKey.replace(/\s+/g, "-"));
+  } else {
+    let appSlug = app?.appKey ? app.appKey.toLowerCase().replace(/\s+/g, "-") : "";
+    if (appSlug) parts.push(appSlug);
+
+    const engineSlug = patch?.engineToken ? patch.engineToken.toLowerCase() : "";
+    if (engineSlug && engineSlug !== "official" && engineSlug !== "default") {
+      parts.push(engineSlug);
     }
   }
 
   if (patch?.targetOS) {
     const osSlug = patch.targetOS.toLowerCase();
-    if (osSlug !== "android" && !appSlug.includes(osSlug)) {
+    if (osSlug !== "android" && !parts.some((p) => p.includes(osSlug))) {
       parts.push(osSlug);
     }
   }
 
   if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
     const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
-    if (cleanVariant && !parts.includes(cleanVariant)) {
+    if (cleanVariant && !parts.some((p) => p.endsWith(cleanVariant) || p.includes(`-${cleanVariant}-`))) {
       parts.push(cleanVariant);
     }
   }
