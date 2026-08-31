@@ -1916,7 +1916,8 @@ function createPatchMarkup(app, patch) {
     <div class="patch-entry">
       <div class="patch-entry-header">
         <div class="patch-chip-group">
-          <span class="patch-engine-badge">${escapeHtml(patch.patchName)}</span>
+          <span class="patch-engine-badge" title="Patch Engine">${escapeHtml(patch.patchName)}</span>
+          <span class="os-tag-badge" title="Target Operating System">🤖 Android</span>
           ${buildIconBadge}
           ${downloadIconBadge}
         </div>
