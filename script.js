@@ -1346,14 +1346,15 @@ function buildAppCatalog(releases) {
 
       appEntry.repos.add(repoSlug);
 
-      const patchKey = normalizeForSearch(parsed.patchName) || "official";
+      const targetOS = parsed.osToken ? detectOS(parsed.osToken) : detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`);
+      const patchKey = `${normalizeForSearch(parsed.patchName) || "official"}__os_${targetOS}`;
       if (!appEntry.patches.has(patchKey)) {
         appEntry.patches.set(patchKey, {
           patchKey,
           patchName: parsed.patchName,
           patchNameList: parsed.patchNameList,
           engineToken: parsed.engineToken,
-          targetOS: parsed.osToken ? detectOS(parsed.osToken) : detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`),
+          targetOS,
           latestVersion: null,
           latestPublishedAt: 0,
           variants: new Map(),
