@@ -1696,7 +1696,7 @@ function filterAndRenderReleases() {
   let apps = filterCatalogBySearch(cachedFullCatalog, searchTerm);
 
   // 1.5 Repository Filter
-  if (repoFilter === "none" || engineFilter === "none" || patchFilter === "none" || osFilter === "none") {
+  if (repoFilter === "none") {
     apps = [];
   } else {
     if (repoFilter !== "all") {
@@ -1708,13 +1708,29 @@ function filterAndRenderReleases() {
       apps = apps.filter((app) => {
         let matches = false;
         app.patches.forEach((patchObj) => {
-          if (engineFilter !== "all" && (patchObj.engineToken || "").toLowerCase() !== engineFilter.toLowerCase()) {
+          if (engineFilter === "none") {
+            if (patchObj.engineToken && patchObj.engineToken.trim() !== "") {
+              return;
+            }
+          } else if (engineFilter !== "all" && (patchObj.engineToken || "").toLowerCase() !== engineFilter.toLowerCase()) {
             return;
           }
-          if (osFilter !== "all" && (patchObj.targetOS || "").toLowerCase() !== osFilter.toLowerCase()) {
+
+          if (osFilter === "none") {
+            if (patchObj.targetOS && patchObj.targetOS.trim() !== "") {
+              return;
+            }
+          } else if (osFilter !== "all" && (patchObj.targetOS || "").toLowerCase() !== osFilter.toLowerCase()) {
             return;
           }
-          if (patchFilter !== "all") {
+
+          if (patchFilter === "none") {
+            const hasPatchName = patchObj.patchName && patchObj.patchName.trim() !== "";
+            const hasPatchList = patchObj.patchNameList && patchObj.patchNameList.length > 0;
+            if (hasPatchName || hasPatchList) {
+              return;
+            }
+          } else if (patchFilter !== "all") {
             const pKeyNorm = normalizeForSearch(patchObj.patchName || "");
             const pKeyListNorm = (patchObj.patchNameList || []).map((p) => normalizeForSearch(p));
             if (pKeyNorm !== patchFilter && !pKeyListNorm.includes(patchFilter)) {
