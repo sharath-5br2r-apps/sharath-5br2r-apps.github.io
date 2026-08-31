@@ -1349,7 +1349,7 @@ function buildAppCatalog(releases) {
         appEntry.patches.set(patchKey, {
           patchKey,
           patchName: parsed.patchName,
-          targetOS: detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`),
+          targetOS: parsed.osToken ? detectOS(parsed.osToken) : detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`),
           latestVersion: null,
           latestPublishedAt: 0,
           variants: new Map(),
@@ -3335,6 +3335,13 @@ function parseAssetDisplay(filename, arch, fileType) {
   const baseName = filename.replace(EXT_STRIP_REGEX, "");
   const tokens = baseName.split("-").filter(Boolean);
   const archSubTokens = new Set(CONFIG.knownArchs.flatMap((a) => a.split("-")));
+  let osToken = null;
+  const osTokenIndex = tokens.findIndex((t) => ["android", "termux", "macos", "mac", "windows", "win", "linux"].includes(t.toLowerCase()));
+  if (osTokenIndex >= 0) {
+    osToken = tokens[osTokenIndex].toLowerCase();
+    tokens.splice(osTokenIndex, 1);
+  }
+
   const versionIndex = tokens.findIndex(
     (token) => /^(v\w*\d|vbuild)/i.test(token) && !archSubTokens.has(token.toLowerCase())
   );
@@ -3415,6 +3422,7 @@ function parseAssetDisplay(filename, arch, fileType) {
     rawPatchSlug: patchTokens.join("-").toLowerCase() || "official",
     version,
     fileType,
+    osToken,
     rawAppSlug,
     rawPatchToken,
   };
