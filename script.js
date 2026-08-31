@@ -3294,6 +3294,7 @@ function detectArchitecture(filename) {
 
 function detectOS(text) {
   const clean = (text || "").toLowerCase();
+  if (clean.includes("android")) return "android";
   if (clean.includes("termux")) return "termux";
   if (clean.includes("macos") || clean.includes("mac") || clean.includes("darwin") || clean.includes("osx")) return "macos";
   if (clean.includes("windows") || clean.includes("win") || clean.includes(".exe") || clean.includes(".msi")) return "windows";
