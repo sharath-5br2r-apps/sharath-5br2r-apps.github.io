@@ -1893,7 +1893,7 @@ function createPatchMarkup(app, patch) {
 
   const engineBadgeHtml = patch.engineToken
     ? `<span class="patch-engine-badge" title="Patch Engine">⚡ ${escapeHtml(formatBrandDisplayName(patch.engineToken))}</span>`
-    : `<span class="patch-engine-badge" title="Patch Engine">⚡ Morphe</span>`;
+    : "";
 
   const patchBadgesHtml = (patch.patchNameList || [patch.patchName])
     .map((p) => `<span class="patch-name-badge" title="Applied Patch">${escapeHtml(p.startsWith("🧩") ? p : `🧩 ${p}`)}</span>`)
