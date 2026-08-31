@@ -3430,7 +3430,7 @@ function parseAssetDisplay(filename, arch, fileType) {
   const appNameRaw = appTokens.length > 0 ? appTokens.join(" ") : (preMetaTokens.join(" ") || baseName);
   const patchNameList = patchTokens.length > 0
     ? patchTokens.map((p) => `🧩 ${formatBrandDisplayName(p)}`)
-    : ["🧩 Official"];
+    : [];
   const patchNameRaw = patchTokens.length > 0 ? patchTokens.map((p) => formatBrandDisplayName(p)).join(" + ") : "Official";
 
   const rawPrefix = preMetaTokens.join("-").toLowerCase();
