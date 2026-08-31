@@ -1375,6 +1375,7 @@ function buildAppCatalog(releases) {
         appEntry.patches.set(patchKey, {
           patchKey,
           patchName: parsed.patchName,
+          targetOS: detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`),
           latestVersion: null,
           latestPublishedAt: 0,
           variants: new Map(),
@@ -1917,7 +1918,7 @@ function createPatchMarkup(app, patch) {
       <div class="patch-entry-header">
         <div class="patch-chip-group">
           <span class="patch-engine-badge" title="Patch Engine">${escapeHtml(patch.patchName)}</span>
-          <span class="os-tag-badge" title="Target Operating System">🤖 Android</span>
+          <span class="os-tag-badge" title="Target Operating System">${escapeHtml(formatOSBadge(patch.targetOS || "android"))}</span>
           ${buildIconBadge}
           ${downloadIconBadge}
         </div>
@@ -3289,6 +3290,25 @@ function detectArchitecture(filename) {
   if (name.includes("x86") || name.includes("win32") || name.includes("i386") || name.includes("i686")) return "x86";
   if (name.includes("universal") || name.includes("-all.") || /^(?!.*arm|x86|x64|i386)[^-]*\.(apk|apks|xapk|apkm|exe|msi|zip)$/i.test(name)) return "universal";
   return "other";
+}
+
+function detectOS(text) {
+  const clean = (text || "").toLowerCase();
+  if (clean.includes("termux")) return "termux";
+  if (clean.includes("macos") || clean.includes("mac") || clean.includes("darwin") || clean.includes("osx")) return "macos";
+  if (clean.includes("windows") || clean.includes("win") || clean.includes(".exe") || clean.includes(".msi")) return "windows";
+  if (clean.includes("linux") || clean.includes("ubuntu") || clean.includes("debian") || clean.includes(".appimage") || clean.includes(".deb") || clean.includes(".rpm")) return "linux";
+  return "android";
+}
+
+function formatOSBadge(osKey) {
+  switch (osKey) {
+    case "termux": return "🤖 Termux";
+    case "macos": return "🍎 MacOS";
+    case "windows": return "🪟 Windows";
+    case "linux": return "🐧 Linux";
+    case "android": default: return "🤖 Android";
+  }
 }
 
 function capitalizeArch(arch) {
