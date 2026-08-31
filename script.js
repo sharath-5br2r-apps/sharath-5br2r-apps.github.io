@@ -260,6 +260,8 @@ const CONFIG = {
     automate: "Automate",
     autosync: "Autosync",
     backdrops: "Backdrops",
+    swiftkey: "SwiftKey",
+    microsoftswiftkey: "SwiftKey",
     standard: "Standard",
     byair: "ByAir"
   },
