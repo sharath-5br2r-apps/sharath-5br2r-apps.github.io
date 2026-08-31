@@ -2748,14 +2748,24 @@ function buildObtainiumRegex(app, patch, variantKey) {
   // Find a matching sample asset for this variant to extract exact filename prefix
   const matchingBuild = patch?.builds?.find((b) => b.assets && b.assets.length > 0);
   if (matchingBuild && matchingBuild.assets) {
-    const asset = matchingBuild.assets.find((a) => {
-      if (!a.name || !a.name.endsWith(".apk")) return false;
-      if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
-        const cleanVar = variantKey.replace(/\+/g, "-").toLowerCase();
-        return a.name.toLowerCase().includes(cleanVar);
-      }
-      return true;
-    }) || matchingBuild.assets.find((a) => a.name && a.name.endsWith(".apk"));
+    const isSpecificVar = variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard";
+    const cleanVar = isSpecificVar ? variantKey.replace(/\+/g, "-").toLowerCase() : "";
+
+    let asset = null;
+    if (isSpecificVar) {
+      asset = matchingBuild.assets.find((a) => a.name && a.name.endsWith(".apk") && a.name.toLowerCase().includes(cleanVar));
+    } else {
+      // For standard/default, pick an asset that does NOT contain other variant tokens if possible
+      const otherVariantTokens = (patch?.variants || [])
+        .map((v) => v.variantKey.replace(/\+/g, "-").toLowerCase())
+        .filter((vk) => vk && vk !== "default" && vk !== "all" && vk !== "standard");
+
+      asset = matchingBuild.assets.find((a) => {
+        if (!a.name || !a.name.endsWith(".apk")) return false;
+        const nameLower = a.name.toLowerCase();
+        return !otherVariantTokens.some((tok) => nameLower.includes(tok));
+      }) || matchingBuild.assets.find((a) => a.name && a.name.endsWith(".apk"));
+    }
 
     if (asset && asset.name) {
       const baseName = asset.name.replace(EXT_STRIP_REGEX, "");
