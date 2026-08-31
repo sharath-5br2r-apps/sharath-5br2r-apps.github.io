@@ -1620,7 +1620,8 @@ function renderRepoFilterButtons() {
 
   if (DOM.repoSelectWrap) DOM.repoSelectWrap.style.display = "flex";
 
-  let html = `<option value="all"${repoFilter === "all" ? " selected" : ""}>📁 All Repositories</option>`;
+  let html = `<option value="none"${repoFilter === "none" ? " selected" : ""}>🚫 None</option>`;
+  html += `<option value="all"${repoFilter === "all" ? " selected" : ""}>📁 All Repositories</option>`;
   repos.forEach((r) => {
     const slug = `${r.owner}/${r.repo}`;
     const isSelected = repoFilter === slug;
@@ -1648,7 +1649,8 @@ function renderTieredFilterDropdowns() {
   });
 
   if (DOM.engineSelect && document.activeElement !== DOM.engineSelect) {
-    let html = `<option value="all"${engineFilter === "all" ? " selected" : ""}>⚡ All Engines</option>`;
+    let html = `<option value="none"${engineFilter === "none" ? " selected" : ""}>🚫 None</option>`;
+    html += `<option value="all"${engineFilter === "all" ? " selected" : ""}>⚡ All Engines</option>`;
     Array.from(engines).sort().forEach((eng) => {
       const label = formatBrandDisplayName(eng);
       html += `<option value="${escapeHtml(eng)}"${engineFilter === eng ? " selected" : ""}>⚡ ${escapeHtml(label)}</option>`;
@@ -1657,7 +1659,8 @@ function renderTieredFilterDropdowns() {
   }
 
   if (DOM.patchSelect && document.activeElement !== DOM.patchSelect) {
-    let html = `<option value="all"${patchFilter === "all" ? " selected" : ""}>🧩 All Patches</option>`;
+    let html = `<option value="none"${patchFilter === "none" ? " selected" : ""}>🚫 None</option>`;
+    html += `<option value="all"${patchFilter === "all" ? " selected" : ""}>🧩 All Patches</option>`;
     Array.from(patches).sort().forEach((pt) => {
       const slug = normalizeForSearch(pt);
       html += `<option value="${escapeHtml(slug)}"${patchFilter === slug ? " selected" : ""}>🧩 ${escapeHtml(pt)}</option>`;
@@ -1666,7 +1669,8 @@ function renderTieredFilterDropdowns() {
   }
 
   if (DOM.osSelect && document.activeElement !== DOM.osSelect) {
-    let html = `<option value="all"${osFilter === "all" ? " selected" : ""}>📱 All OS</option>`;
+    let html = `<option value="none"${osFilter === "none" ? " selected" : ""}>🚫 None</option>`;
+    html += `<option value="all"${osFilter === "all" ? " selected" : ""}>📱 All OS</option>`;
     Array.from(oses).sort().forEach((osKey) => {
       const label = formatOSBadge(osKey);
       html += `<option value="${escapeHtml(osKey)}"${osFilter === osKey ? " selected" : ""}>${escapeHtml(label)}</option>`;
@@ -1692,32 +1696,36 @@ function filterAndRenderReleases() {
   let apps = filterCatalogBySearch(cachedFullCatalog, searchTerm);
 
   // 1.5 Repository Filter
-  if (repoFilter !== "all") {
-    apps = apps.filter((app) => (app.repos || []).includes(repoFilter));
-  }
+  if (repoFilter === "none" || engineFilter === "none" || patchFilter === "none" || osFilter === "none") {
+    apps = [];
+  } else {
+    if (repoFilter !== "all") {
+      apps = apps.filter((app) => (app.repos || []).includes(repoFilter));
+    }
 
-  // 1.6 Engine, Patch, OS Filters
-  if (engineFilter !== "all" || patchFilter !== "all" || osFilter !== "all") {
-    apps = apps.filter((app) => {
-      let matches = false;
-      app.patches.forEach((patchObj) => {
-        if (engineFilter !== "all" && (patchObj.engineToken || "").toLowerCase() !== engineFilter.toLowerCase()) {
-          return;
-        }
-        if (osFilter !== "all" && (patchObj.targetOS || "").toLowerCase() !== osFilter.toLowerCase()) {
-          return;
-        }
-        if (patchFilter !== "all") {
-          const pKeyNorm = normalizeForSearch(patchObj.patchName || "");
-          const pKeyListNorm = (patchObj.patchNameList || []).map((p) => normalizeForSearch(p));
-          if (pKeyNorm !== patchFilter && !pKeyListNorm.includes(patchFilter)) {
+    // 1.6 Engine, Patch, OS Filters
+    if (engineFilter !== "all" || patchFilter !== "all" || osFilter !== "all") {
+      apps = apps.filter((app) => {
+        let matches = false;
+        app.patches.forEach((patchObj) => {
+          if (engineFilter !== "all" && (patchObj.engineToken || "").toLowerCase() !== engineFilter.toLowerCase()) {
             return;
           }
-        }
-        matches = true;
+          if (osFilter !== "all" && (patchObj.targetOS || "").toLowerCase() !== osFilter.toLowerCase()) {
+            return;
+          }
+          if (patchFilter !== "all") {
+            const pKeyNorm = normalizeForSearch(patchObj.patchName || "");
+            const pKeyListNorm = (patchObj.patchNameList || []).map((p) => normalizeForSearch(p));
+            if (pKeyNorm !== patchFilter && !pKeyListNorm.includes(patchFilter)) {
+              return;
+            }
+          }
+          matches = true;
+        });
+        return matches;
       });
-      return matches;
-    });
+    }
   }
 
   // 2. Category Filter
