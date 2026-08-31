@@ -2751,66 +2751,23 @@ function closeAppliedPatchesModal() {
 
 // Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
 function buildObtainiumRegex(app, patch, variantKey) {
-  let matchingAsset = null;
+  const parts = [];
 
-  if (patch && patch.builds) {
-    for (const build of patch.builds) {
-      if (!build.assets) continue;
-      if (modalBuildFilter && modalBuildFilter !== "all" && build.releaseType && build.releaseType !== modalBuildFilter) {
-        continue;
-      }
-      for (const asset of build.assets) {
-        if (!/\.(apk|apks|xapk|apkm)$/i.test(asset.name || "")) continue;
-        const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
-        const normVKey = normalizeForSearch(vKey);
-        const normTarget = normalizeForSearch(variantKey || "");
+  const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "");
+  if (appSlug) parts.push(appSlug);
 
-        const isStandardMatch = ["default", "all", "standard", "stable", ""].includes(normTarget) && ["default", "standard", "stable", ""].includes(normVKey);
-
-        if (!variantKey || variantKey === "all" || variantKey === "default" || vKey === variantKey || normVKey === normTarget || isStandardMatch) {
-          matchingAsset = asset;
-          break;
-        }
-      }
-      if (matchingAsset) break;
-    }
+  const patchSlug = patch?.patchKey ? patch.patchKey.toLowerCase() : "";
+  if (patchSlug && patchSlug !== "official" && patchSlug !== "default") {
+    parts.push(patchSlug);
   }
 
-  if (matchingAsset && matchingAsset.name) {
-    const assetFileName = matchingAsset.name;
-    const extMatch = assetFileName.match(/\.(apk|apks|xapk|apkm)$/i);
-    const ext = extMatch ? extMatch[1] : "apk";
-
-    // Extract prefix up to version or arch token (e.g. "brave-beta-morphe-dh6k" from "brave-beta-morphe-dh6k-v1.95.88-arm64-v8a.apk" or "dolphin-extra-android-gfp" from "dolphin-extra-android-gfp-vpr14736-arm64-v8a.apk")
-    const baseName = assetFileName.replace(EXT_STRIP_REGEX, "");
-    const vMatch = baseName.match(/-(v\d+[a-zA-Z0-9._-]*|vpr\d+[a-zA-Z0-9._-]*|\d+\.\d+[a-zA-Z0-9._-]*)(?:-(?:arm64-v8a|armeabi-v7a|x86_64|x86|universal|all))?$/i) || baseName.match(/-(v\d+[a-zA-Z0-9._-]*)/i);
-    const archMatch = baseName.match(/-(arm64-v8a|armeabi-v7a|x86_64|x86|universal|all)$/i);
-
-    let vIdx = vMatch ? baseName.indexOf(vMatch[0]) : -1;
-    let archIdx = archMatch ? baseName.indexOf(archMatch[0]) : -1;
-
-    let prefix = baseName;
-    if (vIdx > 0 && archIdx > 0) {
-      prefix = baseName.substring(0, Math.min(vIdx, archIdx));
-    } else if (vIdx > 0) {
-      prefix = baseName.substring(0, vIdx);
-    } else if (archIdx > 0) {
-      prefix = baseName.substring(0, archIdx);
-    }
-
-    const safePrefix = prefix.replace(/[\^$*+?.()|[\]{}]/g, "\\$&");
-    return `^${safePrefix}.*\\.${ext}$`;
+  if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
+    const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
+    if (cleanVariant) parts.push(cleanVariant);
   }
 
-  const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "app");
-  const patchSlug = patch?.patchKey ? patch.patchKey.toLowerCase() : "official";
-
-  if (!variantKey || variantKey === "default" || variantKey === "all") {
-    return `^${appSlug}.*\\.apk$`;
-  }
-
-  const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
-  return `^${appSlug}-${patchSlug}-${cleanVariant}.*\\.apk$`;
+  const prefix = parts.join("-");
+  return prefix ? `^${prefix}-v.*\\.apk$` : `^.*-v.*\\.apk$`;
 }
 
 // Obtainium Modal Controller
