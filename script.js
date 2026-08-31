@@ -2747,7 +2747,13 @@ function closeAppliedPatchesModal() {
 function buildObtainiumRegex(app, patch, variantKey) {
   const parts = [];
 
-  const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "");
+  // Format app slug (e.g. eden-android or camscanner)
+  let appSlug = "";
+  if (app?.appKey) {
+    appSlug = app.appKey.toLowerCase().replace(/\s+/g, "-");
+  } else if (app?.appName) {
+    appSlug = normalizeForSearch(app.appName).replace(/\s+/g, "-");
+  }
   if (appSlug) parts.push(appSlug);
 
   const engineSlug = patch?.engineToken ? patch.engineToken.toLowerCase() : "";
@@ -2766,14 +2772,19 @@ function buildObtainiumRegex(app, patch, variantKey) {
   }
 
   // Include targetOS if non-default (e.g., android-legacy, chromeos, android-tv)
-  // Default 'android' is implicit unless explicitly part of the variant
-  if (patch?.targetOS && patch.targetOS !== "android") {
-    parts.push(patch.targetOS.toLowerCase());
+  // Only add targetOS if it is NOT already present in appSlug (prevent duplicate 'android')
+  if (patch?.targetOS) {
+    const osSlug = patch.targetOS.toLowerCase();
+    if (osSlug !== "android" && !appSlug.includes(osSlug)) {
+      parts.push(osSlug);
+    }
   }
 
   if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
     const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
-    if (cleanVariant) parts.push(cleanVariant);
+    if (cleanVariant && !parts.includes(cleanVariant)) {
+      parts.push(cleanVariant);
+    }
   }
 
   const prefix = parts.join("-");
