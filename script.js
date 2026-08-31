@@ -2754,7 +2754,14 @@ function buildObtainiumRegex(app, patch, variantKey) {
     for (const b of patch.builds) {
       if (!b.assets || b.assets.length === 0) continue;
       if (isSpecificVar) {
-        asset = b.assets.find((a) => a.name && a.name.endsWith(".apk") && a.name.toLowerCase().includes(cleanVar));
+        asset = b.assets.find((a) => {
+          if (!a.name || !a.name.endsWith(".apk")) return false;
+          if (a.parsed) {
+            const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "");
+            if (vKey === variantKey) return true;
+          }
+          return a.name.toLowerCase().includes(cleanVar);
+        });
       } else {
         const otherVariantTokens = (patch?.variants || [])
           .map((v) => v.variantKey.replace(/\+/g, "-").toLowerCase())
@@ -2762,6 +2769,11 @@ function buildObtainiumRegex(app, patch, variantKey) {
 
         asset = b.assets.find((a) => {
           if (!a.name || !a.name.endsWith(".apk")) return false;
+          if (a.parsed) {
+            const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "default") || "default";
+            if (vKey === "default" || vKey === "standard" || vKey === "all") return true;
+            if (otherVariantTokens.includes(vKey.toLowerCase())) return false;
+          }
           const nameLower = a.name.toLowerCase();
           return !otherVariantTokens.some((tok) => nameLower.includes(tok));
         });
