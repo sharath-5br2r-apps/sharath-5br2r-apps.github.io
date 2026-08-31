@@ -2920,12 +2920,27 @@ function createObtainiumInstructions(app, patch) {
 function getAppPackageId(app, patch, variantKey) {
   if (!app) return "";
 
-  // 1. First attempt: check if build metadata (from builds.json) records the exact package_name
-  const metaPkg = activeBuildMetadata?.package_name ||
+  // 1. Check if active build metadata (from builds.json) records package_name directly
+  const activePkg = activeBuildMetadata?.package_name ||
     patch?.builds?.[0]?.package_name ||
     patch?.builds?.[0]?.patchMeta?.package_name ||
     app?.patches?.[0]?.builds?.[0]?.package_name;
-  if (metaPkg) return metaPkg;
+  if (activePkg) return activePkg;
+
+  // 2. Query masterBuildDataCache for any build asset associated with this app/patch
+  if (masterBuildDataCache && typeof masterBuildDataCache === "object") {
+    const candidateAssets = [];
+    if (patch?.builds) {
+      for (const b of patch.builds) {
+        if (b?.assets) candidateAssets.push(...b.assets);
+      }
+    }
+    for (const assetObj of candidateAssets) {
+      if (!assetObj?.name) continue;
+      const details = findBuildDetails(masterBuildDataCache, assetObj, patch?.builds?.[0]);
+      if (details?.package_name) return details.package_name;
+    }
+  }
 
   const sampleAsset = patch?.builds?.[0]?.assets?.[0] || app?.patches?.[0]?.builds?.[0]?.assets?.[0];
   let rawSlug = "";
