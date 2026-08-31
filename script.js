@@ -44,12 +44,12 @@ const CONFIG = {
 
   // Known tokens indicating a patch engine starts (must be lowercase)
   patchEngineTokens: new Set([
-    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch"
+    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch", "signed"
   ]),
 
   // Known tokens indicating a patch name/type
   patchTokens: new Set([
-    "signed", "extended", "custom", "patch"
+    "extended", "custom", "patch"
   ]),
 
   // Known tokens indicating a variant (must be lowercase)
