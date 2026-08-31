@@ -2920,6 +2920,13 @@ function createObtainiumInstructions(app, patch) {
 function getAppPackageId(app, patch, variantKey) {
   if (!app) return "";
 
+  // 1. First attempt: check if build metadata (from builds.json) records the exact package_name
+  const metaPkg = activeBuildMetadata?.package_name ||
+    patch?.builds?.[0]?.package_name ||
+    patch?.builds?.[0]?.patchMeta?.package_name ||
+    app?.patches?.[0]?.builds?.[0]?.package_name;
+  if (metaPkg) return metaPkg;
+
   const sampleAsset = patch?.builds?.[0]?.assets?.[0] || app?.patches?.[0]?.builds?.[0]?.assets?.[0];
   let rawSlug = "";
   let rawPatch = "";
