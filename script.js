@@ -2765,6 +2765,12 @@ function buildObtainiumRegex(app, patch, variantKey) {
     parts.push(rawPatchKey);
   }
 
+  // Include targetOS if non-default (e.g., android-legacy, chromeos, android-tv)
+  // Default 'android' is implicit unless explicitly part of the variant
+  if (patch?.targetOS && patch.targetOS !== "android") {
+    parts.push(patch.targetOS.toLowerCase());
+  }
+
   if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
     const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
     if (cleanVariant) parts.push(cleanVariant);
