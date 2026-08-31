@@ -2752,7 +2752,7 @@ function closeAppliedPatchesModal() {
 }
 
 // Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
-// Sequence: 1. Patch Engine (mandatory), 2. Patch, 3. OS/Format, 4. Variant
+// Sequence: 1. Patch Engine (mandatory), 2. Patch, 3. Variant, 4. OS/Format
 function buildObtainiumRegex(app, patch, variantKey, mode = "default") {
   const patchEngineSlug = patch?.patchKey ? patch.patchKey.toLowerCase() : "morphe";
   const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "");
@@ -2764,30 +2764,28 @@ function buildObtainiumRegex(app, patch, variantKey, mode = "default") {
     return `^${patchEngineSlug}.*\\.apk$`;
   }
 
-  const baseParts = [];
+  const parts = [];
   // 1. Mandatory Patch Engine
-  baseParts.push(patchEngineSlug || "morphe");
+  parts.push(patchEngineSlug || "morphe");
 
   // 2. Patch / App Slug
   if (appSlug) {
-    baseParts.push(appSlug);
+    parts.push(appSlug);
   }
 
-  const basePrefix = baseParts.join("-");
-
-  // Option 3 / Clean: Engine-Patch.*\.apk$
-  if (mode === "strict" || mode === "third_option" || mode === "clean") {
-    return cleanVariant && mode !== "no_variant"
-      ? `^${basePrefix}.*\\.apk$`
-      : `^${basePrefix}.*\\.apk$`;
-  }
-
-  // 3. OS / Extension (.apk) & 4. Variant
+  // 3. Variant
   if (cleanVariant && mode !== "no_variant") {
-    return `^${basePrefix}-v.*${cleanVariant}.*\\.apk$`;
+    parts.push(cleanVariant);
   }
 
-  return `^${basePrefix}-v.*\\.apk$`;
+  const prefix = parts.join("-");
+  if (mode === "strict" || mode === "third_option" || mode === "clean") {
+    // 4. OS / Extension (.apk)
+    return `^${prefix}.*\\.apk$`;
+  }
+
+  // Default mode matching version and OS/Format
+  return `^${prefix}-v.*\\.apk$`;
 }
 
 // Obtainium Modal Controller
