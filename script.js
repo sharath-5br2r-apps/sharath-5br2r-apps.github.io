@@ -2757,19 +2757,6 @@ function buildObtainiumRegex(app, patch, variantKey, mode = "default") {
     ? variantKey.replace(/\+/g, "-").toLowerCase()
     : "";
 
-  // Special handling for 1.1.1.1 WARP / 1111-warp
-  if (appSlug.includes("1111") || appSlug.includes("warp") || (patchSlug && patchSlug.includes("warp"))) {
-    if (mode === "app_only") {
-      return `^1111-warp.*\\.apk$`;
-    } else if (mode === "strict" || mode === "third_option") {
-      return `^1111-warp-morphe.*\\.apk$`;
-    }
-    const parts = ["1111-warp"];
-    if (patchSlug && patchSlug !== "official" && patchSlug !== "default") parts.push(patchSlug);
-    if (cleanVariant) parts.push(cleanVariant);
-    return `^${parts.join("-")}.*\\.apk$`;
-  }
-
   if (mode === "app_only") {
     return appSlug ? `^${appSlug}.*\\.apk$` : `^.*\\.apk$`;
   }
