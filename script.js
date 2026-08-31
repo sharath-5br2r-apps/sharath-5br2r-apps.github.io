@@ -2745,15 +2745,38 @@ function closeAppliedPatchesModal() {
 
 // Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
 function buildObtainiumRegex(app, patch, variantKey) {
-  const parts = [];
+  // Find a matching sample asset for this variant to extract exact filename prefix
+  const matchingBuild = patch?.builds?.find((b) => b.assets && b.assets.length > 0);
+  if (matchingBuild && matchingBuild.assets) {
+    const asset = matchingBuild.assets.find((a) => {
+      if (!a.name || !a.name.endsWith(".apk")) return false;
+      if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
+        const cleanVar = variantKey.replace(/\+/g, "-").toLowerCase();
+        return a.name.toLowerCase().includes(cleanVar);
+      }
+      return true;
+    }) || matchingBuild.assets.find((a) => a.name && a.name.endsWith(".apk"));
 
-  // Format app slug (e.g. eden-android or camscanner)
-  let appSlug = "";
-  if (app?.appKey) {
-    appSlug = app.appKey.toLowerCase().replace(/\s+/g, "-");
-  } else if (app?.appName) {
-    appSlug = normalizeForSearch(app.appName).replace(/\s+/g, "-");
+    if (asset && asset.name) {
+      const baseName = asset.name.replace(EXT_STRIP_REGEX, "");
+      const tokens = baseName.split("-").filter(Boolean);
+      const archSubTokens = new Set(CONFIG.knownArchs.flatMap((a) => a.split("-")));
+      const versionIndex = tokens.findIndex(
+        (token) => /^(v\w*\d|vbuild)/i.test(token) && !archSubTokens.has(token.toLowerCase())
+      );
+      const moduleIndex = tokens.findIndex((token) => token.toLowerCase() === "module");
+      const stopIndexCandidates = [versionIndex, moduleIndex].filter((i) => i >= 0);
+      const stopIndex = stopIndexCandidates.length > 0 ? Math.min(...stopIndexCandidates) : tokens.length;
+      const prefixTokens = tokens.slice(0, stopIndex);
+      if (prefixTokens.length > 0) {
+        return `^${prefixTokens.join("-")}-v.*\\.apk$`;
+      }
+    }
   }
+
+  // Fallback if no asset filename is available
+  const parts = [];
+  let appSlug = app?.appKey ? app.appKey.toLowerCase().replace(/\s+/g, "-") : "";
   if (appSlug) parts.push(appSlug);
 
   const engineSlug = patch?.engineToken ? patch.engineToken.toLowerCase() : "";
@@ -2762,7 +2785,6 @@ function buildObtainiumRegex(app, patch, variantKey) {
   }
 
   let rawPatchKey = patch?.patchKey ? patch.patchKey.toLowerCase() : "";
-  // Strip targetOS / metadata internal suffix (e.g., __os_android-legacy)
   if (rawPatchKey.includes("__os_")) {
     rawPatchKey = rawPatchKey.split("__os_")[0];
   }
@@ -2774,8 +2796,6 @@ function buildObtainiumRegex(app, patch, variantKey) {
     }
   }
 
-  // Include targetOS if non-default (e.g., android-legacy, chromeos, android-tv)
-  // Only add targetOS if it is NOT already present in appSlug (prevent duplicate 'android')
   if (patch?.targetOS) {
     const osSlug = patch.targetOS.toLowerCase();
     if (osSlug !== "android" && !appSlug.includes(osSlug)) {
