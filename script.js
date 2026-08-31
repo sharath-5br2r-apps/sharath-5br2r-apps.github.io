@@ -2666,6 +2666,7 @@ function filterAppliedPatchesList(query) {
 
   const archVal = meta.arch || (assetObj?.parsed?.arch) || (assetObj?.arch) || "universal";
   const nativeLibsVal = (meta.native_libraries || []).join(", ") || "None";
+  const densitiesVal = (meta.densities || []).join(", ") || "All";
   const cliVal = meta.cli || activeBuildMetadata?.cli || activeBuildForModal?.patchMeta?.cli || "";
 
   const apkInfo = `
