@@ -2631,7 +2631,7 @@ function filterAppliedPatchesList(query) {
 
   const archVal = meta.arch || (assetObj?.parsed?.arch) || (assetObj?.arch) || "universal";
   const nativeLibsVal = (meta.native_libraries || []).join(", ") || "None";
-  const densitiesVal = (meta.densities || []).join(", ") || "Unknown";
+  const cliVal = meta.cli || activeBuildMetadata?.cli || activeBuildForModal?.patchMeta?.cli || "";
 
   const apkInfo = `
     <section class="patch-metadata-section apk-info-section">
@@ -2640,6 +2640,7 @@ function filterAppliedPatchesList(query) {
         <span><strong>Architecture</strong>${escapeHtml(archVal)}</span>
         <span><strong>Minimum Android</strong>${escapeHtml(minAndroidDisplay)}</span>
         <span><strong>Format</strong>${escapeHtml(extLower)}</span>
+        ${cliVal ? `<span><strong>Patcher CLI</strong>${escapeHtml(cliVal)}</span>` : ""}
         <span><strong>Native libraries</strong>${escapeHtml(nativeLibsVal)}</span>
         <span><strong>Densities</strong>${escapeHtml(densitiesVal)}</span>
       </div>
