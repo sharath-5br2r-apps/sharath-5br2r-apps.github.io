@@ -2750,6 +2750,11 @@ function buildObtainiumRegex(app, patch, variantKey) {
   const appSlug = app?.appKey ? app.appKey.toLowerCase() : (app?.appName ? normalizeForSearch(app.appName).replace(/[^a-z0-9]/g, "") : "");
   if (appSlug) parts.push(appSlug);
 
+  const engineSlug = patch?.engineToken ? patch.engineToken.toLowerCase() : "";
+  if (engineSlug && engineSlug !== "official" && engineSlug !== "default") {
+    parts.push(engineSlug);
+  }
+
   let rawPatchKey = patch?.patchKey ? patch.patchKey.toLowerCase() : "";
   // Strip targetOS / metadata internal suffix (e.g., __os_android-legacy)
   if (rawPatchKey.includes("__os_")) {
