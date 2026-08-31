@@ -42,13 +42,18 @@ const CONFIG = {
     "video", "music", "launcher", "browser", "theme", "online", "mobile"
   ]),
 
-  // Known tokens indicating a patch name starts (must be lowercase)
-  knownPatchTokens: new Set([
-    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch", "signed"
+  // Known tokens indicating a patch engine starts (must be lowercase)
+  patchEngineTokens: new Set([
+    "revanced", "morphe", "xposed", "instafel", "lspatch", "npatch"
+  ]),
+
+  // Known tokens indicating a patch name/type
+  patchTokens: new Set([
+    "signed", "extended", "custom", "patch"
   ]),
 
   // Known tokens indicating a variant (must be lowercase)
-  variantKeywords: new Set([
+  variantTokens: new Set([
     "anddea",
     "binarymend",
     "bholeykabhakt",
@@ -65,7 +70,6 @@ const CONFIG = {
     "kondratjev",
     "kveld9",
     "lain",
-    "morphe",
     "nulls",
     "piko",
     "prathxm",
@@ -83,12 +87,6 @@ const CONFIG = {
     "shared",
     "foss",
     "gplay",
-    "adobo",
-    "patcheddit",
-    "nightly",
-    "androidtv",
-    "alt",
-    "clone",
     "revanced",
     "rvx",
     "xshim",
@@ -2392,7 +2390,7 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
       if (parsedAsset.rawPatchToken) rawPatchNorm = parsedAsset.rawPatchToken;
       const baseName = asset.name.replace(EXT_STRIP_REGEX, "");
       const tokens = baseName.split("-").filter(Boolean);
-      const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
+      const patchIdx = tokens.findIndex((t) => CONFIG.patchEngineTokens.has(t.toLowerCase()) || CONFIG.patchTokens.has(t.toLowerCase()));
       if (patchIdx > 0) {
         rawSlugNorm = tokens.slice(0, patchIdx).join("-").toLowerCase();
       }
@@ -2956,7 +2954,7 @@ function getAppPackageId(app, patch, variantKey) {
   if (sampleAsset?.name) {
     const baseName = sampleAsset.name.replace(EXT_STRIP_REGEX, "");
     const tokens = baseName.split("-").filter(Boolean);
-    const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
+    const patchIdx = tokens.findIndex((t) => CONFIG.patchEngineTokens.has(t.toLowerCase()) || CONFIG.patchTokens.has(t.toLowerCase()));
     if (patchIdx > 0) {
       const rawSlugTok = tokens.slice(0, patchIdx).join("").toLowerCase();
       candidates.push(rawSlugTok);
@@ -3003,7 +3001,7 @@ function getAppPackageId(app, patch, variantKey) {
     if (sampleAsset?.name) {
       const baseName = sampleAsset.name.replace(EXT_STRIP_REGEX, "");
       const tokens = baseName.split("-").filter(Boolean);
-      const patchIdx = tokens.findIndex((t) => CONFIG.knownPatchTokens.has(t.toLowerCase()));
+      const patchIdx = tokens.findIndex((t) => CONFIG.patchEngineTokens.has(t.toLowerCase()) || CONFIG.patchTokens.has(t.toLowerCase()));
       if (patchIdx >= 0) {
         patchCandidates.push(tokens[patchIdx].toLowerCase());
       }
@@ -3369,7 +3367,7 @@ function parseAssetDisplay(filename, arch, fileType) {
   const stopIndex = stopIndexCandidates.length > 0 ? Math.min(...stopIndexCandidates) : tokens.length;
   const preMetaTokens = tokens.slice(0, stopIndex);
 
-  let patchStartIndex = preMetaTokens.findIndex((token) => CONFIG.knownPatchTokens.has(token.toLowerCase()));
+  let patchStartIndex = preMetaTokens.findIndex((token) => CONFIG.patchEngineTokens.has(token.toLowerCase()) || CONFIG.patchTokens.has(token.toLowerCase()));
 
   let appTokens = [];
   let patchTokens = [];
@@ -3385,7 +3383,7 @@ function parseAssetDisplay(filename, arch, fileType) {
       appTokens = appTokens.slice(0, -1);
     }
 
-    while (patchTokens.length > 1 && CONFIG.variantKeywords.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
+    while (patchTokens.length > 1 && CONFIG.variantTokens.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
       variantTokens.unshift(patchTokens[patchTokens.length - 1]);
       patchTokens = patchTokens.slice(0, -1);
     }
@@ -3393,13 +3391,13 @@ function parseAssetDisplay(filename, arch, fileType) {
     appTokens = preMetaTokens;
     patchTokens = [];
 
-    while (appTokens.length > 1 && CONFIG.variantKeywords.has(appTokens[appTokens.length - 1].toLowerCase())) {
+    while (appTokens.length > 1 && CONFIG.variantTokens.has(appTokens[appTokens.length - 1].toLowerCase())) {
       variantTokens.unshift(appTokens[appTokens.length - 1]);
       appTokens = appTokens.slice(0, -1);
     }
   }
 
-  while (appTokens.length > 1 && (CONFIG.variantKeywords.has(appTokens[appTokens.length - 1].toLowerCase()) || ["stable", "beta", "nightly", "dev", "alpha"].includes(appTokens[appTokens.length - 1].toLowerCase()))) {
+  while (appTokens.length > 1 && (CONFIG.variantTokens.has(appTokens[appTokens.length - 1].toLowerCase()) || ["stable", "beta", "nightly", "dev", "alpha"].includes(appTokens[appTokens.length - 1].toLowerCase()))) {
     variantTokens.unshift(appTokens[appTokens.length - 1]);
     appTokens = appTokens.slice(0, -1);
   }
