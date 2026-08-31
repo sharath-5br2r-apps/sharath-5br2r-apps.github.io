@@ -1,4 +1,616 @@
 {
+  "260147": {
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-arm64-v8a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kondratjev/morphe-patches@1.20.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260147"
+    },
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-arm-v7a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kondratjev/morphe-patches@1.20.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260147"
+    },
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-x86_64.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kondratjev/morphe-patches@1.20.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260147"
+    },
+    "adobe-acrobat-morphe-rushiranpise-exp-v26.7.0.47169-arm64-v8a.apk": {
+      "name": "adobe-acrobat-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "26.7.0.47169",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.21.2",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260147"
+    },
+    "adobe-acrobat-morphe-rushiranpise-exp-v26.7.0.47169-all.apk": {
+      "name": "adobe-acrobat-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "26.7.0.47169",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.21.2",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260147"
+    },
+    "adobe-acrobat-morphe-rushiranpise-exp-v26.7.0.47169-x86_64.apk": {
+      "name": "adobe-acrobat-morphe-rushiranpise-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "26.7.0.47169",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.21.2",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Export all activities (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof SIM provider (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)"
+      ],
+      "release_tag": "260147"
+    }
+  },
+  "260146": {
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-arm64-v8a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kondratjev/morphe-patches@1.20.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260146"
+    },
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-arm-v7a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kondratjev/morphe-patches@1.20.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260146"
+    },
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-x86_64.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "kondratjev/morphe-patches@1.20.0",
+      "changelog": "https://github.com/kondratjev/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260146"
+    },
+    "adobe-acrobat-morphe-rushiranpise-exp-v26.7.0.47169-arm64-v8a.apk": {
+      "name": "adobe-acrobat-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "26.7.0.47169",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.21.2",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof root of trust (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260146"
+    },
+    "adobe-acrobat-morphe-rushiranpise-exp-v26.7.0.47169-all.apk": {
+      "name": "adobe-acrobat-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "26.7.0.47169",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.21.2",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof SIM provider (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)"
+      ],
+      "release_tag": "260146"
+    },
+    "adobe-acrobat-morphe-rushiranpise-exp-v26.7.0.47169-x86_64.apk": {
+      "name": "adobe-acrobat-morphe-rushiranpise-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "26.7.0.47169",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.14.0-all",
+      "patches": "rushiranpise/morphe-patches@1.21.2",
+      "changelog": "https://github.com/rushiranpise/morphe-patches/releases/tag/latest",
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof Pixel device (default)",
+        "Spoof app signature (default)",
+        "Remove internet permission (default)",
+        "Enable debug build target (default)",
+        "Spoof Android ID (default)",
+        "Spoof telephony IDs (default)",
+        "Spoof Wi-Fi identifiers (default)",
+        "Spoof Bluetooth identifiers (default)",
+        "Export all activities (default)",
+        "Enable Android debugging (default)",
+        "Hide app icon (default)",
+        "Predictive back gesture (default)",
+        "Change version code (default)",
+        "Set target SDK 34 (default)",
+        "Remove share targets (default)",
+        "Force dark theme (default)",
+        "Hide mock location (default)",
+        "Hide ADB status (default)",
+        "Spoof build info (default)",
+        "Spoof Wi-Fi connection (default)",
+        "Override certificate pinning (default)",
+        "Export internal data documents provider (default)",
+        "Enable ROM signature spoofing (default)",
+        "Spoof keystore security level (default)",
+        "Spoof root of trust (default)",
+        "Spoof Play age signals (default)",
+        "Remove ad manifest entries (default)",
+        "Disable ad SDK calls (default)",
+        "Disable shake ads (default)",
+        "Disable clipboard access (default)",
+        "Hide VPN and proxy (default)",
+        "Spoof SIM provider (default)"
+      ],
+      "release_tag": "260146"
+    }
+  },
   "260145": {
     "cricbuzz-morphe-paresh-exp-v16.08.01-all.apk": {
       "name": "cricbuzz-morphe-paresh-exp",
