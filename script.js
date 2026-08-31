@@ -49,33 +49,14 @@ const CONFIG = {
 
   // Known tokens indicating a patch name/type
   patchTokens: new Set([
-    "extended", "custom", "patch"
+    "extended", "custom", "patch", "anddea", "binarymend", "bholeykabhakt", "browzomje",
+    "byehi98", "hooman", "rushiranpise", "hoodles", "hoodlesshared", "paresh", "xtra",
+    "icysymmetra", "jasonwu1994", "kondratjev", "kveld9", "lain", "nulls", "piko",
+    "prathxm", "inotia00", "revenge", "hxreborn", "adobo", "patcheddit"
   ]),
 
   // Known tokens indicating a variant (must be lowercase)
   variantTokens: new Set([
-    "anddea",
-    "binarymend",
-    "bholeykabhakt",
-    "browzomje",
-    "byehi98",
-    "hooman",
-    "rushiranpise",
-    "hoodles",
-    "hoodlesshared",
-    "paresh",
-    "xtra",
-    "icysymmetra",
-    "jasonwu1994",
-    "kondratjev",
-    "kveld9",
-    "lain",
-    "nulls",
-    "piko",
-    "prathxm",
-    "inotia00",
-    "revenge",
-    "hxreborn",
     "sign",
     "exp",
     "nord",
