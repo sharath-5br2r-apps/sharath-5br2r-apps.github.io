@@ -2647,10 +2647,10 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
     builds = filteredBuilds;
   }
 
-  // Check if current filtered builds contain at least one APK asset
+  // Check if current filtered builds or active patch contain at least one APK asset
   const hasApk = builds.some((b) =>
     (b.assets || []).some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))
-  );
+  ) || patchHasApk(patch, modalVariantFilter, modalBuildFilter);
 
   const obtainiumContentHtml = hasApk
     ? createObtainiumInstructions(app, patch)
