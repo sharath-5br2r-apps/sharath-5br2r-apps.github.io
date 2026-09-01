@@ -54469,6 +54469,50 @@
       "release_tag": "260138"
     }
   },
+  "dolphin-pr-14837": {
+    "dolphin-extra-android-stock-vpr14837-all.apk": {
+      "name": "dolphin-extra-android-stock-vpr14837-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14837: VideoCommon: separate out reinterpret and palette texture creation from rendering + Custom Storage Location",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14837`.\n\n### Upstream Dolphin PR [#14837](https://github.com/dolphin-emu/dolphin/pull/14837)\n**Title:** VideoCommon: separate out reinterpret and palette texture creation from rendering\n**Author:** [@iwubcode](https://github.com/iwubcode)\n\n#### PR Description\nLate last year I started working on a new feature that required Dolphin to think about how it renders in a different way. In order to prepare for that, I will be creating some PRs that restructure or refactor our existing code.\n\nThis PR is for the texture cache. All it does is separate out the rendering of palette and reinterpret paths from the actual texture entry creation.  This one isn't very exciting but I swear there's more excitement coming!\n\nFunctionality should not change with these PRs. I did some mild testing but fifo ci should hopefully confirm if any changes slipped through.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14837"
+    },
+    "dolphin-extra-android-gfp-vpr14837-all.apk": {
+      "name": "dolphin-extra-android-gfp-vpr14837-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14837: VideoCommon: separate out reinterpret and palette texture creation from rendering + Custom Storage Location",
+      "patches": "dolphin-extra",
+      "changelog": "Built from custom master branch, merged with the custom user data storage location feature (Scoped Storage / Internal Storage / SD Card) and Games on Wii Menu Patch.\n\nBuilt from upstream Dolphin PR `#14837`.\n\n### Upstream Dolphin PR [#14837](https://github.com/dolphin-emu/dolphin/pull/14837)\n**Title:** VideoCommon: separate out reinterpret and palette texture creation from rendering\n**Author:** [@iwubcode](https://github.com/iwubcode)\n\n#### PR Description\nLate last year I started working on a new feature that required Dolphin to think about how it renders in a different way. In order to prepare for that, I will be creating some PRs that restructure or refactor our existing code.\n\nThis PR is for the texture cache. All it does is separate out the rendering of palette and reinterpret paths from the actual texture entry creation.  This one isn't very exciting but I swear there's more excitement coming!\n\nFunctionality should not change with these PRs. I did some mild testing but fifo ci should hopefully confirm if any changes slipped through.\n\nThis is an unofficial community build, not affiliated with the Dolphin team.\n",
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14837"
+    }
+  },
   "v1.5.16-r3": {
     "levilaunchroid-extra-v1.5.16-r3-arm64-v8a.apk": {
       "name": "levilaunchroid-extra-v1.5.16-r3-arm64-v8a.apk",
