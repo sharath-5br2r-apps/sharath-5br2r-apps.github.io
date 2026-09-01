@@ -2724,7 +2724,7 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
   ) || patchHasApk(patch, modalVariantFilter, modalBuildFilter);
 
   const obtainiumContentHtml = hasApk
-    ? createObtainiumInstructions(app, patch)
+    ? createObtainiumInstructions(app, patch, modalVariantFilter)
     : "";
 
   const obtainiumSectionMarkup = hasApk
@@ -3534,7 +3534,7 @@ function closeObtainiumDropdown() {
 function renderObtainiumDropdownContent(app, patch) {
   const body = document.querySelector("#patchModal #obtainiumDropdownBody");
   if (body) {
-    body.innerHTML = createObtainiumInstructions(app, patch);
+    body.innerHTML = createObtainiumInstructions(app, patch, modalVariantFilter);
   }
 }
 
