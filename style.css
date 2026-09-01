@@ -2335,9 +2335,9 @@ footer a:hover {
 
     .instruction-code .copy-btn,
     .instruction-code .obtainium-add-btn {
-        flex: 1 1 auto;
+        flex: 0 0 auto;
         min-height: 30px;
-        padding: 6px 8px;
+        padding: 6px 10px;
         font-size: 0.72rem;
     }
 

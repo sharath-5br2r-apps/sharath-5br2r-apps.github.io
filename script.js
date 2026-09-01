@@ -3622,8 +3622,8 @@ function createObtainiumInstructions(app, patch, variantKey) {
         <span id="obtainiumSelectedLabel">${escapeHtml(initialLabel)}</span>
         <span id="obtainiumSelectedPkg" style="font-family: monospace; font-size: 0.76rem; opacity: 0.85; cursor: pointer; color: var(--text-muted);" onclick="copyToClipboard(this.textContent, 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(initialPackageId || '')}</span>
       </div>
-      <div class="instruction-code" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-        <code id="obtainiumSelectedRegex" style="flex: 1; min-width: 140px; word-break: break-all;">${escapeHtml(initialRegex)}</code>
+      <div class="instruction-code">
+        <code id="obtainiumSelectedRegex">${escapeHtml(initialRegex)}</code>
         <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         </button>
