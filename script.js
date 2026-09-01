@@ -3659,7 +3659,19 @@ function createObtainiumInstructions(app, patch, variantKey) {
 function getAppPackageId(app, patch, variantKey) {
   if (!app) return "";
 
-  const sampleAsset = patch?.builds?.[0]?.assets?.[0] || app?.patches?.[0]?.builds?.[0]?.assets?.[0];
+  let sampleAsset = null;
+  const patchesToCheck = patch ? [patch, ...(app?.patches || [])] : (app?.patches || []);
+  for (const p of patchesToCheck) {
+    if (!p.builds) continue;
+    const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
+    for (const b of buildsList) {
+      if (!b.assets) continue;
+      sampleAsset = b.assets.find((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""));
+      if (sampleAsset) break;
+    }
+    if (sampleAsset) break;
+  }
+
   let rawSlug = "";
   let rawPatch = "";
 
