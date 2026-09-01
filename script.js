@@ -8,7 +8,7 @@ const CONFIG = {
   // Support for multiple GitHub APK release repositories
   repos: [
     { owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" },
-    { owner: "sharath-5br2r-apps", repo: "sharath-5br2r-apps.github.io" },
+    { owner: "sharath-5br2r-apps", repo: "Eden-Workflow" },
     { owner: "sharath-5br2r-apps", repo: "Dolphin-Extra" },
     { owner: "sharath-5br2r-apps", repo: "LeviLaunchroid-Extra" },
   ],
