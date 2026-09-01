@@ -2784,7 +2784,9 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
           <code id="obtainiumSelectedRegex" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0;">${escapeHtml(initialRegex)}</code>
         </div>
         <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; flex-shrink: 0;">
-          <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex" style="padding: 6px 10px; font-size: 0.76rem;">📋 Copy</button>
+          <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex" style="padding: 6px 10px; display: inline-flex; align-items: center; justify-content: center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
           <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer" style="padding: 6px 10px; font-size: 0.76rem;">Add</a>
           <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer" style="padding: 6px 10px; font-size: 0.76rem; background: var(--bg-secondary); color: var(--text-primary) !important; border: 1px solid var(--border);">Add (Fallback)</a>
           <button id="obtainiumInstructionsBtn" type="button" class="modal-filter-btn" style="padding: 6px 10px; font-size: 0.76rem; border-color: var(--accent-obtainium); color: var(--accent-obtainium);">📖 Instructions</button>
