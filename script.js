@@ -647,8 +647,8 @@ function getConfigRepos() {
   return [{ owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" }];
 }
 
-// Explicit Extension Matching (Includes .tar.{ext} like .tar.gz, .tar.xz, .tar.bz2, .tar.zst)
-const ALLOWED_EXT_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
+// Explicit Extension Matching (Temporarily restricted to APK files)
+const ALLOWED_EXT_REGEX = /\.(apk|apks|xapk|apkm)$/i;
 const EXT_STRIP_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
 
 // Cached DOM references
