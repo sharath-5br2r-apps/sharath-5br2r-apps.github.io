@@ -667,13 +667,11 @@ function initDOM() {
   DOM.appFilterButtons = document.getElementById("appFilterButtons");
   DOM.catalogCountText = document.getElementById("catalogCountText");
   DOM.lastUpdateText = document.getElementById("lastUpdateText");
+  DOM.mainSettingsBtn = document.getElementById("mainSettingsBtn");
   DOM.settingsBtn = document.getElementById("settingsBtn");
   DOM.settingsModal = document.getElementById("settingsModal");
   DOM.systemFontCheckbox = document.getElementById("systemFontCheckbox");
-  DOM.troubleshootBtn = document.getElementById("troubleshootBtn");
-  DOM.troubleshootModal = document.getElementById("troubleshootModal");
   DOM.clearCacheBtn = document.getElementById("clearCacheBtn");
-  DOM.menuBtn = document.getElementById("menuBtn");
   DOM.actionMenu = document.getElementById("actionMenu");
   DOM.patchModal = document.getElementById("patchModal");
   DOM.patchModalTitle = document.getElementById("patchModalTitle");
@@ -892,19 +890,56 @@ function hideModal(modalEl) {
 function setupEventListeners() {
   let searchTimeout;
 
-  // Settings Modal ⚙️
+  // Settings & Tools Modal ⚙️
+  const openTab = (tabName) => {
+    const tabBtns = document.querySelectorAll("#settingsTabButtons .modal-filter-btn");
+    tabBtns.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.tab === tabName);
+    });
+
+    const contents = {
+      settings: document.getElementById("tabSettingsContent"),
+      troubleshoot: document.getElementById("tabTroubleshootContent"),
+      credits: document.getElementById("tabCreditsContent"),
+    };
+
+    Object.keys(contents).forEach((key) => {
+      if (contents[key]) {
+        contents[key].style.display = key === tabName ? "flex" : "none";
+      }
+    });
+  };
+
+  const showSettingsPopup = (defaultTab = "settings") => {
+    applyTheme(themeMode);
+    applyThemeStyle(themeStyle);
+    applySystemFont(isSystemFont);
+    openTab(defaultTab);
+    if (DOM.settingsModal) showModal(DOM.settingsModal);
+  };
+
+  if (DOM.mainSettingsBtn) {
+    DOM.mainSettingsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      showSettingsPopup("settings");
+    });
+  }
+
   if (DOM.settingsBtn) {
     DOM.settingsBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      applyTheme(themeMode);
-      applyThemeStyle(themeStyle);
-      applySystemFont(isSystemFont);
-      if (DOM.settingsModal) showModal(DOM.settingsModal);
+      showSettingsPopup("settings");
     });
   }
 
   if (DOM.settingsModal) {
     DOM.settingsModal.addEventListener("click", (e) => {
+      const tabBtn = e.target.closest("#settingsTabButtons .modal-filter-btn");
+      if (tabBtn) {
+        openTab(tabBtn.dataset.tab);
+        return;
+      }
+
       const modeBtn = e.target.closest("#modeSelectButtons .modal-filter-btn");
       if (modeBtn) {
         const selectedMode = modeBtn.dataset.mode;
@@ -1348,39 +1383,11 @@ function setupEventListeners() {
     });
   }
 
-
-
   if (DOM.obtainiumModal) {
     DOM.obtainiumModal.addEventListener("click", (e) => {
       if (e.target.id === "obtainiumModal" || e.target.closest(".modal-close")) {
         closeObtainiumModal();
       }
-    });
-  }
-
-  // Troubleshooting Modal 🛠️
-  if (DOM.troubleshootBtn) {
-    DOM.troubleshootBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      // Re-bind clear cache button inside modal if initialized dynamically
-      DOM.clearCacheBtn = document.getElementById("clearCacheBtn");
-      if (DOM.troubleshootModal) showModal(DOM.troubleshootModal);
-    });
-  }
-
-  if (DOM.troubleshootModal) {
-    DOM.troubleshootModal.addEventListener("click", (e) => {
-      if (e.target.id === "troubleshootModal" || e.target.closest(".modal-close")) {
-        hideModal(DOM.troubleshootModal);
-      }
-    });
-  }
-
-  // Credits Modal
-  if (DOM.creditsBtn) {
-    DOM.creditsBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (DOM.creditsModal) showModal(DOM.creditsModal);
     });
   }
 

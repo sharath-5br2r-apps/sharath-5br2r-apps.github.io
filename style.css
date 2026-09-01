@@ -250,48 +250,27 @@ textarea {
     pointer-events: auto;
 }
 
-#menuBtn {
-    background: var(--bg-tertiary);
+#mainSettingsBtn {
+    background: var(--bg-secondary);
     border: 1px solid var(--border);
     color: var(--text-primary);
     width: 44px;
     height: 44px;
     border-radius: var(--radius-full);
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 12px var(--shadow-sm);
+    box-shadow: var(--shadow);
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 10;
-    pointer-events: auto; /* Re-enable clicks for the button */
-}
-
-.action-buttons > button,
-.action-buttons > a {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-full);
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow);
-    text-decoration: none;
+    pointer-events: auto;
     backdrop-filter: blur(12px);
-    padding: 0;
-    box-sizing: border-box;
 }
 
 @media (hover: hover) {
-    #menuBtn:hover,
-    .action-buttons > button:hover,
-    .action-buttons > a:hover {
+    #mainSettingsBtn:hover {
         transform: scale(1.08);
         border-color: var(--accent);
         box-shadow: 0 0 15px var(--accent-glow);
