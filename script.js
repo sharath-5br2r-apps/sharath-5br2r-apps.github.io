@@ -2684,8 +2684,9 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
       .map((b) => ({
         ...b,
         assets: (b.assets || []).filter((a) => {
-          const rawV = (a.parsed?.rawVariant || "default").toLowerCase();
-          const dispV = normalizeForSearch(a.parsed?.variant || "") || "default";
+          if (!a.parsed || !a.parsed.rawVariant) return true;
+          const rawV = (a.parsed.rawVariant || "default").toLowerCase();
+          const dispV = normalizeForSearch(a.parsed.variant || "") || "default";
           if (rawV === variantFilter || dispV === targetVarNorm) return true;
           if ((variantFilter === "standard" || variantFilter === "default") && (rawV === "standard" || rawV === "default" || dispV === "standard" || dispV === "default")) return true;
           const subTokens = rawV.split("+").concat(dispV.split(/\s*\+\s*/));
