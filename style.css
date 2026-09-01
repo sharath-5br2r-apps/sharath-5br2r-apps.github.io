@@ -2458,20 +2458,52 @@ footer a:hover {
     box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
-@media (max-width: 640px) {
-    .filter-selectors-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
+/* Settings Switch Toggle */
+.switch-toggle {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
 
-    .sort-selector-wrap {
-        width: 100%;
-        justify-content: space-between;
-    }
+.switch-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
-    .sort-select {
-        flex: 1;
-        width: 100%;
-    }
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+    border-radius: 24px;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text-secondary);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    border-radius: 50%;
+}
+
+.switch-toggle input:checked + .switch-slider {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.switch-toggle input:checked + .switch-slider:before {
+    transform: translateX(20px);
+    background-color: var(--btn-on-accent);
 }
