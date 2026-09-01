@@ -2621,6 +2621,9 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
             return subTokens.includes(fallbackVariant) || subTokens.includes(fallbackVarNorm);
           }),
         }))
+        .filter((b) => b.assets.length > 0);
+    }
+
     builds = filteredBuilds;
   }
 
