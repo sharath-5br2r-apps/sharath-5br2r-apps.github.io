@@ -3639,31 +3639,35 @@ function createObtainiumInstructions(app, patch, variantKey) {
   const initialFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(initialConfig)}`)}`;
 
   let step4Content = `
-    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);">
       <div style="font-size: 0.84rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
         <span id="obtainiumSelectedLabel">${escapeHtml(initialLabel)}</span>
         <span id="obtainiumSelectedPkg" style="font-family: monospace; font-size: 0.76rem; opacity: 0.85; cursor: pointer; color: var(--text-muted);" onclick="copyToClipboard(this.textContent, 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(initialPackageId || '')}</span>
       </div>
-      <div class="instruction-code">
-        <code id="obtainiumSelectedRegex">${escapeHtml(initialRegex)}</code>
-        <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-        <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
-        <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="instruction-code code-with-copy" style="margin: 0;">
+          <code id="obtainiumSelectedRegex">${escapeHtml(initialRegex)}</code>
+          <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 140px; text-align: center;">Add to Obtainium</a>
+          <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 140px; text-align: center; background: var(--bg-tertiary); color: var(--text-primary) !important; border: 1px solid var(--border);">Add (Fallback)</a>
+        </div>
       </div>
     </div>
   `;
 
   return `
     <div class="obtainium-instructions" style="font-size: 0.85rem; line-height: 1.5;">
-      <div style="margin-bottom: 12px;">
+      <div style="margin-bottom: 10px;">
         Make sure you have <strong>Obtainium</strong> (<a href="${obtainiumLatestUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">GitHub</a>) or <strong>ObtainX</strong> (<a href="${obtainXLatestUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Releases</a>) installed.
       </div>
-      <ol style="padding-left: 18px; margin: 0 0 10px;">
+      <ol style="padding-left: 18px; margin: 0 0 4px; display: flex; flex-direction: column; gap: 8px;">
         <li>Open Obtainium and tap <strong>Add App</strong>.</li>
         <li>In <strong>App Source URL</strong>, enter:
-          <div class="instruction-code code-with-copy" style="margin-top: 4px; margin-bottom: 8px;">
+          <div class="instruction-code code-with-copy" style="margin-top: 4px; margin-bottom: 4px;">
             <code>${repoUrl}</code>
             <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(repoUrl)}', 'Repository URL copied!')" type="button" title="Copy Repository URL">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
