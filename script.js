@@ -3315,9 +3315,16 @@ function buildObtainiumRegex(app, patch, variantKey) {
 
   const searchList = patchesToSearch.length > 0 ? patchesToSearch : (app?.patches || [patch]);
 
+  const effectiveVar = variantKey !== undefined ? variantKey : modalVariantFilter;
   for (const p of searchList) {
     if (!p.builds) continue;
-    for (const b of p.builds) {
+    const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
+    const varBuilds = (effectiveVar && effectiveVar !== "all")
+      ? buildsList.filter((b) => (b.variantKey || "default") === effectiveVar || (b.variantName || "").toLowerCase() === effectiveVar.toLowerCase())
+      : buildsList;
+    const candidates = varBuilds.length > 0 ? varBuilds : buildsList;
+
+    for (const b of candidates) {
       if (!b.assets) continue;
       sampleAsset = b.assets.find((a) => a.name && /\.(apk|apks|xapk|apkm)$/i.test(a.name));
       if (sampleAsset) {
@@ -3495,10 +3502,15 @@ function createObtainiumInstructions(app, patch) {
   });
 
   const searchList = patchesToSearch.length > 0 ? patchesToSearch : (app?.patches || [patch]);
+  const effectiveVar = variantKey !== undefined ? variantKey : modalVariantFilter;
   for (const p of searchList) {
     if (!p.builds) continue;
     const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
-    sampleBuild = buildsList.find((b) => b.assets && b.assets.some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))) || buildsList[0];
+    const varBuilds = (effectiveVar && effectiveVar !== "all")
+      ? buildsList.filter((b) => (b.variantKey || "default") === effectiveVar || (b.variantName || "").toLowerCase() === effectiveVar.toLowerCase())
+      : buildsList;
+    const candidates = varBuilds.length > 0 ? varBuilds : buildsList;
+    sampleBuild = candidates.find((b) => b.assets && b.assets.some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))) || candidates[0];
     if (sampleBuild) break;
   }
 
