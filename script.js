@@ -2751,13 +2751,12 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
     : "";
 
   const obtainiumSectionMarkup = hasApk
-    ? `<div class="obtainium-box-container" id="obtainiumBtn" role="button" aria-expanded="${isObtainiumDropdownOpen ? 'true' : 'false'}" tabindex="0">
-        <div class="obtainium-box-header">
+    ? `<div class="obtainium-box-container" style="cursor: default;">
+        <div class="obtainium-box-header" style="border-bottom: 1px solid var(--border); background: var(--bg-tertiary);">
           <span style="font-weight: 700; color: var(--accent-obtainium); font-size: 0.9rem;">📲 Install with Obtainium</span>
-          <span class="obtainium-chevron" style="color: var(--accent-obtainium); transition: transform 0.2s ease; transform: ${isObtainiumDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}; font-size: 0.85rem;">▼</span>
         </div>
-        <div id="obtainiumDropdownPanel" class="obtainium-dropdown-panel" style="display: ${isObtainiumDropdownOpen ? 'block' : 'none'};" onclick="event.stopPropagation();">
-          <div id="obtainiumDropdownBody" class="obtainium-dropdown-body">${obtainiumContentHtml}</div>
+        <div class="obtainium-dropdown-panel" style="display: block; background: var(--bg-secondary);">
+          <div class="obtainium-dropdown-body">${obtainiumContentHtml}</div>
         </div>
       </div>`
     : "";
