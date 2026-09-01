@@ -3644,16 +3644,14 @@ function createObtainiumInstructions(app, patch, variantKey) {
         <span id="obtainiumSelectedLabel">${escapeHtml(initialLabel)}</span>
         <span id="obtainiumSelectedPkg" style="font-family: monospace; font-size: 0.76rem; opacity: 0.85; cursor: pointer; color: var(--text-muted);" onclick="copyToClipboard(this.textContent, 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(initialPackageId || '')}</span>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 8px;">
-        <div class="instruction-code code-with-copy" style="margin: 0;">
-          <code id="obtainiumSelectedRegex">${escapeHtml(initialRegex)}</code>
+      <div class="instruction-code" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0; padding: 10px 14px;">
+        <code id="obtainiumSelectedRegex" style="flex: 1 1 200px; min-width: 0; font-family: var(--font-mono); font-size: 0.82rem; word-break: break-all;">${escapeHtml(initialRegex)}</code>
+        <div style="display: flex; align-items: center; gap: 6px; flex: 0 0 auto;">
           <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
-        </div>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 140px; text-align: center;">Add to Obtainium</a>
-          <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 140px; text-align: center; background: var(--bg-tertiary); color: var(--text-primary) !important; border: 1px solid var(--border);">Add (Fallback)</a>
+          <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
+          <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer" style="background: var(--bg-tertiary); color: var(--text-primary) !important; border: 1px solid var(--border);">Add (Fallback)</a>
         </div>
       </div>
     </div>
