@@ -647,8 +647,8 @@ function getConfigRepos() {
   return [{ owner: "sharath-5br2r-apps", repo: "revanced-morphe-xposed-builder" }];
 }
 
-// Explicit Extension Matching (Temporarily restricted to APK files)
-const ALLOWED_EXT_REGEX = /\.(apk|apks|xapk|apkm)$/i;
+// Explicit Extension Matching (Includes .tar.{ext} like .tar.gz, .tar.xz, .tar.bz2, .tar.zst)
+const ALLOWED_EXT_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
 const EXT_STRIP_REGEX = /\.(apk|apks|xapk|apkm|exe|msi|appimage|dmg|pkg|deb|rpm|flatpak|snap|zip|7z|rar|tgz|tar(\.[a-z0-9]+)?)$/i;
 
 // Cached DOM references
@@ -2627,16 +2627,10 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
     builds = filteredBuilds;
   }
 
-  // Filter builds and assets to strictly show APK files
-  builds = builds
-    .map((b) => ({
-      ...b,
-      assets: (b.assets || []).filter((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || "")),
-    }))
-    .filter((b) => b.assets.length > 0);
-
   // Check if current filtered builds contain at least one APK asset
-  const hasApk = builds.length > 0;
+  const hasApk = builds.some((b) =>
+    (b.assets || []).some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))
+  );
 
   const obtainiumContentHtml = hasApk
     ? createObtainiumInstructions(app, patch)
