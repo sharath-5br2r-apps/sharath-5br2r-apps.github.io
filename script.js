@@ -683,6 +683,7 @@ function initDOM() {
   DOM.patchSearchInput = document.getElementById("patchSearchInput");
   DOM.patchCountBadge = document.getElementById("patchCountBadge");
   DOM.obtainiumModal = document.getElementById("obtainiumModal");
+  DOM.obtainiumInstructionsModal = document.getElementById("obtainiumInstructionsModal");
   DOM.obtainiumTitle = document.getElementById("obtainiumTitle");
   DOM.obtainiumBody = document.getElementById("obtainiumBody");
   DOM.obtainiumBtn = document.getElementById("obtainiumBtn");
@@ -1368,33 +1369,30 @@ function setupEventListeners() {
     });
   }
 
-  // Obtainium Dropdown Toggle & Popup Controller
-  if (DOM.obtainiumBtn) {
-    DOM.obtainiumBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      toggleObtainiumDropdown();
-    });
-  }
+  // Obtainium Instructions Popup Button 📖
+  document.addEventListener("click", (e) => {
+    const instBtn = e.target.closest("#obtainiumInstructionsBtn");
+    if (!instBtn) return;
+    e.stopPropagation();
 
-  if (DOM.obtainiumDropdownClose) {
-    DOM.obtainiumDropdownClose.addEventListener("click", (e) => {
-      e.stopPropagation();
-      closeObtainiumDropdown();
-    });
-  }
+    const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
+    const patch = app ? app.patches.find((item) => item.patchKey === activeModalPatchKey) : null;
+    if (!app || !patch) return;
 
-  if (DOM.obtainiumModal) {
-    DOM.obtainiumModal.addEventListener("click", (e) => {
-      if (e.target.id === "obtainiumModal" || e.target.closest(".modal-close")) {
-        closeObtainiumModal();
-      }
-    });
-  }
+    const body = document.getElementById("obtainiumInstBody");
+    if (body) {
+      body.innerHTML = createObtainiumInstructions(app, patch, modalVariantFilter);
+    }
+    const instModal = document.getElementById("obtainiumInstructionsModal");
+    if (instModal) {
+      showModal(instModal);
+    }
+  });
 
-  if (DOM.creditsModal) {
-    DOM.creditsModal.addEventListener("click", (e) => {
-      if (e.target.id === "creditsModal" || e.target.closest(".modal-close")) {
-        hideModal(DOM.creditsModal);
+  if (DOM.obtainiumInstructionsModal) {
+    DOM.obtainiumInstructionsModal.addEventListener("click", (e) => {
+      if (e.target.id === "obtainiumInstructionsModal" || e.target.closest(".modal-close")) {
+        hideModal(DOM.obtainiumInstructionsModal);
       }
     });
   }
@@ -2746,17 +2744,52 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
     (b.assets || []).some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))
   ) || patchHasApk(patch, modalVariantFilter, modalBuildFilter);
 
-  const obtainiumContentHtml = hasApk
-    ? createObtainiumInstructions(app, patch, modalVariantFilter)
-    : "";
+  const initialVarKey = modalVariantFilter !== "all" ? modalVariantFilter : "all";
+  const initialRegex = buildObtainiumRegex(app, patch, initialVarKey);
+  
+  // Build Obtainium URLs
+  let sampleBuild = null;
+  const patchesToSearch = app?.patches || [patch];
+  for (const p of patchesToSearch) {
+    if (!p.builds) continue;
+    const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
+    sampleBuild = buildsList.find((b) => b.assets && b.assets.some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))) || buildsList[0];
+    if (sampleBuild) break;
+  }
+  const primaryRepo = getConfigRepos()[0];
+  const repoOwner = sampleBuild?.repoOwner || (app?.repos && app.repos.length > 0 ? app.repos[0].split("/")[0] : primaryRepo.owner);
+  const repoName = sampleBuild?.repoName || (app?.repos && app.repos.length > 0 ? app.repos[0].split("/")[1] : primaryRepo.repo);
+  const repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
+  const patchLabelText = modalPatchNameFilter !== "all" ? patch.patchName : "All Patches";
+  const varLabelText = initialVarKey !== "all" && initialVarKey !== "default" && initialVarKey !== "standard" ? ` - ${initialVarKey}` : "";
+  const initialLabel = `${app.appName} (${patchLabelText}${varLabelText})`;
+  const initialPackageId = getAppPackageId(app, patch, initialVarKey);
+  const initialSafeId = initialPackageId || `${repoOwner}_${app.appKey}_${patch.patchKey}_${initialVarKey}_0`.replace(/[^a-zA-Z0-9_]/g, "_");
+  const initialAddSettings = { apkFilterRegEx: initialRegex };
+  if (modalBuildFilter === "beta") initialAddSettings.includePrereleases = true;
+  const initialConfig = {
+    id: initialSafeId,
+    name: initialLabel,
+    author: repoOwner,
+    url: repoUrl,
+    additionalSettings: JSON.stringify(initialAddSettings),
+  };
+  const initialDirectUrl = `obtainium://app/${encodeURIComponent(JSON.stringify(initialConfig))}`;
+  const initialFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(initialConfig)}`)}`;
 
   const obtainiumSectionMarkup = hasApk
-    ? `<div class="obtainium-box-container" style="cursor: default;">
-        <div class="obtainium-box-header" style="border-bottom: 1px solid var(--border); background: var(--bg-tertiary);">
-          <span style="font-weight: 700; color: var(--accent-obtainium); font-size: 0.9rem;">📲 Install with Obtainium</span>
+    ? `<div class="modal-repo-banner" style="background: var(--bg-tertiary); border: 1px solid var(--border); padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 16px; font-size: 0.85rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1 1 200px; min-width: 0;">
+          <span style="font-weight: 700; color: var(--accent-obtainium); white-space: nowrap; flex-shrink: 0;">📲 Obtainium:</span>
+          <code id="obtainiumSelectedRegex" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0;">${escapeHtml(initialRegex)}</code>
+          <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex" style="padding: 4px 8px; font-size: 0.75rem; flex-shrink: 0;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          </button>
         </div>
-        <div class="obtainium-dropdown-panel" style="display: block; background: var(--bg-secondary);">
-          <div class="obtainium-dropdown-body">${obtainiumContentHtml}</div>
+        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; flex-shrink: 0;">
+          <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer" style="padding: 6px 10px; font-size: 0.76rem;">Add to Obtainium</a>
+          <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer" style="padding: 6px 10px; font-size: 0.76rem; background: var(--bg-secondary); color: var(--text-primary) !important; border: 1px solid var(--border);">Add (Fallback)</a>
+          <button id="obtainiumInstructionsBtn" type="button" class="modal-filter-btn" style="padding: 6px 10px; font-size: 0.76rem; border-color: var(--accent-obtainium); color: var(--accent-obtainium);">📖 Instructions</button>
         </div>
       </div>`
     : "";
