@@ -2621,18 +2621,19 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
             return subTokens.includes(fallbackVariant) || subTokens.includes(fallbackVarNorm);
           }),
         }))
-        .filter((b) => b.assets.length > 0);
-    }
-
     builds = filteredBuilds;
   }
 
-  // Check if current filtered builds contain at least one APK asset
-  const hasApkInBuilds = builds.some((b) =>
-    (b.assets || []).some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))
-  );
+  // Filter builds and assets to strictly show APK files
+  builds = builds
+    .map((b) => ({
+      ...b,
+      assets: (b.assets || []).filter((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || "")),
+    }))
+    .filter((b) => b.assets.length > 0);
 
-  const hasApk = hasApkInBuilds || patchHasApk(patch, variantFilter, buildFilter);
+  // Check if current filtered builds contain at least one APK asset
+  const hasApk = builds.length > 0;
 
   const obtainiumContentHtml = hasApk
     ? createObtainiumInstructions(app, patch)
