@@ -25,6 +25,7 @@
         </button>
         <div class="action-buttons">
             <button id="themeBtn" aria-label="Theme mode: system">🖥️</button>
+            <button id="clearCacheBtn" aria-label="Clear Website Cache" title="Clear Website Cache (JS, CSS, Data)">🗑️</button>
             <a href="https://github.com/sharath-5br2r-apps/sharath-5br2r-apps.github.io/issues/new/choose" id="issueBtn" aria-label="Report Issue"
                 target="_blank" rel="noopener noreferrer" title="Report Issue">🐛</a>
             <a href="https://github.com/orgs/sharath-5br2r-apps/discussions" id="discussionBtn" aria-label="Organization Discussions"
@@ -149,8 +150,6 @@
                 <div class="modal-header-top">
                     <h2 id="patchModalTitle">Patch builds</h2>
                     <div class="modal-header-right">
-                        <button type="button" class="modal-obtainium-btn" id="obtainiumBtn"
-                            aria-label="Install with Obtainium">Install with Obtainium</button>
                         <button type="button" class="modal-close" aria-label="Close popup">×</button>
                     </div>
                 </div>
@@ -181,20 +180,7 @@
         </div>
     </div>
 
-    <!-- Obtainium Instructions Modal -->
-    <div id="obtainiumModal" class="modal-overlay" aria-hidden="true">
-        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="obtainiumTitle">
-            <div class="modal-header">
-                <div class="modal-header-top">
-                    <h2 id="obtainiumTitle">Install with Obtainium</h2>
-                    <div class="modal-header-right">
-                        <button type="button" class="modal-close" aria-label="Close popup">×</button>
-                    </div>
-                </div>
-            </div>
-            <div id="obtainiumBody" class="modal-body"></div>
-        </div>
-    </div>
+
 
     <!-- Release Changelog Modal -->
     <div id="changelogModal" class="modal-overlay" aria-hidden="true">

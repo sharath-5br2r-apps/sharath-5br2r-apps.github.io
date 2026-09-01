@@ -104,6 +104,7 @@ const CONFIG = {
     "arm-v7a",
     "arm32",
     "x86_64",
+    "amd64",
     "x86",
     "universal",
     "all",
@@ -667,6 +668,7 @@ function initDOM() {
   DOM.catalogCountText = document.getElementById("catalogCountText");
   DOM.lastUpdateText = document.getElementById("lastUpdateText");
   DOM.themeBtn = document.getElementById("themeBtn");
+  DOM.clearCacheBtn = document.getElementById("clearCacheBtn");
   DOM.menuBtn = document.getElementById("menuBtn");
   DOM.actionMenu = document.getElementById("actionMenu");
   DOM.patchModal = document.getElementById("patchModal");
@@ -682,6 +684,9 @@ function initDOM() {
   DOM.obtainiumTitle = document.getElementById("obtainiumTitle");
   DOM.obtainiumBody = document.getElementById("obtainiumBody");
   DOM.obtainiumBtn = document.getElementById("obtainiumBtn");
+  DOM.obtainiumDropdownPanel = document.getElementById("obtainiumDropdownPanel");
+  DOM.obtainiumDropdownBody = document.getElementById("obtainiumDropdownBody");
+  DOM.obtainiumDropdownClose = document.getElementById("obtainiumDropdownClose");
   DOM.creditsBtn = document.getElementById("creditsBtn");
   DOM.creditsModal = document.getElementById("creditsModal");
   DOM.changelogModal = document.getElementById("changelogModal");
@@ -724,8 +729,13 @@ let dynamicAppFilters = [];
 let currentAppCatalog = [];
 let activeModalAppKey = null;
 let activeModalPatchKey = null;
+let modalEngineFilter = "all";
+let modalPatchNameFilter = "all";
+let modalOsFilter = "all";
 let modalBuildFilter = "all";
 let modalVariantFilter = "all";
+let isObtainiumDropdownOpen = false;
+let activeModalOpenBuildKey = null;
 let themeMode = "system";
 let activeAppliedPatchesList = [];
 let activeSkippedPatchesList = [];
@@ -848,6 +858,37 @@ function setupEventListeners() {
       themeMode = nextTheme;
       localStorage.setItem("theme", nextTheme);
       applyTheme(nextTheme);
+    });
+  }
+
+  // Clear Cache Button 🗑️
+  if (DOM.clearCacheBtn) {
+    DOM.clearCacheBtn.addEventListener("click", async () => {
+      showToast("Clearing website cache...");
+      try {
+        localStorage.clear();
+        sessionStorage.clear();
+        parseCache.clear();
+        tokenCache.clear();
+        masterBuildDataCache = null;
+
+        if ("caches" in window) {
+          const cacheKeys = await caches.keys();
+          await Promise.all(cacheKeys.map((key) => caches.delete(key)));
+        }
+
+        if ("serviceWorker" in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(registrations.map((reg) => reg.unregister()));
+        }
+      } catch (err) {
+        console.warn("Cache clear warning:", err);
+      }
+
+      showToast("Cache cleared! Reloading...");
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 500);
     });
   }
 
@@ -1043,6 +1084,14 @@ function setupEventListeners() {
   // Downloads Modal Filter Delegate
   if (DOM.patchModal) {
     DOM.patchModal.addEventListener("click", (e) => {
+      const obtainiumTrigger = e.target.closest("#obtainiumBtn");
+      if (obtainiumTrigger) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleObtainiumDropdown();
+        return;
+      }
+
       // Handle per-asset Info buttons before the build-card accordion logic.
       // This prevents the parent card from consuming the click.
       const appliedTrigger = e.target.closest(".patch-applied-btn");
@@ -1073,6 +1122,7 @@ function setupEventListeners() {
               });
             }
             card.classList.add("open");
+            activeModalOpenBuildKey = card.dataset.buildKey || null;
 
             setTimeout(() => {
               const modalBody = card.closest(".modal-body");
@@ -1092,6 +1142,9 @@ function setupEventListeners() {
             }, 360);
           } else if (isHeaderClick) {
             card.classList.remove("open");
+            if (activeModalOpenBuildKey === card.dataset.buildKey) {
+              activeModalOpenBuildKey = null;
+            }
           }
           if (isHeaderClick || !isInteractive) return;
         }
@@ -1100,7 +1153,51 @@ function setupEventListeners() {
       const filterBtn = e.target.closest(".modal-filter-btn");
       if (filterBtn && !filterBtn.disabled) {
         const filterType = filterBtn.dataset.filter;
-        if (filterType.startsWith("variant-")) {
+        if (filterType.startsWith("engine-")) {
+          modalEngineFilter = filterType.slice(7);
+          const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
+          if (app) {
+            const firstPatch = modalEngineFilter === "all"
+              ? app.patches[0]
+              : app.patches.find((p) => (p.engineToken || "none").toLowerCase() === modalEngineFilter);
+            if (firstPatch) {
+              activeModalPatchKey = firstPatch.patchKey;
+            }
+          }
+        } else if (filterType.startsWith("patchname-")) {
+          modalPatchNameFilter = decodeURIComponent(filterType.slice(10));
+          const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
+          if (app) {
+            const targetPatch = modalPatchNameFilter === "all"
+              ? (modalEngineFilter === "all" ? app.patches[0] : app.patches.find((p) => (p.engineToken || "none").toLowerCase() === modalEngineFilter) || app.patches[0])
+              : app.patches.find((p) => p.patchName === modalPatchNameFilter);
+
+            if (targetPatch) {
+              activeModalPatchKey = targetPatch.patchKey;
+            }
+          }
+        } else if (filterType.startsWith("os-")) {
+          modalOsFilter = filterType.slice(3);
+          const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
+          if (app) {
+            const targetPatch = modalOsFilter === "all"
+              ? app.patches[0]
+              : app.patches.find((p) => (p.targetOS || "android").toLowerCase() === modalOsFilter.toLowerCase());
+
+            if (targetPatch) {
+              activeModalPatchKey = targetPatch.patchKey;
+            }
+          }
+        } else if (filterType.startsWith("patch-")) {
+          const selectedPatchKey = filterType.slice(6);
+          const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
+          if (app) {
+            const targetPatch = app.patches.find((p) => p.patchKey === selectedPatchKey);
+            if (targetPatch) {
+              activeModalPatchKey = targetPatch.patchKey;
+            }
+          }
+        } else if (filterType.startsWith("variant-")) {
           modalVariantFilter = filterType.slice(8);
         } else {
           modalBuildFilter = filterType;
@@ -1151,13 +1248,22 @@ function setupEventListeners() {
     });
   }
 
-  // Obtainium Modal
+  // Obtainium Dropdown Toggle & Popup Controller
   if (DOM.obtainiumBtn) {
     DOM.obtainiumBtn.addEventListener("click", (e) => {
       e.stopPropagation();
-      openObtainiumModal();
+      toggleObtainiumDropdown();
     });
   }
+
+  if (DOM.obtainiumDropdownClose) {
+    DOM.obtainiumDropdownClose.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeObtainiumDropdown();
+    });
+  }
+
+
 
   if (DOM.obtainiumModal) {
     DOM.obtainiumModal.addEventListener("click", (e) => {
@@ -1392,7 +1498,7 @@ function buildAppCatalog(releases) {
 
       appEntry.repos.add(repoSlug);
 
-      const targetOS = parsed.osToken ? detectOS(parsed.osToken) : detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`);
+      const targetOS = parsed.osToken ? detectOS(parsed.osToken) : (asset.name.toLowerCase().includes("android") || /\.apk[sm]?$/i.test(asset.name) ? "android" : detectOS(`${parsed.appName} ${parsed.patchName} ${parsed.variant || ""} ${asset.name}`));
       const patchKey = `${normalizeForSearch(parsed.patchName) || "official"}__os_${targetOS}`;
       if (!appEntry.patches.has(patchKey)) {
         appEntry.patches.set(patchKey, {
@@ -1466,8 +1572,8 @@ function buildAppCatalog(releases) {
       }
 
       const buildKey = isArchive
-        ? `archive-${repoOwner}-${repoName}-${releaseType}-${parsed.version}-${variantKey}`
-        : `${repoOwner}-${repoName}-${release.id}-${variantKey}`;
+        ? `archive-${repoOwner}-${repoName}-${release.tag_name || releaseType}-${parsed.version}-${variantKey}`
+        : `${repoOwner}-${repoName}-${release.tag_name || release.id}-${variantKey}`;
 
       if (!patchEntry.builds.has(buildKey)) {
         patchEntry.builds.set(buildKey, {
@@ -2132,11 +2238,22 @@ function toFilterLabel(value) {
 function openPatchModal(appKey, patchKey, preferredChannel = "stable", preferredVariant = "default") {
   activeModalAppKey = appKey;
   activeModalPatchKey = patchKey;
+  isObtainiumDropdownOpen = false;
 
   const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
   const patch = app ? app.patches.find((item) => item.patchKey === activeModalPatchKey) : null;
 
-  modalBuildFilter = preferredChannel === "beta" ? "beta" : "stable";
+  if (patch) {
+    modalEngineFilter = (patch.engineToken || "none").toLowerCase();
+    modalPatchNameFilter = patch.patchName;
+    modalOsFilter = (patch.targetOS || "android").toLowerCase();
+  } else {
+    modalEngineFilter = "all";
+    modalPatchNameFilter = "all";
+    modalOsFilter = "all";
+  }
+
+  modalBuildFilter = preferredChannel === "all" ? "all" : (preferredChannel === "beta" ? "beta" : "stable");
 
   if (patch && patch.variants && patch.variants.length > 0) {
     const validVariant = patch.variants.find((v) => v.variantKey === preferredVariant);
@@ -2150,20 +2267,21 @@ function openPatchModal(appKey, patchKey, preferredChannel = "stable", preferred
 }
 
 function patchHasApk(patch, variantKey = "all", buildFilter = "stable") {
-  if (!patch || !patch.builds) return false;
-  let builds = patch.builds;
-  if (buildFilter === "stable") builds = builds.filter((b) => b.releaseType === "stable");
-  else if (buildFilter === "beta") builds = builds.filter((b) => b.releaseType === "beta");
+  const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
+  const patchesToCheck = app ? (app.patches || []) : [patch];
 
-  return builds.some((build) =>
-    (build.assets || []).some((asset) => {
-      if (variantKey && variantKey !== "all" && variantKey !== "default") {
-        const vKey = asset.parsed?.rawVariant || (asset.parsed?.variant ? normalizeForSearch(asset.parsed.variant) : "default");
-        if (vKey !== variantKey) return false;
-      }
-      return /\.(apk|apks|xapk|apkm)$/i.test(asset.name || "");
-    })
-  );
+  return patchesToCheck.some((p) => {
+    if (modalEngineFilter !== "all" && (p.engineToken || "none").toLowerCase() !== modalEngineFilter) return false;
+    if (modalPatchNameFilter !== "all" && p.patchName !== modalPatchNameFilter) return false;
+    if (modalOsFilter !== "all" && (p.targetOS || "android").toLowerCase() !== modalOsFilter.toLowerCase()) return false;
+
+    if (!p.builds) return false;
+    const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
+
+    return buildsList.some((build) =>
+      (build.assets || []).some((asset) => /\.(apk|apks|xapk|apkm)$/i.test(asset.name || ""))
+    );
+  });
 }
 
 function renderOpenPatchModal() {
@@ -2175,38 +2293,194 @@ function renderOpenPatchModal() {
     return;
   }
 
-  const selectedVariant = patch.variants.find((v) => v.variantKey === modalVariantFilter);
-  const variantText = selectedVariant && selectedVariant.variantName !== "Standard"
-    ? ` • ${selectedVariant.variantName}`
-    : "";
-
   if (DOM.patchModalTitle) {
-    DOM.patchModalTitle.textContent = `${app.appName} • ${patch.patchName}${variantText}`;
+    DOM.patchModalTitle.textContent = app.appName;
   }
 
-  if (DOM.obtainiumBtn) {
-    const hasApk = patchHasApk(patch, modalVariantFilter, modalBuildFilter);
-    DOM.obtainiumBtn.style.display = hasApk ? "inline-flex" : "none";
-  }
-
-  updateModalFilterButtons(patch);
+  updateModalFilterButtons(app, patch);
 
   if (DOM.patchModalBody) {
     DOM.patchModalBody.innerHTML = createPatchModalContent(app, patch, modalBuildFilter, modalVariantFilter);
   }
+
+  const panel = document.querySelector("#patchModal #obtainiumDropdownPanel");
+  if (panel && panel.style.display !== "none") {
+    renderObtainiumDropdownContent(app, patch);
+  }
 }
 
-function updateModalFilterButtons(patch) {
+function updateModalFilterButtons(app, activePatch) {
   const filterContainer = document.querySelector(".modal-filter-buttons");
   if (!filterContainer) return;
 
   filterContainer.innerHTML = "";
 
+  const addDivider = () => {
+    const divider = document.createElement("span");
+    divider.className = "filter-group-divider";
+    filterContainer.appendChild(divider);
+  };
+
+  let groupAdded = false;
+
+  // 1. Engine Group
+  const enginesMap = new Map();
+  app.patches.forEach((p) => {
+    const token = (p.engineToken || "none").toLowerCase();
+    if (!enginesMap.has(token)) {
+      enginesMap.set(token, formatBrandDisplayName(token));
+    }
+  });
+
+  if (enginesMap.size > 0) {
+    const engineGroup = document.createElement("div");
+    engineGroup.className = "filter-pill-group";
+
+    const allEnginesBtn = document.createElement("button");
+    allEnginesBtn.type = "button";
+    allEnginesBtn.className = `modal-filter-btn engine-pill-btn ${modalEngineFilter === "all" ? "active" : ""}`;
+    allEnginesBtn.dataset.filter = "engine-all";
+    allEnginesBtn.textContent = "⚡ All";
+    engineGroup.appendChild(allEnginesBtn);
+
+    enginesMap.forEach((displayName, engineToken) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `modal-filter-btn engine-pill-btn ${modalEngineFilter === engineToken ? "active" : ""}`;
+      btn.dataset.filter = `engine-${engineToken}`;
+      btn.textContent = `⚡ ${displayName}`;
+      engineGroup.appendChild(btn);
+    });
+
+    filterContainer.appendChild(engineGroup);
+    groupAdded = true;
+  }
+
+  // 2. Patch Group (Filtered by current active Engine if specified)
+  const patchesForEngine = modalEngineFilter === "all"
+    ? app.patches
+    : app.patches.filter((p) => (p.engineToken || "none").toLowerCase() === modalEngineFilter);
+
+  const rawPatchNameSet = new Set();
+  patchesForEngine.forEach((p) => {
+    if (p.patchName) {
+      rawPatchNameSet.add(p.patchName);
+    }
+  });
+
+  const uniquePatchNames = Array.from(rawPatchNameSet);
+  if (uniquePatchNames.length > 0) {
+    if (groupAdded) addDivider();
+    const patchGroup = document.createElement("div");
+    patchGroup.className = "filter-pill-group";
+
+    const allPatchesBtn = document.createElement("button");
+    allPatchesBtn.type = "button";
+    allPatchesBtn.className = `modal-filter-btn patch-pill-btn ${modalPatchNameFilter === "all" ? "active" : ""}`;
+    allPatchesBtn.dataset.filter = "patchname-all";
+    allPatchesBtn.textContent = "🧩 All";
+    patchGroup.appendChild(allPatchesBtn);
+
+    uniquePatchNames.forEach((patchName) => {
+      const isSelected = modalPatchNameFilter === patchName;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `modal-filter-btn patch-pill-btn ${isSelected ? "active" : ""}`;
+      btn.dataset.filter = `patchname-${encodeURIComponent(patchName)}`;
+      btn.textContent = `🧩 ${patchName}`;
+      patchGroup.appendChild(btn);
+    });
+
+    filterContainer.appendChild(patchGroup);
+    groupAdded = true;
+  }
+
+  // 3. OS Selector Group (Filtered by Engine and Patch Name if specified)
+  const patchesForEngineAndName = patchesForEngine.filter((p) => {
+    if (modalPatchNameFilter === "all") return true;
+    const targetNameNorm = normalizeForSearch(modalPatchNameFilter);
+    const patchNameNorm = normalizeForSearch(p.patchName);
+    const patchListNorms = (p.patchNameList || []).map((name) => normalizeForSearch(name.replace(/^🧩\s*/, "")));
+    return patchNameNorm === targetNameNorm || patchListNorms.includes(targetNameNorm) || p.patchName === modalPatchNameFilter;
+  });
+
+  const availableOSes = Array.from(new Set(patchesForEngineAndName.map((p) => (p.targetOS || "android").toLowerCase())));
+  if (availableOSes.length > 0) {
+    if (groupAdded) addDivider();
+    const osGroup = document.createElement("div");
+    osGroup.className = "filter-pill-group";
+
+    const allOSBtn = document.createElement("button");
+    allOSBtn.type = "button";
+    allOSBtn.className = `modal-filter-btn os-pill-btn ${modalOsFilter === "all" ? "active" : ""}`;
+    allOSBtn.dataset.filter = "os-all";
+    allOSBtn.textContent = "🌐 All";
+    osGroup.appendChild(allOSBtn);
+
+    availableOSes.forEach((osKey) => {
+      const isSelected = modalOsFilter === osKey.toLowerCase();
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `modal-filter-btn os-pill-btn ${isSelected ? "active" : ""}`;
+      btn.dataset.filter = `os-${osKey}`;
+      btn.textContent = formatOSBadge(osKey);
+      osGroup.appendChild(btn);
+    });
+
+    filterContainer.appendChild(osGroup);
+    groupAdded = true;
+  }
+
+  // 4. Variant Group (Aggregate across all matching patches)
+  const variantsMap = new Map();
+  patchesForEngineAndName.forEach((p) => {
+    if (modalOsFilter !== "all" && (p.targetOS || "android").toLowerCase() !== modalOsFilter.toLowerCase()) {
+      return;
+    }
+    if (p.variants) {
+      p.variants.forEach((v) => {
+        if (!variantsMap.has(v.variantKey)) {
+          variantsMap.set(v.variantKey, v.variantName);
+        }
+      });
+    }
+  });
+
+  if (variantsMap.size > 0) {
+    if (modalVariantFilter !== "all" && !variantsMap.has(modalVariantFilter)) {
+      modalVariantFilter = Array.from(variantsMap.keys())[0] || "default";
+    }
+
+    if (groupAdded) addDivider();
+    const variantGroup = document.createElement("div");
+    variantGroup.className = "filter-pill-group";
+
+    const allBtn = document.createElement("button");
+    allBtn.type = "button";
+    allBtn.className = `modal-filter-btn variant-pill-btn ${modalVariantFilter === "all" ? "active" : ""}`;
+    allBtn.dataset.filter = "variant-all";
+    allBtn.textContent = "All";
+    variantGroup.appendChild(allBtn);
+
+    variantsMap.forEach((variantName, variantKey) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `modal-filter-btn variant-pill-btn ${modalVariantFilter === variantKey ? "active" : ""}`;
+      btn.dataset.filter = `variant-${variantKey}`;
+      btn.textContent = variantName;
+      variantGroup.appendChild(btn);
+    });
+
+    filterContainer.appendChild(variantGroup);
+    groupAdded = true;
+  }
+
+  // 4. Channel Group (Stable / Beta)
   let hasStable = false;
   let hasBeta = false;
 
-  if (patch.builds) {
-    for (const b of patch.builds) {
+  if (activePatch.builds) {
+    for (const b of activePatch.builds) {
       const matchingAssets = b.assets.filter((a) => {
         const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "default") || "default";
         return vKey === modalVariantFilter || modalVariantFilter === "all";
@@ -2220,7 +2494,6 @@ function updateModalFilterButtons(patch) {
     }
   }
 
-  // Auto-switch build filter if the currently selected one has no builds
   if (!hasStable && modalBuildFilter === "stable" && hasBeta) {
     modalBuildFilter = "beta";
   } else if (!hasBeta && modalBuildFilter === "beta" && hasStable) {
@@ -2228,6 +2501,9 @@ function updateModalFilterButtons(patch) {
   }
 
   let channelHtml = "";
+  if (hasStable && hasBeta) {
+    channelHtml += `<button class="modal-filter-btn ${modalBuildFilter === "all" ? "active" : ""}" data-filter="all" type="button">All Channels</button>\n`;
+  }
   if (hasStable) {
     channelHtml += `<button class="modal-filter-btn ${modalBuildFilter === "stable" ? "active" : ""}" data-filter="stable" type="button">Stable</button>\n`;
   }
@@ -2236,36 +2512,58 @@ function updateModalFilterButtons(patch) {
   }
 
   if (channelHtml) {
+    if (groupAdded) addDivider();
     const channelGroup = document.createElement("div");
     channelGroup.className = "filter-pill-group";
     channelGroup.innerHTML = channelHtml;
     filterContainer.appendChild(channelGroup);
   }
-
-  // Variant group with divider
-  if (patch.variants && patch.variants.length > 0) {
-    const divider = document.createElement("span");
-    divider.className = "filter-group-divider";
-    filterContainer.appendChild(divider);
-
-    const variantGroup = document.createElement("div");
-    variantGroup.className = "filter-pill-group";
-
-    patch.variants.forEach((v) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `modal-filter-btn variant-pill-btn ${modalVariantFilter === v.variantKey ? "active" : ""}`;
-      btn.dataset.filter = `variant-${v.variantKey}`;
-      btn.textContent = v.variantName;
-      variantGroup.appendChild(btn);
-    });
-
-    filterContainer.appendChild(variantGroup);
-  }
 }
 
 function createPatchModalContent(app, patch, buildFilter = "stable", variantFilter = "default") {
-  let builds = patch.builds || [];
+  // Aggregate builds across patches matching current modal Engine, Patch Name, and OS filters
+  let matchingPatches = (app.patches || []).filter((p) => {
+    if (modalEngineFilter !== "all" && (p.engineToken || "none").toLowerCase() !== modalEngineFilter) return false;
+    if (modalPatchNameFilter !== "all") {
+      const targetNorm = normalizeForSearch(modalPatchNameFilter);
+      const patchNameNorm = normalizeForSearch(p.patchName);
+      if (patchNameNorm !== targetNorm && p.patchName !== modalPatchNameFilter) {
+        const patchSubTokens = p.patchName.split(/\s*\+\s*/).map((s) => normalizeForSearch(s));
+        if (!patchSubTokens.includes(targetNorm)) {
+          return false;
+        }
+      }
+    }
+    if (modalOsFilter !== "all" && (p.targetOS || "android").toLowerCase() !== modalOsFilter.toLowerCase()) return false;
+    return true;
+  });
+
+  if (matchingPatches.length === 0) {
+    matchingPatches = [patch];
+  }
+
+  // Combine builds and assets across matching patches
+  const rawBuildsMap = new Map();
+  matchingPatches.forEach((p) => {
+    const patchBuilds = p.builds || [];
+    const sourceBuilds = Array.isArray(patchBuilds) ? patchBuilds : Array.from(patchBuilds.values());
+
+    sourceBuilds.forEach((b) => {
+      const key = b.buildKey || `${b.releaseId || 'rel'}-${b.build || b.version}`;
+      if (!rawBuildsMap.has(key)) {
+        rawBuildsMap.set(key, { ...b, assets: [...(b.assets || [])] });
+      } else {
+        const existing = rawBuildsMap.get(key);
+        (b.assets || []).forEach((asset) => {
+          if (!existing.assets.some((a) => (a.browser_download_url && a.browser_download_url === asset.browser_download_url) || a.name === asset.name)) {
+            existing.assets.push(asset);
+          }
+        });
+      }
+    });
+  });
+
+  let builds = Array.from(rawBuildsMap.values());
 
   if (buildFilter === "stable") {
     builds = builds.filter((b) => b.releaseType === "stable");
@@ -2273,21 +2571,84 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
     builds = builds.filter((b) => b.releaseType === "beta");
   }
 
-  if (variantFilter && variantFilter !== "all") {
+  if (modalPatchNameFilter && modalPatchNameFilter !== "all") {
+    const targetNorm = normalizeForSearch(modalPatchNameFilter);
     builds = builds
       .map((b) => ({
         ...b,
         assets: b.assets.filter((a) => {
-          const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "default") || "default";
-          return vKey === variantFilter;
+          if (!a.parsed) return true;
+          const pNameNorm = normalizeForSearch(a.parsed.patchName || "");
+          if (pNameNorm === targetNorm) return true;
+          const subTokens = (a.parsed.patchName || "").split(/\s*\+\s*/).map((s) => normalizeForSearch(s));
+          return subTokens.includes(targetNorm);
         }),
       }))
       .filter((b) => b.assets.length > 0);
   }
 
-  if (builds.length === 0) {
-    return '<div class="no-results" style="padding: 40px 20px;">No builds matching these filters.</div>';
+  if (variantFilter && variantFilter !== "all") {
+    const targetVarNorm = normalizeForSearch(variantFilter);
+    let filteredBuilds = builds
+      .map((b) => ({
+        ...b,
+        assets: (b.assets || []).filter((a) => {
+          const rawV = (a.parsed?.rawVariant || "default").toLowerCase();
+          const dispV = normalizeForSearch(a.parsed?.variant || "") || "default";
+          if (rawV === variantFilter || dispV === targetVarNorm) return true;
+          if ((variantFilter === "standard" || variantFilter === "default") && (rawV === "standard" || rawV === "default" || dispV === "standard" || dispV === "default")) return true;
+          const subTokens = rawV.split("+").concat(dispV.split(/\s*\+\s*/));
+          return subTokens.includes(variantFilter) || subTokens.includes(targetVarNorm);
+        }),
+      }))
+      .filter((b) => b.assets.length > 0);
+
+    // If filtering by variantFilter yields no builds, fall back to the first available variant
+    if (filteredBuilds.length === 0 && builds.length > 0) {
+      const firstAvailableVariantAsset = builds.flatMap((b) => b.assets || [])[0];
+      const fallbackVariant = firstAvailableVariantAsset?.parsed?.rawVariant || "default";
+      modalVariantFilter = fallbackVariant;
+      const fallbackVarNorm = normalizeForSearch(fallbackVariant);
+
+      filteredBuilds = builds
+        .map((b) => ({
+          ...b,
+          assets: (b.assets || []).filter((a) => {
+            const rawV = (a.parsed?.rawVariant || "").toLowerCase();
+            const dispV = normalizeForSearch(a.parsed?.variant || "");
+            if (rawV === fallbackVariant || dispV === fallbackVarNorm) return true;
+            const subTokens = rawV.split("+").concat(dispV.split(/\s*\+\s*/));
+            return subTokens.includes(fallbackVariant) || subTokens.includes(fallbackVarNorm);
+          }),
+        }))
+        .filter((b) => b.assets.length > 0);
+    }
+
+    builds = filteredBuilds;
   }
+
+  // Check if current filtered builds contain at least one APK asset
+  const hasApkInBuilds = builds.some((b) =>
+    (b.assets || []).some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))
+  );
+
+  const hasApk = hasApkInBuilds || patchHasApk(patch, variantFilter, buildFilter);
+
+  const obtainiumContentHtml = hasApk
+    ? createObtainiumInstructions(app, patch)
+    : "";
+
+  const obtainiumSectionMarkup = hasApk
+    ? `<div class="obtainium-box-container" id="obtainiumBtn" role="button" aria-expanded="${isObtainiumDropdownOpen ? 'true' : 'false'}" tabindex="0">
+        <div class="obtainium-box-header">
+          <span style="font-weight: 700; color: var(--accent-obtainium); font-size: 0.9rem;">📲 Install with Obtainium</span>
+          <span class="obtainium-chevron" style="color: var(--accent-obtainium); transition: transform 0.2s ease; transform: ${isObtainiumDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'}; font-size: 0.85rem;">▼</span>
+        </div>
+        <div id="obtainiumDropdownPanel" class="obtainium-dropdown-panel" style="display: ${isObtainiumDropdownOpen ? 'block' : 'none'};" onclick="event.stopPropagation();">
+          <div id="obtainiumDropdownBody" class="obtainium-dropdown-body">${obtainiumContentHtml}</div>
+        </div>
+      </div>`
+    : "";
 
   const repoLinksMarkup = (app.repos && app.repos.length > 0)
     ? app.repos
@@ -2305,14 +2666,45 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
       </div>`
     : "";
 
-  return repoBanner + builds
-    .map((build, index) => createModalBuildMarkup(app, patch, build, index === 0))
+  if (builds.length === 0) {
+    return obtainiumSectionMarkup + repoBanner + '<div class="no-results" style="padding: 40px 20px;">No builds matching these filters.</div>';
+  }
+
+  // Group builds sharing the same version and release tag into single combined cards
+  const combinedTagMap = new Map();
+  builds.forEach((build) => {
+    const versionTagKey = `${build.version || 'v'}_tag_${build.releaseTag || build.build || 'default'}`;
+    if (!combinedTagMap.has(versionTagKey)) {
+      combinedTagMap.set(versionTagKey, {
+        ...build,
+        assets: [...(build.assets || [])],
+      });
+    } else {
+      const existing = combinedTagMap.get(versionTagKey);
+      (build.assets || []).forEach((asset) => {
+        if (!existing.assets.some((a) => (a.browser_download_url && a.browser_download_url === asset.browser_download_url) || a.name === asset.name)) {
+          existing.assets.push(asset);
+        }
+      });
+    }
+  });
+
+  const finalBuildsList = Array.from(combinedTagMap.values());
+
+  return obtainiumSectionMarkup + repoBanner + finalBuildsList
+    .map((build, index) => {
+      const isCardOpen = activeModalOpenBuildKey
+        ? activeModalOpenBuildKey === (build.buildKey || build.releaseId || build.build)
+        : index === 0;
+      return createModalBuildMarkup(app, patch, build, isCardOpen);
+    })
     .join("");
 }
 
 function createModalBuildMarkup(app, patch, build, openByDefault = false) {
   const assetsByArch = groupAssetsByArchitecture(build.assets);
   const titleText = build.isArchive ? escapeHtml(build.build) : `Build ${escapeHtml(build.build)}`;
+  const bKey = build.buildKey || build.releaseId || build.build;
 
   let downloadsMarkup = "";
 
@@ -2324,12 +2716,16 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
       const sizeStr = formatBytes(asset.size);
       const downloads = formatCompactNumber(asset.download_count || 0);
       const variantDisplay = asset.parsed.variant ? ` • <span class="asset-variant-tag">${escapeHtml(asset.parsed.variant)}</span>` : "";
+      
+      const osName = asset.parsed?.osToken
+        ? formatBrandDisplayName(asset.parsed.osToken)
+        : (patch?.targetOS ? formatBrandDisplayName(patch.targetOS) : "Android");
 
       downloadsMarkup += `
         <div class="download-btn ${arch}">
           <div class="asset-left">
             <span class="asset-title">${escapeHtml(asset.parsed.appName)}</span>
-            <span class="asset-subtitle">${escapeHtml(asset.parsed.version)} • ${asset.fileType}${variantDisplay}</span>
+            <span class="asset-subtitle">${escapeHtml(asset.parsed.version)} • ${escapeHtml(osName)} • ${asset.fileType}${variantDisplay}</span>
           </div>
           <div class="asset-right">
             <span class="btn-text">${sizeStr} • 📥 ${downloads}</span>
@@ -2353,7 +2749,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
   `;
 
   return `
-    <div class="modal-build-card ${openByDefault ? "open" : ""}">
+    <div class="modal-build-card ${openByDefault ? "open" : ""}" data-build-key="${bKey}">
       <div class="modal-build-header" role="button" tabindex="0">
         <div class="modal-build-header-left">
           <div class="modal-build-title">${titleText}</div>
@@ -2378,6 +2774,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
 }
 
 function closePatchModal() {
+  closeObtainiumDropdown();
   hideModal(DOM.patchModal);
 }
 
@@ -2887,106 +3284,164 @@ function closeAppliedPatchesModal() {
 
 // Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
 function buildObtainiumRegex(app, patch, variantKey) {
-  // Find a matching sample asset for this variant to extract exact filename prefix
-  if (patch?.builds && patch.builds.length > 0) {
-    const isSpecificVar = variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard";
-    const cleanVar = isSpecificVar ? variantKey.replace(/\+/g, "-").toLowerCase() : "";
+  // Extract file extension and raw asset filename metadata from sample build assets across matching patches
+  let extension = "apk";
+  let sampleAsset = null;
 
-    let asset = null;
-    for (const b of patch.builds) {
-      if (!b.assets || b.assets.length === 0) continue;
-      if (isSpecificVar) {
-        asset = b.assets.find((a) => {
-          if (!a.name || !a.name.endsWith(".apk")) return false;
-          if (a.parsed) {
-            const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "");
-            if (vKey === variantKey) return true;
-          }
-          return a.name.toLowerCase().includes(cleanVar);
-        });
-      } else {
-        const otherVariantTokens = (patch?.variants || [])
-          .map((v) => v.variantKey.replace(/\+/g, "-").toLowerCase())
-          .filter((vk) => vk && vk !== "default" && vk !== "all" && vk !== "standard");
+  const patchesToSearch = (app?.patches || [patch]).filter((p) => {
+    if (modalEngineFilter !== "all" && (p.engineToken || "none").toLowerCase() !== modalEngineFilter) return false;
+    if (modalPatchNameFilter !== "all" && p.patchName !== modalPatchNameFilter) return false;
+    if (modalOsFilter !== "all" && (p.targetOS || "android").toLowerCase() !== modalOsFilter.toLowerCase()) return false;
+    return true;
+  });
 
-        asset = b.assets.find((a) => {
-          if (!a.name || !a.name.endsWith(".apk")) return false;
-          if (a.parsed) {
-            const vKey = a.parsed.rawVariant || (a.parsed.variant ? normalizeForSearch(a.parsed.variant) : "default") || "default";
-            if (vKey === "default" || vKey === "standard" || vKey === "all") return true;
-            if (otherVariantTokens.includes(vKey.toLowerCase())) return false;
-          }
-          const nameLower = a.name.toLowerCase();
-          return !otherVariantTokens.some((tok) => nameLower.includes(tok));
-        });
-      }
-      if (asset) break;
-    }
+  const searchList = patchesToSearch.length > 0 ? patchesToSearch : (app?.patches || [patch]);
 
-    if (!asset) {
-      for (const b of patch.builds) {
-        if (!b.assets) continue;
-        asset = b.assets.find((a) => a.name && a.name.endsWith(".apk"));
-        if (asset) break;
+  for (const p of searchList) {
+    if (!p.builds) continue;
+    for (const b of p.builds) {
+      if (!b.assets) continue;
+      sampleAsset = b.assets.find((a) => a.name && /\.(apk|apks|xapk|apkm)$/i.test(a.name));
+      if (sampleAsset) {
+        const match = sampleAsset.name.match(/\.([a-z0-9]+)$/i);
+        if (match) {
+          extension = match[1];
+        }
+        break;
       }
     }
-
-    if (asset && asset.name) {
-      const baseName = asset.name.replace(EXT_STRIP_REGEX, "");
-      const tokens = baseName.split("-").filter(Boolean);
-      const archSubTokens = new Set(CONFIG.knownArchs.flatMap((a) => a.split("-")));
-      const versionIndex = tokens.findIndex(
-        (token) => /^(v\w*\d|vbuild)/i.test(token) && !archSubTokens.has(token.toLowerCase())
-      );
-      const moduleIndex = tokens.findIndex((token) => token.toLowerCase() === "module");
-      const stopIndexCandidates = [versionIndex, moduleIndex].filter((i) => i >= 0);
-      const stopIndex = stopIndexCandidates.length > 0 ? Math.min(...stopIndexCandidates) : tokens.length;
-      const prefixTokens = tokens.slice(0, stopIndex);
-      if (prefixTokens.length > 0) {
-        return `^${prefixTokens.join("-")}-v.*\\.apk$`;
-      }
-    }
+    if (sampleAsset) break;
   }
 
-  // Fallback if no asset filename is available
+  const parsedAsset = sampleAsset?.parsed;
   const parts = [];
 
-  let rawPatchKey = patch?.patchKey ? patch.patchKey.toLowerCase() : "";
-  if (rawPatchKey.includes("__os_")) {
-    rawPatchKey = rawPatchKey.split("__os_")[0];
+  // 1. App Slug (unbranded raw token from asset filename)
+  const rawAppSlug = parsedAsset?.rawAppSlug || (app?.appKey ? app.appKey.toLowerCase().replace(/\s+/g, "-") : "");
+  if (rawAppSlug) {
+    parts.push(rawAppSlug);
   }
 
-  if (rawPatchKey && rawPatchKey !== "official" && rawPatchKey !== "default") {
-    parts.push(rawPatchKey.replace(/\s+/g, "-"));
-  } else {
-    let appSlug = app?.appKey ? app.appKey.toLowerCase().replace(/\s+/g, "-") : "";
-    if (appSlug) parts.push(appSlug);
+  // 2. Patch Engine (if 'all', replace with wildcard '.*', omit if missing/none/official/default)
+  let engineToken = modalEngineFilter === "all"
+    ? ".*"
+    : (parsedAsset?.engineToken || (modalEngineFilter !== "default" ? modalEngineFilter : ""));
 
-    const engineSlug = patch?.engineToken ? patch.engineToken.toLowerCase() : "";
-    if (engineSlug && engineSlug !== "official" && engineSlug !== "default") {
-      parts.push(engineSlug);
+  if (engineToken && engineToken !== "official" && engineToken !== "default" && engineToken !== "none") {
+    parts.push(engineToken);
+  }
+
+  // 3. Patch Name Slug (if 'all', replace with wildcard '.*', omit if 'official')
+  let rawPatchSlug = parsedAsset?.rawPatchSlug;
+  if (!rawPatchSlug && patch?.patchName && patch.patchName.toLowerCase() !== "official") {
+    rawPatchSlug = patch.patchName.toLowerCase().replace(/\s+/g, "-");
+  }
+
+  let patchNameToken = modalPatchNameFilter === "all"
+    ? ".*"
+    : (rawPatchSlug || "");
+
+  if (patchNameToken && patchNameToken !== "official" && patchNameToken !== "default") {
+    parts.push(patchNameToken);
+  }
+
+  // 4. OS Name (only explicitly include if sample asset filename explicitly contains OS token)
+  let osName = parsedAsset?.osToken || (modalOsFilter !== "all" ? modalOsFilter : "");
+  let sampleFilename = sampleAsset?.name ? sampleAsset.name.toLowerCase() : "";
+
+  if (osName && sampleFilename && sampleFilename.includes(osName)) {
+    parts.push(osName);
+  } else if (modalOsFilter === "all" && sampleFilename && (sampleFilename.includes("android") || sampleFilename.includes("windows") || sampleFilename.includes("linux") || sampleFilename.includes("macos") || sampleFilename.includes("termux"))) {
+    parts.push(".*");
+  }
+
+  // 5. Variant (unbranded raw variant token)
+  const effectiveVariant = variantKey !== undefined ? variantKey : modalVariantFilter;
+  const variantToken = (effectiveVariant && effectiveVariant !== "all" && effectiveVariant !== "default" && effectiveVariant !== "standard")
+    ? (parsedAsset?.rawVariant || effectiveVariant).replace(/\+/g, "-").toLowerCase()
+    : (effectiveVariant === "all" ? ".*" : "");
+  if (variantToken) {
+    parts.push(variantToken);
+  }
+
+  // Construct regex pattern safely with wildcards
+  let pattern = "^";
+  parts.forEach((token, index) => {
+    if (index > 0) {
+      pattern += "-";
     }
-  }
+    pattern += token;
+  });
 
-  if (patch?.targetOS) {
-    const osSlug = patch.targetOS.toLowerCase();
-    if (osSlug !== "android" && !parts.some((p) => p.includes(osSlug))) {
-      parts.push(osSlug);
-    }
-  }
+  // Replace wildcard tokens surrounded by hyphens (e.g., "-.*-" -> ".*", "-.*" -> ".*", ".*-" -> ".*")
+  pattern = pattern
+    .replace(/-?\.\*-?/g, ".*")
+    .replace(/(\.\*)+/g, ".*")
+    .replace(/^-/, "");
 
-  if (variantKey && variantKey !== "default" && variantKey !== "all" && variantKey !== "standard") {
-    const cleanVariant = variantKey.replace(/\+/g, "-").toLowerCase();
-    if (cleanVariant && !parts.some((p) => p.endsWith(cleanVariant) || p.includes(`-${cleanVariant}-`))) {
-      parts.push(cleanVariant);
-    }
-  }
-
-  const prefix = parts.join("-");
-  return prefix ? `^${prefix}-v.*\\.apk$` : `^.*-v.*\\.apk$`;
+  return `${pattern}-v.*\\.${extension}$`;
 }
 
-// Obtainium Modal Controller
+function toggleObtainiumDropdown() {
+  const panel = document.querySelector("#patchModal #obtainiumDropdownPanel");
+  if (!panel) return;
+  const isVisible = panel.style.display !== "none";
+  if (isVisible) {
+    closeObtainiumDropdown();
+  } else {
+    openObtainiumDropdown();
+  }
+}
+
+function openObtainiumDropdown() {
+  const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
+  const patch = app ? app.patches.find((item) => item.patchKey === activeModalPatchKey) : null;
+  if (!app || !patch) return;
+
+  if (!patchHasApk(patch, modalVariantFilter, modalBuildFilter)) {
+    showToast("Obtainium integration is only available for Android APK builds.");
+    return;
+  }
+
+  isObtainiumDropdownOpen = true;
+  renderObtainiumDropdownContent(app, patch);
+  const panel = document.querySelector("#patchModal #obtainiumDropdownPanel");
+  const btn = document.querySelector("#patchModal #obtainiumBtn");
+  const chevron = document.querySelector("#patchModal .obtainium-chevron");
+  if (panel) {
+    panel.style.display = "block";
+  }
+  if (btn) {
+    btn.setAttribute("aria-expanded", "true");
+  }
+  if (chevron) {
+    chevron.style.transform = "rotate(180deg)";
+  }
+}
+
+function closeObtainiumDropdown() {
+  isObtainiumDropdownOpen = false;
+  const panel = document.querySelector("#patchModal #obtainiumDropdownPanel");
+  const btn = document.querySelector("#patchModal #obtainiumBtn");
+  const chevron = document.querySelector("#patchModal .obtainium-chevron");
+  if (panel) {
+    panel.style.display = "none";
+  }
+  if (btn) {
+    btn.setAttribute("aria-expanded", "false");
+  }
+  if (chevron) {
+    chevron.style.transform = "rotate(0deg)";
+  }
+}
+
+function renderObtainiumDropdownContent(app, patch) {
+  const body = document.querySelector("#patchModal #obtainiumDropdownBody");
+  if (body) {
+    body.innerHTML = createObtainiumInstructions(app, patch);
+  }
+}
+
 function openObtainiumModal() {
   const app = currentAppCatalog.find((item) => item.appKey === activeModalAppKey);
   const patch = app ? app.patches.find((item) => item.patchKey === activeModalPatchKey) : null;
@@ -3014,136 +3469,85 @@ function openObtainiumModal() {
 }
 
 function createObtainiumInstructions(app, patch) {
-  const sampleBuild = patch?.builds?.find((b) => b.assets && b.assets.length > 0) || patch?.builds?.[0];
+  let sampleBuild = null;
+  const patchesToSearch = (app?.patches || [patch]).filter((p) => {
+    if (modalEngineFilter !== "all" && (p.engineToken || "none").toLowerCase() !== modalEngineFilter) return false;
+    if (modalPatchNameFilter !== "all" && p.patchName !== modalPatchNameFilter) return false;
+    return true;
+  });
+
+  const searchList = patchesToSearch.length > 0 ? patchesToSearch : (app?.patches || [patch]);
+  for (const p of searchList) {
+    if (!p.builds) continue;
+    const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
+    sampleBuild = buildsList.find((b) => b.assets && b.assets.some((a) => /\.(apk|apks|xapk|apkm)$/i.test(a.name || ""))) || buildsList[0];
+    if (sampleBuild) break;
+  }
+
   const primaryRepo = getConfigRepos()[0];
-  const repoOwner = sampleBuild?.repoOwner || primaryRepo.owner;
-  const repoName = sampleBuild?.repoName || primaryRepo.repo;
+  const repoOwner = sampleBuild?.repoOwner || (app?.repos && app.repos.length > 0 ? app.repos[0].split("/")[0] : primaryRepo.owner);
+  const repoName = sampleBuild?.repoName || (app?.repos && app.repos.length > 0 ? app.repos[0].split("/")[1] : primaryRepo.repo);
   const repoUrl = sampleBuild?.repoUrl || `https://github.com/${repoOwner}/${repoName}`;
 
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
   const obtainXLatestUrl = "https://github.com/bikram-agarwal/ObtainX/releases";
 
-  const apkVariants = (patch?.variants || []).filter((v) =>
-    patchHasApk(patch, v.variantKey, modalBuildFilter)
-  );
+  const initialVarKey = modalVariantFilter !== "all" ? modalVariantFilter : "all";
+  const initialRegex = buildObtainiumRegex(app, patch, initialVarKey);
+  const patchLabelText = modalPatchNameFilter !== "all" ? patch.patchName : "All Patches";
+  const initialLabel = `${app.appName} (${patchLabelText})`;
+  const initialPackageId = getAppPackageId(app, patch, initialVarKey);
+  const initialSafeId = initialPackageId || `${repoOwner}_${app.appKey}_${patch.patchKey}_${initialVarKey}_0`.replace(/[^a-zA-Z0-9_]/g, "_");
 
-  let step4Content = "";
+  const initialAddSettings = { apkFilterRegEx: initialRegex };
+  if (modalBuildFilter === "beta") initialAddSettings.includePrereleases = true;
 
-  if (apkVariants.length > 1) {
-    const examples = apkVariants.map((v, index) => {
-      const vRegex = buildObtainiumRegex(app, patch, v.variantKey);
-      const vLabel = `${app.appName} (${patch.patchName} - ${v.variantName})`;
-      const vPackageId = getAppPackageId(app, patch, v.variantKey);
-      const vSafeId = vPackageId || `${repoOwner}_${app.appKey}_${patch.patchKey}_${v.variantKey}_${index}`.replace(/[^a-zA-Z0-9_]/g, "_");
+  const initialConfig = {
+    id: initialSafeId,
+    name: initialLabel,
+    author: repoOwner,
+    url: repoUrl,
+    additionalSettings: JSON.stringify(initialAddSettings),
+  };
+  const initialDirectUrl = `obtainium://app/${encodeURIComponent(JSON.stringify(initialConfig))}`;
+  const initialFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(initialConfig)}`)}`;
 
-      const vAdditionalSettings = { apkFilterRegEx: vRegex };
-      if (modalBuildFilter === "beta") {
-        vAdditionalSettings.includePrereleases = true;
-      }
-
-      const vConfig = {
-        id: vSafeId,
-        name: vLabel,
-        author: repoOwner,
-        url: repoUrl,
-        additionalSettings: JSON.stringify(vAdditionalSettings),
-      };
-
-      const encodedVConfig = encodeURIComponent(JSON.stringify(vConfig));
-      const vDirectUrl = `obtainium://app/${encodedVConfig}`;
-      const vFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(vConfig)}`)}`;
-
-      return `
-        <div style="margin-top: 8px;">
-          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: flex; flex-direction: column;">
-            <span>${escapeHtml(vLabel)}</span>
-            ${vPackageId ? `<span style="font-family: monospace; opacity: 0.8; font-weight: normal; margin-top: 2px; cursor: pointer; width: fit-content; word-break: break-all;" onclick="copyToClipboard('${escapeHtml(vPackageId)}', 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(vPackageId)}</span>` : ''}
-          </div>
-          <div class="instruction-code">
-            <code>${escapeHtml(vRegex)}</code>
-            <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(vRegex)}', 'Regex copied!')" type="button" title="Copy Regex">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            </button>
-            <a href="${vDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
-            <a href="${vFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
-          </div>
-        </div>
-      `;
-    }).join("");
-
-    step4Content = `
-      <div style="margin-top: 4px;">
-        ${examples}
+  let step4Content = `
+    <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);">
+      <div style="font-size: 0.84rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+        <span id="obtainiumSelectedLabel">${escapeHtml(initialLabel)}</span>
+        <span id="obtainiumSelectedPkg" style="font-family: monospace; font-size: 0.76rem; opacity: 0.85; cursor: pointer; color: var(--text-muted);" onclick="copyToClipboard(this.textContent, 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(initialPackageId || '')}</span>
       </div>
-    `;
-  } else {
-    const activeVariantKey = apkVariants.length === 1 ? apkVariants[0].variantKey : modalVariantFilter;
-    const regexPattern = buildObtainiumRegex(app, patch, activeVariantKey);
-
-    const mainPackageId = getAppPackageId(app, patch, activeVariantKey || "default");
-    const mainSafeId = mainPackageId || `${repoOwner}_${app?.appKey || "app"}_${patch?.patchKey || "patch"}`.replace(/[^a-zA-Z0-9_]/g, "_");
-    const mainLabel = `${app?.appName || "App"} (${patch?.patchName || "Patch"})`;
-    const mainAdditionalSettings = { apkFilterRegEx: regexPattern };
-    if (modalBuildFilter === "beta") {
-      mainAdditionalSettings.includePrereleases = true;
-    }
-
-    const mainConfig = {
-      id: mainSafeId,
-      name: mainLabel,
-      author: repoOwner,
-      url: repoUrl,
-      additionalSettings: JSON.stringify(mainAdditionalSettings),
-    };
-
-    const encodedMainConfig = encodeURIComponent(JSON.stringify(mainConfig));
-    const mainDirectUrl = `obtainium://app/${encodedMainConfig}`;
-    const mainFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(mainConfig)}`)}`;
-
-    step4Content = `
-      <div style="margin-top: 6px;">
-        ${mainPackageId ? `
-        <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: flex; flex-direction: column;">
-          <span style="font-family: monospace; opacity: 0.8; font-weight: normal; cursor: pointer; width: fit-content; word-break: break-all;" onclick="copyToClipboard('${escapeJsString(mainPackageId)}', 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(mainPackageId)}</span>
-        </div>
-        ` : ''}
-        <div class="instruction-code">
-          <code>${escapeHtml(regexPattern)}</code>
-          <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(regexPattern)}', 'Regex copied!')" type="button" title="Copy Regex">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          </button>
-          <a href="${mainDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
-          <a href="${mainFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
-        </div>
+      <div class="instruction-code" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <code id="obtainiumSelectedRegex" style="flex: 1; min-width: 140px; word-break: break-all;">${escapeHtml(initialRegex)}</code>
+        <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+        <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>
+        <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer">Add (Fallback)</a>
       </div>
-    `;
-  }
+    </div>
+  `;
 
   return `
-    <div class="obtainium-instructions">
+    <div class="obtainium-instructions" style="font-size: 0.85rem; line-height: 1.5;">
       <div style="margin-bottom: 12px;">
-        Make sure you have <strong>Obtainium</strong> (<a href="${obtainiumLatestUrl}" target="_blank" rel="noopener noreferrer">GitHub</a>) or <strong>ObtainX</strong> (<a href="${obtainXLatestUrl}" target="_blank" rel="noopener noreferrer">Releases</a>) installed. Press the <strong>Add to Obtainium</strong> button to add the app(s) automatically or follow the instructions below to add them manually:
+        Make sure you have <strong>Obtainium</strong> (<a href="${obtainiumLatestUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">GitHub</a>) or <strong>ObtainX</strong> (<a href="${obtainXLatestUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Releases</a>) installed.
       </div>
-      <ol>
-        <li>Open Obtainium on your device.</li>
-        <li>Tap <strong>Add App</strong>.</li>
-        <li>In the <strong>App Source URL</strong> box, enter:
-          <div class="instruction-code code-with-copy">
+      <ol style="padding-left: 18px; margin: 0 0 10px;">
+        <li>Open Obtainium and tap <strong>Add App</strong>.</li>
+        <li>In <strong>App Source URL</strong>, enter:
+          <div class="instruction-code code-with-copy" style="margin-top: 4px; margin-bottom: 8px;">
             <code>${repoUrl}</code>
             <button class="copy-btn" onclick="copyToClipboard('${escapeJsString(repoUrl)}', 'Repository URL copied!')" type="button" title="Copy Repository URL">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             </button>
           </div>
         </li>
-        <li>Scroll down to <strong>Filter APKs by regular expression</strong> and enter:
+        <li>Filter by Regular Expression & Add:
           ${step4Content}
         </li>
-        <li>To get beta updates, enable the <strong>Include Pre-releases</strong> toggle.</li>
-        <li>Tap <strong>Add</strong> to begin downloading.</li>
       </ol>
-      <div style="margin-top: 12px">
-        In the future, Obtainium will automatically fetch updates when new releases are published.
-      </div>
     </div>
   `;
 }
@@ -3497,20 +3901,20 @@ function getFileType(filename) {
 function detectArchitecture(filename) {
   const name = (filename || "").toLowerCase();
   if (name.includes("arm64") || name.includes("aarch64") || name.includes("arm64-v8a")) return "arm64";
-  if ((name.includes("arm") && !name.includes("arm64")) || name.includes("arm-v7a") || name.includes("armeabi")) return "arm32";
-  if (name.includes("x86_64") || name.includes("x86-64") || name.includes("x64") || name.includes("win64")) return "x86_64";
+  if ((name.includes("arm") && !name.includes("arm64") && !name.includes("aarch64")) || name.includes("arm-v7a") || name.includes("armeabi")) return "arm32";
+  if (name.includes("x86_64") || name.includes("x86-64") || name.includes("x64") || name.includes("amd64") || name.includes("win64")) return "x86_64";
   if (name.includes("x86") || name.includes("win32") || name.includes("i386") || name.includes("i686")) return "x86";
-  if (name.includes("universal") || name.includes("-all.") || /^(?!.*arm|x86|x64|i386)[^-]*\.(apk|apks|xapk|apkm|exe|msi|zip)$/i.test(name)) return "universal";
+  if (name.includes("universal") || name.includes("-all.") || /^(?!.*arm|aarch64|amd64|x86|x64|i386)[^-]*\.(apk|apks|xapk|apkm|exe|msi|zip)$/i.test(name)) return "universal";
   return "other";
 }
 
 function detectOS(text) {
   const clean = (text || "").toLowerCase();
-  if (clean.includes("android")) return "android";
   if (clean.includes("termux")) return "termux";
   if (clean.includes("macos") || clean.includes("mac") || clean.includes("darwin") || clean.includes("osx")) return "macos";
   if (clean.includes("windows") || clean.includes("win") || clean.includes(".exe") || clean.includes(".msi")) return "windows";
   if (clean.includes("linux") || clean.includes("ubuntu") || clean.includes("debian") || clean.includes(".appimage") || clean.includes(".deb") || clean.includes(".rpm")) return "linux";
+  if (clean.includes("android") || /\.apk[sm]?$/i.test(clean)) return "android";
   return "android";
 }
 
@@ -3528,7 +3932,7 @@ function capitalizeArch(arch) {
   const map = {
     arm64: "ARM64 (v8a)",
     arm32: "ARM32 (v7a)",
-    universal: "Universal",
+    universal: "Universal / All",
     x86_64: "x86_64 (64-bit)",
     x86: "x86 (32-bit)",
     other: "Other"
@@ -3601,31 +4005,19 @@ function parseAssetDisplay(filename, arch, fileType) {
   let patchTokens = [];
   let variantTokens = [];
 
-  if (patchStartIndex >= 0) {
-    appTokens = preMetaTokens.slice(0, patchStartIndex);
-    patchTokens = preMetaTokens.slice(patchStartIndex);
-
-    // If appTokens is ['brave', 'beta'] or ['brave', 'nightly'], move channel token to variantTokens
-    if (appTokens.length > 1 && appTokens[0].toLowerCase() === "brave" && ["beta", "nightly", "stable"].includes(appTokens[appTokens.length - 1].toLowerCase())) {
-      variantTokens.unshift(appTokens[appTokens.length - 1]);
-      appTokens = appTokens.slice(0, -1);
+  preMetaTokens.forEach((token) => {
+    const tLower = token.toLowerCase();
+    if (CONFIG.patchTokens.has(tLower)) {
+      patchTokens.push(token);
+    } else if (CONFIG.variantTokens.has(tLower) || ["stable", "beta", "nightly", "dev", "alpha"].includes(tLower)) {
+      variantTokens.push(token);
+    } else {
+      appTokens.push(token);
     }
+  });
 
-    while (patchTokens.length > 1 && CONFIG.variantTokens.has(patchTokens[patchTokens.length - 1].toLowerCase())) {
-      variantTokens.unshift(patchTokens[patchTokens.length - 1]);
-      patchTokens = patchTokens.slice(0, -1);
-    }
-  } else {
-    appTokens = preMetaTokens;
-    patchTokens = [];
-
-    while (appTokens.length > 1 && CONFIG.variantTokens.has(appTokens[appTokens.length - 1].toLowerCase())) {
-      variantTokens.unshift(appTokens[appTokens.length - 1]);
-      appTokens = appTokens.slice(0, -1);
-    }
-  }
-
-  while (appTokens.length > 1 && (CONFIG.variantTokens.has(appTokens[appTokens.length - 1].toLowerCase()) || ["stable", "beta", "nightly", "dev", "alpha"].includes(appTokens[appTokens.length - 1].toLowerCase()))) {
+  // If appTokens is ['brave', 'beta'] or similar, move channel token to variantTokens
+  if (appTokens.length > 1 && ["beta", "nightly", "dev", "alpha", "stable"].includes(appTokens[appTokens.length - 1].toLowerCase())) {
     variantTokens.unshift(appTokens[appTokens.length - 1]);
     appTokens = appTokens.slice(0, -1);
   }
@@ -3644,11 +4036,11 @@ function parseAssetDisplay(filename, arch, fileType) {
 
   const variantDisplayName = variantTokens.length > 0
     ? variantTokens.map((v) => formatBrandDisplayName(v)).join(" + ")
-    : null;
+    : "Standard";
 
   const rawVariant = variantTokens.length > 0
     ? variantTokens.map((v) => v.toLowerCase()).join("+")
-    : null;
+    : "standard";
 
   const appNameRaw = appTokens.length > 0 ? appTokens.join(" ") : (preMetaTokens.join(" ") || baseName);
   const patchNameList = patchTokens.length > 0
