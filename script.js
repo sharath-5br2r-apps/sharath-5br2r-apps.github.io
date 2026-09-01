@@ -3564,7 +3564,7 @@ function openObtainiumModal() {
   showModal(DOM.obtainiumModal);
 }
 
-function createObtainiumInstructions(app, patch) {
+function createObtainiumInstructions(app, patch, variantKey) {
   let sampleBuild = null;
   const patchesToSearch = (app?.patches || [patch]).filter((p) => {
     if (modalEngineFilter !== "all" && (p.engineToken || "none").toLowerCase() !== modalEngineFilter) return false;
@@ -3573,7 +3573,7 @@ function createObtainiumInstructions(app, patch) {
   });
 
   const searchList = patchesToSearch.length > 0 ? patchesToSearch : (app?.patches || [patch]);
-  const effectiveVar = variantKey !== undefined ? variantKey : modalVariantFilter;
+  const effectiveVar = (typeof variantKey !== "undefined" && variantKey !== "all") ? variantKey : modalVariantFilter;
   for (const p of searchList) {
     if (!p.builds) continue;
     const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
@@ -3593,7 +3593,7 @@ function createObtainiumInstructions(app, patch) {
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
   const obtainXLatestUrl = "https://github.com/bikram-agarwal/ObtainX/releases";
 
-  const initialVarKey = (variantKey !== undefined && variantKey !== "all")
+  const initialVarKey = (typeof variantKey !== "undefined" && variantKey !== "all")
     ? variantKey
     : (modalVariantFilter !== "all" ? modalVariantFilter : "all");
   const initialRegex = buildObtainiumRegex(app, patch, initialVarKey);
