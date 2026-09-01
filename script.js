@@ -2778,16 +2778,14 @@ function createPatchModalContent(app, patch, buildFilter = "stable", variantFilt
   const initialFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(initialConfig)}`)}`;
 
   const obtainiumSectionMarkup = hasApk
-    ? `<div class="modal-repo-banner" style="background: var(--bg-tertiary); border: 1px solid var(--border); padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 16px; font-size: 0.85rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-        <div style="display: flex; align-items: center; gap: 8px; flex: 1 1 200px; min-width: 0;">
-          <span style="font-weight: 700; color: var(--accent-obtainium); white-space: nowrap; flex-shrink: 0;">📲 Obtainium:</span>
+    ? `<div class="modal-repo-banner" style="background: var(--bg-tertiary); border: 1px solid var(--border); padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 16px; font-size: 0.85rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+        <div style="display: flex; align-items: center; gap: 8px; flex: 1 1 180px; min-width: 0;">
+          <span style="font-weight: 700; color: var(--accent-obtainium); white-space: nowrap; flex-shrink: 0;">📲 Obtainium Regex:</span>
           <code id="obtainiumSelectedRegex" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0;">${escapeHtml(initialRegex)}</code>
-          <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex" style="padding: 4px 8px; font-size: 0.75rem; flex-shrink: 0;">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-          </button>
         </div>
         <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; flex-shrink: 0;">
-          <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer" style="padding: 6px 10px; font-size: 0.76rem;">Add to Obtainium</a>
+          <button id="obtainiumCopyRegexBtn" class="copy-btn" onclick="copyToClipboard(document.getElementById('obtainiumSelectedRegex').textContent, 'Regex copied!')" type="button" title="Copy Regex" style="padding: 6px 10px; font-size: 0.76rem;">📋 Copy</button>
+          <a id="obtainiumDirectBtn" href="${initialDirectUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer" style="padding: 6px 10px; font-size: 0.76rem;">Add</a>
           <a id="obtainiumFallbackBtn" href="${initialFallbackUrl}" class="obtainium-add-btn fallback-btn" target="_blank" rel="noopener noreferrer" style="padding: 6px 10px; font-size: 0.76rem; background: var(--bg-secondary); color: var(--text-primary) !important; border: 1px solid var(--border);">Add (Fallback)</a>
           <button id="obtainiumInstructionsBtn" type="button" class="modal-filter-btn" style="padding: 6px 10px; font-size: 0.76rem; border-color: var(--accent-obtainium); color: var(--accent-obtainium);">📖 Instructions</button>
         </div>
