@@ -668,6 +668,8 @@ function initDOM() {
   DOM.catalogCountText = document.getElementById("catalogCountText");
   DOM.lastUpdateText = document.getElementById("lastUpdateText");
   DOM.themeBtn = document.getElementById("themeBtn");
+  DOM.troubleshootBtn = document.getElementById("troubleshootBtn");
+  DOM.troubleshootModal = document.getElementById("troubleshootModal");
   DOM.clearCacheBtn = document.getElementById("clearCacheBtn");
   DOM.menuBtn = document.getElementById("menuBtn");
   DOM.actionMenu = document.getElementById("actionMenu");
@@ -861,36 +863,35 @@ function setupEventListeners() {
     });
   }
 
-  // Clear Cache Button 🗑️
-  if (DOM.clearCacheBtn) {
-    DOM.clearCacheBtn.addEventListener("click", async () => {
-      showToast("Clearing website cache...");
-      try {
-        localStorage.clear();
-        sessionStorage.clear();
-        parseCache.clear();
-        tokenCache.clear();
-        masterBuildDataCache = null;
+  // Clear Cache & Refresh Button 🗑️
+  document.addEventListener("click", async (e) => {
+    const targetBtn = e.target.closest("#clearCacheBtn");
+    if (!targetBtn) return;
+    
+    showToast("Clearing website cache and refreshing...");
+    try {
+      localStorage.clear();
+      sessionStorage.clear();
+      parseCache.clear();
+      tokenCache.clear();
+      masterBuildDataCache = null;
 
-        if ("caches" in window) {
-          const cacheKeys = await caches.keys();
-          await Promise.all(cacheKeys.map((key) => caches.delete(key)));
-        }
-
-        if ("serviceWorker" in navigator) {
-          const registrations = await navigator.serviceWorker.getRegistrations();
-          await Promise.all(registrations.map((reg) => reg.unregister()));
-        }
-      } catch (err) {
-        console.warn("Cache clear warning:", err);
+      if ("caches" in window) {
+        const cacheKeys = await caches.keys();
+        await Promise.all(cacheKeys.map((key) => caches.delete(key)));
       }
 
-      showToast("Cache cleared! Reloading...");
-      setTimeout(() => {
-        window.location.reload(true);
-      }, 500);
-    });
-  }
+      if ("serviceWorker" in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(registrations.map((r) => r.unregister()));
+      }
+    } catch (err) {
+      console.warn("Failed to clear some caches:", err);
+    }
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 600);
+  });
 
   // Floating Action Menu
   if (DOM.menuBtn && DOM.actionMenu) {
@@ -1273,6 +1274,24 @@ function setupEventListeners() {
     });
   }
 
+  // Troubleshooting Modal 🛠️
+  if (DOM.troubleshootBtn) {
+    DOM.troubleshootBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // Re-bind clear cache button inside modal if initialized dynamically
+      DOM.clearCacheBtn = document.getElementById("clearCacheBtn");
+      if (DOM.troubleshootModal) showModal(DOM.troubleshootModal);
+    });
+  }
+
+  if (DOM.troubleshootModal) {
+    DOM.troubleshootModal.addEventListener("click", (e) => {
+      if (e.target.id === "troubleshootModal" || e.target.closest(".modal-close")) {
+        hideModal(DOM.troubleshootModal);
+      }
+    });
+  }
+
   // Credits Modal
   if (DOM.creditsBtn) {
     DOM.creditsBtn.addEventListener("click", (e) => {
@@ -1295,6 +1314,7 @@ function setupEventListeners() {
       closePatchModal();
       closeAppliedPatchesModal();
       closeObtainiumModal();
+      if (DOM.troubleshootModal) hideModal(DOM.troubleshootModal);
       if (DOM.creditsModal) hideModal(DOM.creditsModal);
     }
   });
