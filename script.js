@@ -2366,10 +2366,6 @@ function patchHasApk(patch, variantKey = "all", buildFilter = "stable") {
   const patchesToCheck = app ? (app.patches || []) : [patch];
 
   return patchesToCheck.some((p) => {
-    if (modalEngineFilter !== "all" && (p.engineToken || "none").toLowerCase() !== modalEngineFilter) return false;
-    if (modalPatchNameFilter !== "all" && p.patchName !== modalPatchNameFilter) return false;
-    if (modalOsFilter !== "all" && (p.targetOS || "android").toLowerCase() !== modalOsFilter.toLowerCase()) return false;
-
     if (!p.builds) return false;
     const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
 
@@ -3597,10 +3593,13 @@ function createObtainiumInstructions(app, patch) {
   const obtainiumLatestUrl = "https://github.com/ImranR98/Obtainium/releases/latest";
   const obtainXLatestUrl = "https://github.com/bikram-agarwal/ObtainX/releases";
 
-  const initialVarKey = modalVariantFilter !== "all" ? modalVariantFilter : "all";
+  const initialVarKey = (variantKey !== undefined && variantKey !== "all")
+    ? variantKey
+    : (modalVariantFilter !== "all" ? modalVariantFilter : "all");
   const initialRegex = buildObtainiumRegex(app, patch, initialVarKey);
   const patchLabelText = modalPatchNameFilter !== "all" ? patch.patchName : "All Patches";
-  const initialLabel = `${app.appName} (${patchLabelText})`;
+  const varLabelText = initialVarKey !== "all" && initialVarKey !== "default" && initialVarKey !== "standard" ? ` - ${initialVarKey}` : "";
+  const initialLabel = `${app.appName} (${patchLabelText}${varLabelText})`;
   const initialPackageId = getAppPackageId(app, patch, initialVarKey);
   const initialSafeId = initialPackageId || `${repoOwner}_${app.appKey}_${patch.patchKey}_${initialVarKey}_0`.replace(/[^a-zA-Z0-9_]/g, "_");
 
