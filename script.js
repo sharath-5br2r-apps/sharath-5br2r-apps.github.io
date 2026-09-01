@@ -2530,6 +2530,11 @@ function updateModalFilterButtons(app, activePatch) {
     }
     if (p.variants) {
       p.variants.forEach((v) => {
+        const vKeyNorm = (v.variantKey || "").toLowerCase();
+        const vNameNorm = (v.variantName || "").toLowerCase();
+        if (vKeyNorm === "beta" || vKeyNorm === "nightly" || vNameNorm === "beta" || vNameNorm === "nightly") {
+          return;
+        }
         if (!variantsMap.has(v.variantKey)) {
           variantsMap.set(v.variantKey, v.variantName);
         }
