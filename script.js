@@ -3371,15 +3371,23 @@ function closeAppliedPatchesModal() {
   hideModal(DOM.appliedPatchesModal);
 }
 
+// Helper to build Obtainium APK Filter Regex dynamically matching release asset filenames
 function buildObtainiumRegex(app, patch, variantKey) {
+  // Extract file extension and raw asset filename metadata from sample build assets across matching patches
   let extension = "apk";
   let sampleAsset = null;
 
-  // Find sample asset matching active patch & variant filters
-  const patchesToSearch = app?.patches || [patch];
-  const effectiveVar = variantKey !== undefined ? variantKey : modalVariantFilter;
+  const patchesToSearch = (app?.patches || [patch]).filter((p) => {
+    if (modalEngineFilter !== "all" && (p.engineToken || "none").toLowerCase() !== modalEngineFilter) return false;
+    if (modalPatchNameFilter !== "all" && p.patchName !== modalPatchNameFilter) return false;
+    if (modalOsFilter !== "all" && (p.targetOS || "android").toLowerCase() !== modalOsFilter.toLowerCase()) return false;
+    return true;
+  });
 
-  for (const p of patchesToSearch) {
+  const searchList = patchesToSearch.length > 0 ? patchesToSearch : (app?.patches || [patch]);
+
+  const effectiveVar = variantKey !== undefined ? variantKey : modalVariantFilter;
+  for (const p of searchList) {
     if (!p.builds) continue;
     const buildsList = Array.isArray(p.builds) ? p.builds : Array.from(p.builds.values());
     const varBuilds = (effectiveVar && effectiveVar !== "all")
@@ -3392,48 +3400,82 @@ function buildObtainiumRegex(app, patch, variantKey) {
       sampleAsset = b.assets.find((a) => a.name && /\.(apk|apks|xapk|apkm)$/i.test(a.name));
       if (sampleAsset) {
         const match = sampleAsset.name.match(/\.([a-z0-9]+)$/i);
-        if (match) extension = match[1];
+        if (match) {
+          extension = match[1];
+        }
         break;
       }
     }
     if (sampleAsset) break;
   }
 
-  // 1. If sample asset filename is available, slice exact prefix before -v<version>
-  if (sampleAsset?.name) {
-    const filename = sampleAsset.name;
-    const vMatch = filename.match(/^(.+?)-v\d+/i);
-    if (vMatch && vMatch[1]) {
-      const prefix = vMatch[1].replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      return `^${prefix}-v.*\\.${extension}$`;
-    }
-
-    // Secondary fallback: replace trailing digits/version with wildcard
-    const baseName = filename.replace(/\.[^/.]+$/, "");
-    const basePrefix = baseName.replace(/-v?[\d._]+.*$/, "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    return `^${basePrefix}-v.*\\.${extension}$`;
-  }
-
-  // 2. Structured fallback if no asset filename available
   const parsedAsset = sampleAsset?.parsed;
   const parts = [];
-  const rawAppSlug = parsedAsset?.rawAppSlug || (app?.appKey ? app.appKey.toLowerCase().replace(/\s+/g, "-") : "app");
-  parts.push(rawAppSlug);
 
-  const engineToken = parsedAsset?.engineToken || (patch?.engineToken && patch.engineToken !== "none" ? patch.engineToken.toLowerCase() : "");
-  if (engineToken && engineToken !== "official" && engineToken !== "default") parts.push(engineToken);
-
-  const patchSlug = parsedAsset?.rawPatchSlug || (patch?.patchName ? patch.patchName.toLowerCase().replace(/\s+/g, "-") : "");
-  if (patchSlug && patchSlug !== "official" && patchSlug !== "default") parts.push(patchSlug);
-
-  const osToken = parsedAsset?.osToken || patch?.targetOS || "android";
-  if (osToken) parts.push(osToken);
-
-  if (effectiveVar && effectiveVar !== "all" && effectiveVar !== "default" && effectiveVar !== "standard") {
-    parts.push((parsedAsset?.rawVariant || effectiveVar).replace(/\+/g, "-").toLowerCase());
+  // 1. App Slug (unbranded raw token from asset filename)
+  const rawAppSlug = parsedAsset?.rawAppSlug || (app?.appKey ? app.appKey.toLowerCase().replace(/\s+/g, "-") : "");
+  if (rawAppSlug) {
+    parts.push(rawAppSlug);
   }
 
-  return `^${parts.join("-")}-v.*\\.${extension}$`;
+  // 2. Patch Engine (if 'all', replace with wildcard '.*', omit if missing/none/official/default)
+  let engineToken = modalEngineFilter === "all"
+    ? ".*"
+    : (parsedAsset?.engineToken || (modalEngineFilter !== "default" ? modalEngineFilter : ""));
+
+  if (engineToken && engineToken !== "official" && engineToken !== "default" && engineToken !== "none") {
+    parts.push(engineToken);
+  }
+
+  // 3. Patch Name Slug (if 'all', replace with wildcard '.*', omit if 'official')
+  let rawPatchSlug = parsedAsset?.rawPatchSlug;
+  if (!rawPatchSlug && patch?.patchName && patch.patchName.toLowerCase() !== "official") {
+    rawPatchSlug = patch.patchName.toLowerCase().replace(/\s+/g, "-");
+  }
+
+  let patchNameToken = modalPatchNameFilter === "all"
+    ? ".*"
+    : (rawPatchSlug || "");
+
+  if (patchNameToken && patchNameToken !== "official" && patchNameToken !== "default") {
+    parts.push(patchNameToken);
+  }
+
+  // 4. OS Name (only explicitly include if sample asset filename explicitly contains OS token)
+  let osName = parsedAsset?.osToken || (modalOsFilter !== "all" ? modalOsFilter : "");
+  let sampleFilename = sampleAsset?.name ? sampleAsset.name.toLowerCase() : "";
+
+  if (osName && sampleFilename && sampleFilename.includes(osName)) {
+    parts.push(osName);
+  } else if (modalOsFilter === "all" && sampleFilename && (sampleFilename.includes("android") || sampleFilename.includes("windows") || sampleFilename.includes("linux") || sampleFilename.includes("macos") || sampleFilename.includes("termux"))) {
+    parts.push(".*");
+  }
+
+  // 5. Variant (unbranded raw variant token)
+  const effectiveVariant = variantKey !== undefined ? variantKey : modalVariantFilter;
+  const variantToken = (effectiveVariant && effectiveVariant !== "all" && effectiveVariant !== "default" && effectiveVariant !== "standard")
+    ? (parsedAsset?.rawVariant || effectiveVariant).replace(/\+/g, "-").toLowerCase()
+    : (effectiveVariant === "all" ? ".*" : "");
+  if (variantToken) {
+    parts.push(variantToken);
+  }
+
+  // Construct regex pattern safely with wildcards
+  let pattern = "^";
+  parts.forEach((token, index) => {
+    if (index > 0) {
+      pattern += "-";
+    }
+    pattern += token;
+  });
+
+  // Replace wildcard tokens surrounded by hyphens (e.g., "-.*-" -> ".*", "-.*" -> ".*", ".*-" -> ".*")
+  pattern = pattern
+    .replace(/-?\.\*-?/g, ".*")
+    .replace(/(\.\*)+/g, ".*")
+    .replace(/^-/, "");
+
+  return `${pattern}-v.*\\.${extension}$`;
 }
 
 function toggleObtainiumDropdown() {
