@@ -667,7 +667,9 @@ function initDOM() {
   DOM.appFilterButtons = document.getElementById("appFilterButtons");
   DOM.catalogCountText = document.getElementById("catalogCountText");
   DOM.lastUpdateText = document.getElementById("lastUpdateText");
-  DOM.themeBtn = document.getElementById("themeBtn");
+  DOM.settingsBtn = document.getElementById("settingsBtn");
+  DOM.settingsModal = document.getElementById("settingsModal");
+  DOM.systemFontCheckbox = document.getElementById("systemFontCheckbox");
   DOM.troubleshootBtn = document.getElementById("troubleshootBtn");
   DOM.troubleshootModal = document.getElementById("troubleshootModal");
   DOM.clearCacheBtn = document.getElementById("clearCacheBtn");
@@ -790,11 +792,23 @@ document.addEventListener("DOMContentLoaded", () => {
   loadReleases();
 });
 
-// Theme Management
+// Theme & Settings Management
+let themeStyle = "zen";
+let isSystemFont = false;
+
 function setupTheme() {
   const savedTheme = localStorage.getItem("theme");
   themeMode = ["light", "dark", "system"].includes(savedTheme) ? savedTheme : "system";
+
+  const savedStyle = localStorage.getItem("theme_style");
+  themeStyle = ["zen", "material"].includes(savedStyle) ? savedStyle : "zen";
+
+  const savedFont = localStorage.getItem("system_font");
+  isSystemFont = savedFont === "true";
+
   applyTheme(themeMode);
+  applyThemeStyle(themeStyle);
+  applySystemFont(isSystemFont);
 
   const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
   mediaQuery.addEventListener("change", () => {
@@ -812,12 +826,37 @@ function applyTheme(theme) {
 
   document.body.classList.toggle("light-mode", isLight);
   if (DOM.themeColorMeta) {
-    DOM.themeColorMeta.setAttribute("content", isLight ? "#ffffff" : "#000000");
+    DOM.themeColorMeta.setAttribute("content", isLight ? (themeStyle === "material" ? "#ffffff" : "#faf8f5") : (themeStyle === "material" ? "#000000" : "#1a1814"));
   }
 
-  if (DOM.themeBtn) {
-    DOM.themeBtn.textContent = theme === "system" ? "🖥️" : theme === "light" ? "☀️" : "🌙";
-    DOM.themeBtn.setAttribute("aria-label", `Theme mode: ${theme}`);
+  // Sync mode buttons in Settings modal
+  const modeButtons = document.querySelectorAll("#modeSelectButtons .modal-filter-btn");
+  modeButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.mode === theme);
+  });
+}
+
+function applyThemeStyle(style) {
+  themeStyle = style;
+  document.body.classList.toggle("theme-material", style === "material");
+
+  const isLight = document.body.classList.contains("light-mode");
+  if (DOM.themeColorMeta) {
+    DOM.themeColorMeta.setAttribute("content", isLight ? (style === "material" ? "#ffffff" : "#faf8f5") : (style === "material" ? "#000000" : "#1a1814"));
+  }
+
+  // Sync style buttons in Settings modal
+  const styleButtons = document.querySelectorAll("#styleSelectButtons .modal-filter-btn");
+  styleButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.style === style);
+  });
+}
+
+function applySystemFont(useSystem) {
+  isSystemFont = useSystem;
+  document.body.classList.toggle("system-font", useSystem);
+  if (DOM.systemFontCheckbox) {
+    DOM.systemFontCheckbox.checked = useSystem;
   }
 }
 
@@ -853,13 +892,48 @@ function hideModal(modalEl) {
 function setupEventListeners() {
   let searchTimeout;
 
-  // Theme Toggle Button
-  if (DOM.themeBtn) {
-    DOM.themeBtn.addEventListener("click", () => {
-      const nextTheme = themeMode === "system" ? "light" : themeMode === "light" ? "dark" : "system";
-      themeMode = nextTheme;
-      localStorage.setItem("theme", nextTheme);
-      applyTheme(nextTheme);
+  // Settings Modal ⚙️
+  if (DOM.settingsBtn) {
+    DOM.settingsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      applyTheme(themeMode);
+      applyThemeStyle(themeStyle);
+      applySystemFont(isSystemFont);
+      if (DOM.settingsModal) showModal(DOM.settingsModal);
+    });
+  }
+
+  if (DOM.settingsModal) {
+    DOM.settingsModal.addEventListener("click", (e) => {
+      const modeBtn = e.target.closest("#modeSelectButtons .modal-filter-btn");
+      if (modeBtn) {
+        const selectedMode = modeBtn.dataset.mode;
+        themeMode = selectedMode;
+        localStorage.setItem("theme", selectedMode);
+        applyTheme(selectedMode);
+        return;
+      }
+
+      const styleBtn = e.target.closest("#styleSelectButtons .modal-filter-btn");
+      if (styleBtn) {
+        const selectedStyle = styleBtn.dataset.style;
+        themeStyle = selectedStyle;
+        localStorage.setItem("theme_style", selectedStyle);
+        applyThemeStyle(selectedStyle);
+        return;
+      }
+
+      if (e.target.id === "settingsModal" || e.target.closest(".modal-close")) {
+        hideModal(DOM.settingsModal);
+      }
+    });
+  }
+
+  if (DOM.systemFontCheckbox) {
+    DOM.systemFontCheckbox.addEventListener("change", (e) => {
+      const useSystem = e.target.checked;
+      localStorage.setItem("system_font", useSystem ? "true" : "false");
+      applySystemFont(useSystem);
     });
   }
 
@@ -1314,6 +1388,7 @@ function setupEventListeners() {
       closePatchModal();
       closeAppliedPatchesModal();
       closeObtainiumModal();
+      if (DOM.settingsModal) hideModal(DOM.settingsModal);
       if (DOM.troubleshootModal) hideModal(DOM.troubleshootModal);
       if (DOM.creditsModal) hideModal(DOM.creditsModal);
     }
