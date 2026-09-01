@@ -3441,13 +3441,13 @@ function buildObtainiumRegex(app, patch, variantKey) {
     parts.push(patchNameToken);
   }
 
-  // 4. OS Name (only explicitly include if sample asset filename explicitly contains OS token)
-  let osName = parsedAsset?.osToken || (modalOsFilter !== "all" ? modalOsFilter : "");
+  // 4. OS Name (include OS token if parsed or matching sample filename)
+  let osName = parsedAsset?.osToken || (modalOsFilter !== "all" ? modalOsFilter : "android");
   let sampleFilename = sampleAsset?.name ? sampleAsset.name.toLowerCase() : "";
 
-  if (osName && sampleFilename && sampleFilename.includes(osName)) {
+  if (osName && (sampleFilename.includes(osName) || !sampleFilename)) {
     parts.push(osName);
-  } else if (modalOsFilter === "all" && sampleFilename && (sampleFilename.includes("android") || sampleFilename.includes("windows") || sampleFilename.includes("linux") || sampleFilename.includes("macos") || sampleFilename.includes("termux"))) {
+  } else if (sampleFilename && (sampleFilename.includes("android") || sampleFilename.includes("windows") || sampleFilename.includes("linux") || sampleFilename.includes("macos") || sampleFilename.includes("termux"))) {
     parts.push(".*");
   }
 
