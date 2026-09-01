@@ -944,11 +944,21 @@ function setupEventListeners() {
     
     showToast("Clearing website cache and refreshing...");
     try {
+      // Preserve User Settings
+      const savedTheme = localStorage.getItem("theme");
+      const savedThemeStyle = localStorage.getItem("theme_style");
+      const savedSystemFont = localStorage.getItem("system_font");
+
       localStorage.clear();
       sessionStorage.clear();
       parseCache.clear();
       tokenCache.clear();
       masterBuildDataCache = null;
+
+      // Restore User Settings
+      if (savedTheme) localStorage.setItem("theme", savedTheme);
+      if (savedThemeStyle) localStorage.setItem("theme_style", savedThemeStyle);
+      if (savedSystemFont) localStorage.setItem("system_font", savedSystemFont);
 
       if ("caches" in window) {
         const cacheKeys = await caches.keys();
