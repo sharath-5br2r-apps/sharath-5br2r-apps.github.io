@@ -120,6 +120,12 @@ def merge_entry_into_master(master_build, target_key, info, release_tag=None):
     entry = dict(info)
     if "changelog" not in entry and "changlog" in entry:
         entry["changelog"] = entry.pop("changlog")
+
+    if "patches" in entry and isinstance(entry["patches"], str):
+        entry["patches"] = [p.strip() for p in re.split(r"[|\s]+", entry["patches"]) if p.strip()]
+    if "changelog" in entry and isinstance(entry["changelog"], str):
+        entry["changelog"] = [c.strip() for c in re.split(r"[|\s]+", entry["changelog"]) if c.strip()]
+
     if release_tag:
         entry["release_tag"] = release_tag
     bucket_key = release_tag or "untagged"
