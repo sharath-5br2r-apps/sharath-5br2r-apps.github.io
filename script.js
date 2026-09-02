@@ -3105,7 +3105,9 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
 
     function isPatchEntry(obj) {
       return obj && typeof obj === "object" && (
-        Array.isArray(obj.applied_patches) || typeof obj.patches === "string" || typeof obj.changelog === "string"
+        Array.isArray(obj.applied_patches) ||
+        Array.isArray(obj.patches) || typeof obj.patches === "string" ||
+        Array.isArray(obj.changelog) || typeof obj.changelog === "string"
       );
     }
 
