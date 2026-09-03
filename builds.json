@@ -1,4 +1,900 @@
 {
+  "260195": {
+    "github-morphe-hoodles-stylus-exp-v1.275.0-all.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-arm64-v8a.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-x86_64.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-arm-v7a.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "brave-stable-morphe-kveld9-v1.94.119-arm-v7a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.94.119",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.12.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.12.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "brave-stable-morphe-kveld9-v1.94.119-x86_64.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.94.119",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.12.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.12.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "brave-stable-morphe-kveld9-v1.94.119-arm64-v8a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.94.119",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.12.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.12.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-arm-v7a.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-x86_64.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-arm64-v8a.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260195"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-all.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260195"
+    }
+  },
+  "260194": {
+    "brave-stable-morphe-kveld9-v1.94.119-arm-v7a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.94.119",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.12.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.12.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "brave-stable-morphe-kveld9-v1.94.119-x86_64.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.94.119",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.12.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.12.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "brave-stable-morphe-kveld9-v1.94.119-arm64-v8a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.94.119",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.12.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.12.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-arm-v7a.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-x86_64.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-arm64-v8a.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "windscribe-vpn-morphe-rushiranpise-exp-v4.3.2360-all.apk": {
+      "name": "windscribe-vpn-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "4.3.2360",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-all.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-arm-v7a.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-arm64-v8a.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260194"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-x86_64.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260194"
+    }
+  },
   "260193": {
     "bitwarden-morphe-stylus-v2026.8.1-arm-v7a.apk": {
       "name": "bitwarden-morphe-stylus",
