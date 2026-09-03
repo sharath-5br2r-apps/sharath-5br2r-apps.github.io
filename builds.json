@@ -1,4 +1,404 @@
 {
+  "260193": {
+    "bitwarden-morphe-stylus-v2026.8.1-arm-v7a.apk": {
+      "name": "bitwarden-morphe-stylus",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260193"
+    },
+    "bitwarden-morphe-stylus-v2026.8.1-arm64-v8a.apk": {
+      "name": "bitwarden-morphe-stylus",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260193"
+    },
+    "bitwarden-morphe-stylus-v2026.8.1-all.apk": {
+      "name": "bitwarden-morphe-stylus",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260193"
+    },
+    "bitwarden-morphe-stylus-exp-v2026.8.1-arm-v7a.apk": {
+      "name": "bitwarden-morphe-stylus-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260193"
+    },
+    "bitwarden-morphe-stylus-exp-v2026.8.1-arm64-v8a.apk": {
+      "name": "bitwarden-morphe-stylus-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260193"
+    },
+    "bitwarden-morphe-stylus-exp-v2026.8.1-all.apk": {
+      "name": "bitwarden-morphe-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260193"
+    }
+  },
+  "260192": {
+    "bitwarden-morphe-stylus-v2026.8.1-arm-v7a.apk": {
+      "name": "bitwarden-morphe-stylus",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260192"
+    },
+    "bitwarden-morphe-stylus-v2026.8.1-arm64-v8a.apk": {
+      "name": "bitwarden-morphe-stylus",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260192"
+    },
+    "bitwarden-morphe-stylus-v2026.8.1-all.apk": {
+      "name": "bitwarden-morphe-stylus",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260192"
+    },
+    "bitwarden-morphe-stylus-exp-v2026.8.1-arm-v7a.apk": {
+      "name": "bitwarden-morphe-stylus-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260192"
+    },
+    "bitwarden-morphe-stylus-exp-v2026.8.1-arm64-v8a.apk": {
+      "name": "bitwarden-morphe-stylus-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260192"
+    },
+    "bitwarden-morphe-stylus-exp-v2026.8.1-all.apk": {
+      "name": "bitwarden-morphe-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "260192"
+    }
+  },
   "260191": {
     "xrecorder-morphe-hoodles-v2.5.1.1-arm-v7a.apk": {
       "name": "xrecorder-morphe-hoodles",
@@ -387558,6 +387958,338 @@
         "Disable Facebook SDK Tracking (default)"
       ],
       "release_tag": "260138"
+    }
+  },
+  "dolphin-pr-14830": {
+    "dolphin-extra-android-stock-vpr14830-all.apk": {
+      "name": "dolphin-extra-android-stock-vpr14830-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14830: SDLGamepad: Add Misc 2 through 6 + Custom Storage Location",
+      "patches": [
+        "dolphin-extra"
+      ],
+      "changelog": [
+        "Built",
+        "from",
+        "custom",
+        "master",
+        "branch,",
+        "merged",
+        "with",
+        "the",
+        "custom",
+        "user",
+        "data",
+        "storage",
+        "location",
+        "feature",
+        "(Scoped",
+        "Storage",
+        "/",
+        "Internal",
+        "Storage",
+        "/",
+        "SD",
+        "Card)",
+        "and",
+        "Games",
+        "on",
+        "Wii",
+        "Menu",
+        "Patch.",
+        "Built",
+        "from",
+        "upstream",
+        "Dolphin",
+        "PR",
+        "`#14830`.",
+        "###",
+        "Upstream",
+        "Dolphin",
+        "PR",
+        "[#14830](https://github.com/dolphin-emu/dolphin/pull/14830)",
+        "**Title:**",
+        "SDLGamepad:",
+        "Add",
+        "Misc",
+        "2",
+        "through",
+        "6",
+        "**Author:**",
+        "[@JoshuaVandaele](https://github.com/JoshuaVandaele)",
+        "####",
+        "PR",
+        "Description",
+        "Misc",
+        "2-6",
+        "are",
+        "currently",
+        "unnamed",
+        "generic",
+        "buttons",
+        "in",
+        "Dolphin.",
+        "SDL3",
+        "has",
+        "added",
+        "more",
+        "misc",
+        "buttons",
+        "for",
+        "\"additional",
+        "controller",
+        "buttons\"",
+        "(e.g.",
+        "left/right",
+        "trigger",
+        "clicks",
+        "on",
+        "a",
+        "GameCube",
+        "controller,",
+        "or",
+        "for",
+        "the",
+        "second",
+        "touchpad",
+        "click",
+        "on",
+        "the",
+        "Steam",
+        "Controller)",
+        "which",
+        "map",
+        "to",
+        "these",
+        "additional",
+        "named",
+        "Misc",
+        "buttons.",
+        "The",
+        "names",
+        "Misc",
+        "2-6",
+        "are",
+        "taken",
+        "from",
+        "[SDL_GamepadButton](https://wiki.libsdl.org/SDL3/SDL_GamepadButton).",
+        "This",
+        "change",
+        "is",
+        "backwards",
+        "compatible",
+        "with",
+        "old",
+        "configs,",
+        "as",
+        "seen",
+        "in",
+        "this",
+        "screenshot",
+        "where",
+        "I",
+        "only",
+        "press",
+        "Misc",
+        "2:",
+        "<img",
+        "width=\"228\"",
+        "height=\"113\"",
+        "alt=\"image\"",
+        "src=\"https://github.com/user-attachments/assets/717952d4-68b3-4b1f-9c0a-aca3be441bc8\"",
+        "/>",
+        "This",
+        "is",
+        "an",
+        "unofficial",
+        "community",
+        "build,",
+        "not",
+        "affiliated",
+        "with",
+        "the",
+        "Dolphin",
+        "team."
+      ],
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14830"
+    },
+    "dolphin-extra-android-gfp-vpr14830-all.apk": {
+      "name": "dolphin-extra-android-gfp-vpr14830-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14830: SDLGamepad: Add Misc 2 through 6 + Custom Storage Location",
+      "patches": [
+        "dolphin-extra"
+      ],
+      "changelog": [
+        "Built",
+        "from",
+        "custom",
+        "master",
+        "branch,",
+        "merged",
+        "with",
+        "the",
+        "custom",
+        "user",
+        "data",
+        "storage",
+        "location",
+        "feature",
+        "(Scoped",
+        "Storage",
+        "/",
+        "Internal",
+        "Storage",
+        "/",
+        "SD",
+        "Card)",
+        "and",
+        "Games",
+        "on",
+        "Wii",
+        "Menu",
+        "Patch.",
+        "Built",
+        "from",
+        "upstream",
+        "Dolphin",
+        "PR",
+        "`#14830`.",
+        "###",
+        "Upstream",
+        "Dolphin",
+        "PR",
+        "[#14830](https://github.com/dolphin-emu/dolphin/pull/14830)",
+        "**Title:**",
+        "SDLGamepad:",
+        "Add",
+        "Misc",
+        "2",
+        "through",
+        "6",
+        "**Author:**",
+        "[@JoshuaVandaele](https://github.com/JoshuaVandaele)",
+        "####",
+        "PR",
+        "Description",
+        "Misc",
+        "2-6",
+        "are",
+        "currently",
+        "unnamed",
+        "generic",
+        "buttons",
+        "in",
+        "Dolphin.",
+        "SDL3",
+        "has",
+        "added",
+        "more",
+        "misc",
+        "buttons",
+        "for",
+        "\"additional",
+        "controller",
+        "buttons\"",
+        "(e.g.",
+        "left/right",
+        "trigger",
+        "clicks",
+        "on",
+        "a",
+        "GameCube",
+        "controller,",
+        "or",
+        "for",
+        "the",
+        "second",
+        "touchpad",
+        "click",
+        "on",
+        "the",
+        "Steam",
+        "Controller)",
+        "which",
+        "map",
+        "to",
+        "these",
+        "additional",
+        "named",
+        "Misc",
+        "buttons.",
+        "The",
+        "names",
+        "Misc",
+        "2-6",
+        "are",
+        "taken",
+        "from",
+        "[SDL_GamepadButton](https://wiki.libsdl.org/SDL3/SDL_GamepadButton).",
+        "This",
+        "change",
+        "is",
+        "backwards",
+        "compatible",
+        "with",
+        "old",
+        "configs,",
+        "as",
+        "seen",
+        "in",
+        "this",
+        "screenshot",
+        "where",
+        "I",
+        "only",
+        "press",
+        "Misc",
+        "2:",
+        "<img",
+        "width=\"228\"",
+        "height=\"113\"",
+        "alt=\"image\"",
+        "src=\"https://github.com/user-attachments/assets/717952d4-68b3-4b1f-9c0a-aca3be441bc8\"",
+        "/>",
+        "This",
+        "is",
+        "an",
+        "unofficial",
+        "community",
+        "build,",
+        "not",
+        "affiliated",
+        "with",
+        "the",
+        "Dolphin",
+        "team."
+      ],
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14830"
     }
   },
   "dolphin-pr-14837": {
