@@ -2028,6 +2028,80 @@ body.light-mode .download-btn:hover {
     flex-shrink: 0;
 }
 
+.patch-metadata-collapsible {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-tertiary);
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.patch-metadata-collapsible summary {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: background-color 0.2s ease;
+}
+
+.patch-metadata-collapsible summary::-webkit-details-marker {
+    display: none;
+}
+
+.patch-metadata-collapsible summary:hover {
+    background: rgba(0, 0, 0, 0.14);
+}
+
+body.light-mode .patch-metadata-collapsible summary {
+    background: #f7f4ee;
+}
+
+body.light-mode .patch-metadata-collapsible summary:hover {
+    background: #ede8df;
+}
+
+.patch-metadata-summary-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.patch-metadata-summary-badge {
+    background: var(--bg-surface-high);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+}
+
+.patch-metadata-summary-arrow {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.patch-metadata-collapsible[open] .patch-metadata-summary-arrow {
+    transform: rotate(180deg);
+}
+
+.patch-metadata-collapsible .applied-patches-grid {
+    padding: 14px 16px;
+}
+
 /* Obtainium Modal */
 .obtainium-instructions {
     color: var(--text-primary);
