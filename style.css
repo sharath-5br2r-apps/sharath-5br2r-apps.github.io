@@ -2569,3 +2569,90 @@ footer a:hover {
     transform: translateX(20px);
     background-color: var(--btn-on-accent);
 }
+
+/* Font Awesome SVG Icon Styling */
+.fa-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    max-width: 1.1em;
+    max-height: 1.1em;
+    vertical-align: -0.125em;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Modal Headers & Subheadings */
+.modal-header h2 .fa-icon {
+    font-size: 1.15em;
+    vertical-align: -0.15em;
+    margin-right: 6px;
+    color: var(--accent);
+}
+
+.modal-header h2#obtainiumInstTitle .fa-icon {
+    color: var(--accent-obtainium);
+}
+
+.modal-header h2#settingsTitle .fa-icon {
+    color: var(--accent);
+}
+
+.modal-body h3 .fa-icon {
+    font-size: 1em;
+    vertical-align: -0.15em;
+    margin-right: 6px;
+    color: var(--accent);
+}
+
+/* Specific badge icon colors matching badge borders/themes */
+.patch-engine-badge .fa-icon {
+    color: var(--accent);
+    width: 0.95em;
+    height: 0.95em;
+}
+
+.patch-name-badge .fa-icon {
+    color: var(--accent-dolphin);
+    width: 0.95em;
+    height: 0.95em;
+}
+
+.os-tag-badge .fa-icon {
+    color: var(--accent-stable);
+    width: 0.95em;
+    height: 0.95em;
+}
+
+.patch-stat-badge .fa-icon {
+    color: var(--text-secondary);
+    width: 0.95em;
+    height: 0.95em;
+}
+
+.modal-filter-btn .fa-icon {
+    font-size: 0.95em;
+    margin-right: 4px;
+    color: currentColor;
+}
+
+.patch-check-icon .fa-icon {
+    width: 1em;
+    height: 1em;
+    color: #4caf50;
+}
+
+.failed-patches-section .patch-metadata-summary-title .fa-icon,
+.failed-patches-section .patch-check-icon .fa-icon {
+    color: var(--accent-danger);
+}
+
+.skipped-patches-section .patch-metadata-summary-title .fa-icon,
+.skipped-patches-section .patch-check-icon .fa-icon {
+    color: var(--accent-warning);
+}
+
+.applied-patches-section .patch-metadata-summary-title .fa-icon {
+    color: #4caf50;
+}
+

@@ -2177,6 +2177,17 @@ function createAppCard(app) {
   });
 
   const totalDownloads = app.totalDownloads || 0;
+  const totalBuilds = (app.patches || []).reduce((acc, p) => acc + (p.builds ? p.builds.length : 0), 0);
+  const patchCount = (app.patches || []).length;
+
+  const patchCountBadge = patchCount > 0
+    ? `<span class="patch-stat-badge" title="${patchCount} ${patchCount === 1 ? "patch configuration" : "patch configurations"}">${getFaSvg("puzzle-piece")} ${patchCount}</span>`
+    : "";
+
+  const buildCountBadge = totalBuilds > 0
+    ? `<span class="patch-stat-badge" title="${totalBuilds} total builds">${getFaSvg("box-archive")} ${totalBuilds}</span>`
+    : "";
+
   const dlBadge =
     totalDownloads > 0
       ? `<span class="patch-stat-badge" title="${formatCompactNumber(totalDownloads)} Total Downloads">${getFaSvg("download")} ${formatCompactNumber(totalDownloads)}</span>`
@@ -2189,6 +2200,8 @@ function createAppCard(app) {
           <div class="app-name">${escapeHtml(app.appName)}</div>
         </div>
         <div class="app-badge-group">
+          ${patchCountBadge}
+          ${buildCountBadge}
           ${dlBadge}
           <svg class="app-card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 12 15 18 9"></polyline>
