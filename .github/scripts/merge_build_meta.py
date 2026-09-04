@@ -2,8 +2,12 @@ import json
 import urllib.request
 import os
 import re
+import gzip
 
 MASTER_BUILD_FILE = "builds.json"
+GZ_BUILD_FILE = "builds.json.gz"
+MASTER_RELEASES_FILE = "releases.json"
+GZ_RELEASES_FILE = "releases.json.gz"
 
 # Pre-compiled regular expressions for performance
 ARCH_SUFFIXES_REGEX = re.compile(
@@ -274,14 +278,20 @@ def main():
                     print(f"Warning: Could not fetch {build_json_asset.get('name')} for {rel.get('tag_name')}: {e}")
 
     # Save nested builds.json grouped by release tag.
-    with open(MASTER_BUILD_FILE, "w", encoding="utf-8") as f:
-        json.dump(master_build, f, indent=2, ensure_ascii=False)
-    print(f"[OK] Successfully wrote {MASTER_BUILD_FILE} ({new_artifact_count} artifacts across {len(master_build)} release tags)")
+    builds_json_bytes = json.dumps(master_build, indent=2, ensure_ascii=False).encode("utf-8")
+    with open(MASTER_BUILD_FILE, "wb") as f:
+        f.write(builds_json_bytes)
+    with gzip.open(GZ_BUILD_FILE, "wb", compresslevel=9) as f:
+        f.write(builds_json_bytes)
+    print(f"[OK] Successfully wrote {MASTER_BUILD_FILE} & {GZ_BUILD_FILE} ({new_artifact_count} artifacts across {len(master_build)} release tags)")
 
     # Save 100% clean releases.json cache
-    with open("releases.json", "w", encoding="utf-8") as f:
-        json.dump(releases, f, separators=(",", ":"))
-    print(f"[OK] Successfully wrote clean releases.json ({len(releases)} releases, {new_build_data_count} metadata files ingested)")
+    releases_json_bytes = json.dumps(releases, separators=(",", ":")).encode("utf-8")
+    with open(MASTER_RELEASES_FILE, "wb") as f:
+        f.write(releases_json_bytes)
+    with gzip.open(GZ_RELEASES_FILE, "wb", compresslevel=9) as f:
+        f.write(releases_json_bytes)
+    print(f"[OK] Successfully wrote clean {MASTER_RELEASES_FILE} & {GZ_RELEASES_FILE} ({len(releases)} releases, {new_build_data_count} metadata files ingested)")
 
 if __name__ == "__main__":
     main()

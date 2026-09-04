@@ -262,7 +262,9 @@ const CONFIG = {
     swiftkey: "SwiftKey",
     microsoftswiftkey: "SwiftKey",
     standard: "Standard",
-    byair: "ByAir"
+    byair: "ByAir",
+    capcut: "CapCut: Photo & Video Editor",
+    chesscom: "Chess.com"
   },
 
   // Android SDK level to Android version mapping
@@ -377,6 +379,8 @@ const CONFIG = {
     calcnote: "com.appumstudios.calcnote",
     caloriecounter: "com.fatsecret.android",
     chess: "com.chess",
+    chesscom: "com.chess",
+    capcutphotovideoeditor: "com.lemon.lvoverseas",
     hillclimbracing: "com.fingersoft.hillclimb",
     jetpackjoyride: "com.halfbrick.jetpackjoyride",
     camscanner: "com.intsig.camscanner",
@@ -475,6 +479,7 @@ const CONFIG = {
     pandora: "com.pandora.android",
     peacock: "com.peacocktv.peacockandroid",
     photomath: "com.microblink.photomath",
+    picsart: "com.picsart.studio",
     pinterest: "com.pinterest",
     pixiv: "jp.pxv.android",
     plusmessenger: "org.telegram.plus",
@@ -1445,6 +1450,46 @@ function syncUrlParams() {
   history.replaceState(null, "", url);
 }
 
+// Fetch helper that transparently tries .json.gz (with decompression) before falling back to .json
+async function fetchJsonWithGzFallback(baseFilename, cacheBuster = Date.now()) {
+  const gzUrl = `${baseFilename}.gz?v=${cacheBuster}`;
+  const jsonUrl = `${baseFilename}?v=${cacheBuster}`;
+
+  // 1. Try compressed .gz file first
+  try {
+    const gzResp = await fetch(gzUrl);
+    if (gzResp.ok) {
+      const contentEncoding = (gzResp.headers.get("content-encoding") || "").toLowerCase();
+      // If server or CDN already handled decompression, .json() works directly
+      if (!contentEncoding.includes("gzip") && typeof DecompressionStream !== "undefined") {
+        try {
+          const ds = new DecompressionStream("gzip");
+          const decompressedStream = gzResp.body.pipeThrough(ds);
+          const text = await new Response(decompressedStream).text();
+          return JSON.parse(text);
+        } catch (decompErr) {
+          console.warn(`Decompression failed for ${gzUrl}, attempting direct json parse:`, decompErr);
+        }
+      }
+      return await gzResp.json();
+    }
+  } catch (gzErr) {
+    console.warn(`Failed to fetch or parse ${gzUrl}:`, gzErr);
+  }
+
+  // 2. Fallback to uncompressed .json file
+  try {
+    const jsonResp = await fetch(jsonUrl);
+    if (jsonResp.ok) {
+      return await jsonResp.json();
+    }
+  } catch (jsonErr) {
+    console.warn(`Failed to fetch ${jsonUrl}:`, jsonErr);
+  }
+
+  return null;
+}
+
 // Releases Loader
 async function loadReleases() {
   try {
@@ -1470,16 +1515,13 @@ async function loadReleases() {
     let useFallback = true;
 
     try {
-      const response = await fetch(`releases.json?v=${cacheBuster}`);
-      if (response.ok) {
-        const data = await response.json();
-        if (Array.isArray(data) && data.length > 0) {
-          fetchedData = data;
-          useFallback = false;
-        }
+      const data = await fetchJsonWithGzFallback("releases.json", cacheBuster);
+      if (Array.isArray(data) && data.length > 0) {
+        fetchedData = data;
+        useFallback = false;
       }
     } catch (e) {
-      console.warn("Network error fetching releases.json, using fallback...", e);
+      console.warn("Error fetching releases.json (.gz), using fallback...", e);
     }
 
     if (useFallback) {
@@ -2929,17 +2971,10 @@ async function fetchMasterBuildData() {
     const cacheBuster = Date.now();
     // Metadata is generated and committed by the Python cache updater.
     // Never fetch build metadata directly from GitHub in the browser.
-    const resp = await fetch(`builds.json?v=${cacheBuster}`);
-    if (resp.ok) {
-      const data = await resp.json();
-      // builds.json may be grouped by release tag or kept in the legacy flat shape.
-      // Keep the map as-is so lookups can resolve both layouts.
-      masterBuildDataCache = data && typeof data === "object" ? data : {};
-    } else {
-      masterBuildDataCache = {};
-    }
+    const data = await fetchJsonWithGzFallback("builds.json", cacheBuster);
+    masterBuildDataCache = data && typeof data === "object" ? data : {};
   } catch (e) {
-      console.warn("Could not load local builds.json:", e);
+    console.warn("Could not load local builds.json (.gz):", e);
     masterBuildDataCache = {};
   }
   return masterBuildDataCache;
