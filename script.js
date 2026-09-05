@@ -2125,11 +2125,11 @@ function getAppSearchScore(app, query) {
   return Infinity;
 }
 
-// Progressive Rendering for App Cards
+// Render App Cards
 function renderAppCards(apps) {
   if (!DOM.builds) return;
   currentAppCatalog = apps;
-  currentVisibleCount = 0;
+  currentVisibleCount = apps.length;
   DOM.builds.innerHTML = "";
 
   if (apps.length === 0) {
@@ -2137,11 +2137,17 @@ function renderAppCards(apps) {
     return;
   }
 
-  renderNextChunk();
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = apps.map((app) => createAppCard(app)).join("");
+
+  while (tempDiv.firstChild) {
+    DOM.builds.appendChild(tempDiv.firstChild);
+  }
 }
 
 function renderNextChunk() {
   if (!DOM.builds) return;
+  if (currentVisibleCount >= currentAppCatalog.length) return;
 
   const nextChunk = currentAppCatalog.slice(
     currentVisibleCount,
@@ -2157,7 +2163,7 @@ function renderNextChunk() {
     DOM.builds.appendChild(tempDiv.firstChild);
   }
 
-  currentVisibleCount += RENDER_CHUNK_SIZE;
+  currentVisibleCount += nextChunk.length;
 }
 
 // Create App Card Markup
