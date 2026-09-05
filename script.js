@@ -100,8 +100,6 @@ const CONFIG = {
     "lto",
     "bolt",
     "standard",
-    "beta",
-    "stable"
   ]),
 
   // Known architectures (used for regex parsing)
