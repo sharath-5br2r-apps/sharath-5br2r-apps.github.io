@@ -4278,18 +4278,12 @@ function parseAssetDisplay(filename, arch, fileType) {
     const tLower = token.toLowerCase();
     if (CONFIG.patchTokens.has(tLower)) {
       patchTokens.push(token);
-    } else if (CONFIG.variantTokens.has(tLower) || ["stable", "beta", "nightly", "dev", "alpha"].includes(tLower)) {
+    } else if (CONFIG.variantTokens.has(tLower)) {
       variantTokens.push(token);
     } else {
       appTokens.push(token);
     }
   });
-
-  // If appTokens is ['brave', 'beta'] or similar, move channel token to variantTokens
-  if (appTokens.length > 1 && ["beta", "nightly", "dev", "alpha", "stable"].includes(appTokens[appTokens.length - 1].toLowerCase())) {
-    variantTokens.unshift(appTokens[appTokens.length - 1]);
-    appTokens = appTokens.slice(0, -1);
-  }
 
   let version = "Version unknown";
   if (versionIndex >= 0) {
