@@ -1,4 +1,669 @@
 {
+  "260228": {
+    "smash-hit-morphe-byehi98-v1.5.14-arm64-v8a.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260228"
+    },
+    "smash-hit-morphe-byehi98-v1.5.14-arm-v7a.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260228"
+    },
+    "smash-hit-morphe-byehi98-v1.5.14-all.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260228"
+    },
+    "smash-hit-morphe-byehi98-v1.5.14-x86_64.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260228"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.71.1-x86_64.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260228"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.71.1-arm64-v8a.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260228"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.71.1-arm-v7a.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260228"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.71.1-all.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260228"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-x86_64.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260228"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-arm-v7a.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260228"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-all.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260228"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-arm64-v8a.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260228"
+    },
+    "vector-morphe-byehi98-v2.10.0-arm-v7a.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260228"
+    },
+    "vector-morphe-byehi98-v2.10.0-arm64-v8a.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260228"
+    },
+    "vector-morphe-byehi98-v2.10.0-x86_64.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260228"
+    },
+    "vector-morphe-byehi98-v2.10.0-all.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260228"
+    }
+  },
+  "260227": {
+    "brave-beta-morphe-dh6k-v1.96.46-arm-v7a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.96.46",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260227"
+    },
+    "brave-beta-morphe-dh6k-v1.96.46-x86_64.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.96.46",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260227"
+    },
+    "brave-beta-morphe-dh6k-v1.96.46-arm64-v8a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.96.46",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260227"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.8-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.8",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260227"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.8-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.8",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260227"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.8-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.8",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260227"
+    }
+  },
   "260226": {
     "brave-beta-morphe-dh6k-v1.96.46-x86_64.apk": {
       "name": "brave-beta-morphe-dh6k",
@@ -95076,6 +95741,670 @@
         "x86_64"
       ],
       "release_tag": "dolphin-pr-14843"
+    }
+  },
+  "dolphin-pr-14789": {
+    "dolphin-extra-android-gfp-vpr14789-all.apk": {
+      "name": "dolphin-extra-android-gfp-vpr14789-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14789: Optimize vertex_shader_uid_data down to 28 bytes + Custom Storage Location",
+      "patches": [
+        "dolphin-extra"
+      ],
+      "changelog": [
+        "Built",
+        "from",
+        "custom",
+        "master",
+        "branch,",
+        "merged",
+        "with",
+        "the",
+        "custom",
+        "user",
+        "data",
+        "storage",
+        "location",
+        "feature",
+        "(Scoped",
+        "Storage",
+        "/",
+        "Internal",
+        "Storage",
+        "/",
+        "SD",
+        "Card)",
+        "and",
+        "Games",
+        "on",
+        "Wii",
+        "Menu",
+        "Patch.",
+        "Built",
+        "from",
+        "upstream",
+        "Dolphin",
+        "PR",
+        "`#14789`.",
+        "###",
+        "Upstream",
+        "Dolphin",
+        "PR",
+        "[#14789](https://github.com/dolphin-emu/dolphin/pull/14789)",
+        "**Title:**",
+        "Optimize",
+        "vertex_shader_uid_data",
+        "down",
+        "to",
+        "28",
+        "bytes",
+        "**Author:**",
+        "[@phire](https://github.com/phire)",
+        "####",
+        "PR",
+        "Description",
+        "This",
+        "started",
+        "as",
+        "a",
+        "fixing",
+        "a",
+        "misalignment",
+        "issue,",
+        "but",
+        "I",
+        "got",
+        "carried",
+        "away.",
+        "Was",
+        "originally",
+        "41",
+        "bytes",
+        "(overflowing",
+        "it's",
+        "expected",
+        "40",
+        "bytes",
+        "by",
+        "1",
+        "bit).",
+        "Now",
+        "it's",
+        "27",
+        "bytes",
+        "with",
+        "8",
+        "bits",
+        "of",
+        "padding",
+        "(ready",
+        "for",
+        "future",
+        "expansion).",
+        "The",
+        "savings",
+        "come",
+        "from:",
+        "-",
+        "Removing",
+        "UV",
+        "usage",
+        "from",
+        "components,",
+        "it",
+        "can",
+        "be",
+        "reconstructed",
+        "from",
+        "texcoord_elem_count",
+        "(saved",
+        "8",
+        "bits)",
+        "-",
+        "Removed",
+        "the",
+        "8",
+        "unused",
+        "bits",
+        "from",
+        "texMtxInfo_n_projection",
+        "(saved",
+        "8",
+        "bits)",
+        "-",
+        "Removing",
+        "unused",
+        "bit",
+        "from",
+        "from",
+        "start",
+        "of",
+        "components",
+        "(saved",
+        "1",
+        "bit)",
+        "-",
+        "Removed",
+        "extra",
+        "bit",
+        "from",
+        "inputform,",
+        "texgentype",
+        "and",
+        "sourcerow",
+        "-",
+        "packed",
+        "texMtxInfo_n_projection",
+        "and",
+        "texcoord_elem_count",
+        "back",
+        "into",
+        "the",
+        "per",
+        "texgen",
+        "info",
+        "space",
+        "freed",
+        "up",
+        "above.",
+        "(saved",
+        "24",
+        "bits)",
+        "-",
+        "Overlayed",
+        "postMtx",
+        "index",
+        "and",
+        "Emboss",
+        "mode",
+        "shifts",
+        "into",
+        "a",
+        "union",
+        "based",
+        "on",
+        "texgentype",
+        "(saved",
+        "56",
+        "bits)",
+        "-",
+        "Move",
+        "to",
+        "a",
+        "single-bit",
+        "union",
+        "tag,",
+        "freeing",
+        "up",
+        "an",
+        "extra",
+        "bit",
+        "for",
+        "regular",
+        "texgens.",
+        "-",
+        "Move",
+        "PotMtx",
+        "normalize",
+        "into",
+        "the",
+        "freed",
+        "up",
+        "space",
+        "(saved",
+        "8",
+        "bits)",
+        "Total",
+        "savings:",
+        "105",
+        "bits",
+        "of",
+        "data",
+        "EDIT:",
+        "Even",
+        "worse,",
+        "MSVC",
+        "wasn't",
+        "respecting",
+        "pack(1)",
+        "for",
+        "bitfields",
+        "at",
+        "all,",
+        "so",
+        "on",
+        "windows",
+        "this",
+        "struct",
+        "was",
+        "actually",
+        "quite",
+        "a",
+        "bit",
+        "larger.",
+        "Something",
+        "like",
+        "80",
+        "bytes,",
+        "if",
+        "not",
+        "more.",
+        "So",
+        "this",
+        "PR",
+        "cuts",
+        "vertex",
+        "UID",
+        "size",
+        "by",
+        "almost",
+        "75%.",
+        "Fixed",
+        "this",
+        "by",
+        "dropping",
+        "the",
+        "size",
+        "of",
+        "any",
+        "enums",
+        "used",
+        "in",
+        "these",
+        "bit",
+        "structs",
+        "to",
+        "u8.",
+        "Our",
+        "Common::BitField",
+        "allows",
+        "for",
+        "the",
+        "underlying",
+        "type",
+        "to",
+        "be",
+        "explicitly",
+        "specified",
+        "to",
+        "something",
+        "larger.",
+        "msvc's",
+        "bitfield",
+        "packing",
+        "appears",
+        "to",
+        "be",
+        "completely",
+        "braindead,",
+        "can't",
+        "mix",
+        "sizes",
+        "at",
+        "all.",
+        "(fortunately,",
+        "bool",
+        "counts",
+        "as",
+        "u8)",
+        "This",
+        "is",
+        "an",
+        "unofficial",
+        "community",
+        "build,",
+        "not",
+        "affiliated",
+        "with",
+        "the",
+        "Dolphin",
+        "team."
+      ],
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14789"
+    },
+    "dolphin-extra-android-stock-vpr14789-all.apk": {
+      "name": "dolphin-extra-android-stock-vpr14789-all.apk",
+      "arch": "universal",
+      "ext": "apk",
+      "version": "Dolphin PR #14789: Optimize vertex_shader_uid_data down to 28 bytes + Custom Storage Location",
+      "patches": [
+        "dolphin-extra"
+      ],
+      "changelog": [
+        "Built",
+        "from",
+        "custom",
+        "master",
+        "branch,",
+        "merged",
+        "with",
+        "the",
+        "custom",
+        "user",
+        "data",
+        "storage",
+        "location",
+        "feature",
+        "(Scoped",
+        "Storage",
+        "/",
+        "Internal",
+        "Storage",
+        "/",
+        "SD",
+        "Card)",
+        "and",
+        "Games",
+        "on",
+        "Wii",
+        "Menu",
+        "Patch.",
+        "Built",
+        "from",
+        "upstream",
+        "Dolphin",
+        "PR",
+        "`#14789`.",
+        "###",
+        "Upstream",
+        "Dolphin",
+        "PR",
+        "[#14789](https://github.com/dolphin-emu/dolphin/pull/14789)",
+        "**Title:**",
+        "Optimize",
+        "vertex_shader_uid_data",
+        "down",
+        "to",
+        "28",
+        "bytes",
+        "**Author:**",
+        "[@phire](https://github.com/phire)",
+        "####",
+        "PR",
+        "Description",
+        "This",
+        "started",
+        "as",
+        "a",
+        "fixing",
+        "a",
+        "misalignment",
+        "issue,",
+        "but",
+        "I",
+        "got",
+        "carried",
+        "away.",
+        "Was",
+        "originally",
+        "41",
+        "bytes",
+        "(overflowing",
+        "it's",
+        "expected",
+        "40",
+        "bytes",
+        "by",
+        "1",
+        "bit).",
+        "Now",
+        "it's",
+        "27",
+        "bytes",
+        "with",
+        "8",
+        "bits",
+        "of",
+        "padding",
+        "(ready",
+        "for",
+        "future",
+        "expansion).",
+        "The",
+        "savings",
+        "come",
+        "from:",
+        "-",
+        "Removing",
+        "UV",
+        "usage",
+        "from",
+        "components,",
+        "it",
+        "can",
+        "be",
+        "reconstructed",
+        "from",
+        "texcoord_elem_count",
+        "(saved",
+        "8",
+        "bits)",
+        "-",
+        "Removed",
+        "the",
+        "8",
+        "unused",
+        "bits",
+        "from",
+        "texMtxInfo_n_projection",
+        "(saved",
+        "8",
+        "bits)",
+        "-",
+        "Removing",
+        "unused",
+        "bit",
+        "from",
+        "from",
+        "start",
+        "of",
+        "components",
+        "(saved",
+        "1",
+        "bit)",
+        "-",
+        "Removed",
+        "extra",
+        "bit",
+        "from",
+        "inputform,",
+        "texgentype",
+        "and",
+        "sourcerow",
+        "-",
+        "packed",
+        "texMtxInfo_n_projection",
+        "and",
+        "texcoord_elem_count",
+        "back",
+        "into",
+        "the",
+        "per",
+        "texgen",
+        "info",
+        "space",
+        "freed",
+        "up",
+        "above.",
+        "(saved",
+        "24",
+        "bits)",
+        "-",
+        "Overlayed",
+        "postMtx",
+        "index",
+        "and",
+        "Emboss",
+        "mode",
+        "shifts",
+        "into",
+        "a",
+        "union",
+        "based",
+        "on",
+        "texgentype",
+        "(saved",
+        "56",
+        "bits)",
+        "-",
+        "Move",
+        "to",
+        "a",
+        "single-bit",
+        "union",
+        "tag,",
+        "freeing",
+        "up",
+        "an",
+        "extra",
+        "bit",
+        "for",
+        "regular",
+        "texgens.",
+        "-",
+        "Move",
+        "PotMtx",
+        "normalize",
+        "into",
+        "the",
+        "freed",
+        "up",
+        "space",
+        "(saved",
+        "8",
+        "bits)",
+        "Total",
+        "savings:",
+        "105",
+        "bits",
+        "of",
+        "data",
+        "EDIT:",
+        "Even",
+        "worse,",
+        "MSVC",
+        "wasn't",
+        "respecting",
+        "pack(1)",
+        "for",
+        "bitfields",
+        "at",
+        "all,",
+        "so",
+        "on",
+        "windows",
+        "this",
+        "struct",
+        "was",
+        "actually",
+        "quite",
+        "a",
+        "bit",
+        "larger.",
+        "Something",
+        "like",
+        "80",
+        "bytes,",
+        "if",
+        "not",
+        "more.",
+        "So",
+        "this",
+        "PR",
+        "cuts",
+        "vertex",
+        "UID",
+        "size",
+        "by",
+        "almost",
+        "75%.",
+        "Fixed",
+        "this",
+        "by",
+        "dropping",
+        "the",
+        "size",
+        "of",
+        "any",
+        "enums",
+        "used",
+        "in",
+        "these",
+        "bit",
+        "structs",
+        "to",
+        "u8.",
+        "Our",
+        "Common::BitField",
+        "allows",
+        "for",
+        "the",
+        "underlying",
+        "type",
+        "to",
+        "be",
+        "explicitly",
+        "specified",
+        "to",
+        "something",
+        "larger.",
+        "msvc's",
+        "bitfield",
+        "packing",
+        "appears",
+        "to",
+        "be",
+        "completely",
+        "braindead,",
+        "can't",
+        "mix",
+        "sizes",
+        "at",
+        "all.",
+        "(fortunately,",
+        "bool",
+        "counts",
+        "as",
+        "u8)",
+        "This",
+        "is",
+        "an",
+        "unofficial",
+        "community",
+        "build,",
+        "not",
+        "affiliated",
+        "with",
+        "the",
+        "Dolphin",
+        "team."
+      ],
+      "applied_patches": [
+        "Custom Storage Location (Scoped Storage / Internal Storage / SD Card)",
+        "Better Wii Menu (Games on Wii Menu Patch)"
+      ],
+      "min_sdk": "21",
+      "densities": [],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "release_tag": "dolphin-pr-14789"
     }
   },
   "dolphin-pr-14844": {
