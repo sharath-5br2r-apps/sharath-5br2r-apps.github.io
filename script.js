@@ -20,6 +20,7 @@ const CONFIG = {
     { owner: "sharath-5br2r-apps", repo: "Eden-Workflow" },
     { owner: "sharath-5br2r-apps", repo: "Dolphin-Extra" },
     { owner: "sharath-5br2r-apps", repo: "LeviLaunchroid-Extra" },
+    { owner: "sharath-5br2r-apps", repo: "ZalithLauncher2-Extra"}
   ],
   cacheDuration: 1, // Cache duration in minutes
 
@@ -30,8 +31,8 @@ const CONFIG = {
     documents: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "moonplusreader", "office", "xodo", "camscanner", "adobe", "excel", "word", "reader"],
     education: ["duolingo"],
     emulator: ["dolphin", "emulator", "eden"],
-    games: ["brawlstars", "clashofclans", "clashroyale", "hillclimbracing", "jetpackjoyride", "nulls", "smashhit", "vector", "chess", "game", "games", "levilauncher", "levilaunchroid", "brawl", "clash", "hill", "jetpack", "smash"],
-    launcher: ["nova", "smartlauncher", "niagara", "launcher", "levilauncher", "levilaunchroid"],
+    games: ["brawlstars", "clashofclans", "clashroyale", "hillclimbracing", "jetpackjoyride", "nulls", "smashhit", "vector", "chess", "game", "games", "levilauncher", "levilaunchroid", "brawl", "clash", "hill", "jetpack", "smash", "zalithlauncher2"],
+    launcher: ["nova", "smartlauncher", "niagara", "launcher", "!levilauncheroid", "!zalithlauncher2"],
     music: ["youtubemusic", "symfonium", "soundcloud", "poweramp", "music", "audioplayer"],
     productivity: ["bitwarden", "pcremote", "monect", "adm", "sdmaid", "oxygenupdater", "betamaniac", "fing", "speedtest", "batteryguru", "github", "solidexplorer", "camscanner", "xodo", "adobe", "excel", "word"],
     amazon: ["amazon", "alexa", "amazonindia", "primevideo", "prime"],
@@ -271,7 +272,8 @@ const CONFIG = {
     standard: "Standard",
     byair: "ByAir",
     capcut: "CapCut: Photo & Video Editor",
-    chesscom: "Chess.com"
+    chesscom: "Chess.com",
+    aliexpress: "AliExpress - Shopping App",
   },
 
   // Android SDK level to Android version mapping
@@ -343,6 +345,7 @@ const CONFIG = {
     genshinspoof: "com.miHoYo.Yuanshen",
     "1111warp": "com.cloudflare.onedotonedotonedotone",
     acalendar: "org.withouthat.acalendar",
+    accuweather: "com.accuweather.android",
     adguard: "com.adguard.android",
     advanceddownloadmanager: "com.dv.adm",
     adobeacrobat: "com.adobe.reader",
@@ -372,6 +375,7 @@ const CONFIG = {
     amazonindia: "in.amazon.mShop.android.shopping",
     amazonshopping: "com.amazon.mShop.android.shopping",
     accuweather: "com.accuweather.android",
+    aliexpressshoppingapp: "com.alibaba.aliexpresshd",
     alldocumentreader: "alldocumentsreader.docuemntviewer",
     at4klauncher: "com.overdevs.at4k",
     automate: "com.llamalab.automate",
@@ -579,6 +583,7 @@ const CONFIG = {
       },
       default: "com.google.android.apps.youtube.music",
     },
+    zalithlauncher2extra: "com.movtery.zalithlauncher"
   },
 
   // App-specific notices to display on App Cards
