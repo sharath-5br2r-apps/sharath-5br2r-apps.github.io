@@ -1,4 +1,449 @@
 {
+  "260232": {
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-arm-v7a.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.43.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260232"
+    },
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-all.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.43.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260232"
+    },
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-arm64-v8a.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.43.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260232"
+    }
+  },
+  "260231": {
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-all.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.43.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260231"
+    },
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-arm64-v8a.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.43.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260231"
+    },
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-arm-v7a.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.43.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.43.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260231"
+    },
+    "tiktok-morphe-hxreborn-v46.2.3-arm-v7a.apk": {
+      "name": "tiktok-morphe-hxreborn",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hxreborn/hxreborn-tiktok-patches@1.2.0"
+      ],
+      "changelog": [
+        "https://github.com/hxreborn/hxreborn-tiktok-patches/releases/tag/v1.2.0"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Disable telemetry",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Expand activity list",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Hide BdTuring CAPTCHA popups",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide inbox stories",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260231"
+    },
+    "tiktok-morphe-hxreborn-v46.2.3-arm64-v8a.apk": {
+      "name": "tiktok-morphe-hxreborn",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hxreborn/hxreborn-tiktok-patches@1.2.0"
+      ],
+      "changelog": [
+        "https://github.com/hxreborn/hxreborn-tiktok-patches/releases/tag/v1.2.0"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Disable telemetry",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Expand activity list",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Hide BdTuring CAPTCHA popups",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide inbox stories",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260231"
+    },
+    "tiktok-morphe-hxreborn-v46.2.3-all.apk": {
+      "name": "tiktok-morphe-hxreborn",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hxreborn/hxreborn-tiktok-patches@1.2.0"
+      ],
+      "changelog": [
+        "https://github.com/hxreborn/hxreborn-tiktok-patches/releases/tag/v1.2.0"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Disable telemetry",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Expand activity list",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Hide BdTuring CAPTCHA popups",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide inbox stories",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260231"
+    }
+  },
   "260230": {
     "jetpack-joyride-morphe-byehi98-v1.104.1-all.apk": {
       "name": "jetpack-joyride-morphe-byehi98",
