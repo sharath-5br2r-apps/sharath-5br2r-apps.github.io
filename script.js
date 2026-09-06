@@ -103,6 +103,33 @@ const CONFIG = {
     "standard",
   ]),
 
+  // Known build variant/format tokens that mark the end of app name (must be lowercase)
+  // These words indicate a release format/type and stop app name extraction
+  buildVariantTokens: new Set([
+    "module",
+    "portable",
+    "standalone",
+    "installer",
+    "setup",
+    "bundle",
+    "package",
+    "plugin",
+    "addon",
+    "extension",
+    "patch",
+  ]),
+
+  // Channel suffixes that may follow a buildVariantToken in a filename (e.g. -module-beta)
+  // Used to distinguish stable vs beta/alpha/nightly modules (must be lowercase)
+  buildVariantChannels: new Set([
+    "beta",
+    "alpha",
+    "nightly",
+    "canary",
+    "dev",
+    "preview",
+  ]),
+
   // Known architectures (used for regex parsing)
   knownArchs: [
     "arm64-v8a",
@@ -1777,6 +1804,9 @@ function buildAppCatalog(releases) {
           parsed,
           arch,
           fileType,
+          fileTypeLabel: parsed.buildVariantChannel
+            ? `${fileType} (${parsed.buildVariantChannel.charAt(0).toUpperCase() + parsed.buildVariantChannel.slice(1)})`
+            : fileType,
         });
       }
     });
@@ -2943,7 +2973,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
         <div class="download-btn ${arch}">
           <div class="asset-left">
             <span class="asset-title">${escapeHtml(asset.parsed.appName)}</span>
-            <span class="asset-subtitle">${escapeHtml(asset.parsed.version)} • ${escapeHtml(osName)} • ${asset.fileType}${variantDisplay}</span>
+            <span class="asset-subtitle">${escapeHtml(asset.parsed.version)} • ${escapeHtml(osName)} • ${asset.fileTypeLabel || asset.fileType}${variantDisplay}</span>
           </div>
           <div class="asset-right">
             <span class="btn-text">${sizeStr} • ${getFaSvg("download")} ${downloads}</span>
@@ -4261,8 +4291,15 @@ function parseAssetDisplay(filename, arch, fileType) {
   const versionIndex = tokens.findIndex(
     (token) => /^(v\w*\d|vbuild)/i.test(token) && !archSubTokens.has(token.toLowerCase())
   );
-  const moduleIndex = tokens.findIndex((token) => token.toLowerCase() === "module");
-  const stopIndexCandidates = [versionIndex, moduleIndex].filter((i) => i >= 0);
+  const buildVariantIndex = tokens.findIndex((token) => CONFIG.buildVariantTokens.has(token.toLowerCase()));
+  let buildVariantChannel = null;
+  if (buildVariantIndex >= 0) {
+    const nextToken = tokens[buildVariantIndex + 1];
+    if (nextToken && CONFIG.buildVariantChannels.has(nextToken.toLowerCase())) {
+      buildVariantChannel = nextToken.toLowerCase();
+    }
+  }
+  const stopIndexCandidates = [versionIndex, buildVariantIndex].filter((i) => i >= 0);
   const stopIndex = stopIndexCandidates.length > 0 ? Math.min(...stopIndexCandidates) : tokens.length;
   const preMetaTokens = tokens.slice(0, stopIndex);
 
@@ -4296,7 +4333,7 @@ function parseAssetDisplay(filename, arch, fileType) {
     for (let i = versionIndex + 1; i < tokens.length; i++) {
       const t = tokens[i].toLowerCase();
       const isArchToken = CONFIG.knownArchs.some((a) => a.split("-").includes(t));
-      if (t === "module" || t === "universal" || isArchToken) break;
+      if (CONFIG.buildVariantTokens.has(t) || t === "universal" || isArchToken) break;
       versionParts.push(tokens[i]);
     }
     version = versionParts.join("-");
@@ -4335,6 +4372,7 @@ function parseAssetDisplay(filename, arch, fileType) {
     osToken,
     rawAppSlug,
     rawPatchToken,
+    buildVariantChannel,
   };
 
   parseCache.set(filename, result);
