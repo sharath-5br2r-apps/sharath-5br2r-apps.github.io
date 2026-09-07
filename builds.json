@@ -1,4 +1,4100 @@
 {
+  "260234": {
+    "xrecorder-morphe-hoodles-v2.5.1.1-arm64-v8a.apk": {
+      "name": "xrecorder-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2.5.1.1",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xrecorder-morphe-hoodles-v2.5.1.1-all.apk": {
+      "name": "xrecorder-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.5.1.1",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xrecorder-morphe-hoodles-v2.5.1.1-arm-v7a.apk": {
+      "name": "xrecorder-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2.5.1.1",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-6-morphe-hoodles-exp-v6.5build055-all.apk": {
+      "name": "smart-launcher-6-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "6.5build055",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "MicroG integration"
+      ],
+      "failed_patches": [
+        "Enable Pro"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-v3.5.20-arm64-v8a.apk": {
+      "name": "solid-explorer-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-v3.5.20-arm-v7a.apk": {
+      "name": "solid-explorer-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-v3.5.20-all.apk": {
+      "name": "solid-explorer-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-v3.5.20-x86_64.apk": {
+      "name": "solid-explorer-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-exp-v3.65.0-arm-v7a.apk": {
+      "name": "wallcraft-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "3.65.0",
+      "min_sdk": "25",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-exp-v3.65.0-arm64-v8a.apk": {
+      "name": "wallcraft-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "3.65.0",
+      "min_sdk": "25",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-exp-v3.65.0-x86_64.apk": {
+      "name": "wallcraft-morphe-hoodles-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "3.65.0",
+      "min_sdk": "25",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-exp-v3.65.0-all.apk": {
+      "name": "wallcraft-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "3.65.0",
+      "min_sdk": "25",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "pandora-morphe-hoodles-v2608.1-arm-v7a.apk": {
+      "name": "pandora-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2608.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable ads",
+        "Unlimited skips"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "pandora-morphe-hoodles-v2608.1-arm64-v8a.apk": {
+      "name": "pandora-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2608.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable ads",
+        "Unlimited skips"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "pandora-morphe-hoodles-v2608.1-x86_64.apk": {
+      "name": "pandora-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2608.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable ads",
+        "Unlimited skips"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "pandora-morphe-hoodles-v2608.1-all.apk": {
+      "name": "pandora-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2608.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable ads",
+        "MicroG integration",
+        "Unlimited skips"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-v26.31.0-x86_64.apk": {
+      "name": "myfitnesspal-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "26.31.0",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-v26.31.0-all.apk": {
+      "name": "myfitnesspal-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "26.31.0",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-v26.31.0-arm64-v8a.apk": {
+      "name": "myfitnesspal-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "26.31.0",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-v26.31.0-arm-v7a.apk": {
+      "name": "myfitnesspal-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "26.31.0",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "brave-stable-morphe-kveld9-v1.94.121-arm-v7a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.94.121",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.13.1"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.13.1"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "brave-stable-morphe-kveld9-v1.94.121-x86_64.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.94.121",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.13.1"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.13.1"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "brave-stable-morphe-kveld9-v1.94.121-arm64-v8a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.94.121",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.13.1"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.13.1"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xrecorder-morphe-hoodles-exp-v2.5.4.3-all.apk": {
+      "name": "xrecorder-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.5.4.3",
+      "min_sdk": "36",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xrecorder-morphe-hoodles-exp-v2.5.4.3-arm64-v8a.apk": {
+      "name": "xrecorder-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2.5.4.3",
+      "min_sdk": "36",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xrecorder-morphe-hoodles-exp-v2.5.4.3-arm-v7a.apk": {
+      "name": "xrecorder-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2.5.4.3",
+      "min_sdk": "36",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "nova-launcher-morphe-hoodles-v88600-arm64-v8a.apk": {
+      "name": "nova-launcher-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "88600",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "nova-launcher-morphe-hoodles-v88600-arm-v7a.apk": {
+      "name": "nova-launcher-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "88600",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "nova-launcher-morphe-hoodles-v88600-all.apk": {
+      "name": "nova-launcher-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "88600",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Prime",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-exp-v3.5.20-x86_64.apk": {
+      "name": "solid-explorer-morphe-hoodles-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-exp-v3.5.20-all.apk": {
+      "name": "solid-explorer-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-exp-v3.5.20-arm64-v8a.apk": {
+      "name": "solid-explorer-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "solid-explorer-morphe-hoodles-exp-v3.5.20-arm-v7a.apk": {
+      "name": "solid-explorer-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "3.5.20",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wps-office-morphe-hoodles-v18.24-arm-v7a.apk": {
+      "name": "wps-office-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "18.24",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable anti-tamper",
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wps-office-morphe-hoodles-v18.24-arm64-v8a.apk": {
+      "name": "wps-office-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "18.24",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable anti-tamper",
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-v53.1-arm64-v8a.apk": {
+      "name": "ventusky-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "53.1",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-v53.1-arm-v7a.apk": {
+      "name": "ventusky-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "53.1",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-v53.1-all.apk": {
+      "name": "ventusky-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "53.1",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-v53.1-x86_64.apk": {
+      "name": "ventusky-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "53.1",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-exp-v26.33.0-all.apk": {
+      "name": "myfitnesspal-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "26.33.0",
+      "min_sdk": "33",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-exp-v26.33.0-arm64-v8a.apk": {
+      "name": "myfitnesspal-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "26.33.0",
+      "min_sdk": "33",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-exp-v26.33.0-x86_64.apk": {
+      "name": "myfitnesspal-morphe-hoodles-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "26.33.0",
+      "min_sdk": "33",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "myfitnesspal-morphe-hoodles-exp-v26.33.0-arm-v7a.apk": {
+      "name": "myfitnesspal-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "26.33.0",
+      "min_sdk": "33",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium+",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "prime-video-morphe-hoodles-exp-v3.0.471.447-arm64-v8a.apk": {
+      "name": "prime-video-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "3.0.471.447",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable speed control",
+        "MicroG integration",
+        "Rename shared permissions",
+        "Skip ads"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-exp-v016-arm64-v8a.apk": {
+      "name": "smart-launcher-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-exp-v016-x86_64.apk": {
+      "name": "smart-launcher-morphe-hoodles-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-exp-v016-arm-v7a.apk": {
+      "name": "smart-launcher-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-exp-v016-all.apk": {
+      "name": "smart-launcher-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xodo-morphe-hoodles-v11.0.0-arm64-v8a.apk": {
+      "name": "xodo-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "11.0.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xodo-morphe-hoodles-v11.0.0-arm-v7a.apk": {
+      "name": "xodo-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "11.0.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xodo-morphe-hoodles-v11.0.0-x86_64.apk": {
+      "name": "xodo-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "11.0.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-x86_64.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "480",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-arm64-v8a.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "480",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-arm-v7a.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "480",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-exp-v1.275.0-all.apk": {
+      "name": "github-morphe-hoodles-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.275.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "480",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-exp-v2026.10.1-arm64-v8a.apk": {
+      "name": "podcast-addict-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-exp-v2026.10.1-arm-v7a.apk": {
+      "name": "podcast-addict-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-exp-v2026.10.1-x86_64.apk": {
+      "name": "podcast-addict-morphe-hoodles-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-exp-v2026.10.1-all.apk": {
+      "name": "podcast-addict-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "niagara-launcher-morphe-hoodles-exp-v1.16.23-all.apk": {
+      "name": "niagara-launcher-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.16.23",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Niagara Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "prime-video-morphe-hoodles-shared-exp-v3.0.471.447-arm64-v8a.apk": {
+      "name": "prime-video-morphe-hoodles-shared-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "3.0.471.447",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable speed control",
+        "MicroG integration",
+        "Rename shared permissions",
+        "Skip ads"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-6-morphe-hoodles-v016-x86_64.apk": {
+      "name": "smart-launcher-6-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-6-morphe-hoodles-v016-arm64-v8a.apk": {
+      "name": "smart-launcher-6-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-6-morphe-hoodles-v016-arm-v7a.apk": {
+      "name": "smart-launcher-6-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-6-morphe-hoodles-v016-all.apk": {
+      "name": "smart-launcher-6-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xodo-morphe-hoodles-exp-v11.0.1-arm-v7a.apk": {
+      "name": "xodo-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "11.0.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xodo-morphe-hoodles-exp-v11.0.1-arm64-v8a.apk": {
+      "name": "xodo-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "11.0.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "xodo-morphe-hoodles-exp-v11.0.1-x86_64.apk": {
+      "name": "xodo-morphe-hoodles-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "11.0.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-v3.61.01-arm64-v8a.apk": {
+      "name": "wallcraft-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "3.61.01",
+      "min_sdk": "25",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-v3.61.01-x86_64.apk": {
+      "name": "wallcraft-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "3.61.01",
+      "min_sdk": "25",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-v3.61.01-all.apk": {
+      "name": "wallcraft-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "3.61.01",
+      "min_sdk": "25",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "wallcraft-morphe-hoodles-v3.61.01-arm-v7a.apk": {
+      "name": "wallcraft-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "3.61.01",
+      "min_sdk": "25",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "merriam-webster-morphe-hoodles-v5.6.2-all.apk": {
+      "name": "merriam-webster-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "5.6.2",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "merriam-webster-morphe-hoodles-v5.6.2-x86_64.apk": {
+      "name": "merriam-webster-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "5.6.2",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "merriam-webster-morphe-hoodles-v5.6.2-arm-v7a.apk": {
+      "name": "merriam-webster-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "5.6.2",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "merriam-webster-morphe-hoodles-v5.6.2-arm64-v8a.apk": {
+      "name": "merriam-webster-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "5.6.2",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "hellochinese-morphe-hoodles-v7.11.0-arm64-v8a.apk": {
+      "name": "hellochinese-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "7.11.0",
+      "min_sdk": "23",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "lightroom-morphe-hoodles-v11.5.01-arm64-v8a.apk": {
+      "name": "lightroom-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "11.5.01",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "MicroG integration"
+      ],
+      "failed_patches": [
+        "Unlock premium features"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Bypass login (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "camscanner-morphe-hoodles-v7.20.0.2606230000-all.apk": {
+      "name": "camscanner-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "7.20.0.2606230000",
+      "min_sdk": "21",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable telemetry",
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "camscanner-morphe-hoodles-v7.20.0.2606230000-arm64-v8a.apk": {
+      "name": "camscanner-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "7.20.0.2606230000",
+      "min_sdk": "21",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Disable telemetry",
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-v016-x86_64.apk": {
+      "name": "smart-launcher-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-v016-arm64-v8a.apk": {
+      "name": "smart-launcher-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-v016-arm-v7a.apk": {
+      "name": "smart-launcher-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "smart-launcher-morphe-hoodles-v016-all.apk": {
+      "name": "smart-launcher-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "016",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Pro",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-arm64-v8a.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-arm-v7a.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-all.apk": {
+      "name": "nova-launcher-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "89000(8.9.0)",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Prime",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-v1.273.0-arm-v7a.apk": {
+      "name": "github-morphe-hoodles-stylus",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.273.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-v1.273.0-x86_64.apk": {
+      "name": "github-morphe-hoodles-stylus",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.273.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-v1.273.0-arm64-v8a.apk": {
+      "name": "github-morphe-hoodles-stylus",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.273.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "github-morphe-hoodles-stylus-v1.273.0-all.apk": {
+      "name": "github-morphe-hoodles-stylus",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.273.0",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.1"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.1"
+      ],
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Force system font (including monospace) (GitHub) (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-v2026.10.1-arm64-v8a.apk": {
+      "name": "podcast-addict-morphe-hoodles",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-v2026.10.1-arm-v7a.apk": {
+      "name": "podcast-addict-morphe-hoodles",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-v2026.10.1-x86_64.apk": {
+      "name": "podcast-addict-morphe-hoodles",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "podcast-addict-morphe-hoodles-v2026.10.1-all.apk": {
+      "name": "podcast-addict-morphe-hoodles",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.10.1",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-exp-v55.1-x86_64.apk": {
+      "name": "ventusky-morphe-hoodles-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "55.1",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-exp-v55.1-arm-v7a.apk": {
+      "name": "ventusky-morphe-hoodles-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "55.1",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-exp-v55.1-arm64-v8a.apk": {
+      "name": "ventusky-morphe-hoodles-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "55.1",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium"
+      ],
+      "failed_patches": [
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    },
+    "ventusky-morphe-hoodles-exp-v55.1-all.apk": {
+      "name": "ventusky-morphe-hoodles-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "55.1",
+      "min_sdk": "32",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "applied_patches": [
+        "Enable Premium",
+        "MicroG integration"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "260234"
+    }
+  },
+  "260233": {
+    "tiktok-morphe-icysymmetra-v46.2.3-arm64-v8a.apk": {
+      "name": "tiktok-morphe-icysymmetra",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "icysymmetra/tiktok-patches-for-morphe@0.8.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/v0.8.0-dev.5"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Download stories",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Enable voice comments",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide floating promotions",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260233"
+    },
+    "tiktok-morphe-icysymmetra-v46.2.3-arm-v7a.apk": {
+      "name": "tiktok-morphe-icysymmetra",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "icysymmetra/tiktok-patches-for-morphe@0.8.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/v0.8.0-dev.5"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Download stories",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Enable voice comments",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide floating promotions",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260233"
+    },
+    "tiktok-morphe-icysymmetra-v46.2.3-all.apk": {
+      "name": "tiktok-morphe-icysymmetra",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "icysymmetra/tiktok-patches-for-morphe@0.8.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/v0.8.0-dev.5"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Download stories",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Enable voice comments",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide floating promotions",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260233"
+    }
+  },
   "260232": {
     "nova-launcher-morphe-hoodles-exp-v89000(8.9.0)-arm-v7a.apk": {
       "name": "nova-launcher-morphe-hoodles-exp",
