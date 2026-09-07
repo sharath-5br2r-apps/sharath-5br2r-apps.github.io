@@ -1,4 +1,2115 @@
 {
+  "260237": {
+    "brave-nightly-morphe-dh6k-v1.97.9-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260237"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260237"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260237"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-arm-v7a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260237"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-x86_64.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260237"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-arm64-v8a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260237"
+    }
+  },
+  "260236": {
+    "hill-climb-racing-morphe-byehi98-v1.71.1-all.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260236"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.71.1-arm64-v8a.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260236"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.71.1-x86_64.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260236"
+    },
+    "hill-climb-racing-morphe-byehi98-v1.71.1-arm-v7a.apk": {
+      "name": "hill-climb-racing-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.71.1",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "260236"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-arm-v7a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260236"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-x86_64.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260236"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-arm64-v8a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260236"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-all.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260236"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-x86_64.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260236"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-arm64-v8a.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260236"
+    },
+    "jetpack-joyride-morphe-byehi98-v1.104.1-arm-v7a.apk": {
+      "name": "jetpack-joyride-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.104.1",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "260236"
+    },
+    "smash-hit-morphe-byehi98-v1.5.14-all.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260236"
+    },
+    "smash-hit-morphe-byehi98-v1.5.14-arm-v7a.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260236"
+    },
+    "smash-hit-morphe-byehi98-v1.5.14-arm64-v8a.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260236"
+    },
+    "smash-hit-morphe-byehi98-v1.5.14-x86_64.apk": {
+      "name": "smash-hit-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.5.14",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "260236"
+    },
+    "vector-morphe-byehi98-v2.10.0-arm-v7a.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260236"
+    },
+    "vector-morphe-byehi98-v2.10.0-x86_64.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260236"
+    },
+    "vector-morphe-byehi98-v2.10.0-all.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260236"
+    },
+    "vector-morphe-byehi98-v2.10.0-arm64-v8a.apk": {
+      "name": "vector-morphe-byehi98",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2.10.0",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.24.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.24.0"
+      ],
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "release_tag": "260236"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260236"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260236"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260236"
+    }
+  },
+  "260235": {
+    "x-morphe-piko-v12.19.1-release.0-arm64-v8a.apk": {
+      "name": "x-morphe-piko",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "x-morphe-piko-v12.19.1-release.0-arm-v7a.apk": {
+      "name": "x-morphe-piko",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "x-morphe-piko-v12.19.1-release.0-x86_64.apk": {
+      "name": "x-morphe-piko",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "x-morphe-piko-v12.19.1-release.0-all.apk": {
+      "name": "x-morphe-piko",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-x86_64.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-arm-v7a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "brave-beta-morphe-dh6k-v1.96.47-arm64-v8a.apk": {
+      "name": "brave-beta-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.96.47",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "x-morphe-piko-materialyou-v12.19.1-release.0-x86_64.apk": {
+      "name": "x-morphe-piko-materialyou",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "x-morphe-piko-materialyou-v12.19.1-release.0-arm-v7a.apk": {
+      "name": "x-morphe-piko-materialyou",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "x-morphe-piko-materialyou-v12.19.1-release.0-all.apk": {
+      "name": "x-morphe-piko-materialyou",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "x-morphe-piko-materialyou-v12.19.1-release.0-arm64-v8a.apk": {
+      "name": "x-morphe-piko-materialyou",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "12.19.1-release.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add ability to copy media link",
+        "Block redirecting to X Lite",
+        "Block update screen",
+        "Change app icon",
+        "Change version code",
+        "Clear tracking params",
+        "Control video auto scroll",
+        "Custom download folder",
+        "Custom emoji font",
+        "Custom font",
+        "Custom share menu",
+        "Custom sharing domain",
+        "Customise post font size",
+        "Customize Inline action Bar items",
+        "Customize Navigation Bar items",
+        "Customize default reply sorting",
+        "Customize explore tabs",
+        "Customize notification tabs",
+        "Customize profile tabs",
+        "Customize search suggestions",
+        "Customize search tab items",
+        "Customize side bar items",
+        "Customize timeline top bar",
+        "Delete from database",
+        "Disable auto timeline scroll on launch",
+        "Disable chirp font",
+        "Download patch",
+        "Enable PiP mode automatically",
+        "Enable Undo Posts",
+        "Enable debug menu for posts",
+        "Enable force HD videos",
+        "Force enable translate",
+        "Handle custom twitter links",
+        "Hide Banner",
+        "Hide Community Notes",
+        "Hide FAB",
+        "Hide FAB Menu Buttons",
+        "Hide Live Threads",
+        "Hide Recommended Users",
+        "Hide badges from navigation bar icons",
+        "Hide bookmark icon in timeline",
+        "Hide community badges",
+        "Hide followed by context",
+        "Hide hidden replies",
+        "Hide immersive player",
+        "Hide nudge button",
+        "Hide post metrics",
+        "Hide promote button",
+        "Hide recommendation items",
+        "Hook feature flag",
+        "Import/Export login token",
+        "Legacy share links",
+        "Log server response",
+        "More information on profile",
+        "Native downloader",
+        "Native reader mode",
+        "Native translator",
+        "No shortened URL",
+        "Pause search suggestions",
+        "Remove Ads",
+        "Remove premium upsell",
+        "Remove search suggestions",
+        "Remove view count",
+        "Restore legacy follower lists",
+        "Round off numbers",
+        "Selectable Text",
+        "Share Tweet as Image",
+        "Show changelogs",
+        "Show poll results",
+        "Show post source label",
+        "Show sensitive media",
+        "Support external downloader"
+      ],
+      "skipped_patches": [
+        "Bring back twitter (default)",
+        "Dynamic color (default)",
+        "Export all activities (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.9-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.9",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "instagram-morphe-piko-v439.0.0.37.89-x86_64.apk": {
+      "name": "instagram-morphe-piko",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "439.0.0.37.89",
+      "min_sdk": "28",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add settings",
+        "Allow user network certificate",
+        "Change like animation",
+        "Change version code",
+        "Copy comment",
+        "Custom sharing domain",
+        "Customise story ring size",
+        "Customise story timestamp",
+        "Disable Reels scrolling",
+        "Disable ads",
+        "Disable analytics",
+        "Disable comments",
+        "Disable discover people",
+        "Disable double tap like",
+        "Disable explore",
+        "Disable highlights",
+        "Disable screenshot detection",
+        "Disable stories",
+        "Disable story flipping",
+        "Disable swipe to create",
+        "Disable typing status",
+        "Disable video autoplay",
+        "Download media",
+        "Download voice message",
+        "External downloader",
+        "Filter stories",
+        "Friendship status indicator",
+        "Hide group creation button on sharesheet",
+        "Hide navigation buttons",
+        "Hide notes tray",
+        "Hide reshare button",
+        "Hide stories tray",
+        "Hide suggested content",
+        "Improve image viewing",
+        "Limit feed to following profiles",
+        "Loop story",
+        "Make ephemeral media permanent",
+        "Mark chat as read manually",
+        "More options on post",
+        "More options on profile",
+        "Open links externally",
+        "Recommended flags",
+        "Remove build expired popup",
+        "Remove empty bottom space",
+        "Sanitize share links",
+        "Save deleted messages",
+        "Save media comment",
+        "Theme",
+        "Unlock Plus benefits",
+        "Unlock developer options",
+        "Unlock employee options",
+        "Validate links",
+        "View DMs anonymously",
+        "View live anonymously",
+        "View stories anonymously",
+        "View story mentions"
+      ],
+      "skipped_patches": [
+        "Clone (default)"
+      ],
+      "release_tag": "260235"
+    },
+    "instagram-morphe-piko-v439.0.0.37.89-arm64-v8a.apk": {
+      "name": "instagram-morphe-piko",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "439.0.0.37.89",
+      "min_sdk": "28",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "crimera/piko@3.10.0-dev.5"
+      ],
+      "changelog": [
+        "https://github.com/crimera/piko/releases/tag/v3.10.0-dev.5"
+      ],
+      "applied_patches": [
+        "Add settings",
+        "Allow user network certificate",
+        "Change like animation",
+        "Change version code",
+        "Copy comment",
+        "Custom sharing domain",
+        "Customise story ring size",
+        "Customise story timestamp",
+        "Disable Reels scrolling",
+        "Disable ads",
+        "Disable analytics",
+        "Disable comments",
+        "Disable discover people",
+        "Disable double tap like",
+        "Disable explore",
+        "Disable highlights",
+        "Disable screenshot detection",
+        "Disable stories",
+        "Disable story flipping",
+        "Disable swipe to create",
+        "Disable typing status",
+        "Disable video autoplay",
+        "Download media",
+        "Download voice message",
+        "External downloader",
+        "Filter stories",
+        "Friendship status indicator",
+        "Hide group creation button on sharesheet",
+        "Hide navigation buttons",
+        "Hide notes tray",
+        "Hide reshare button",
+        "Hide stories tray",
+        "Hide suggested content",
+        "Improve image viewing",
+        "Limit feed to following profiles",
+        "Loop story",
+        "Make ephemeral media permanent",
+        "Mark chat as read manually",
+        "More options on post",
+        "More options on profile",
+        "Open links externally",
+        "Recommended flags",
+        "Remove build expired popup",
+        "Remove empty bottom space",
+        "Sanitize share links",
+        "Save deleted messages",
+        "Save media comment",
+        "Theme",
+        "Unlock Plus benefits",
+        "Unlock developer options",
+        "Unlock employee options",
+        "Validate links",
+        "View DMs anonymously",
+        "View live anonymously",
+        "View stories anonymously",
+        "View story mentions"
+      ],
+      "skipped_patches": [
+        "Clone (default)"
+      ],
+      "release_tag": "260235"
+    }
+  },
   "260234": {
     "xrecorder-morphe-hoodles-v2.5.1.1-arm64-v8a.apk": {
       "name": "xrecorder-morphe-hoodles",
