@@ -1,4 +1,647 @@
 {
+  "260250": {
+    "macrodroid-morphe-rushiranpise-exp-v5.67.7-all.apk": {
+      "name": "macrodroid-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "5.67.7",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260250"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260250"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260250"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260250"
+    }
+  },
+  "260249": {
+    "brave-nightly-morphe-dh6k-v1.97.13-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260249"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260249"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260249"
+    },
+    "macrodroid-morphe-rushiranpise-exp-v5.67.7-all.apk": {
+      "name": "macrodroid-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "5.67.7",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4"
+      ],
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260249"
+    }
+  },
+  "260248": {
+    "macrodroid-morphe-rushiranpise-exp-v5.67.7-all.apk": {
+      "name": "macrodroid-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "5.67.7",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.4-dev.1"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.4-dev.1"
+      ],
+      "applied_patches": [
+        "Unlock Pro"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260248"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260248"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260248"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.13-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.13",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "dh6k/morphe-patches@1.6.0-dev.6"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.6.0-dev.6"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260248"
+    },
+    "tiktok-morphe-icysymmetra-v46.2.3-arm-v7a.apk": {
+      "name": "tiktok-morphe-icysymmetra",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "icysymmetra/tiktok-patches-for-morphe@0.8.0-dev.7"
+      ],
+      "changelog": [
+        "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/v0.8.0-dev.7"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Comment sort controls",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Download stories",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Enable voice comments",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Force show Auto scroll",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide floating promotions",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260248"
+    },
+    "tiktok-morphe-icysymmetra-v46.2.3-arm64-v8a.apk": {
+      "name": "tiktok-morphe-icysymmetra",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "icysymmetra/tiktok-patches-for-morphe@0.8.0-dev.7"
+      ],
+      "changelog": [
+        "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/v0.8.0-dev.7"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Comment sort controls",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Download stories",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Enable voice comments",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Force show Auto scroll",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide floating promotions",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260248"
+    },
+    "tiktok-morphe-icysymmetra-v46.2.3-all.apk": {
+      "name": "tiktok-morphe-icysymmetra",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "46.2.3",
+      "min_sdk": "23",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.0-all",
+      "patches": [
+        "icysymmetra/tiktok-patches-for-morphe@0.8.0-dev.7"
+      ],
+      "changelog": [
+        "https://github.com/icysymmetra/tiktok-patches-for-morphe/releases/tag/v0.8.0-dev.7"
+      ],
+      "applied_patches": [
+        "Always show publish date",
+        "Comment sort controls",
+        "Copy comments without username",
+        "Custom offline videos limit",
+        "Disable login requirement",
+        "Disable long-press quick share",
+        "Disable long-press repost",
+        "Download stories",
+        "Downloads",
+        "Enable Live search",
+        "Enable non-personalized search",
+        "Enable voice comments",
+        "Feature Gate Lab",
+        "Feed filter",
+        "Feed tab navigation",
+        "Fix Google login",
+        "Foldable split comment view",
+        "Force show Auto scroll",
+        "Hide CAPTCHA popups",
+        "Hide feed LIVE button",
+        "Hide feed follow button",
+        "Hide feed save button",
+        "Hide feed search button",
+        "Hide floating promotions",
+        "Hide quick comment reactions",
+        "Hide suggested accounts",
+        "Hold-and-slide 2x lock",
+        "Open external links directly",
+        "Playback speed",
+        "Region spoof",
+        "Remember clear display",
+        "Resume videos after scrolling",
+        "Sanitize sharing links",
+        "Settings",
+        "Share sheet modification",
+        "Show seekbar",
+        "Show seekbar thumbnail",
+        "Stop video looping",
+        "Translate comments",
+        "Disable screen capture detection"
+      ],
+      "skipped_patches": [
+        "Diagnostic tools (default)"
+      ],
+      "release_tag": "260248"
+    }
+  },
   "260245": {
     "brave-nightly-morphe-dh6k-v1.97.12-x86_64.apk": {
       "name": "brave-nightly-morphe-dh6k",
