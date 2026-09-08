@@ -607,10 +607,12 @@ const CONFIG = {
       morphe: {
         default: "app.morphe.android.apps.youtube.music",
         anddea: "anddea.youtube.music",
+        morpheanddea: "anddea.youtube.music",
       },
+      morpheanddea: "anddea.youtube.music",
       default: "com.google.android.apps.youtube.music",
     },
-    zalithlauncher2extra: "com.movtery.zalithlauncher"
+    zalithlauncher2extra: "com.movtery.zalithlauncher.v2"
   },
 
   // App-specific notices to display on App Cards
