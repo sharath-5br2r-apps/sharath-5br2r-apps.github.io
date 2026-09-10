@@ -1,4 +1,500 @@
 {
+  "260279": {
+    "brave-stable-morphe-kveld9-v1.94.121-arm-v7a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.94.121",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.17.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.17.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "DPI Resource Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "brave-stable-morphe-kveld9-v1.94.121-x86_64.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.94.121",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.17.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.17.0"
+      ],
+      "applied_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Background Sync & Periodic Sync",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "DPI Resource Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "brave-stable-morphe-kveld9-v1.94.121-arm64-v8a.apk": {
+      "name": "brave-stable-morphe-kveld9",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.94.121",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "kveld9/kveld-morphe-patches@1.17.0"
+      ],
+      "changelog": [
+        "https://github.com/kveld9/kveld-morphe-patches/releases/tag/v1.17.0"
+      ],
+      "applied_patches": [
+        "Brave Origin",
+        "Brave Startup Performance Optimization",
+        "Disable Battery Status API & OS Listener",
+        "Disable Pull To Refresh",
+        "Skip First Run"
+      ],
+      "failed_patches": [
+        "Block Brave Telemetry",
+        "Brave In-Product & Commercial Notification Optimizer",
+        "Disable Background Sync & Periodic Sync"
+      ],
+      "skipped_patches": [
+        "Locale PAK Slimmer (default)",
+        "Native Bloat Slimmer (default)",
+        "DPI Resource Slimmer (default)",
+        "PNG Asset Optimizer (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "adguard-morphe-rushiranpise-exp-v4.14.0-arm64-v8a.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "adguard-morphe-rushiranpise-exp-v4.14.0-x86_64.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "adguard-morphe-rushiranpise-exp-v4.14.0-arm-v7a.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "adguard-morphe-rushiranpise-exp-v4.14.0-all.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-x86_64.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "kondratjev/morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/kondratjev/morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-arm-v7a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "kondratjev/morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/kondratjev/morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "soundcloud-morphe-kondratjev-v2026.08.26-release-arm64-v8a.apk": {
+      "name": "soundcloud-morphe-kondratjev",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.08.26-release",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "kondratjev/morphe-patches@1.23.0"
+      ],
+      "changelog": [
+        "https://github.com/kondratjev/morphe-patches/releases/tag/v1.23.0"
+      ],
+      "applied_patches": [
+        "Disable analytics",
+        "Disable consent popup",
+        "Enable SoundCloud Go"
+      ],
+      "skipped_patches": [
+        "Disable analytics (default)",
+        "Change version code (default)",
+        "Disable Pairip license check (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.23-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.23",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.23-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.23",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260279"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.23-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.23",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260279"
+    }
+  },
   "260278": {
     "jiohotstar-morphe-paresh-exp-v26.08.31.3-all.apk": {
       "name": "jiohotstar-morphe-paresh-exp",
