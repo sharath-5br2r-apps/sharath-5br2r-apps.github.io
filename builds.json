@@ -1,4 +1,264 @@
 {
+  "260280": {
+    "adguard-morphe-rushiranpise-exp-v4.14.0-arm-v7a.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260280"
+    },
+    "adguard-morphe-rushiranpise-exp-v4.14.0-x86_64.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260280"
+    },
+    "adguard-morphe-rushiranpise-exp-v4.14.0-arm64-v8a.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260280"
+    },
+    "adguard-morphe-rushiranpise-exp-v4.14.0-all.apk": {
+      "name": "adguard-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "4.14.0",
+      "min_sdk": "28",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Unlock Lifetime Premium"
+      ],
+      "skipped_patches": [
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260280"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.24-arm-v7a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "1.97.24",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260280"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.24-x86_64.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "x86_64",
+      "ext": ".apk",
+      "version": "1.97.24",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260280"
+    },
+    "brave-nightly-morphe-dh6k-v1.97.24-arm64-v8a.apk": {
+      "name": "brave-nightly-morphe-dh6k",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "1.97.24",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "dh6k/morphe-patches@1.5.0"
+      ],
+      "changelog": [
+        "https://github.com/dh6k/morphe-patches/releases/tag/v1.5.0"
+      ],
+      "applied_patches": [
+        "Brave Origin"
+      ],
+      "skipped_patches": [
+        "Change app icon (default)",
+        "Change app name (default)",
+        "Disable analytics (default)"
+      ],
+      "release_tag": "260280"
+    }
+  },
   "260279": {
     "brave-stable-morphe-kveld9-v1.94.121-arm-v7a.apk": {
       "name": "brave-stable-morphe-kveld9",
