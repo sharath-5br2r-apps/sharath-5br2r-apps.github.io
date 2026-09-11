@@ -3,16 +3,17 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
-  workflow_run:
-    workflows: ["Update Releases Cache"]
-    types:
-      - completed
+    paths-ignore:
+      - "data.json"
+  repository_dispatch:
+    types: [deploy-pages, update-catalog-cache]
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: "pages"
@@ -20,7 +21,6 @@ concurrency:
 
 jobs:
   deploy:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
     runs-on: ubuntu-latest
@@ -44,3 +44,19 @@ jobs:
           attempt_limit: 3
           attempt_delay: 10000 # Wait 10 seconds between retries
 
+      - name: Remove older workflow runs
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh run list -L400 --repo "$GITHUB_REPOSITORY" --json databaseId -q '.[].databaseId' |
+            tail -n+11 |
+            xargs -IID gh api "repos/$GITHUB_REPOSITORY/actions/runs/ID" -X DELETE || :
+
+  trigger_notify_failure:
+    needs: [ deploy ]
+    if: failure()
+    uses: ./.github/workflows/notify.yml
+    with:
+      workflow_name: "Deploy to GitHub Pages"
+    secrets: inherit
