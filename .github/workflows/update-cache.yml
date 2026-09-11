@@ -78,4 +78,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "update releases cache and master build metadata [skip ci]"
-          file_pattern: "releases.json releases.json.gz builds.json builds.json.gz"
+          file_pattern: "releases.json releases.json.gz builds.json builds.json.gz data.json data.json.gz"

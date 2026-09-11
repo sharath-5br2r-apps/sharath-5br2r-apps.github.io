@@ -1809,6 +1809,17 @@ function buildAppCatalog(releases) {
           fileTypeLabel: parsed.buildVariantChannel
             ? `${fileType} (${parsed.buildVariantChannel.charAt(0).toUpperCase() + parsed.buildVariantChannel.slice(1)})`
             : fileType,
+          os: asset.os || targetOS,
+          isVanilla: typeof asset.isVanilla === "boolean" ? asset.isVanilla : (patchEntry.patchName === "Official" || patchEntry.patchName === "Vanilla"),
+          min_sdk: asset.min_sdk || null,
+          densities: asset.densities || null,
+          native_libraries: asset.native_libraries || null,
+          cli: asset.cli || null,
+          patches: asset.patches || null,
+          changelog: asset.changelog || null,
+          applied_patches: asset.applied_patches || null,
+          failed_patches: asset.failed_patches || null,
+          skipped_patches: asset.skipped_patches || null,
         });
       }
     });
@@ -1835,8 +1846,13 @@ function buildAppCatalog(releases) {
             (sum, b) => sum + (b.assets || []).reduce((aSum, a) => aSum + (a.download_count || 0), 0),
             0
           );
+          const allBuildsVanilla = Array.from(patch.builds.values()).every((b) =>
+            (b.assets || []).length > 0 && (b.assets || []).every((a) => a.isVanilla)
+          );
+          const isVanillaPatch = allBuildsVanilla || patch.patchName === "Official" || patch.patchName === "Vanilla";
           return {
             ...patch,
+            isVanilla: isVanillaPatch,
             totalDownloads: patchDownloads,
             variants: Array.from(patch.variants.values()).sort((a, b) => {
               if (a.variantKey === "default") return -1;
@@ -2365,6 +2381,9 @@ function createPatchMarkup(app, patch) {
     .join(" ");
 
   const osBadgeHtml = `<span class="os-tag-badge" title="Target Operating System">${formatOSBadge(patch.targetOS || "android")}</span>`;
+  const vanillaBadgeHtml = patch.isVanilla
+    ? `<span class="vanilla-tag-badge" title="Official Stock / Vanilla">${getFaSvg("tag")} Vanilla</span>`
+    : "";
 
   return `
     <div class="patch-entry">
@@ -2372,6 +2391,7 @@ function createPatchMarkup(app, patch) {
         <div class="patch-chip-group">
           ${engineBadgeHtml}
           ${patchBadgesHtml}
+          ${vanillaBadgeHtml}
           ${osBadgeHtml}
           ${buildIconBadge}
           ${downloadIconBadge}
@@ -2980,7 +3000,7 @@ function createModalBuildMarkup(app, patch, build, openByDefault = false) {
           <div class="asset-right">
             <span class="btn-text">${sizeStr} • ${getFaSvg("download")} ${downloads}</span>
             <div class="asset-action-group" style="display: inline-flex; align-items: center; gap: 6px;">
-              ${hasBuildMetadataForAsset(masterBuildDataCache, asset.name, build.releaseTag) ? `<button class="patch-applied-btn asset-info-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" data-asset-name="${escapeHtml(asset.name)}" type="button" title="View build information and applied patches">Info / Applied Patches</button>` : ""}
+              ${hasBuildMetadataForAsset(masterBuildDataCache, asset.name, build.releaseTag, asset) ? `<button class="patch-applied-btn asset-info-btn" data-app-key="${app.appKey}" data-patch-key="${patch.patchKey}" data-build-key="${build.buildKey || build.releaseId}" data-asset-name="${escapeHtml(asset.name)}" type="button" title="View build information and applied patches">Info / Applied Patches</button>` : ""}
               <a href="${asset.browser_download_url}" class="download-action-btn" download title="Download ${asset.name}">Download</a>
             </div>
           </div>
@@ -3052,7 +3072,18 @@ function getBuildBucket(masterData, releaseTag) {
   return null;
 }
 
-function hasBuildMetadataForAsset(masterData, assetName, releaseTag = "") {
+function hasBuildMetadataForAsset(masterData, assetName, releaseTag = "", asset = null) {
+  if (asset && typeof asset === "object") {
+    if (
+      (Array.isArray(asset.applied_patches) && asset.applied_patches.length > 0) ||
+      asset.min_sdk ||
+      asset.cli ||
+      asset.isVanilla ||
+      (Array.isArray(asset.patches) && asset.patches.length > 0)
+    ) {
+      return true;
+    }
+  }
   const entry = findBuildDetails(masterData, { name: assetName }, { releaseTag });
   return Boolean(entry);
 }
@@ -3130,8 +3161,24 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
   let appliedPatches = null;
   let buildMetadata = null;
 
-  // Resolve applied patches from builds.json
-  if (!appliedPatches) {
+  const asset = build?.assets?.find((candidate) => !assetName || candidate.name === assetName) || build?.assets?.[0];
+
+  // If asset has direct metadata attached (from data.json / data.json.gz), use it directly
+  if (asset && (Array.isArray(asset.applied_patches) || asset.min_sdk || asset.cli || asset.isVanilla || Array.isArray(asset.patches))) {
+    buildMetadata = asset;
+    if (Array.isArray(asset.applied_patches)) {
+      appliedPatches = asset.applied_patches;
+    }
+    if (asset.patches) {
+      pNames = asset.patches;
+    }
+    if (asset.changelog) {
+      clUrl = asset.changelog;
+    }
+  }
+
+  // Resolve applied patches from builds.json if not already found on asset
+  if (!appliedPatches && (!buildMetadata || !buildMetadata.min_sdk)) {
     const masterData = await fetchMasterBuildData();
     const appKeyNorm = normalizeForSearch(app.appKey || app.appName);
     const patchKeyNorm = normalizeForSearch(patch.patchKey || patch.patchName);
@@ -3150,8 +3197,6 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
     let assetRawPrefix = "";
     let assetRawAppSlug = "";
     let assetRawPatchSlug = "";
-
-    const asset = build?.assets?.find((candidate) => !assetName || candidate.name === assetName) || build?.assets?.[0];
     if (asset?.parsed) {
       assetRawPrefix = asset.parsed.rawPrefix || "";
       assetRawAppSlug = asset.parsed.rawAppSlug || "";
@@ -3471,12 +3516,17 @@ function filterAppliedPatchesList(query) {
   const densitiesVal = (meta.densities || []).join(", ") || "All";
   const cliVal = meta.cli || activeBuildMetadata?.cli || activeBuildForModal?.patchMeta?.cli || "";
 
+  const osVal = meta.os || assetObj?.os || activeBuildForModal?.os || (assetObj?.parsed?.osToken ? detectOS(assetObj.parsed.osToken) : "android");
+  const isVanillaBuild = Boolean(meta.isVanilla || assetObj?.isVanilla || activeBuildForModal?.isVanilla);
+
   const apkInfo = `
     <section class="patch-metadata-section apk-info-section">
-      <h3>${getFaSvg("box-archive")} ${extLower === "zip" ? "Module / Package Information" : "APK Information"}</h3>
+      <h3>${getFaSvg("box-archive")} ${extLower === "zip" ? "Module / Package Information" : "Package Information"}</h3>
       <div class="apk-info-grid">
+        <span><strong>Operating System</strong>${formatOSBadge(osVal)}</span>
+        <span><strong>Build Type</strong>${isVanillaBuild ? '<span class="vanilla-tag-badge" style="font-size:0.75rem; padding: 2px 6px;">Vanilla</span>' : '<span class="patch-name-badge" style="font-size:0.75rem; padding: 2px 6px;">Patched</span>'}</span>
         <span><strong>Architecture</strong>${escapeHtml(archVal)}</span>
-        <span><strong>Minimum Android</strong>${escapeHtml(minAndroidDisplay)}</span>
+        ${rawSdk && rawSdk !== "Unknown" ? `<span><strong>Minimum Android</strong>${escapeHtml(minAndroidDisplay)}</span>` : ""}
         <span><strong>Format</strong>${escapeHtml(extLower)}</span>
         ${cliVal ? `<span><strong>Patcher CLI</strong>${escapeHtml(cliVal)}</span>` : ""}
         <span><strong>Native libraries</strong>${escapeHtml(nativeLibsVal)}</span>

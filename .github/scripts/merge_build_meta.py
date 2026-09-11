@@ -8,6 +8,8 @@ MASTER_BUILD_FILE = "builds.json"
 GZ_BUILD_FILE = "builds.json.gz"
 MASTER_RELEASES_FILE = "releases.json"
 GZ_RELEASES_FILE = "releases.json.gz"
+MASTER_DATA_FILE = "data.json"
+GZ_DATA_FILE = "data.json.gz"
 
 # Pre-compiled regular expressions for performance
 ARCH_SUFFIXES_REGEX = re.compile(
@@ -22,7 +24,7 @@ ASSET_FILENAME_REGEX = re.compile(
 
 def load_script_js_config(filepath="script.js"):
     """
-    Parse knownPatchTokens and variantKeywords directly from script.js
+    Parse patchEngineTokens, patchTokens, and variantTokens directly from script.js
     so script.js remains the single source of truth.
     """
     known_engines = []
@@ -44,13 +46,13 @@ def load_script_js_config(filepath="script.js"):
             with open(script_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
-            patch_match = re.search(r"knownPatchTokens:\s*new\s+Set\(\s*\[(.*?)\]\s*\)", content, re.DOTALL)
-            if patch_match:
-                extracted = re.findall(r'["\']([a-zA-Z0-9_-]+)["\']', patch_match.group(1))
+            engine_match = re.search(r"patchEngineTokens:\s*new\s+Set\(\s*\[(.*?)\]\s*\)", content, re.DOTALL)
+            if engine_match:
+                extracted = re.findall(r'["\']([a-zA-Z0-9_-]+)["\']', engine_match.group(1))
                 if extracted:
                     known_engines = [t.lower() for t in extracted]
 
-            variant_match = re.search(r"variantKeywords:\s*new\s+Set\(\s*\[(.*?)\]\s*\)", content, re.DOTALL)
+            variant_match = re.search(r"variantTokens:\s*new\s+Set\(\s*\[(.*?)\]\s*\)", content, re.DOTALL)
             if variant_match:
                 extracted_v = re.findall(r'["\']([a-zA-Z0-9_-]+)["\']', variant_match.group(1))
                 if extracted_v:
@@ -228,6 +230,92 @@ def prune_stale_metadata(builds, releases):
 
     return builds
 
+def detect_os(text):
+    clean = (text or "").lower()
+    if "termux" in clean:
+        return "termux"
+    if any(x in clean for x in ["macos", "mac", "darwin", "osx", ".dmg", ".pkg"]):
+        return "macos"
+    if any(x in clean for x in ["windows", "win", ".exe", ".msi"]):
+        return "windows"
+    if any(x in clean for x in ["linux", "ubuntu", "debian", ".appimage", ".deb", ".rpm"]):
+        return "linux"
+    if "android" in clean or any(clean.endswith(ext) for ext in [".apk", ".apks", ".apkm", ".xapk", ".zip"]):
+        return "android"
+    return "android"
+
+def update_data_json_catalog(master_build, data_json_path=MASTER_DATA_FILE):
+    """
+    Enrich data.json and data.json.gz with per-asset metadata fields:
+    os, isVanilla, min_sdk, densities, native_libraries, cli,
+    patches, changelog, applied_patches, failed_patches, skipped_patches.
+    """
+    data = load_json(data_json_path)
+    if not isinstance(data, dict) or "apps" not in data:
+        print(f"Warning: {data_json_path} does not exist or has no 'apps' key. Skipping data.json generation.")
+        return
+
+    # Build filename index of metadata across all buckets
+    meta_by_name = {}
+    for tag, b_dict in master_build.items():
+        if isinstance(b_dict, dict):
+            for fname, meta in b_dict.items():
+                if fname not in meta_by_name:
+                    meta_by_name[fname] = meta
+
+    enriched_asset_count = 0
+
+    for app in data.get("apps", []):
+        for brand in app.get("brands", []):
+            brand_key = (brand.get("brandKey") or "").lower()
+            for b in brand.get("builds", []):
+                rel_tag = str(b.get("build") or b.get("releaseId") or "")
+                bucket = master_build.get(rel_tag, {}) if isinstance(master_build.get(rel_tag), dict) else {}
+                patches_list = b.get("patchSources") or []
+                applied_list = b.get("appliedPatches") or []
+                changelog_list = b.get("changelogs") or []
+
+                is_vanilla = bool(
+                    brand_key in ["official", "vanilla", "stock"] or
+                    (not patches_list and not applied_list)
+                )
+
+                for a in b.get("assets", []):
+                    fname = a.get("name", "")
+                    meta = bucket.get(fname) or meta_by_name.get(fname) or {}
+
+                    a_os = meta.get("os") or a.get("os") or detect_os(fname)
+                    a["os"] = a_os
+                    a["isVanilla"] = is_vanilla
+
+                    fields_to_sync = [
+                        "min_sdk", "densities", "native_libraries", "cli",
+                        "patches", "changelog", "applied_patches", "failed_patches", "skipped_patches"
+                    ]
+                    for f in fields_to_sync:
+                        val = meta.get(f)
+                        if (val is None or val == "" or val == []) and f == "applied_patches":
+                            val = applied_list
+                        if (val is None or val == "" or val == []) and f == "patches":
+                            val = patches_list
+                        if (val is None or val == "" or val == []) and f == "changelog":
+                            val = changelog_list
+                        if val is not None and val != "" and val != []:
+                            a[f] = val
+
+                    enriched_asset_count += 1
+
+    # Sort apps alphabetically
+    data["apps"].sort(key=lambda a: a["appName"].lower())
+
+    data_json_bytes = json.dumps(data, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    with open(MASTER_DATA_FILE, "wb") as f:
+        f.write(data_json_bytes)
+    with gzip.open(GZ_DATA_FILE, "wb", compresslevel=9) as f:
+        f.write(data_json_bytes)
+    print(f"[OK] Successfully wrote {MASTER_DATA_FILE} & {GZ_DATA_FILE} ({enriched_asset_count} assets updated)")
+
+
 def main():
     if not os.path.exists("releases_new.json"):
         print("releases_new.json does not exist.")
@@ -292,6 +380,9 @@ def main():
     with gzip.open(GZ_RELEASES_FILE, "wb", compresslevel=9) as f:
         f.write(releases_json_bytes)
     print(f"[OK] Successfully wrote clean {MASTER_RELEASES_FILE} & {GZ_RELEASES_FILE} ({len(releases)} releases, {new_build_data_count} metadata files ingested)")
+
+    # Update data.json and data.json.gz with per-asset metadata
+    update_data_json_catalog(master_build)
 
 if __name__ == "__main__":
     main()

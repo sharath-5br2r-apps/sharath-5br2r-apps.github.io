@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths-ignore:
       - "data.json"
+      - "data.json.gz"
   repository_dispatch:
     types: [deploy-pages, update-catalog-cache]
   workflow_dispatch:

@@ -979,6 +979,20 @@ main {
     gap: 4px;
 }
 
+.vanilla-tag-badge {
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 171, 0, 0.14);
+    border: 1px solid #ffab00;
+    color: #ffab00;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
 .patch-engine-link {
     text-decoration: none;
     transition: opacity 0.2s ease, transform 0.2s ease;
@@ -2578,6 +2592,12 @@ footer a:hover {
 
 .os-tag-badge .fa-icon {
     color: var(--accent-stable);
+    width: 0.95em;
+    height: 0.95em;
+}
+
+.vanilla-tag-badge .fa-icon {
+    color: #ffab00;
     width: 0.95em;
     height: 0.95em;
 }
