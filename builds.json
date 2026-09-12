@@ -1,4 +1,292 @@
 {
+  "260294": {
+    "amazon-shopping-morphe-rushiranpise-exp-v32.17.0.100-all.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "32.17.0.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260294"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.17.0.100-arm64-v8a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "32.17.0.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260294"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.17.0.100-arm-v7a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "32.17.0.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260294"
+    }
+  },
+  "260293": {
+    "amazon-shopping-morphe-rushiranpise-exp-v32.17.0.100-all.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "32.17.0.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260293"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.17.0.100-arm-v7a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "32.17.0.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260293"
+    },
+    "amazon-shopping-morphe-rushiranpise-exp-v32.17.0.100-arm64-v8a.apk": {
+      "name": "amazon-shopping-morphe-rushiranpise-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "32.17.0.100",
+      "min_sdk": "31",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "rushiranpise/morphe-patches@1.21.5"
+      ],
+      "changelog": [
+        "https://github.com/rushiranpise/morphe-patches/releases/tag/v1.21.5"
+      ],
+      "applied_patches": [
+        "Dark mode",
+        "Disable search suggestions tracking",
+        "Disable video autoplay",
+        "Fix Amazon manifest conflicts",
+        "Open links in browser",
+        "Price history charts",
+        "Remove ads"
+      ],
+      "skipped_patches": [
+        "Hide Rufus tab",
+        "Disable PairIP license check (default)",
+        "Provide Original app certificate (default)",
+        "Spoof Widevine / DRM level (default)",
+        "Fix Firebase after re-signing (default)",
+        "GmsCore support (MicroG) (default)",
+        "Spoof install source (default)",
+        "Spoof app signature (default)"
+      ],
+      "release_tag": "260293"
+    }
+  },
   "260292": {
     "tiktok-morphe-icysymmetra-v46.2.3-arm64-v8a.apk": {
       "name": "tiktok-morphe-icysymmetra",
