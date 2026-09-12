@@ -287,6 +287,1528 @@
       "release_tag": "260293"
     }
   },
+  "2026.09.12-5": {
+    "discord-npatch-revenge": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "discord-revenge",
+      "arch": "",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "patches_source": "revenge-mod/revenge-xposed",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-5"
+    },
+    "discord-revenge-v343.12-Stable-x86_64.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-5"
+    },
+    "discord-revenge-v343.12-Stable-all.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-5"
+    },
+    "discord-revenge-v343.12-Stable-arm64-v8a.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-5"
+    },
+    "discord-revenge-v343.12-Stable-arm-v7a.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-5"
+    },
+    "nova-launcher-morphe-hoodles-exp": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk"
+      ],
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "patches_source": "hoo-dles/morphe-patches",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Enable debug (default)",
+        "Hide app icon (default)",
+        "MicroG integration (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-5"
+    },
+    "nova-launcher-hoodles-exp-v89200(8.9.2)-arm64-v8a.apk": {
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-5"
+    },
+    "nova-launcher-hoodles-exp-v89200(8.9.2)-all.apk": {
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-5"
+    },
+    "nova-launcher-hoodles-exp-v89200(8.9.2)-arm-v7a.apk": {
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-5"
+    }
+  },
+  "2026.09.12-4": {
+    "nova-launcher-morphe-hoodles-exp": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk"
+      ],
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "patches_source": "hoo-dles/morphe-patches",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Change package name (default)",
+        "Disable Pairip license check (default)",
+        "Enable debug (default)",
+        "Hide app icon (default)",
+        "MicroG integration (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "nova-launcher-hoodles-exp-v89200(8.9.2)-arm64-v8a.apk": {
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "nova-launcher-hoodles-exp-v89200(8.9.2)-all.apk": {
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "nova-launcher-hoodles-exp-v89200(8.9.2)-arm-v7a.apk": {
+      "name": "nova-launcher-hoodles-exp",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "89200(8.9.2)",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.44.0"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0"
+      ],
+      "package_name": "com.teslacoilsw.launcher",
+      "display_name": "nova-launcher",
+      "brand": "hoodles",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Enable Prime"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "smash-hit-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "smash-hit-byehi98-v1.5.14-arm64-v8a.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "smash-hit-byehi98-v1.5.14-all.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "smash-hit-byehi98-v1.5.14-x86_64.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "smash-hit-byehi98-v1.5.14-arm-v7a.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "discord-npatch-revenge": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "discord-revenge",
+      "arch": "",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "patches_source": "revenge-mod/revenge-xposed",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-4"
+    },
+    "discord-revenge-v343.12-Stable-x86_64.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-4"
+    },
+    "discord-revenge-v343.12-Stable-arm64-v8a.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-4"
+    },
+    "discord-revenge-v343.12-Stable-all.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-4"
+    },
+    "discord-revenge-v343.12-Stable-arm-v7a.apk": {
+      "name": "discord-revenge",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "343.12-Stable",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "7723mod/NPatch@1.0.7-741-release",
+      "patches": [
+        "revenge-mod/revenge-xposed"
+      ],
+      "changelog": [
+        "https://github.com/revenge-mod/revenge-xposed/releases/tag/1603"
+      ],
+      "package_name": "com.discord",
+      "display_name": "discord",
+      "brand": "revenge",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [],
+      "release_tag": "2026.09.12-4"
+    },
+    "hill-climb-racing-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-x86_64.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-all.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-arm64-v8a.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-arm-v7a.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "jetpack-joyride-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-all.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-arm64-v8a.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-x86_64.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-arm-v7a.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "vector-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "vector-byehi98",
+      "arch": "",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "failed_patches": [
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "vector-byehi98-v2.10.0-arm-v7a.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "failed_patches": [
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "vector-byehi98-v2.10.0-x86_64.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "failed_patches": [
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "vector-byehi98-v2.10.0-arm64-v8a.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof",
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.12-4"
+    },
+    "vector-byehi98-v2.10.0-all.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.26.1"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.26.1"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof",
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.12-4"
+    }
+  },
   "2026.09.12-3": {
     "xodo-morphe-hoodles-exp": {
       "exts": [
