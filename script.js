@@ -1812,12 +1812,14 @@ function buildAppCatalog(releases) {
           os: asset.os || targetOS,
           isVanilla: typeof asset.isVanilla === "boolean" ? asset.isVanilla : (patchEntry.patchName === "Official" || patchEntry.patchName === "Vanilla"),
           min_sdk: asset.min_sdk || null,
+          dpi: asset.dpi || null,
           densities: asset.densities || null,
           native_libraries: asset.native_libraries || null,
           cli: asset.cli || null,
           patches: asset.patches || null,
           changelog: asset.changelog || null,
           applied_patches: asset.applied_patches || null,
+          removed_patches: asset.removed_patches || null,
           failed_patches: asset.failed_patches || null,
           skipped_patches: asset.skipped_patches || null,
         });
@@ -3076,7 +3078,9 @@ function hasBuildMetadataForAsset(masterData, assetName, releaseTag = "", asset 
   if (asset && typeof asset === "object") {
     if (
       (Array.isArray(asset.applied_patches) && asset.applied_patches.length > 0) ||
+      (Array.isArray(asset.removed_patches) && asset.removed_patches.length > 0) ||
       asset.min_sdk ||
+      asset.dpi ||
       asset.cli ||
       asset.isVanilla ||
       (Array.isArray(asset.patches) && asset.patches.length > 0)
@@ -3367,12 +3371,15 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
 
   activeAppliedPatchesList = appliedPatches;
   activeBuildMetadata = buildMetadata;
+  activeRemovedPatchesList = Array.isArray(buildMetadata?.removed_patches)
+    ? buildMetadata.removed_patches
+    : (Array.isArray(buildMetadata?.excluded_patches) ? buildMetadata.excluded_patches : []);
   activeSkippedPatchesList = Array.isArray(buildMetadata?.skipped_patches) ? buildMetadata.skipped_patches : [];
   activeFailedPatchesList = Array.isArray(buildMetadata?.failed_patches)
     ? buildMetadata.failed_patches
     : (Array.isArray(buildMetadata?.failed) ? buildMetadata.failed : []);
   activeBuildForModal = build;
-  patchSectionCollapsedState = { applied: true, failed: false, skipped: false };
+  patchSectionCollapsedState = { applied: true, removed: false, failed: false, skipped: false };
   filterAppliedPatchesList("");
   showModal(DOM.appliedPatchesModal);
 
@@ -3381,8 +3388,9 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
   }
 }
 
-let patchSectionCollapsedState = { applied: true, failed: false, skipped: false };
+let patchSectionCollapsedState = { applied: true, removed: false, failed: false, skipped: false };
 let activeBuildForModal = null;
+let activeRemovedPatchesList = [];
 
 function formatChangelogForBuild(build) {
   const body = build?.patchMeta?.body || build?.patchMeta?.releaseBody || "";
@@ -3431,10 +3439,11 @@ function filterAppliedPatchesList(query) {
   if (!DOM.appliedPatchesBody) return;
 
   const appliedPatchesList = Array.isArray(activeAppliedPatchesList) ? activeAppliedPatchesList : [];
+  const removedPatchesList = Array.isArray(activeRemovedPatchesList) ? activeRemovedPatchesList : [];
   const skippedPatchesList = Array.isArray(activeSkippedPatchesList) ? activeSkippedPatchesList : [];
   const failedPatchesList = Array.isArray(activeFailedPatchesList) ? activeFailedPatchesList : [];
 
-  if (appliedPatchesList.length === 0 && skippedPatchesList.length === 0 && failedPatchesList.length === 0 && !activeBuildMetadata) {
+  if (appliedPatchesList.length === 0 && removedPatchesList.length === 0 && skippedPatchesList.length === 0 && failedPatchesList.length === 0 && !activeBuildMetadata) {
     if (DOM.patchCountBadge) {
       DOM.patchCountBadge.textContent = "0 Patches";
     }
@@ -3450,11 +3459,12 @@ function filterAppliedPatchesList(query) {
 
   const normalized = (query || "").toLowerCase().trim();
   const filteredApplied = appliedPatchesList.filter((p) => String(p || "").toLowerCase().includes(normalized));
+  const filteredRemoved = removedPatchesList.filter((p) => String(p || "").toLowerCase().includes(normalized));
   const filteredSkipped = skippedPatchesList.filter((p) => String(p || "").toLowerCase().includes(normalized));
   const filteredFailed = failedPatchesList.filter((p) => String(p || "").toLowerCase().includes(normalized));
 
-  const totalFiltered = filteredApplied.length + filteredSkipped.length + filteredFailed.length;
-  const totalAll = appliedPatchesList.length + skippedPatchesList.length + failedPatchesList.length;
+  const totalFiltered = filteredApplied.length + filteredRemoved.length + filteredSkipped.length + filteredFailed.length;
+  const totalAll = appliedPatchesList.length + removedPatchesList.length + skippedPatchesList.length + failedPatchesList.length;
 
   if (DOM.patchCountBadge) {
     DOM.patchCountBadge.textContent = `${totalFiltered} of ${totalAll} patches`;
@@ -3512,6 +3522,7 @@ function filterAppliedPatchesList(query) {
   }
 
   const archVal = meta.arch || (assetObj?.parsed?.arch) || (assetObj?.arch) || "universal";
+  const dpiVal = meta.dpi || assetObj?.dpi || "";
   const nativeLibsVal = (meta.native_libraries || []).join(", ") || "None";
   const densitiesVal = (meta.densities || []).join(", ") || "All";
   const cliVal = meta.cli || activeBuildMetadata?.cli || activeBuildForModal?.patchMeta?.cli || "";
@@ -3527,6 +3538,7 @@ function filterAppliedPatchesList(query) {
         <span><strong>Build Type</strong>${isVanillaBuild ? '<span class="vanilla-tag-badge" style="font-size:0.75rem; padding: 2px 6px;">Vanilla</span>' : '<span class="patch-name-badge" style="font-size:0.75rem; padding: 2px 6px;">Patched</span>'}</span>
         <span><strong>Architecture</strong>${escapeHtml(archVal)}</span>
         ${rawSdk && rawSdk !== "Unknown" ? `<span><strong>Minimum Android</strong>${escapeHtml(minAndroidDisplay)}</span>` : ""}
+        ${dpiVal ? `<span><strong>DPI / Density</strong>${escapeHtml(dpiVal)}</span>` : ""}
         <span><strong>Format</strong>${escapeHtml(extLower)}</span>
         ${cliVal ? `<span><strong>Patcher CLI</strong>${escapeHtml(cliVal)}</span>` : ""}
         <span><strong>Native libraries</strong>${escapeHtml(nativeLibsVal)}</span>
@@ -3536,6 +3548,7 @@ function filterAppliedPatchesList(query) {
 
   const isSearching = Boolean(normalized);
   const appliedOpen = isSearching || patchSectionCollapsedState["applied"] !== false;
+  const removedOpen = isSearching || patchSectionCollapsedState["removed"] === true;
   const failedOpen = isSearching || patchSectionCollapsedState["failed"] === true;
   const skippedOpen = isSearching || patchSectionCollapsedState["skipped"] === true;
 
@@ -3580,6 +3593,7 @@ function filterAppliedPatchesList(query) {
     ${patchVersionBanner}
     ${filterSearchBar}
     ${appliedSection}
+    ${renderPatchSection("Removed / Excluded Patches", filteredRemoved, getFaSvg("circle-minus"), "removed-patches-section", "removed", removedOpen)}
     ${renderPatchSection("Failed Patches", filteredFailed, getFaSvg("triangle-exclamation"), "failed-patches-section", "failed", failedOpen)}
     ${renderPatchSection("Skipped Patches", filteredSkipped, getFaSvg("forward-step"), "skipped-patches-section", "skipped", skippedOpen)}
   `;

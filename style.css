@@ -2630,7 +2630,13 @@ footer a:hover {
     color: var(--accent-warning);
 }
 
+.removed-patches-section .patch-metadata-summary-title .fa-icon,
+.removed-patches-section .patch-check-icon .fa-icon {
+    color: var(--accent-danger);
+}
+
 .applied-patches-section .patch-metadata-summary-title .fa-icon {
     color: #4caf50;
 }
+
 
