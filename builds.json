@@ -1,4 +1,1627 @@
 {
+  "2026.09.13-3": {
+    "github-morphe-hoodles-stylus": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "github-hoodles-stylus",
+      "arch": "",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "patches_source": "hoo-dles/morphe-patches",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Change package name (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Disable Pairip license check (default)",
+        "Enable debug (default)",
+        "Hide app icon (default)",
+        "MicroG integration (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-v1.276.0-all.apk": {
+      "name": "github-hoodles-stylus",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-v1.276.0-arm64-v8a.apk": {
+      "name": "github-hoodles-stylus",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-v1.276.0-arm-v7a.apk": {
+      "name": "github-hoodles-stylus",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-v1.276.0-x86_64.apk": {
+      "name": "github-hoodles-stylus",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "smash-hit-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "smash-hit-byehi98-v1.5.14-arm64-v8a.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "smash-hit-byehi98-v1.5.14-all.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "smash-hit-byehi98-v1.5.14-arm-v7a.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "smash-hit-byehi98-v1.5.14-x86_64.apk": {
+      "name": "smash-hit-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.5.14",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.mediocre.smashhit",
+      "display_name": "smash-hit",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Smash Hit Premium Unlock"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-morphe-hoodles-stylus-exp": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "github-hoodles-stylus-exp",
+      "arch": "",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "patches_source": "hoo-dles/morphe-patches",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Change package name (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)",
+        "Disable Pairip license check (default)",
+        "Enable debug (default)",
+        "Hide app icon (default)",
+        "MicroG integration (default)",
+        "Spoof signature (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-exp-v1.276.0-arm-v7a.apk": {
+      "name": "github-hoodles-stylus-exp",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-exp-v1.276.0-x86_64.apk": {
+      "name": "github-hoodles-stylus-exp",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-exp-v1.276.0-arm64-v8a.apk": {
+      "name": "github-hoodles-stylus-exp",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "github-hoodles-stylus-exp-v1.276.0-all.apk": {
+      "name": "github-hoodles-stylus-exp",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.276.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "26",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "hoo-dles/morphe-patches@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/hoo-dles/morphe-patches/releases/tag/v1.44.0",
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.github.android",
+      "display_name": "github",
+      "brand": "hoodles stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "AMOLED dark theme",
+        "Force system font (GitHub)",
+        "Force system font (including monospace) (GitHub)"
+      ],
+      "skipped_patches": [
+        "Hide app icon (default)",
+        "Enable debug (default)",
+        "Change package name (default)",
+        "MicroG integration (default)",
+        "Disable Pairip license check (default)",
+        "Spoof signature (default)",
+        "Custom font (GitHub) (default)",
+        "Custom monospace font (GitHub) (default)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "hill-climb-racing-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-x86_64.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-all.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-arm-v7a.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "hill-climb-racing-byehi98-v1.71.1-arm64-v8a.apk": {
+      "name": "hill-climb-racing-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.71.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.fingersoft.hillclimb",
+      "display_name": "hill-climb-racing",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Hill Climb Racing Ad Removal",
+        "Hill Climb Racing Free Store",
+        "Hill Climb Racing Instant Rewarded Video Rewards"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-morphe-stylus-exp": {
+      "exts": [
+        ".apk"
+      ],
+      "name": "bitwarden-stylus-exp",
+      "arch": "arm-v7a",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "patches_source": "ch3thanhs/stylus",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-stylus-exp-v2026.8.1-arm-v7a.apk": {
+      "name": "bitwarden-stylus-exp",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-stylus-exp-v2026.8.1-arm64-v8a.apk": {
+      "name": "bitwarden-stylus-exp",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-stylus-exp-v2026.8.1-all.apk": {
+      "name": "bitwarden-stylus-exp",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "exp",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "jetpack-joyride-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-all.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-arm64-v8a.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-x86_64.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "jetpack-joyride-byehi98-v1.104.1-arm-v7a.apk": {
+      "name": "jetpack-joyride-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "1.104.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "213",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.halfbrick.jetpackjoyride",
+      "display_name": "jetpack-joyride",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Jetpack Joyride Billing Bypass"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "vector-morphe-byehi98": {
+      "exts": [
+        "all.apk",
+        "arm-v7a.apk",
+        "arm64-v8a.apk",
+        "x86_64.apk"
+      ],
+      "name": "vector-byehi98",
+      "arch": "",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "patches_source": "byehi98/okish-morphe-patches",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "failed_patches": [
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "vector-byehi98-v2.10.0-x86_64.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "x86_64.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "failed_patches": [
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "vector-byehi98-v2.10.0-arm-v7a.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "arm-v7a.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "armeabi-v7a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof"
+      ],
+      "failed_patches": [
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "vector-byehi98-v2.10.0-arm64-v8a.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "arm64-v8a.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof",
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "vector-byehi98-v2.10.0-all.apk": {
+      "name": "vector-byehi98",
+      "arch": "",
+      "ext": "all.apk",
+      "version": "2.10.0",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "24",
+      "densities": [
+        "120",
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534",
+        "65535"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "byehi98/okish-morphe-patches@1.27.0"
+      ],
+      "changelog": [
+        "https://github.com/byehi98/okish-morphe-patches/releases/tag/v1.27.0"
+      ],
+      "package_name": "com.nekki.vector",
+      "display_name": "vector",
+      "brand": "byehi98",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Vector Ad Spoof",
+        "Vector Money Mod"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-morphe-stylus": {
+      "exts": [
+        ".apk"
+      ],
+      "name": "bitwarden-stylus",
+      "arch": "arm-v7a",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "patches_source": "ch3thanhs/stylus",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-stylus-v2026.8.1-arm-v7a.apk": {
+      "name": "bitwarden-stylus",
+      "arch": "arm-v7a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-stylus-v2026.8.1-arm64-v8a.apk": {
+      "name": "bitwarden-stylus",
+      "arch": "arm64-v8a",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "mips",
+        "mips64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    },
+    "bitwarden-stylus-v2026.8.1-all.apk": {
+      "name": "bitwarden-stylus",
+      "arch": "all",
+      "ext": ".apk",
+      "version": "2026.8.1",
+      "dpi": "nodpi anydpi auto",
+      "min_sdk": "29",
+      "densities": [
+        "160",
+        "240",
+        "320",
+        "480",
+        "640",
+        "65534"
+      ],
+      "native_libraries": [
+        "arm64-v8a",
+        "armeabi",
+        "armeabi-v7a",
+        "mips",
+        "mips64",
+        "x86",
+        "x86_64"
+      ],
+      "cli": "MorpheApp/morphe-desktop@1.15.1-all",
+      "patches": [
+        "ch3thanhs/stylus@1.5.2"
+      ],
+      "changelog": [
+        "https://github.com/ch3thanhs/stylus/releases/tag/v1.5.2"
+      ],
+      "package_name": "com.x8bit.bitwarden",
+      "display_name": "bitwarden",
+      "brand": "stylus",
+      "variant": "",
+      "sub_variant": "",
+      "applied_patches": [
+        "Force system font (Bitwarden)"
+      ],
+      "release_tag": "2026.09.13-3"
+    }
+  },
   "2026.09.13-1": {
     "brave-stable-morphe-kveld9": {
       "exts": [
