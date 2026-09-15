@@ -665,6 +665,15 @@ const CONFIG = {
       ],
     },
     {
+      triggers: ["zalithlauncher2", "zalithlauncher2extra"],
+      className: "zalithlauncher2-note",
+      title: "ZalithLauncher2 Extra",
+      text: "Additional builds and releases for ZalithLauncher2.",
+      links: [
+        { label: "Source Code", url: "https://github.com/sharath-5br2r-apps/ZalithLauncher2-Extra" },
+      ],
+    },
+    {
       triggers: ["nulls", "brawlstars", "clashofclans", "clashroyale"],
       className: "nulls-note",
       title: "Null's Private Server Notice",
