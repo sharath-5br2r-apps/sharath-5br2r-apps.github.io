@@ -1812,7 +1812,6 @@ function buildAppCatalog(releases) {
           os: asset.os || targetOS,
           isVanilla: typeof asset.isVanilla === "boolean" ? asset.isVanilla : (patchEntry.patchName === "Official" || patchEntry.patchName === "Vanilla"),
           min_sdk: asset.min_sdk || null,
-          dpi: asset.dpi || null,
           densities: asset.densities || null,
           native_libraries: asset.native_libraries || null,
           cli: asset.cli || null,
@@ -3080,7 +3079,6 @@ function hasBuildMetadataForAsset(masterData, assetName, releaseTag = "", asset 
       (Array.isArray(asset.applied_patches) && asset.applied_patches.length > 0) ||
       (Array.isArray(asset.removed_patches) && asset.removed_patches.length > 0) ||
       asset.min_sdk ||
-      asset.dpi ||
       asset.cli ||
       asset.isVanilla ||
       (Array.isArray(asset.patches) && asset.patches.length > 0)
@@ -3522,9 +3520,8 @@ function filterAppliedPatchesList(query) {
   }
 
   const archVal = meta.arch || (assetObj?.parsed?.arch) || (assetObj?.arch) || "universal";
-  const dpiVal = meta.dpi || assetObj?.dpi || "";
+  const densitiesVal = (meta.densities || assetObj?.densities || []).join(", ") || "All";
   const nativeLibsVal = (meta.native_libraries || []).join(", ") || "None";
-  const densitiesVal = (meta.densities || []).join(", ") || "All";
   const cliVal = meta.cli || activeBuildMetadata?.cli || activeBuildForModal?.patchMeta?.cli || "";
 
   const osVal = meta.os || assetObj?.os || activeBuildForModal?.os || (assetObj?.parsed?.osToken ? detectOS(assetObj.parsed.osToken) : "android");
@@ -3538,11 +3535,10 @@ function filterAppliedPatchesList(query) {
         <span><strong>Build Type</strong>${isVanillaBuild ? '<span class="vanilla-tag-badge" style="font-size:0.75rem; padding: 2px 6px;">Vanilla</span>' : '<span class="patch-name-badge" style="font-size:0.75rem; padding: 2px 6px;">Patched</span>'}</span>
         <span><strong>Architecture</strong>${escapeHtml(archVal)}</span>
         ${rawSdk && rawSdk !== "Unknown" ? `<span><strong>Minimum Android</strong>${escapeHtml(minAndroidDisplay)}</span>` : ""}
-        ${dpiVal ? `<span><strong>DPI / Density</strong>${escapeHtml(dpiVal)}</span>` : ""}
+        <span><strong>Densities</strong>${escapeHtml(densitiesVal)}</span>
         <span><strong>Format</strong>${escapeHtml(extLower)}</span>
         ${cliVal ? `<span><strong>Patcher CLI</strong>${escapeHtml(cliVal)}</span>` : ""}
         <span><strong>Native libraries</strong>${escapeHtml(nativeLibsVal)}</span>
-        <span><strong>Densities</strong>${escapeHtml(densitiesVal)}</span>
       </div>
     </section>`;
 
