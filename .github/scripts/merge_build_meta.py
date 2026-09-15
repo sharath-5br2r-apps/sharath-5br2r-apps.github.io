@@ -151,7 +151,7 @@ def merge_entry_into_master(master_build, target_key, info, release_tag=None):
                     asset_meta = dict(entry)
                     # Overlay per-asset specific fields
                     for field in [
-                        "arch", "ext", "densities", "native_libraries", "min_sdk",
+                        "arch", "ext", "os", "densities", "native_libraries", "min_sdk",
                         "appliedPatches", "skippedPatches", "failedPatches"
                     ]:
                         if field in asset_item:
@@ -259,16 +259,16 @@ def prune_stale_metadata(builds, releases):
 def detect_os(text):
     clean = (text or "").lower()
     if "termux" in clean:
-        return "termux"
+        return "Termux"
     if any(x in clean for x in ["macos", "mac", "darwin", "osx", ".dmg", ".pkg"]):
-        return "macos"
+        return "macOS"
     if any(x in clean for x in ["windows", "win", ".exe", ".msi"]):
-        return "windows"
+        return "Windows"
     if any(x in clean for x in ["linux", "ubuntu", "debian", ".appimage", ".deb", ".rpm"]):
-        return "linux"
+        return "Linux"
     if "android" in clean or any(clean.endswith(ext) for ext in [".apk", ".apks", ".apkm", ".xapk", ".zip"]):
-        return "android"
-    return "android"
+        return "Android"
+    return "Android"
 
 def update_data_json_catalog(master_build, data_json_path=MASTER_DATA_FILE):
     """
