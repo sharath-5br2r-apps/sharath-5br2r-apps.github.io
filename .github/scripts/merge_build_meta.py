@@ -139,6 +139,32 @@ def merge_entry_into_master(master_build, target_key, info, release_tag=None):
         master_build[bucket_key] = {}
     master_build[bucket_key][target_key] = entry
 
+    # If entry contains assets[], also index each asset by its filename (name)
+    # and map camelCase patch fields (appliedPatches, skippedPatches, failedPatches)
+    # so individual artifact queries resolve accurately in builds.json and data.json.
+    assets_list = entry.get("assets")
+    if isinstance(assets_list, list):
+        for asset_item in assets_list:
+            if isinstance(asset_item, dict):
+                asset_name = asset_item.get("name")
+                if asset_name:
+                    asset_meta = dict(entry)
+                    # Overlay per-asset specific fields
+                    for field in [
+                        "arch", "ext", "densities", "native_libraries", "min_sdk",
+                        "appliedPatches", "skippedPatches", "failedPatches"
+                    ]:
+                        if field in asset_item:
+                            asset_meta[field] = asset_item[field]
+                    # Map camelCase to snake_case for backwards compatibility
+                    if "appliedPatches" in asset_item:
+                        asset_meta["applied_patches"] = asset_item["appliedPatches"]
+                    if "skippedPatches" in asset_item:
+                        asset_meta["skipped_patches"] = asset_item["skippedPatches"]
+                    if "failedPatches" in asset_item:
+                        asset_meta["failed_patches"] = asset_item["failedPatches"]
+                    master_build[bucket_key][asset_name] = asset_meta
+
 def prune_stale_metadata(builds, releases):
     """
     Prunes apps and versions from builds that no longer exist
