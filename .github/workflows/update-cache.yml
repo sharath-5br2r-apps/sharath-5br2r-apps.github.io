@@ -77,5 +77,5 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: "update releases cache and master build metadata [skip ci]"
-          file_pattern: "releases.json releases.json.gz builds.json builds.json.gz data.json data.json.gz"
+          commit_message: "update catalog data cache [skip ci]"
+          file_pattern: "data.json data.json.gz"

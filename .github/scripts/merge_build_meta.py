@@ -4,10 +4,6 @@ import os
 import re
 import gzip
 
-MASTER_BUILD_FILE = "builds.json"
-GZ_BUILD_FILE = "builds.json.gz"
-MASTER_RELEASES_FILE = "releases.json"
-GZ_RELEASES_FILE = "releases.json.gz"
 MASTER_DATA_FILE = "data.json"
 GZ_DATA_FILE = "data.json.gz"
 
@@ -391,21 +387,15 @@ def main():
                 except Exception as e:
                     print(f"Warning: Could not fetch {build_json_asset.get('name')} for {rel.get('tag_name')}: {e}")
 
-    # Save nested builds.json grouped by release tag.
-    builds_json_bytes = json.dumps(master_build, indent=2, ensure_ascii=False).encode("utf-8")
-    with open(MASTER_BUILD_FILE, "wb") as f:
-        f.write(builds_json_bytes)
-    with gzip.open(GZ_BUILD_FILE, "wb", compresslevel=9) as f:
-        f.write(builds_json_bytes)
-    print(f"[OK] Successfully wrote {MASTER_BUILD_FILE} & {GZ_BUILD_FILE} ({new_artifact_count} artifacts across {len(master_build)} release tags)")
+    # Remove legacy redundant files if they exist locally
+    for legacy_file in ["builds.json", "builds.json.gz", "releases.json", "releases.json.gz"]:
+        if os.path.exists(legacy_file):
+            try:
+                os.remove(legacy_file)
+            except OSError:
+                pass
 
-    # Save 100% clean releases.json cache
-    releases_json_bytes = json.dumps(releases, separators=(",", ":")).encode("utf-8")
-    with open(MASTER_RELEASES_FILE, "wb") as f:
-        f.write(releases_json_bytes)
-    with gzip.open(GZ_RELEASES_FILE, "wb", compresslevel=9) as f:
-        f.write(releases_json_bytes)
-    print(f"[OK] Successfully wrote clean {MASTER_RELEASES_FILE} & {GZ_RELEASES_FILE} ({len(releases)} releases, {new_build_data_count} metadata files ingested)")
+    print(f"[OK] Ingested {new_artifact_count} artifacts from {new_build_data_count} build metadata files across {len(master_build)} release tags")
 
     # Update data.json and data.json.gz with per-asset metadata
     update_data_json_catalog(master_build)
