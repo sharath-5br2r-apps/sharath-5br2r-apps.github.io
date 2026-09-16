@@ -1564,30 +1564,30 @@ async function loadReleases() {
     let fetchedData = null;
     const repos = getConfigRepos();
     const fetchPromises = repos.map(async (r) => {
-        try {
-          const response = await fetch(
-            `https://api.github.com/repos/${r.owner}/${r.repo}/releases`,
-            { headers: { Accept: "application/vnd.github.v3+json" } }
-          );
-          if (!response.ok) return [];
-          const data = await response.json();
-          if (Array.isArray(data)) {
-            return data.map((release) => ({
-              ...release,
-              repoOwner: r.owner,
-              repoName: r.repo,
-              repoUrl: `https://github.com/${r.owner}/${r.repo}`,
-            }));
-          }
-          return [];
-        } catch (err) {
-          console.warn(`Failed to fetch releases for ${r.owner}/${r.repo}:`, err);
-          return [];
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/${r.owner}/${r.repo}/releases`,
+          { headers: { Accept: "application/vnd.github.v3+json" } }
+        );
+        if (!response.ok) return [];
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          return data.map((release) => ({
+            ...release,
+            repoOwner: r.owner,
+            repoName: r.repo,
+            repoUrl: `https://github.com/${r.owner}/${r.repo}`,
+          }));
         }
-      });
+        return [];
+      } catch (err) {
+        console.warn(`Failed to fetch releases for ${r.owner}/${r.repo}:`, err);
+        return [];
+      }
+    });
 
-      const repoResults = await Promise.all(fetchPromises);
-      fetchedData = repoResults.flat();
+    const repoResults = await Promise.all(fetchPromises);
+    fetchedData = repoResults.flat();
 
     allReleases = fetchedData;
     cacheReleases(allReleases);
