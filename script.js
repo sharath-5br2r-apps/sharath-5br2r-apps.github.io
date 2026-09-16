@@ -26,20 +26,161 @@ const CONFIG = {
 
   // App Categories for the filter buttons
   appCategories: {
-    browser: ["brave", "bravebeta", "bravenightly", "browser"],
-    communication: ["discord", "truecaller", "messenger", "whatsapp", "telegram", "gboard"],
-    documents: ["adobeacrobat", "microsoftexcel", "microsoftword", "moonreader", "moonplusreader", "office", "xodo", "camscanner", "adobe", "excel", "word", "reader"],
-    education: ["duolingo"],
-    emulator: ["dolphin", "emulator", "eden"],
-    games: ["brawlstars", "clashofclans", "clashroyale", "hillclimbracing", "jetpackjoyride", "nulls", "smashhit", "vector", "chess", "game", "games", "levilauncher", "levilaunchroid", "brawl", "clash", "hill", "jetpack", "smash", "zalithlauncher2"],
-    launcher: ["nova", "smartlauncher", "niagara", "launcher", "!levilauncheroid", "!zalithlauncher2"],
-    music: ["youtubemusic", "symfonium", "soundcloud", "poweramp", "music", "audioplayer"],
-    productivity: ["bitwarden", "pcremote", "monect", "adm", "sdmaid", "oxygenupdater", "betamaniac", "fing", "speedtest", "batteryguru", "github", "solidexplorer", "camscanner", "xodo", "adobe", "excel", "word"],
-    amazon: ["amazon", "alexa", "amazonindia", "primevideo", "prime"],
-    social: ["twitter", "instagram", "tiktok", "facebook", "threads", "reddit", "x-morphe", "xshim", "comtwitter", "x", "discord", "twitch", "youtube", "!youtubemusic"],
-    utilities: ["adguard", "gboard", "sdmaid", "speedtest", "fing", "batteryguru", "adm", "oxygenupdater", "solidexplorer", "github", "bitwarden", "pcremote", "1111warp", "warp", "vpn"],
-    video: ["youtube", "primevideo", "tiktok", "jiohotstar", "hbomax", "vix", "moviebox", "netflix", "twitch", "xrecorder"],
-    vpn: ["1111warp", "vpnify", "windscribevpn", "protonvpn", "vpn", "warp", "cloudflare", "1111", "adguard"],
+    browser: [
+      "brave",
+      "bravebeta",
+      "bravenightly",
+      "browser"
+    ],
+    communication: [
+      "discord",
+      "truecaller",
+      "messenger",
+      "whatsapp",
+      "telegram",
+      "gboard"
+    ],
+    documents: [
+      "adobeacrobat",
+      "microsoftexcel",
+      "microsoftword",
+      "moonreader",
+      "moonplusreader",
+      "office",
+      "xodo",
+      "camscanner",
+      "adobe",
+      "excel",
+      "word",
+      "reader"
+    ],
+    education: [
+      "duolingo"
+    ],
+    emulator: [
+      "dolphin",
+      "emulator",
+      "eden"
+    ],
+    games: [
+      "brawlstars",
+      "clashofclans",
+      "clashroyale",
+      "hillclimbracing",
+      "jetpackjoyride",
+      "nulls",
+      "smashhit",
+      "vector",
+      "chess",
+      "game",
+      "games",
+      "levilauncher",
+      "levilaunchroid",
+      "brawl",
+      "clash",
+      "hill",
+      "jetpack",
+      "smash",
+      "zalithlauncher2"
+    ],
+    launcher: [
+      "nova",
+      "smartlauncher",
+      "niagara",
+      "launcher",
+      "!levilauncheroid",
+      "!zalithlauncher2"
+    ],
+    music: [
+      "youtubemusic",
+      "symfonium",
+      "soundcloud",
+      "poweramp",
+      "music",
+      "audioplayer"
+    ],
+    productivity: [
+      "bitwarden",
+      "pcremote",
+      "monect",
+      "adm",
+      "sdmaid",
+      "oxygenupdater",
+      "betamaniac",
+      "fing",
+      "speedtest",
+      "batteryguru",
+      "github",
+      "solidexplorer",
+      "camscanner",
+      "xodo",
+      "adobe",
+      "excel",
+      "word"
+    ],
+    amazon: [
+      "amazon",
+      "alexa",
+      "amazonindia",
+      "primevideo",
+      "prime"
+    ],
+    social: [
+      "twitter",
+      "instagram",
+      "tiktok",
+      "facebook",
+      "threads",
+      "reddit",
+      "x-morphe",
+      "xshim",
+      "comtwitter",
+      "x",
+      "discord",
+      "twitch",
+      "youtube",
+      "!youtubemusic"
+    ],
+    utilities: [
+      "adguard",
+      "gboard",
+      "sdmaid",
+      "speedtest",
+      "fing",
+      "batteryguru",
+      "adm",
+      "oxygenupdater",
+      "solidexplorer",
+      "github",
+      "bitwarden",
+      "pcremote",
+      "1111warp",
+      "warp",
+      "vpn"
+    ],
+    video: [
+      "youtube",
+      "primevideo",
+      "tiktok",
+      "jiohotstar",
+      "hbomax",
+      "vix",
+      "moviebox",
+      "netflix",
+      "twitch",
+      "xrecorder"
+    ],
+    vpn: [
+      "1111warp",
+      "vpnify",
+      "windscribevpn",
+      "protonvpn",
+      "vpn",
+      "warp",
+      "cloudflare",
+      "1111",
+      "adguard"
+    ],
   },
 
 
@@ -618,7 +759,10 @@ const CONFIG = {
   // App-specific notices to display on App Cards
   appNotices: [
     {
-      triggers: ["youtube", "google"],
+      triggers: [
+        "youtube",
+        "google"
+      ],
       className: "microg-note",
       title: "Login Issue",
       text: "Signing into Google account on APK (not Module) requires MicroG. Please install one from below before trying to sign in.",
@@ -628,7 +772,9 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["twitter"],
+      triggers: [
+        "twitter"
+      ],
       className: "twitter-login-note",
       title: "Login Issue",
       text: "Since October 2025, Twitter has started checking whether the app is modified or if phone integrity fails during login.",
@@ -637,7 +783,10 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["amazon", "primevideo"],
+      triggers: [
+        "amazon",
+        "primevideo"
+      ],
       className: "amazon-signing-note",
       title: "Amazon Shared Permissions & Signature",
       text: "Due to shared permissions between Amazon apps and Prime Video (shared login), all Amazon apps must be installed with the same signature.",
@@ -647,7 +796,9 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["dolphinemulator"],
+      triggers: [
+        "dolphinemulator"
+      ],
       className: "dolphin-note",
       title: "Dolphin Extra",
       text: "It is a fork of Dolphin that incorporates aspects from DolphinCS and Better-Wii-Menu-DE.",
@@ -656,7 +807,10 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["levilaunchroid", "levilaunchroidextra"],
+      triggers: [
+        "levilaunchroid",
+        "levilaunchroidextra"
+      ],
       className: "levilaunchroid-note",
       title: "LeviLaunchroid Extra",
       text: "Additional modules and builds for LeviLaunchroid.",
@@ -665,7 +819,10 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["zalithlauncher2", "zalithlauncher2extra"],
+      triggers: [
+        "zalithlauncher2",
+        "zalithlauncher2extra"
+      ],
       className: "zalithlauncher2-note",
       title: "ZalithLauncher2 Extra",
       text: "Additional builds and releases for ZalithLauncher2.",
@@ -674,7 +831,12 @@ const CONFIG = {
       ],
     },
     {
-      triggers: ["nulls", "brawlstars", "clashofclans", "clashroyale"],
+      triggers: [
+        "nulls",
+        "brawlstars",
+        "clashofclans",
+        "clashroyale"
+      ],
       className: "nulls-note",
       title: "Null's Private Server Notice",
       text: "Null's Games (from nulls.gg) is a private server with proprietary patches. Builds are scraped and hosted here for easy Obtainium tracking.",
