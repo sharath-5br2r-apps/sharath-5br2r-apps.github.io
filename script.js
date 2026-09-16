@@ -1562,21 +1562,8 @@ async function loadReleases() {
 
     const cacheBuster = Date.now();
     let fetchedData = null;
-    let useFallback = true;
-
-    try {
-      const data = await fetchJsonWithGzFallback("releases.json", cacheBuster);
-      if (Array.isArray(data) && data.length > 0) {
-        fetchedData = data;
-        useFallback = false;
-      }
-    } catch (e) {
-      console.warn("Error fetching releases.json (.gz), using fallback...", e);
-    }
-
-    if (useFallback) {
-      const repos = getConfigRepos();
-      const fetchPromises = repos.map(async (r) => {
+    const repos = getConfigRepos();
+    const fetchPromises = repos.map(async (r) => {
         try {
           const response = await fetch(
             `https://api.github.com/repos/${r.owner}/${r.repo}/releases`,
@@ -1601,7 +1588,6 @@ async function loadReleases() {
 
       const repoResults = await Promise.all(fetchPromises);
       fetchedData = repoResults.flat();
-    }
 
     allReleases = fetchedData;
     cacheReleases(allReleases);
@@ -3061,16 +3047,7 @@ function closePatchModal() {
 // Master Build Metadata Store
 async function fetchMasterBuildData() {
   if (masterBuildDataCache) return masterBuildDataCache;
-  try {
-    const cacheBuster = Date.now();
-    // Metadata is generated and committed by the Python cache updater.
-    // Never fetch build metadata directly from GitHub in the browser.
-    const data = await fetchJsonWithGzFallback("builds.json", cacheBuster);
-    masterBuildDataCache = data && typeof data === "object" ? data : {};
-  } catch (e) {
-    console.warn("Could not load local builds.json (.gz):", e);
-    masterBuildDataCache = {};
-  }
+  masterBuildDataCache = {};
   return masterBuildDataCache;
 }
 
@@ -3458,7 +3435,7 @@ function filterAppliedPatchesList(query) {
       <div class="no-results" style="padding: 40px 20px; text-align: center; color: var(--text-secondary);">
         <div style="font-size: 2.2rem; margin-bottom: 8px;">${getFaSvg("box-archive")}</div>
         <p style="font-weight: 700; margin-bottom: 6px; color: var(--text-primary); font-size: 1.05rem;">No Applied Patches Metadata</p>
-        <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 440px; margin: 0 auto; line-height: 1.45;">No applied patch list was recorded for this build in master build metadata (builds.json).</p>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 440px; margin: 0 auto; line-height: 1.45;">No applied patch list was recorded for this build in catalog metadata.</p>
       </div>
     `;
     return;
