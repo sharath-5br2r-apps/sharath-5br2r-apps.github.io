@@ -7,6 +7,14 @@ import gzip
 MASTER_DATA_FILE = "data.json"
 GZ_DATA_FILE = "data.json.gz"
 
+REPOS = [
+    "sharath-5br2r-apps/revanced-morphe-xposed-builder",
+    "sharath-5br2r-apps/Dolphin-Extra",
+    "sharath-5br2r-apps/LeviLaunchroid-Extra",
+    "sharath-5br2r-apps/Eden-Workflow",
+    "sharath-5br2r-apps/ZalithLauncher2-Extra",
+]
+
 # Pre-compiled regular expressions for performance
 ARCH_SUFFIXES_REGEX = re.compile(
     r"(?:-(arm64-v8a|armeabi-v7a|arm64|aarch64|arm-v7a|arm32|x86_64|amd64|x86|universal|all))+$",
@@ -161,97 +169,6 @@ def merge_entry_into_master(master_build, target_key, info, release_tag=None):
                         asset_meta["failed_patches"] = asset_item["failedPatches"]
                     master_build[bucket_key][asset_name] = asset_meta
 
-def prune_stale_metadata(builds, releases):
-    """
-    Prunes apps and versions from builds that no longer exist
-    in ANY active release (across the 100 numbered releases + archive release).
-    """
-    live_apps = set()
-    live_versions_by_app = {}
-    live_tags = set()
-
-    for rel in releases:
-        tag_name = rel.get("tag_name")
-        if tag_name:
-            live_tags.add(tag_name)
-        for asset in rel.get("assets", []):
-            name = asset.get("name", "")
-            parsed = parse_asset_filename(name)
-            if parsed:
-                app_k = parsed["app_key"]
-                target_k = parsed["target"]
-                ver = VERSION_PREFIX_REGEX.sub("", parsed["version"])
-
-                live_apps.add(app_k)
-                live_apps.add(target_k)
-
-                if app_k not in live_versions_by_app:
-                    live_versions_by_app[app_k] = set()
-                live_versions_by_app[app_k].add(ver)
-
-                if target_k not in live_versions_by_app:
-                    live_versions_by_app[target_k] = set()
-                live_versions_by_app[target_k].add(ver)
-
-    if not live_apps:
-        print("Warning: Live inventory empty, skipping pruning to avoid data loss.")
-        return builds
-
-    # Prune stale top-level app keys
-    all_stored_keys = list(builds.keys())
-    pruned_apps = []
-    for k in all_stored_keys:
-        clean_k = k.lower().replace("-", "").replace("_", "")
-        is_live = any(
-            clean_k in live.lower().replace("-", "").replace("_", "") or
-            live.lower().replace("-", "").replace("_", "") in clean_k
-            for live in live_apps
-        )
-
-        if not is_live:
-            del builds[k]
-            pruned_apps.append(k)
-            continue
-
-        # Prune stale versions within the app
-        app_data = builds[k]
-        if isinstance(app_data, dict):
-            allowed_versions = live_versions_by_app.get(k, set())
-            clean_allowed = {VERSION_PREFIX_REGEX.sub("", v) for v in allowed_versions}
-
-            # Top two versions for fallback retention
-            version_keys = list(app_data.keys())
-            top_versions_set = set(sorted(version_keys, reverse=True)[:2])
-
-            for ver_k in list(app_data.keys()):
-                clean_ver = VERSION_PREFIX_REGEX.sub("", ver_k)
-                keep_version = (clean_ver in clean_allowed) or (ver_k in top_versions_set)
-                if not keep_version:
-                    del app_data[ver_k]
-                    print(f"[-] Pruned purged version: {k} v{ver_k}")
-                    continue
-
-                # Prune tags within this version, keeping live tags or the latest tag
-                if isinstance(app_data[ver_k], dict):
-                    tags = list(app_data[ver_k].keys())
-                    live_or_latest = [t for t in tags if t in live_tags]
-                    if not live_or_latest and tags:
-                        live_or_latest = [max(tags)]
-                    for tag_k in tags:
-                        if tag_k not in live_or_latest:
-                            del app_data[ver_k][tag_k]
-                    if not app_data[ver_k]:
-                        del app_data[ver_k]
-
-        if isinstance(app_data, dict) and not app_data:
-            del builds[k]
-            pruned_apps.append(k)
-
-    if pruned_apps:
-        print(f"[-] Cleaned up deleted apps from metadata: {', '.join(pruned_apps)}")
-
-    return builds
-
 def detect_os(text):
     clean = (text or "").lower()
     if "termux" in clean:
@@ -337,29 +254,62 @@ def update_data_json_catalog(master_build, data_json_path=MASTER_DATA_FILE):
         f.write(data_json_bytes)
     print(f"[OK] Successfully wrote {MASTER_DATA_FILE} & {GZ_DATA_FILE} ({enriched_asset_count} assets updated)")
 
+def fetch_releases_from_repos(repos=REPOS):
+    """
+    Fetch releases from the 5 configured repositories using GitHub API.
+    Handles pagination across multiple pages and supports GITHUB_TOKEN or GH_TOKEN.
+    """
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    headers = {"User-Agent": "NullStore-Cache-Updater"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    all_releases = []
+    for repo in repos:
+        print(f"Fetching releases for {repo}...")
+        owner, name = repo.split("/")
+        page = 1
+        repo_count = 0
+        while True:
+            url = f"https://api.github.com/repos/{repo}/releases?per_page=100&page={page}"
+            try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=15) as resp:
+                    rels = json.loads(resp.read().decode("utf-8"))
+                    if not isinstance(rels, list) or len(rels) == 0:
+                        break
+                    for rel in rels:
+                        rel["repoOwner"] = owner
+                        rel["repoName"] = name
+                        rel["repoUrl"] = f"https://github.com/{repo}"
+                        all_releases.append(rel)
+                    repo_count += len(rels)
+                    if len(rels) < 100:
+                        break
+                    page += 1
+            except Exception as e:
+                print(f"Warning: Failed to fetch page {page} for {repo}: {e}")
+                break
+        print(f"  [OK] Fetched {repo_count} releases from {repo}")
+
+    return all_releases
 
 def main():
-    if not os.path.exists("releases_new.json"):
-        print("releases_new.json does not exist.")
-        return
+    print("Fetching releases directly from GitHub API for the 5 repos...")
+    releases = fetch_releases_from_repos()
 
-    releases = load_json("releases_new.json")
     if not isinstance(releases, list) or len(releases) == 0:
-        print("Releases is empty or not a list.")
-        return
+        print("Error: Releases list is empty. Aborting cache update.")
+        sys.exit(1)
 
-    # Rebuild from the complete release cache so deleted/replaced artifacts do
-    # not leave stale metadata behind in builds.json.
+    # Ingest release build metadata files
     master_build = {}
-
     new_build_data_count = 0
     new_artifact_count = 0
 
     for rel in releases:
-        # Strip any legacy embedded build_data so releases.json remains a clean GitHub API dump
         rel.pop("build_data", None)
 
-        # Check for build.json / build.${x}.json / manifest.json asset in release
         assets = rel.get("assets", [])
         build_json_assets = [
             a for a in assets

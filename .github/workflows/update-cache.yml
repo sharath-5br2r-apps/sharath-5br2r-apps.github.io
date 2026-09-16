@@ -31,48 +31,11 @@ jobs:
             tail -n+100 |
             xargs -IID gh api "repos/$GITHUB_REPOSITORY/actions/runs/ID" -X DELETE || :
 
-      - name: Fetch releases from GitHub API
+      - name: Fetch releases from 5 repos and update catalog
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          REPOS=(
-            "sharath-5br2r-apps/revanced-morphe-xposed-builder"
-            "sharath-5br2r-apps/Dolphin-Extra"
-            "sharath-5br2r-apps/LeviLaunchroid-Extra"
-            "sharath-5br2r-apps/Eden-Workflow"
-            "sharath-5br2r-apps/ZalithLauncher2-Extra"
-          )
-
-          echo "[]" > releases_new.json
-
-          for repo in "${REPOS[@]}"; do
-            echo "Fetching releases for $repo..."
-            gh api --paginate "repos/$repo/releases" | jq --arg repo "$repo" '
-              if type == "array" then
-                map(. + {
-                  repoOwner: ($repo | split("/")[0]),
-                  repoName: ($repo | split("/")[1]),
-                  repoUrl: "https://github.com/\($repo)"
-                })
-              else
-                []
-              end
-            ' > tmp_repo.json
-
-            jq -s '.[0] + .[1]' releases_new.json tmp_repo.json > merged.json && mv merged.json releases_new.json
-          done
-          rm -f tmp_repo.json
-
-          # Validate: must be a non-empty JSON array
-          COUNT=$(jq 'if type == "array" then length else 0 end' releases_new.json)
-          if [ "$COUNT" -eq 0 ]; then
-            echo "::error::GitHub API returned an empty releases array. Aborting to preserve existing cache."
-            exit 1
-          fi
-
-          echo "Fetched $COUNT total releases. Updating cache."
           python3 .github/scripts/merge_build_meta.py
-          rm -f releases_new.json
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v7
