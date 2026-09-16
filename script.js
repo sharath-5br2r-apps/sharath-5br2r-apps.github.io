@@ -20,7 +20,7 @@ const CONFIG = {
     { owner: "sharath-5br2r-apps", repo: "Eden-Workflow" },
     { owner: "sharath-5br2r-apps", repo: "Dolphin-Extra" },
     { owner: "sharath-5br2r-apps", repo: "LeviLaunchroid-Extra" },
-    { owner: "sharath-5br2r-apps", repo: "ZalithLauncher2-Extra"}
+    { owner: "sharath-5br2r-apps", repo: "ZalithLauncher2-Extra" }
   ],
   cacheDuration: 1, // Cache duration in minutes
 
