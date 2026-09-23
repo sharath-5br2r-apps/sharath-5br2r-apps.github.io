@@ -1,6 +1,57 @@
-Modified [NullStore](https://github.com/nullcpy/nullcpy.github.io) for my repo. Added my apps, improved variants and obtainium flow.
+# AdvancedStore
 
-# Original Readme
+A fast, modern, and clean catalog for patched Android applications, desktop builds, and Magisk/KernelSU modules built across multiple automated repositories.
+
+[![Website](https://img.shields.io/badge/Store-Website-21a378?style=flat&logo=homeassistantcommunitystore&logoColor=white)](https://sharath-5br2r-apps.github.io/)
+[![GitHub Stars](https://img.shields.io/github/stars/sharath-5br2r-apps/sharath-5br2r-apps.github.io?label=Stars&logo=github&style=social)](https://github.com/sharath-5br2r-apps/sharath-5br2r-apps.github.io)
+[![Discussions](https://img.shields.io/badge/Discussions-Join-blue?style=flat&logo=github&logoColor=white)](https://github.com/orgs/sharath-5br2r-apps/discussions)
+[![Website Visitors](https://visitor-badge.laobi.icu/badge?page_id=sharath-5br2r-apps.github.io&left_text=Website%20Visitors&right_color=%231283c3&format=true&query_only=true)](https://sharath-5br2r-apps.github.io)
+
+---
+
+## ✨ Features & Enhancements
+
+### 📦 Multi-Repository Aggregation
+- **Unified Catalog**: Automatically aggregates, merges, and presents builds across multiple automated repositories into a single responsive frontend:
+  - [`revanced-morphe-xposed-builder`](https://github.com/sharath-5br2r-apps/revanced-morphe-xposed-builder): Core ReVanced & Morphe patched applications.
+  - [`Eden-Workflow`](https://github.com/sharath-5br2r-apps/Eden-Workflow): Eden Android and PC/Desktop builds.
+  - [`Dolphin-Extra`](https://github.com/sharath-5br2r-apps/Dolphin-Extra): Custom Dolphin emulator forks and enhancements.
+  - [`LeviLaunchroid-Extra`](https://github.com/sharath-5br2r-apps/LeviLaunchroid-Extra): Specialized launcher builds.
+  - [`ZalithLauncher2-Extra`](https://github.com/sharath-5br2r-apps/ZalithLauncher2-Extra): ZalithLauncher2 workflow releases.
+- **Automated Workflow Pipeline**: GitHub Actions periodically rebuild and deduplicate catalog data using Schema v2, with zero-downtime deployment to GitHub Pages.
+
+### 🔍 Advanced Filter Toolbar & In-Memory Search
+- **Multi-Facet Dropdown Filtering**: Filter builds seamlessly across:
+  - **Repository**: View all or isolate specific upstream build workflows.
+  - **Patch Engine**: Filter by ReVanced, Morphe, LSPatch, NPatch, etc.
+  - **Patch Sources / Authors**: Filter by individual patch creators (Anddea, Piko, Inotia00, etc.).
+  - **Operating System / Platform**: Filter by Android, Windows, Linux, or macOS.
+  - **Sorting**: Sort dynamically by Recently Updated, Most Popular (total downloads), or Name (A-Z).
+- **Categorized Chip Navigation**: Filter by app genres (Browsers, Emulator, Games, Launchers, Media/Video, Productivity, Social, Utilities, VPN).
+- **Instant Search**: Real-time weighted search indexing app names, package IDs, patch engines, variants, and architectures.
+
+### 📲 Seamless Obtainium / ObtainX Integration
+- **One-Click Setup**: Generate direct `obtainium://app/...` import links for instant tracking and automatic in-app updates.
+- **Accurate Variant & Subvariant Targeting**: Regex-based asset matching tuned per package and architecture (including clone builds, Android TV variants, and specific compiler targets).
+- **Interactive Setup Instructions**: In-modal step-by-step guidance for configuring Obtainium.
+
+### 🎨 Modern UI & Customization
+- **Theme Modes**: Support for System, Dark, and Light appearance modes.
+- **Theme Styles**: Switch between Zen (minimalist) and Material 3 design styles.
+- **System Font Toggle**: Choose between modern typography (Bricolage Grotesque & Geist Mono) or native system fonts.
+- **Detailed Build Modals**:
+  - Modal breakdown of stable vs. beta releases with direct download links.
+  - Architecture-specific grouping (ARM64-v8a, ARMv7a, x86_64, Universal).
+  - Applied patches checklist and formatted markdown changelog viewer.
+- **Troubleshooting & Diagnostics**: Integrated quick-clear cache utility, issue report links for each source repo, and discussion board shortcuts.
+
+---
+
+<details>
+<summary><strong>📖 NullStore Original Readme</strong></summary>
+
+<br>
+
 <div align="center"><a href="https://github.com/Safouene1/support-palestine-banner/blob/master/Markdown-pages/Support.md"><img src="https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/banner-support.svg" alt="Support Palestine" style="width: 100%;"></a></div>
 
 [![NullStore social preview](social-preview.svg)](https://nullcpy.github.io/)
@@ -28,3 +79,5 @@ Building, testing, and maintaining these automated workflows takes a significant
 - **📢 Share the project** with others who might find it useful.
 
 Thank you to everyone who helps keep this project alive!
+
+</details>
