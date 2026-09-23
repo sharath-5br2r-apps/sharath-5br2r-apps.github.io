@@ -13,6 +13,18 @@ edits data.json in place.
 Inputs (all from the rvb releases API, public repo):
   - every release's build.json asset: filename-keyed manifest,
     {"schema":1,"kind":"build|archive","meta":{...},"files":{"<name>.apk":{...}}}
+
+  Supported meta fields (schema v1):
+    meta.channel   "stable" | "beta"   — explicit channel (overrides GitHub prerelease flag)
+    meta.build     string              — canonical build ID (e.g. "1.5.24-r4"); falls back to tag
+    meta.publishedAt  ISO-8601         — publish timestamp
+
+  Supported per-file fields (schema v1, all optional):
+    appKey, appName, brandKey, brandName, variant, subVariant,
+    name, version, arch, packageName, fileType, originBuild, publishedAt,
+    patchSources, changelogs, appliedPatches,
+    minSdk, versionCode, densities, nativeLibraries
+
   - releases with a missing/unparseable manifest get minimal entries synthesized
     from asset filenames, so download buttons never disappear.
 
@@ -308,22 +320,41 @@ def build_assets(group, live_assets):
     assets = []
     for fname, e in group:
         live = live_assets[fname]
-        assets.append({
+        # Normalize arch: new schema supplies Android ABI strings ("arm64-v8a",
+        # "armeabi-v7a", …); legacy manifests may already carry normalized keys.
+        # Always normalize so ARCH_ORDER sorting and client-side display are consistent.
+        raw_arch = e.get("arch") or extract_arch(fname, e.get("version") or "")
+        asset = {
             "name": fname,
             "browser_download_url": live["browser_download_url"],
             "size": live.get("size", 0),
             "download_count": live.get("download_count", 0),
-            "arch": e.get("arch") or normalize_arch(extract_arch(fname, e.get("version") or "")),
-            # fileType intentionally omitted: it is always derivable from the
-            # asset name (.apk -> APK, .zip -> Module) and computed client-side.
-        })
+            "arch": normalize_arch(raw_arch),
+            # fileType intentionally omitted: always derivable from the asset
+            # name (.apk -> APK, .zip -> Module) and computed client-side.
+        }
+        # Per-APK metadata introduced in schema v1 build manifests (optional —
+        # absent in legacy manifests, present in new ones; never null-pad).
+        for field in ("minSdk", "versionCode", "densities", "nativeLibraries"):
+            val = e.get(field)
+            if val is not None:
+                asset[field] = val
+        assets.append(asset)
     assets.sort(key=lambda a: ARCH_ORDER.get(a["arch"], 99))
     return assets
 
 
 def apply_numbered(cat, tag, rel, manifest):
-    release_type = "beta" if rel.get("prerelease") else "stable"
     meta = (manifest or {}).get("meta") or {}
+    # Prefer explicit channel from manifest (new schema); fall back to
+    # the GitHub API prerelease flag for legacy manifests without meta.channel.
+    channel = meta.get("channel")
+    release_type = channel if channel in ("stable", "beta") else (
+        "beta" if rel.get("prerelease") else "stable"
+    )
+    # Prefer meta.build as the canonical build ID (new schema carries a
+    # human-readable version like "1.5.24-r4"); fall back to the git tag.
+    build_id = meta.get("build") or tag
     published_at = meta.get("publishedAt") or (
         rel.get("published_at") or "").replace("+00:00", "Z")
     live_assets = live_apkzip_assets(rel)
@@ -337,7 +368,7 @@ def apply_numbered(cat, tag, rel, manifest):
         brand_entry = cat.brand(app_entry, brand_key, brand_name or "Patched")
         cat.variant(brand_entry, variant, sub_variant, prefix, pkg)
         build_entry = {
-            "build": tag,
+            "build": build_id,
             "releaseId": tag,
             "releaseType": release_type,
             "isArchive": False,
@@ -354,7 +385,7 @@ def apply_numbered(cat, tag, rel, manifest):
         brand_entry["builds"] = [
             b for b in brand_entry["builds"]
             if b.get("isArchive") or not (
-                str(b.get("build")) == tag and b.get(
+                str(b.get("build")) == str(build_id) and b.get(
                     "variant") == variant and b.get("subVariant") == sub_variant
             )
         ]
@@ -362,8 +393,12 @@ def apply_numbered(cat, tag, rel, manifest):
 
 
 def apply_archive(cat, tag, rel, manifest):
-    release_type = "beta" if tag == "beta" else "stable"
     meta = (manifest or {}).get("meta") or {}
+    # Prefer explicit channel from manifest; fall back to tag-name convention.
+    channel = meta.get("channel")
+    release_type = channel if channel in ("stable", "beta") else (
+        "beta" if tag == "beta" else "stable"
+    )
     live_assets = live_apkzip_assets(rel)
     groups = group_files(manifest, live_assets, tag, rel, is_archive=True)
     for (app_key, app_name, brand_key, brand_name, variant, sub_variant, version), group in groups.items():
@@ -478,9 +513,10 @@ def finalize(cat):
 
     all_builds = [build for app in apps for brand in app["brands"]
                   for build in brand["builds"]]
-    # releaseId duplicates build for numbered releases (both are the tag). Drop
-    # it when redundant; archive entries keep it since their build is a version
-    # while releaseId is the rolling tag. The client falls back to build.
+    # releaseId tracks the GitHub release tag; build is the canonical build ID
+    # (may differ when meta.build is set, e.g. "1.5.24-r4" vs tag "v1.5.24-r4").
+    # Drop releaseId when it's redundant (equals build); archive entries keep it
+    # since their build is a version string while releaseId is the rolling tag.
     for build in all_builds:
         if build.get("releaseId") is not None and build.get("releaseId") == build.get("build"):
             build.pop("releaseId")
