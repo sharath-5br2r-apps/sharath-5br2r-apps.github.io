@@ -3471,7 +3471,6 @@ async function openAppliedPatchesModal(appKey, patchKey, buildKey, assetName = "
 
   let pNames = null;
   let clUrl = null;
-  let appliedPatches = null;
   let buildMetadata = null;
 
   const asset = build?.assets?.find((candidate) => !assetName || candidate.name === assetName) || build?.assets?.[0];
@@ -3743,6 +3742,7 @@ function formatChangelogForBuild(build) {
       `}
     </div>
   `;
+}
 
 // Resolve a build's applied-patches list from the deduped patchSetRef ->
 // top-level patchSets table (schema v2, emitted by rebuild_catalog.py).
@@ -4205,54 +4205,11 @@ function createObtainiumInstructions(app, patch, variantKey) {
   const initialFallbackUrl = `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent(`obtainium://app/${JSON.stringify(initialConfig)}`)}`;
 
 
-  let step4Content = "";
-  if (brand && brand.variants && brand.variants.length > 1) {
-    // Pin Standard (null/null) at top, sort the rest alphabetically — same order as the variant pills.
-    const orderedVariants = [...brand.variants].sort((a, b) => {
-      const aIsStd = a.variant == null && a.subVariant == null;
-      const bIsStd = b.variant == null && b.subVariant == null;
-      if (aIsStd !== bIsStd) return aIsStd ? -1 : 1;
-      const vc = (a.variant || "").localeCompare(b.variant || "");
-      if (vc !== 0) return vc;
-      return (a.subVariant || "").localeCompare(b.subVariant || "");
-    });
-    const examples = orderedVariants.map((v) => {
-      const vRegex = v.apkFilter || `^${rawSlug}-${rawBrand}-v.*\\.apk$`;
-      const vLabel = getObtainiumAppLabel(app.appName, brand.brandName, v.variant, v.subVariant);
-      const vPackageId = v.packageName || getAppPackageId(app, brand, v.variant, v.subVariant);
-
-      const vAdditionalSettings = { apkFilterRegEx: vRegex };
-      if (modalBuildFilter === "beta") {
-        vAdditionalSettings.includePrereleases = true;
-      }
-
-      const vConfig = {
-        id: vPackageId,
-        name: vLabel,
-        author: CONFIG.owner,
-        url: repoUrl,
-        additionalSettings: JSON.stringify(vAdditionalSettings),
-      };
-      const vOneClickUrl = vPackageId ? `https://apps.obtainium.imranr.dev/redirect?r=${encodeURIComponent("obtainium://app/" + JSON.stringify(vConfig))}` : null;
-
-      return `
-        <div style="margin-top: 8px;">
-          <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; display: flex; flex-direction: column;">
-            <span>${escapeHtml(app.appName)} • ${escapeHtml(brand.brandName)}${v.variant ? ` • ${escapeHtml(v.variant)}` : ''}${v.subVariant ? ` • ${escapeHtml(v.subVariant)}` : (!v.variant ? ' • Standard' : '')}</span>
-            ${vPackageId ? `<span style="font-family: monospace; opacity: 0.8; font-weight: normal; margin-top: 2px; cursor: pointer; width: fit-content; word-break: break-all;" onclick="copyToClipboard('${escapeHtml(vPackageId)}', 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(vPackageId)}</span>` : ''}
-          </div>
-          <div class="instruction-code">
-            <code>${escapeHtml(vRegex)}</code>
-            ${vOneClickUrl ? `<a href="${vOneClickUrl}" class="obtainium-add-btn" target="_blank" rel="noopener noreferrer">Add to Obtainium</a>` : ''}
-            <button class="copy-btn" onclick="copyToClipboard('${escapeHtml(vRegex)}', 'Regex copied!')" type="button">Copy</button>
-          </div>
-        </div>
-      `;
-    }).join("");
-
-    step4Content = `
-      <div style="margin-top: 4px;">
-        ${examples}
+  let step4Content = `
+    <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);">
+      <div style="font-size: 0.84rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+        <span id="obtainiumSelectedLabel">${escapeHtml(initialLabel)}</span>
+        <span id="obtainiumSelectedPkg" style="font-family: monospace; font-size: 0.76rem; opacity: 0.85; cursor: pointer; color: var(--text-muted);" onclick="copyToClipboard(this.textContent, 'Package ID copied!')" title="Click to copy Package ID">${escapeHtml(initialPackageId || '')}</span>
       </div>
       <div class="instruction-code" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 0; padding: 10px 14px;">
         <code id="obtainiumSelectedRegex" style="flex: 1 1 200px; min-width: 0; font-family: var(--font-mono); font-size: 0.82rem; word-break: break-all;">${escapeHtml(initialRegex)}</code>

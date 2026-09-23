@@ -73,166 +73,166 @@ jobs:
 
           # Merge the partial catalogs into one data.json.new
           python3 - "${parts[@]}" <<'PYEOF'
-import json, sys, os
-from pathlib import Path
-
-parts = sys.argv[1:]
-print(f"Merging {len(parts)} partial catalog(s): {parts}")
-
-# Shared dedup tables — rebuilt from scratch across the merged set
-all_apps = []
-app_order = {}   # appKey -> index in all_apps (for merge-by-key)
-
-def merge_app(existing, incoming):
-    """Merge brands/builds from incoming into existing app entry."""
-    existing["appName"] = incoming.get("appName") or existing["appName"]
-    brand_map = {b["brandKey"]: b for b in existing["brands"]}
-    for brand in incoming.get("brands", []):
-        bk = brand["brandKey"]
-        if bk not in brand_map:
-            existing["brands"].append(brand)
-            brand_map[bk] = brand
-        else:
-            eb = brand_map[bk]
-            eb["brandName"] = brand.get("brandName") or eb["brandName"]
-            # Merge variants (upsert by variant+subVariant)
-            var_map = {(v.get("variant"), v.get("subVariant")): v for v in eb["variants"]}
-            for v in brand.get("variants", []):
-                key = (v.get("variant"), v.get("subVariant"))
-                if key not in var_map:
-                    eb["variants"].append(v)
-                    var_map[key] = v
-                else:
-                    # update packageName / apkFilter if not already set
-                    ev = var_map[key]
-                    if v.get("packageName") and not ev.get("packageName"):
-                        ev["packageName"] = v["packageName"]
-                    if v.get("apkFilter") and not ev.get("apkFilter"):
-                        ev["apkFilter"] = v["apkFilter"]
-            # Merge builds (deduplicate by build+variant+subVariant+releaseType)
-            def build_key(b):
-                return (str(b.get("build","")), b.get("variant"), b.get("subVariant"), b.get("releaseType"))
-            existing_build_keys = {build_key(b) for b in eb["builds"]}
-            for b in brand.get("builds", []):
-                if build_key(b) not in existing_build_keys:
-                    eb["builds"].append(b)
-                    existing_build_keys.add(build_key(b))
-
-# Load and inline-expand all dedup refs before merging
-def expand_refs(catalog):
-    """Inline patchSetRef/changelogRef/patchSourceRef back to lists."""
-    ps  = catalog.get("patchSets", [])
-    cls = catalog.get("changelogSets", [])
-    pss = catalog.get("patchSourceSets", [])
-    for app in catalog.get("apps", []):
-        for brand in app.get("brands", []):
-            for build in brand.get("builds", []):
-                for field, ref_key, table in [
-                    ("appliedPatches", "patchSetRef",    ps),
-                    ("changelogs",     "changelogRef",   cls),
-                    ("patchSources",   "patchSourceRef", pss),
-                ]:
-                    ref = build.pop(ref_key, None)
-                    if ref is not None and isinstance(ref, int) and ref < len(table):
-                        build[field] = table[ref]
-                    elif field not in build:
-                        build[field] = []
-
-for path in parts:
-    cat = json.loads(Path(path).read_text())
-    expand_refs(cat)
-    for app in cat.get("apps", []):
-        ak = app["appKey"]
-        if ak not in app_order:
-            app_order[ak] = len(all_apps)
-            all_apps.append(app)
-        else:
-            merge_app(all_apps[app_order[ak]], app)
-
-# Re-sort apps alphabetically
-all_apps.sort(key=lambda a: a["appName"].lower())
-
-# Re-run finalization: sort builds, recompute totals, re-dedup lists
-from datetime import datetime, timezone
-now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-def dedup_lists(builds, field, ref_key, table):
-    index = {}
-    for build in builds:
-        val = build.pop(field, None)
-        if not val:
-            continue
-        key = json.dumps(val, ensure_ascii=False, separators=(",", ":"))
-        idx = index.get(key)
-        if idx is None:
-            idx = len(table)
-            table.append(val)
-            index[key] = idx
-        build[ref_key] = idx
-
-surviving_apps = []
-for app in all_apps:
-    surviving_brands = []
-    for brand in app.get("brands", []):
-        builds = sorted(brand["builds"], key=lambda b: b.get("publishedAt") or "", reverse=True)
-        if not builds:
-            continue
-        brand["builds"] = builds
-        brand["latestVersion"] = builds[0].get("version", "")
-        brand["latestPublishedAt"] = builds[0].get("publishedAt", "")
-        brand["totalDownloads"] = sum(
-            sum(a.get("download_count", 0) for a in b.get("assets", [])) for b in builds
-        )
-        # Recompute latestStable / latestBeta variant pointers
-        surviving_variants = []
-        for v in brand.get("variants", []):
-            v_var, v_sub = v.get("variant"), v.get("subVariant")
-            v_builds = [b for b in builds if b.get("variant") == v_var and b.get("subVariant") == v_sub]
-            if not v_builds:
-                continue
-            for ch in ("latestStable", "latestBeta"):
-                rel_filter = "stable" if ch == "latestStable" else "beta"
-                newest = next((b for b in v_builds if b.get("releaseType") == rel_filter), None)
-                v[ch] = newest.get("build", "") if newest else None
-            surviving_variants.append(v)
-        brand["variants"] = surviving_variants
-        surviving_brands.append(brand)
-    if not surviving_brands:
-        continue
-    app["brands"] = surviving_brands
-    newest = max((b.get("publishedAt","") for br in surviving_brands for b in br["builds"]), default="")
-    app["latestPublishedAt"] = newest
-    app["totalDownloads"] = sum(b.get("totalDownloads", 0) for b in surviving_brands)
-    surviving_apps.append(app)
-
-all_builds = [b for app in surviving_apps for brand in app["brands"] for b in brand["builds"]]
-
-# Drop redundant releaseId
-for build in all_builds:
-    if build.get("releaseId") is not None and build.get("releaseId") == build.get("build"):
-        build.pop("releaseId")
-
-patch_sets, changelog_sets, patch_source_sets = [], [], []
-dedup_lists(all_builds, "appliedPatches", "patchSetRef", patch_sets)
-dedup_lists(all_builds, "changelogs",     "changelogRef",    changelog_sets)
-dedup_lists(all_builds, "patchSources",   "patchSourceRef",  patch_source_sets)
-
-catalog = {
-    "version": 2,
-    "updated_at": now_iso,
-    "patchSets": patch_sets,
-    "changelogSets": changelog_sets,
-    "patchSourceSets": patch_source_sets,
-    "apps": surviving_apps,
-}
-
-Path("data.json.new").write_text(json.dumps(catalog, separators=(",", ":")))
-
-apps  = len(surviving_apps)
-total_builds = sum(len(b["builds"]) for a in surviving_apps for b in a["brands"])
-assets = sum(len(x["assets"]) for a in surviving_apps for b in a["brands"] for x in b["builds"])
-print(f"Merged catalog: {apps} apps, {total_builds} build entries, {assets} assets")
-PYEOF
+          import json, sys, os
+          from pathlib import Path
+          
+          parts = sys.argv[1:]
+          print(f"Merging {len(parts)} partial catalog(s): {parts}")
+          
+          # Shared dedup tables — rebuilt from scratch across the merged set
+          all_apps = []
+          app_order = {}   # appKey -> index in all_apps (for merge-by-key)
+          
+          def merge_app(existing, incoming):
+              """Merge brands/builds from incoming into existing app entry."""
+              existing["appName"] = incoming.get("appName") or existing["appName"]
+              brand_map = {b["brandKey"]: b for b in existing["brands"]}
+              for brand in incoming.get("brands", []):
+                  bk = brand["brandKey"]
+                  if bk not in brand_map:
+                      existing["brands"].append(brand)
+                      brand_map[bk] = brand
+                  else:
+                      eb = brand_map[bk]
+                      eb["brandName"] = brand.get("brandName") or eb["brandName"]
+                      # Merge variants (upsert by variant+subVariant)
+                      var_map = {(v.get("variant"), v.get("subVariant")): v for v in eb["variants"]}
+                      for v in brand.get("variants", []):
+                          key = (v.get("variant"), v.get("subVariant"))
+                          if key not in var_map:
+                              eb["variants"].append(v)
+                              var_map[key] = v
+                          else:
+                              # update packageName / apkFilter if not already set
+                              ev = var_map[key]
+                              if v.get("packageName") and not ev.get("packageName"):
+                                  ev["packageName"] = v["packageName"]
+                              if v.get("apkFilter") and not ev.get("apkFilter"):
+                                  ev["apkFilter"] = v["apkFilter"]
+                      # Merge builds (deduplicate by build+variant+subVariant+releaseType)
+                      def build_key(b):
+                          return (str(b.get("build","")), b.get("variant"), b.get("subVariant"), b.get("releaseType"))
+                      existing_build_keys = {build_key(b) for b in eb["builds"]}
+                      for b in brand.get("builds", []):
+                          if build_key(b) not in existing_build_keys:
+                              eb["builds"].append(b)
+                              existing_build_keys.add(build_key(b))
+          
+          # Load and inline-expand all dedup refs before merging
+          def expand_refs(catalog):
+              """Inline patchSetRef/changelogRef/patchSourceRef back to lists."""
+              ps  = catalog.get("patchSets", [])
+              cls = catalog.get("changelogSets", [])
+              pss = catalog.get("patchSourceSets", [])
+              for app in catalog.get("apps", []):
+                  for brand in app.get("brands", []):
+                      for build in brand.get("builds", []):
+                          for field, ref_key, table in [
+                              ("appliedPatches", "patchSetRef",    ps),
+                              ("changelogs",     "changelogRef",   cls),
+                              ("patchSources",   "patchSourceRef", pss),
+                          ]:
+                              ref = build.pop(ref_key, None)
+                              if ref is not None and isinstance(ref, int) and ref < len(table):
+                                  build[field] = table[ref]
+                              elif field not in build:
+                                  build[field] = []
+          
+          for path in parts:
+              cat = json.loads(Path(path).read_text())
+              expand_refs(cat)
+              for app in cat.get("apps", []):
+                  ak = app["appKey"]
+                  if ak not in app_order:
+                      app_order[ak] = len(all_apps)
+                      all_apps.append(app)
+                  else:
+                      merge_app(all_apps[app_order[ak]], app)
+          
+          # Re-sort apps alphabetically
+          all_apps.sort(key=lambda a: a["appName"].lower())
+          
+          # Re-run finalization: sort builds, recompute totals, re-dedup lists
+          from datetime import datetime, timezone
+          now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+          
+          def dedup_lists(builds, field, ref_key, table):
+              index = {}
+              for build in builds:
+                  val = build.pop(field, None)
+                  if not val:
+                      continue
+                  key = json.dumps(val, ensure_ascii=False, separators=(",", ":"))
+                  idx = index.get(key)
+                  if idx is None:
+                      idx = len(table)
+                      table.append(val)
+                      index[key] = idx
+                  build[ref_key] = idx
+          
+          surviving_apps = []
+          for app in all_apps:
+              surviving_brands = []
+              for brand in app.get("brands", []):
+                  builds = sorted(brand["builds"], key=lambda b: b.get("publishedAt") or "", reverse=True)
+                  if not builds:
+                      continue
+                  brand["builds"] = builds
+                  brand["latestVersion"] = builds[0].get("version", "")
+                  brand["latestPublishedAt"] = builds[0].get("publishedAt", "")
+                  brand["totalDownloads"] = sum(
+                      sum(a.get("download_count", 0) for a in b.get("assets", [])) for b in builds
+                  )
+                  # Recompute latestStable / latestBeta variant pointers
+                  surviving_variants = []
+                  for v in brand.get("variants", []):
+                      v_var, v_sub = v.get("variant"), v.get("subVariant")
+                      v_builds = [b for b in builds if b.get("variant") == v_var and b.get("subVariant") == v_sub]
+                      if not v_builds:
+                          continue
+                      for ch in ("latestStable", "latestBeta"):
+                          rel_filter = "stable" if ch == "latestStable" else "beta"
+                          newest = next((b for b in v_builds if b.get("releaseType") == rel_filter), None)
+                          v[ch] = newest.get("build", "") if newest else None
+                      surviving_variants.append(v)
+                  brand["variants"] = surviving_variants
+                  surviving_brands.append(brand)
+              if not surviving_brands:
+                  continue
+              app["brands"] = surviving_brands
+              newest = max((b.get("publishedAt","") for br in surviving_brands for b in br["builds"]), default="")
+              app["latestPublishedAt"] = newest
+              app["totalDownloads"] = sum(b.get("totalDownloads", 0) for b in surviving_brands)
+              surviving_apps.append(app)
+          
+          all_builds = [b for app in surviving_apps for brand in app["brands"] for b in brand["builds"]]
+          
+          # Drop redundant releaseId
+          for build in all_builds:
+              if build.get("releaseId") is not None and build.get("releaseId") == build.get("build"):
+                  build.pop("releaseId")
+          
+          patch_sets, changelog_sets, patch_source_sets = [], [], []
+          dedup_lists(all_builds, "appliedPatches", "patchSetRef", patch_sets)
+          dedup_lists(all_builds, "changelogs",     "changelogRef",    changelog_sets)
+          dedup_lists(all_builds, "patchSources",   "patchSourceRef",  patch_source_sets)
+          
+          catalog = {
+              "version": 2,
+              "updated_at": now_iso,
+              "patchSets": patch_sets,
+              "changelogSets": changelog_sets,
+              "patchSourceSets": patch_source_sets,
+              "apps": surviving_apps,
+          }
+          
+          Path("data.json.new").write_text(json.dumps(catalog, separators=(",", ":")))
+          
+          apps  = len(surviving_apps)
+          total_builds = sum(len(b["builds"]) for a in surviving_apps for b in a["brands"])
+          assets = sum(len(x["assets"]) for a in surviving_apps for b in a["brands"] for x in b["builds"])
+          print(f"Merged catalog: {apps} apps, {total_builds} build entries, {assets} assets")
+          PYEOF
           echo "REBUILT_OK=1" >> "$GITHUB_ENV"
 
       - name: Report diff
@@ -258,9 +258,10 @@ PYEOF
             exit 0
           fi
           mv data.json.new data.json
+          gzip -9knf data.json
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data.json
+          git add data.json data.json.gz
           git commit -m "chore: rebuild catalog from release manifests [skip ci]"
           # Note: the push itself won't redeploy Pages (deploy-pages.yml ignores data.json
           # pushes); an explicit dispatch below refreshes the deployed copy instead.

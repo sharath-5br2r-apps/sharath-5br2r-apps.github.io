@@ -8,6 +8,7 @@ on:
     # - .github/, .gitignore, README/LICENSE/CONFIG: repo maintenance, not site content
     paths-ignore:
       - 'data.json'
+      - 'data.json.gz'
       - '.github/**'
       - '.gitignore'
       - 'README.md'
