@@ -2,18 +2,27 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
+    # Skip pushes that can't change the deployed site:
+    # - data.json: catalog rebuilds (dispatched explicitly by rebuild-catalog.yml)
+    # - .github/, .gitignore, README/LICENSE/CONFIG: repo maintenance, not site content
     paths-ignore:
-      - "data.json"
-      - "data.json.gz"
+      - 'data.json'
+      - '.github/**'
+      - '.gitignore'
+      - 'README.md'
+      - 'LICENSE'
+      - 'CONFIG.md'
   repository_dispatch:
     types: [deploy-pages, update-catalog-cache]
+  workflow_call:
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write # required by the workflow-run cleanup step below
 
 concurrency:
   group: "pages"
@@ -39,4 +48,27 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+
+        uses: Wandalen/wretry.action@v3.8.0
+        with:
+          action: actions/deploy-pages@v4
+          attempt_limit: 3
+          attempt_delay: 10000 # Wait 10 seconds between retries
+
+      - name: Remove older workflow runs
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh run list -L400 --repo "$GITHUB_REPOSITORY" --json databaseId -q '.[].databaseId' |
+            tail -n+11 |
+            xargs -IID gh api "repos/$GITHUB_REPOSITORY/actions/runs/ID" -X DELETE || :
+
+  trigger_notify_failure:
+    needs: [ deploy ]
+    if: failure()
+    uses: ./.github/workflows/notify.yml
+    with:
+      workflow_name: "Deploy to GitHub Pages"
+    secrets: inherit

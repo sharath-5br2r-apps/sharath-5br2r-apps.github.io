@@ -196,7 +196,7 @@ body {
     background-image:
         radial-gradient(ellipse at 20% 0%, rgba(88, 166, 255, 0.07) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 90%, rgba(63, 185, 80, 0.05) 0%, transparent 50%);
-    background-attachment: fixed;
+    background-attachment: scroll;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
@@ -229,7 +229,8 @@ textarea {
     flex-direction: column;
     align-items: flex-end;
     gap: 12px;
-    pointer-events: none; /* Let clicks pass through the invisible flex container */
+    pointer-events: none;
+    /* Let clicks pass through the invisible flex container */
 }
 
 .action-buttons {
@@ -267,10 +268,40 @@ textarea {
     z-index: 10;
     pointer-events: auto;
     backdrop-filter: blur(12px);
+    /* Re-enable clicks for the button */
+}
+
+#themeBtn,
+#issueBtn,
+#announcementBtn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    backdrop-filter: blur(12px);
+}
+
+#themeBtn {
+    font-size: 20px;
 }
 
 @media (hover: hover) {
-    #mainSettingsBtn:hover {
+
+
+    #menuBtn:hover,
+    #themeBtn:hover,
+    #issueBtn:hover,
+    #announcementBtn:hover {
         transform: scale(1.08);
         border-color: var(--accent);
         box-shadow: 0 0 15px var(--accent-glow);
@@ -322,29 +353,33 @@ header h1 {
     border: 1px solid var(--border);
     border-radius: var(--radius-full);
     background: var(--bg-tertiary);
-}@media (hover: hover) {
-
-
-.top-link:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    background: var(--accent-glow);
-    transform: translateY(-2px);
 }
+
+@media (hover: hover) {
+
+
+    .top-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        background: var(--accent-glow);
+        transform: translateY(-2px);
+    }
 }
 
 .top-link-icon {
     width: 16px;
     height: 16px;
     display: block;
-}@media (hover: hover) {
-
-
-.top-links a.donate-link:hover {
-    color: #f43f5e;
-    border-color: #f43f5e;
-    background: rgba(244, 63, 94, 0.12);
 }
+
+@media (hover: hover) {
+
+
+    .top-links a.donate-link:hover {
+        color: #f43f5e;
+        border-color: #f43f5e;
+        background: rgba(244, 63, 94, 0.12);
+    }
 }
 
 /* Update Status Pill */
@@ -472,13 +507,15 @@ main {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(-50%) scale(1);
-}@media (hover: hover) {
-
-
-#searchClearBtn:hover {
-    background: var(--accent-danger);
-    color: #ffffff;
 }
+
+@media (hover: hover) {
+
+
+    #searchClearBtn:hover {
+        background: var(--accent-danger);
+        color: #ffffff;
+    }
 }
 
 /* Channel filter bar removed — use .filter-toolbar for all filters */
@@ -571,15 +608,17 @@ main {
     cursor: pointer;
     transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: var(--shadow);
-}@media (hover: hover) {
-
-
-.filter-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-glow);
-    transform: translateY(-1px);
 }
+
+@media (hover: hover) {
+
+
+    .filter-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-glow);
+        transform: translateY(-1px);
+    }
 }
 
 /* Dark mode active: colored bg → use dark text for readability */
@@ -691,24 +730,24 @@ main {
         box-shadow 0.25s ease,
         border-color 0.2s ease,
         background 0.35s ease;
-    backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    will-change: transform;
 }
 
 .build-card:not(.open) {
     min-height: 86px;
     justify-content: center;
-}@media (hover: hover) {
-
-
-.build-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: var(--shadow-hover);
-    transform: translateY(-4px);
 }
+
+@media (hover: hover) {
+
+
+    .build-card:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-hover);
+        transform: translateY(-4px);
+    }
 }
 
 .app-card-summary {
@@ -774,13 +813,16 @@ main {
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .app-card.open .app-card-body-wrapper,
 .modal-build-card.open .app-card-body-wrapper {
     grid-template-rows: 1fr;
 }
+
 .app-card-body {
     overflow: hidden;
 }
+
 .app-card-body-inner {
     padding-top: 16px;
     display: flex;
@@ -996,13 +1038,15 @@ main {
 .patch-engine-link {
     text-decoration: none;
     transition: opacity 0.2s ease, transform 0.2s ease;
-}@media (hover: hover) {
-
-
-.patch-engine-link:hover {
-    opacity: 0.88;
-    transform: translateY(-1px);
 }
+
+@media (hover: hover) {
+
+
+    .patch-engine-link:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+    }
 }
 
 .patch-link-arrow {
@@ -1041,13 +1085,15 @@ main {
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 4px 12px var(--accent-variant-glow);
-}@media (hover: hover) {
-
-
-.patch-applied-btn:hover {
-    opacity: 0.92;
-    transform: translateY(-1px);
 }
+
+@media (hover: hover) {
+
+
+    .patch-applied-btn:hover {
+        opacity: 0.92;
+        transform: translateY(-1px);
+    }
 }
 
 /* Variant Rows & Matrix */
@@ -1125,14 +1171,17 @@ body.light-mode .variant-row {
     .channel-box-btn:hover {
         transform: translateY(-1px);
     }
+
     .channel-box-btn.stable:hover {
         background: var(--accent-stable-glow);
         border-color: var(--accent-stable);
     }
+
     .channel-box-btn.beta:hover {
         background: var(--accent-beta-glow);
         border-color: var(--accent-beta);
     }
+
     .channel-box-btn.archive:hover {
         background: var(--accent-archive-bg);
         border-color: var(--accent-archive);
@@ -1225,13 +1274,25 @@ body.modal-open {
 }
 
 @keyframes modalFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes modalSlideUp {
-    from { opacity: 0; transform: translateY(16px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .modal-overlay.closing {
@@ -1243,13 +1304,25 @@ body.modal-open {
 }
 
 @keyframes modalFadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes modalSlideDown {
-    from { opacity: 1; transform: translateY(0) scale(1); }
-    to { opacity: 0; transform: translateY(12px) scale(0.98); }
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+    }
 }
 
 .modal-card {
@@ -1346,14 +1419,16 @@ body.modal-open {
     transition: all 0.2s ease;
     user-select: none;
     box-shadow: var(--shadow);
-}@media (hover: hover) {
-
-
-.modal-filter-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-glow);
 }
+
+@media (hover: hover) {
+
+
+    .modal-filter-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-glow);
+    }
 }
 
 .modal-filter-btn.active {
@@ -1418,6 +1493,7 @@ body.modal-open {
     cursor: pointer;
     padding: 0 4px;
     line-height: 1;
+
 }
 
 .obtainium-dropdown-close:hover {
@@ -1429,6 +1505,14 @@ body.modal-open {
     opacity: 0.92;
     transform: translateY(-1px);
 }
+
+@media (hover: hover) {
+
+
+    .modal-obtainium-btn:hover {
+        opacity: 0.92;
+        transform: translateY(-1px);
+    }
 }
 
 .modal-close {
@@ -1445,13 +1529,15 @@ body.modal-open {
     justify-content: center;
     transition: all 0.2s ease;
     flex: 0 0 40px;
-}@media (hover: hover) {
-
-
-.modal-close:hover {
-    border-color: var(--accent-danger);
-    color: var(--accent-danger);
 }
+
+@media (hover: hover) {
+
+
+    .modal-close:hover {
+        border-color: var(--accent-danger);
+        color: var(--accent-danger);
+    }
 }
 
 .modal-body {
@@ -1509,9 +1595,11 @@ body.light-mode .download-btn {
     .modal-build-header:hover {
         background: rgba(0, 0, 0, 0.18);
     }
+
     body.light-mode .modal-build-header:hover {
         background: #f7f4ee;
     }
+
     body.light-mode .download-btn:hover {
         background: #f2ede6;
     }
@@ -1562,6 +1650,7 @@ body.light-mode .download-btn {
 .modal-build-downloads {
     overflow: hidden;
 }
+
 .modal-build-downloads-inner {
     padding: 18px;
     display: flex;
@@ -1617,12 +1706,14 @@ body.light-mode .download-btn {
     font-size: 0.85rem;
     font-weight: 600;
     transition: color 0.2s ease, opacity 0.2s ease;
-}@media (hover: hover) {
-
-
-.release-link:hover {
-    opacity: 0.8;
 }
+
+@media (hover: hover) {
+
+
+    .release-link:hover {
+        opacity: 0.8;
+    }
 }
 
 .release-link-button {
@@ -1639,15 +1730,17 @@ body.light-mode .download-btn {
     white-space: nowrap;
     font-size: 0.82rem;
     font-weight: 600;
-}@media (hover: hover) {
-
-
-.release-link-button:hover {
-    opacity: 1;
-    border-color: var(--accent);
-    color: var(--accent);
-    background: var(--accent-glow);
 }
+
+@media (hover: hover) {
+
+
+    .release-link-button:hover {
+        opacity: 1;
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-glow);
+    }
 }
 
 .patch-applied-btn,
@@ -1671,6 +1764,7 @@ body.light-mode .download-btn {
     text-decoration: none;
     box-shadow: var(--shadow);
     white-space: nowrap;
+
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1684,6 +1778,16 @@ body.light-mode .download-btn {
     color: var(--accent);
     background: var(--accent-glow);
 }
+
+@media (hover: hover) {
+
+
+    .patch-applied-btn:hover,
+    .release-link-button:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-glow);
+    }
 }
 
 /* Marked.js Changelog Markdown Styles */
@@ -1801,15 +1905,17 @@ body.light-mode .download-btn {
     text-decoration: none;
     transition: all 0.2s ease;
     box-sizing: border-box;
-}@media (hover: hover) {
-
-
-.download-btn:hover {
-    background: var(--bg-card-hover);
-    border-color: var(--border);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-hover);
 }
+
+@media (hover: hover) {
+
+
+    .download-btn:hover {
+        background: var(--bg-card-hover);
+        border-color: var(--border);
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-hover);
+    }
 }
 
 .asset-left {
@@ -1861,13 +1967,15 @@ body.light-mode .download-btn {
     justify-content: center;
     white-space: nowrap;
     transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}@media (hover: hover) {
-
-
-.download-action-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
 }
+
+@media (hover: hover) {
+
+
+    .download-action-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
 }
 
 /* Applied Patches Modal Specifics */
@@ -2085,12 +2193,14 @@ body.light-mode .patch-metadata-collapsible summary:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.2s ease, opacity 0.2s ease;
-}@media (hover: hover) {
-
-
-.obtainium-instructions a:not(.obtainium-add-btn):hover {
-    opacity: 0.8;
 }
+
+@media (hover: hover) {
+
+
+    .obtainium-instructions a:not(.obtainium-add-btn):hover {
+        opacity: 0.8;
+    }
 }
 
 .obtainium-instructions ol {
@@ -2142,13 +2252,15 @@ body.light-mode .patch-metadata-collapsible summary:hover {
     cursor: pointer;
     font-weight: 700;
     transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}@media (hover: hover) {
-
-
-.copy-btn:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
 }
+
+@media (hover: hover) {
+
+
+    .copy-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+    }
 }
 
 /* Obtainium add button — signature purple */
@@ -2161,16 +2273,18 @@ body.light-mode .patch-metadata-collapsible summary:hover {
     border: none;
     transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 2px 8px var(--accent-obtainium-glow);
-}@media (hover: hover) {
-
-
-.obtainium-add-btn:hover {
-    opacity: 0.88;
-    color: var(--btn-on-accent) !important;
-    text-decoration: none !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px var(--accent-obtainium-glow);
 }
+
+@media (hover: hover) {
+
+
+    .obtainium-add-btn:hover {
+        opacity: 0.88;
+        color: var(--btn-on-accent) !important;
+        text-decoration: none !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px var(--accent-obtainium-glow);
+    }
 }
 
 .code-with-copy {
@@ -2228,12 +2342,14 @@ footer {
 footer a {
     color: var(--accent);
     text-decoration: none;
-}@media (hover: hover) {
-
-
-footer a:hover {
-    text-decoration: underline;
 }
+
+@media (hover: hover) {
+
+
+    footer a:hover {
+        text-decoration: underline;
+    }
 }
 
 /* Responsive Styles */
@@ -2412,6 +2528,7 @@ footer a:hover {
         font-size: 0.78rem;
     }
 }
+
 /* Build metadata details */
 .patch-metadata-section {
   margin: 0 0 18px;
@@ -2640,3 +2757,19 @@ footer a:hover {
 }
 
 
+
+
+/* Respect reduced-motion preferences: disable non-essential animation */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}

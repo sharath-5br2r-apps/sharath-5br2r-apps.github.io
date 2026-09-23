@@ -30,10 +30,12 @@ import os
 import re
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
-ARCH_ORDER = {"arm64": 0, "arm": 1, "all": 2, "universal": 3, "x86_64": 4, "x86": 5}
+ARCH_ORDER = {"arm64": 0, "arm": 1, "all": 2,
+              "universal": 3, "x86_64": 4, "x86": 5}
 FILE_PREFIX_RE = re.compile(r"^(.*?)-(?:v[0-9]|module-)", re.IGNORECASE)
 
 # NOTE: normalize_key / normalize_arch / extract_arch / fallback_entry below
@@ -46,7 +48,8 @@ FILE_PREFIX_RE = re.compile(r"^(.*?)-(?:v[0-9]|module-)", re.IGNORECASE)
 def run_gh(args, check=True):
     result = subprocess.run(["gh"] + args, capture_output=True, text=True)
     if check and result.returncode != 0:
-        print(f"Error running gh {' '.join(args)}: {result.stderr.strip()}", file=sys.stderr)
+        print(
+            f"Error running gh {' '.join(args)}: {result.stderr.strip()}", file=sys.stderr)
         sys.exit(1)
     return result.stdout
 
@@ -80,11 +83,13 @@ def extract_arch(fname, version=""):
         return match.group(1)
     if version:
         clean_ver = re.escape(version.lstrip("v"))
-        m = re.search(rf"-v?{clean_ver}-([a-zA-Z0-9_-]+?)(?:-(?:apk|module))?\.(?:apk|zip)$", fname, re.IGNORECASE)
+        m = re.search(
+            rf"-v?{clean_ver}-([a-zA-Z0-9_-]+?)(?:-(?:apk|module))?\.(?:apk|zip)$", fname, re.IGNORECASE)
         if m:
             return m.group(1)
     name_no_ext = re.sub(r"\.(?:apk|zip)$", "", fname, flags=re.IGNORECASE)
-    name_no_mode = re.sub(r"-(?:apk|module)$", "", name_no_ext, flags=re.IGNORECASE)
+    name_no_mode = re.sub(r"-(?:apk|module)$", "",
+                          name_no_ext, flags=re.IGNORECASE)
     parts = name_no_mode.split("-")
     return parts[-1] if len(parts) > 1 else "all"
 
@@ -113,23 +118,27 @@ def fallback_entry(fname, origin_build, published_at):
 
 
 def fetch_releases(repo):
-    raw = run_gh(["api", "--paginate", f"repos/{repo}/releases?per_page=100"], check=False)
+    raw = run_gh(
+        ["api", "--paginate", f"repos/{repo}/releases?per_page=100"], check=False)
     if not raw.strip():
         print("Error: could not fetch releases from the API. Refusing to rebuild.", file=sys.stderr)
         sys.exit(1)
     try:
         data = json.loads(raw)
     except Exception as e:
-        print(f"Error: failed to parse releases API response: {e}. Refusing to rebuild.", file=sys.stderr)
+        print(
+            f"Error: failed to parse releases API response: {e}. Refusing to rebuild.", file=sys.stderr)
         sys.exit(1)
     if not isinstance(data, list):
         print("Error: releases API did not return a list. Refusing to rebuild.", file=sys.stderr)
         sys.exit(1)
-    releases = {r["tag_name"]: r for r in data if not r.get("draft") and r.get("tag_name")}
+    releases = {r["tag_name"]: r for r in data if not r.get(
+        "draft") and r.get("tag_name")}
     # Targeted fallback for the rolling archives in case they fell off page 1
     for tag in ("stable", "beta"):
         if tag not in releases:
-            fb = run_gh(["api", f"repos/{repo}/releases/tags/{tag}"], check=False)
+            fb = run_gh(
+                ["api", f"repos/{repo}/releases/tags/{tag}"], check=False)
             try:
                 rd = json.loads(fb)
                 if rd.get("tag_name") and not rd.get("draft"):
@@ -148,16 +157,19 @@ def fetch_manifest(repo, tag, rel):
     downloaded or parsed after retries IS an error: better to abort and let the
     next run converge than to publish degraded fallback data.
     """
-    asset = next((a for a in rel.get("assets", []) if a["name"] == "build.json"), None)
+    asset = next((a for a in rel.get("assets", [])
+                 if a["name"] == "build.json"), None)
     if not asset:
         return None, None
     api_url = asset["url"].replace("https://api.github.com/", "")
     raw = ""
     for attempt in range(1, 4):
-        raw = run_gh(["api", api_url, "-H", "Accept: application/octet-stream"], check=False)
+        raw = run_gh(
+            ["api", api_url, "-H", "Accept: application/octet-stream"], check=False)
         if raw.strip():
             break
-        print(f"Warning: build.json download for {tag} failed (attempt {attempt}/3)", file=sys.stderr)
+        print(
+            f"Warning: build.json download for {tag} failed (attempt {attempt}/3)", file=sys.stderr)
         if attempt < 3:
             import time
             time.sleep(5 * attempt)  # back off for secondary rate limits
@@ -170,6 +182,26 @@ def fetch_manifest(repo, tag, rel):
         return m, None
     except Exception as e:
         return None, f"build.json for {tag} is not valid: {e}"
+
+
+def fetch_all_manifests(repo, releases, tags, max_workers=6):
+    """Pre-fetch build.json manifests for `tags` concurrently.
+
+    Each manifest is an independent, read-only gh API download, so they are
+    fetched in a small thread pool (the underlying subprocess calls release
+    the GIL while blocked, giving real parallelism). This collapses ~100
+    sequential round-trips into a few concurrent waves without changing any
+    output. The actual fold stays sequential/deterministic in the caller.
+    Returns {tag: (manifest_or_None, error_or_None)}.
+    """
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        return {
+            tag: fut.result()
+            for tag, fut in (
+                (tag, pool.submit(fetch_manifest, repo, tag, releases[tag]))
+                for tag in tags
+            )
+        }
 
 
 def live_apkzip_assets(rel):
@@ -186,7 +218,8 @@ class Catalog:
         self.repo = repo
         self.apps = {}       # appKey -> app entry
         self.order = []      # appKeys in creation order
-        self.now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        self.now_iso = datetime.now(
+            timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     def app(self, app_key, app_name):
         if app_key not in self.apps:
@@ -206,7 +239,8 @@ class Catalog:
         return self.apps[app_key]
 
     def brand(self, app_entry, brand_key, brand_name):
-        entry = next((x for x in app_entry["brands"] if x["brandKey"] == brand_key), None)
+        entry = next(
+            (x for x in app_entry["brands"] if x["brandKey"] == brand_key), None)
         if entry is None:
             entry = {"brandKey": brand_key, "brandName": brand_name, "latestVersion": "",
                      "latestPublishedAt": self.now_iso, "totalDownloads": 0,
@@ -247,7 +281,8 @@ def group_files(manifest, live_assets, tag, rel, is_archive):
     groups = {}
     for fname, e in entries.items():
         if live_assets.get(fname) is None:
-            continue  # file gone from the release (pruned/failed upload) -> drop
+            # file gone from the release (pruned/failed upload) -> drop
+            continue
         gk = (
             e.get("appKey") or normalize_key(e.get("name") or fname),
             e.get("appName"),
@@ -258,13 +293,14 @@ def group_files(manifest, live_assets, tag, rel, is_archive):
             e.get("version"),
         )
         groups.setdefault(gk, []).append((fname, e))
-    pub = (rel.get("published_at") or "").replace("+00:00", "Z")
-    for fname in live_assets:
-        if fname in entries:
-            continue
-        fb = fallback_entry(fname, None if is_archive else tag, pub)
-        gk = (normalize_key(fb["name"]) or fb["name"], None, "patched", None, None, None, None)
-        groups.setdefault(gk, []).append((fname, fb))
+    # Only synthesize fallback entries for legacy releases that completely lack a build.json manifest
+    if not manifest:
+        pub = (rel.get("published_at") or "").replace("+00:00", "Z")
+        for fname in live_assets:
+            fb = fallback_entry(fname, None if is_archive else tag, pub)
+            gk = (normalize_key(fb["name"]) or fb["name"],
+                  None, "patched", None, None, None, None)
+            groups.setdefault(gk, []).append((fname, fb))
     return groups
 
 
@@ -278,7 +314,8 @@ def build_assets(group, live_assets):
             "size": live.get("size", 0),
             "download_count": live.get("download_count", 0),
             "arch": e.get("arch") or normalize_arch(extract_arch(fname, e.get("version") or "")),
-            "fileType": e.get("fileType") or ("APK" if fname.lower().endswith(".apk") else "Module"),
+            # fileType intentionally omitted: it is always derivable from the
+            # asset name (.apk -> APK, .zip -> Module) and computed client-side.
         })
     assets.sort(key=lambda a: ARCH_ORDER.get(a["arch"], 99))
     return assets
@@ -287,13 +324,15 @@ def build_assets(group, live_assets):
 def apply_numbered(cat, tag, rel, manifest):
     release_type = "beta" if rel.get("prerelease") else "stable"
     meta = (manifest or {}).get("meta") or {}
-    published_at = meta.get("publishedAt") or (rel.get("published_at") or "").replace("+00:00", "Z")
+    published_at = meta.get("publishedAt") or (
+        rel.get("published_at") or "").replace("+00:00", "Z")
     live_assets = live_apkzip_assets(rel)
     groups = group_files(manifest, live_assets, tag, rel, is_archive=False)
     for (app_key, app_name, brand_key, brand_name, variant, sub_variant, version), group in groups.items():
         e0 = group[0][1]
         prefix = next((e.get("name") for _, e in group if e.get("name")), "")
-        pkg = next((e.get("packageName") for _, e in group if e.get("packageName")), "")
+        pkg = next((e.get("packageName")
+                   for _, e in group if e.get("packageName")), "")
         app_entry = cat.app(app_key, app_name)
         brand_entry = cat.brand(app_entry, brand_key, brand_name or "Patched")
         cat.variant(brand_entry, variant, sub_variant, prefix, pkg)
@@ -315,7 +354,8 @@ def apply_numbered(cat, tag, rel, manifest):
         brand_entry["builds"] = [
             b for b in brand_entry["builds"]
             if b.get("isArchive") or not (
-                str(b.get("build")) == tag and b.get("variant") == variant and b.get("subVariant") == sub_variant
+                str(b.get("build")) == tag and b.get(
+                    "variant") == variant and b.get("subVariant") == sub_variant
             )
         ]
         brand_entry["builds"].insert(0, build_entry)
@@ -329,7 +369,8 @@ def apply_archive(cat, tag, rel, manifest):
     for (app_key, app_name, brand_key, brand_name, variant, sub_variant, version), group in groups.items():
         e0 = group[0][1]
         prefix = next((e.get("name") for _, e in group if e.get("name")), "")
-        pkg = next((e.get("packageName") for _, e in group if e.get("packageName")), "")
+        pkg = next((e.get("packageName")
+                   for _, e in group if e.get("packageName")), "")
         published_at = max((e.get("publishedAt") or "" for _, e in group), default="") \
             or meta.get("publishedAt") or (rel.get("published_at") or "").replace("+00:00", "Z")
         app_entry = cat.app(app_key, app_name)
@@ -353,14 +394,38 @@ def apply_archive(cat, tag, rel, manifest):
         brand_entry["builds"] = [
             b for b in brand_entry["builds"]
             if not (
-                b.get("isArchive") and b.get("releaseId") == tag and b.get("version") == version
+                b.get("isArchive") and b.get(
+                    "releaseId") == tag and b.get("version") == version
                 and b.get("variant") == variant and b.get("subVariant") == sub_variant
                 and b.get("releaseType") == release_type
             )
         ]
         # keep archive entries ordered after numbered ones within the brand
-        insert_at = len(brand_entry["builds"]) - sum(1 for b in brand_entry["builds"] if b.get("isArchive"))
+        insert_at = len(
+            brand_entry["builds"]) - sum(1 for b in brand_entry["builds"] if b.get("isArchive"))
         brand_entry["builds"].insert(insert_at, archive_entry)
+
+
+def _dedup_lists(builds, field, ref_key, table):
+    """Collapse byte-identical list values of `field` across `builds` into a
+    shared `table`, replacing each build's copy with an integer `ref_key`.
+    Keyed on the ordered serialization, so genuinely different lists still get
+    their own entry -- only exact repeats collapse (zero data loss). An empty
+    list is dropped entirely (the client treats a missing ref as empty)."""
+    index = {}
+    for build in builds:
+        val = build.pop(field, None)
+        if val is None:
+            continue
+        if not val:
+            continue
+        key = json.dumps(val, ensure_ascii=False, separators=(",", ":"))
+        idx = index.get(key)
+        if idx is None:
+            idx = len(table)
+            table.append(val)
+            index[key] = idx
+        build[ref_key] = idx
 
 
 def finalize(cat):
@@ -369,7 +434,8 @@ def finalize(cat):
         app_entry = cat.apps[app_key]
         surviving_brands = []
         for brand in app_entry["brands"]:
-            builds = sorted(brand["builds"], key=lambda b: b.get("publishedAt") or "", reverse=True)
+            builds = sorted(brand["builds"], key=lambda b: b.get(
+                "publishedAt") or "", reverse=True)
             if not builds:
                 continue
             brand["builds"] = builds
@@ -381,21 +447,20 @@ def finalize(cat):
             surviving_variants = []
             for v in brand["variants"]:
                 v_var, v_sub = v.get("variant"), v.get("subVariant")
-                v_builds = [b for b in builds if b.get("variant") == v_var and b.get("subVariant") == v_sub]
+                v_builds = [b for b in builds if b.get(
+                    "variant") == v_var and b.get("subVariant") == v_sub]
                 if not v_builds:
                     continue
                 for ch in ("latestStable", "latestBeta"):
                     rel_filter = "stable" if ch == "latestStable" else "beta"
-                    newest = next((b for b in v_builds if b.get("releaseType") == rel_filter), None)
+                    newest = next((b for b in v_builds if b.get(
+                        "releaseType") == rel_filter), None)
                     if newest:
-                        v[ch] = {
-                            "version": newest.get("version", ""),
-                            "build": newest.get("build", ""),
-                            "publishedAt": newest.get("publishedAt", ""),
-                            "releaseId": newest.get("releaseId", ""),
-                            "releaseUrl": newest.get("releaseUrl", ""),
-                            "isArchiveFallback": newest.get("isArchive", False),
-                        }
+                        # Store only a reference to the newest build (its id) instead
+                        # of duplicating version/publishedAt/releaseUrl/releaseId.
+                        # The client resolves the display fields from brand.builds by
+                        # matching (variant, subVariant, releaseType, build).
+                        v[ch] = newest.get("build", "")
                     else:
                         v[ch] = None
                 surviving_variants.append(v)
@@ -403,12 +468,41 @@ def finalize(cat):
             surviving_brands.append(brand)
         if surviving_brands:
             app_entry["brands"] = surviving_brands
-            newest = max((b.get("publishedAt", "") for br in surviving_brands for b in br["builds"]), default="")
+            newest = max((b.get("publishedAt", "")
+                         for br in surviving_brands for b in br["builds"]), default="")
             app_entry["latestPublishedAt"] = newest
-            app_entry["totalDownloads"] = sum(b.get("totalDownloads", 0) for b in surviving_brands)
+            app_entry["totalDownloads"] = sum(
+                b.get("totalDownloads", 0) for b in surviving_brands)
             apps.append(app_entry)
     apps.sort(key=lambda a: a["appName"].lower())
-    return {"version": 2, "updated_at": cat.now_iso, "apps": apps}
+
+    all_builds = [build for app in apps for brand in app["brands"]
+                  for build in brand["builds"]]
+    # releaseId duplicates build for numbered releases (both are the tag). Drop
+    # it when redundant; archive entries keep it since their build is a version
+    # while releaseId is the rolling tag. The client falls back to build.
+    for build in all_builds:
+        if build.get("releaseId") is not None and build.get("releaseId") == build.get("build"):
+            build.pop("releaseId")
+
+    # Dedup identical appliedPatches/changelogs/patchSources lists into shared
+    # top-level tables; each build keeps only an integer ref. Content-keyed on
+    # the ordered serialization, so only byte-identical repeats collapse (zero
+    # data loss). These are the fattest repeated blocks in data.json.
+    patch_sets, changelog_sets, patch_source_sets = [], [], []
+    _dedup_lists(all_builds, "appliedPatches", "patchSetRef", patch_sets)
+    _dedup_lists(all_builds, "changelogs", "changelogRef", changelog_sets)
+    _dedup_lists(all_builds, "patchSources",
+                 "patchSourceRef", patch_source_sets)
+
+    return {
+        "version": 2,
+        "updated_at": cat.now_iso,
+        "patchSets": patch_sets,
+        "changelogSets": changelog_sets,
+        "patchSourceSets": patch_source_sets,
+        "apps": apps,
+    }
 
 
 def validate(catalog, existing_path):
@@ -424,10 +518,13 @@ def validate(catalog, existing_path):
         return
     old_apps = len(old.get("apps", []))
     new_apps = len(catalog["apps"])
-    old_builds = sum(len(b["builds"]) for a in old.get("apps", []) for b in a.get("brands", []))
-    new_builds = sum(len(b["builds"]) for a in catalog["apps"] for b in a.get("brands", []))
+    old_builds = sum(len(b["builds"]) for a in old.get(
+        "apps", []) for b in a.get("brands", []))
+    new_builds = sum(len(b["builds"]) for a in catalog["apps"]
+                     for b in a.get("brands", []))
     ratio = float(os.environ.get("MIN_RATIO", "0.6"))
-    print(f"Circuit breaker: apps {new_apps}/{old_apps}, builds {new_builds}/{old_builds} (min ratio {ratio})")
+    print(
+        f"Circuit breaker: apps {new_apps}/{old_apps}, builds {new_builds}/{old_builds} (min ratio {ratio})")
     if old_apps and (new_apps < old_apps * ratio or new_builds < old_builds * ratio):
         print("Error: rebuilt catalog shrank beyond the safety threshold. Refusing to write.", file=sys.stderr)
         sys.exit(2)
@@ -435,16 +532,19 @@ def validate(catalog, existing_path):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--repo", default=os.environ.get("RVB_REPO", "nullcpy/rvb"))
+    ap.add_argument(
+        "--repo", default=os.environ.get("RVB_REPO", "nullcpy/rvb"))
     ap.add_argument("--out", default="data.json")
-    ap.add_argument("--existing", default=None, help="existing data.json for shrink checks")
+    ap.add_argument("--existing", default=None,
+                    help="existing data.json for shrink checks")
     args = ap.parse_args()
 
     releases = fetch_releases(args.repo)
     print(f"Fetched {len(releases)} live releases.")
     min_threshold = int(os.environ.get("MIN_RELEASES_THRESHOLD", "10"))
     if len(releases) < min_threshold:
-        print(f"Error: only {len(releases)} releases (< {min_threshold}). Refusing to rebuild.", file=sys.stderr)
+        print(
+            f"Error: only {len(releases)} releases (< {min_threshold}). Refusing to rebuild.", file=sys.stderr)
         sys.exit(2)
 
     numbered_tags = sorted(
@@ -453,13 +553,22 @@ def main():
     )
     cat = Catalog(args.repo)
 
+    # Pre-fetch every manifest concurrently (I/O-bound), then fold them in a
+    # deterministic sequential pass below. Parallel downloads do not change the
+    # produced catalog because the fold order is fixed here regardless of the
+    # order in which the fetches complete.
+    all_tags = numbered_tags + [t for t in ("stable", "beta") if t in releases]
+    fetched = fetch_all_manifests(args.repo, releases, all_tags)
+    for tag, (_m, err) in fetched.items():
+        if err:
+            print(
+                f"Error: {err}. Aborting rebuild — data.json left untouched.", file=sys.stderr)
+            sys.exit(2)
+
     missing_manifests = []
     for tag in numbered_tags:
         rel = releases[tag]
-        m, err = fetch_manifest(args.repo, tag, rel)
-        if err:
-            print(f"Error: {err}. Aborting rebuild — data.json left untouched.", file=sys.stderr)
-            sys.exit(2)
+        m = fetched[tag][0]
         if m is None:
             missing_manifests.append(tag)
         apply_numbered(cat, tag, rel, m)
@@ -468,10 +577,7 @@ def main():
         if tag not in releases:
             continue
         rel = releases[tag]
-        m, err = fetch_manifest(args.repo, tag, rel)
-        if err:
-            print(f"Error: {err}. Aborting rebuild — data.json left untouched.", file=sys.stderr)
-            sys.exit(2)
+        m = fetched[tag][0]
         if m is None:
             missing_manifests.append(tag)
         apply_archive(cat, tag, rel, m)
@@ -485,8 +591,10 @@ def main():
 
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(catalog, f, separators=(",", ":"))
-    total_builds = sum(len(b["builds"]) for a in catalog["apps"] for b in a["brands"])
-    print(f"Wrote {args.out}: {len(catalog['apps'])} apps, {total_builds} build entries.")
+    total_builds = sum(len(b["builds"])
+                       for a in catalog["apps"] for b in a["brands"])
+    print(
+        f"Wrote {args.out}: {len(catalog['apps'])} apps, {total_builds} build entries.")
 
 
 if __name__ == "__main__":
