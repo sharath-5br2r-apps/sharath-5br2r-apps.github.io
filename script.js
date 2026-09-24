@@ -1591,6 +1591,9 @@ function setupEventListeners() {
           modalOsFilter = filterType.slice(3);
         } else if (filterType.startsWith("variant-") || filterBtn.classList.contains("variant-pill-btn")) {
           const v = filterBtn.dataset.variant !== undefined ? filterBtn.dataset.variant : filterType.slice(8);
+          if (modalSelectedVariant !== v) {
+            modalSelectedSubVariant = "all";
+          }
           modalSelectedVariant = v;
           modalVariantFilter = v;
         } else if (filterType.startsWith("subvariant-") || filterBtn.classList.contains("subvariant-pill-btn")) {
@@ -2811,54 +2814,82 @@ function updateModalFilterButtons(app, brand) {
   }
 
   // 5. SubVariant Group
-  if (modalSelectedVariant && modalSelectedVariant !== "all") {
-    const isDefaultVar = modalSelectedVariant.toLowerCase() === "default" || modalSelectedVariant.toLowerCase() === "standard";
-    const subVariantsMap = new Map();
-    matchingBrands.forEach((b) => {
-      (b.variants || [])
-        .filter((v) => {
-          const vRaw = (v.variant || "").toLowerCase();
-          return isDefaultVar ? (!vRaw || vRaw === "default" || vRaw === "standard") : (vRaw === modalSelectedVariant.toLowerCase());
-        })
-        .forEach((v) => {
-          if (v.subVariant) subVariantsMap.set(v.subVariant, formatBrandDisplayName(v.subVariant));
-        });
-      (b.builds || [])
-        .filter((build) => {
-          const bRaw = (build.variant || "").toLowerCase();
-          return isDefaultVar ? (!bRaw || bRaw === "default" || bRaw === "standard") : (bRaw === modalSelectedVariant.toLowerCase());
-        })
-        .forEach((build) => {
-          if (build.subVariant) subVariantsMap.set(build.subVariant, formatBrandDisplayName(build.subVariant));
-        });
+  const subVariantsMap = new Map();
+  let hasDefaultSubVariant = false;
+
+  const isVarAll = !modalSelectedVariant || modalSelectedVariant === "all";
+  const isDefaultVar = !isVarAll && (modalSelectedVariant.toLowerCase() === "default" || modalSelectedVariant.toLowerCase() === "standard");
+
+  matchingBrands.forEach((b) => {
+    (b.variants || [])
+      .filter((v) => {
+        if (isVarAll) return true;
+        const vRaw = (v.variant || "").trim().toLowerCase();
+        return isDefaultVar ? (!vRaw || vRaw === "default" || vRaw === "standard") : (vRaw === modalSelectedVariant.toLowerCase());
+      })
+      .forEach((v) => {
+        const sRaw = (v.subVariant || "").trim();
+        if (!sRaw || sRaw.toLowerCase() === "default" || sRaw.toLowerCase() === "standard") {
+          hasDefaultSubVariant = true;
+        } else {
+          const sKey = sRaw.toLowerCase();
+          if (!subVariantsMap.has(sKey)) subVariantsMap.set(sKey, formatBrandDisplayName(sRaw));
+        }
+      });
+    (b.builds || [])
+      .filter((build) => {
+        if (isVarAll) return true;
+        const bRaw = (build.variant || "").trim().toLowerCase();
+        return isDefaultVar ? (!bRaw || bRaw === "default" || bRaw === "standard") : (bRaw === modalSelectedVariant.toLowerCase());
+      })
+      .forEach((build) => {
+        const sRaw = (build.subVariant || "").trim();
+        if (!sRaw || sRaw.toLowerCase() === "default" || sRaw.toLowerCase() === "standard") {
+          hasDefaultSubVariant = true;
+        } else {
+          const sKey = sRaw.toLowerCase();
+          if (!subVariantsMap.has(sKey)) subVariantsMap.set(sKey, formatBrandDisplayName(sRaw));
+        }
+      });
+  });
+
+  if (hasDefaultSubVariant && subVariantsMap.size > 0) {
+    const updatedSubMap = new Map();
+    updatedSubMap.set("default", "Default");
+    subVariantsMap.forEach((sName, sKey) => updatedSubMap.set(sKey, sName));
+    subVariantsMap.clear();
+    updatedSubMap.forEach((sName, sKey) => subVariantsMap.set(sKey, sName));
+  }
+
+  if (subVariantsMap.size > 0) {
+    if (groupAdded) addDivider();
+    const subGroup = document.createElement("div");
+    subGroup.className = "filter-pill-group";
+
+    const allSubBtn = document.createElement("button");
+    allSubBtn.type = "button";
+    allSubBtn.className = `modal-filter-btn subvariant-pill-btn ${(modalSelectedSubVariant === "all" || !modalSelectedSubVariant) ? "active" : ""}`;
+    allSubBtn.dataset.filter = "subvariant-all";
+    allSubBtn.dataset.subVariant = "all";
+    allSubBtn.innerHTML = `${getFaSvg("tag")} All`;
+    allSubBtn.title = "Sub-variant: All";
+    subGroup.appendChild(allSubBtn);
+
+    subVariantsMap.forEach((sName, sKey) => {
+      const isSelected = (modalSelectedSubVariant || "").toLowerCase() === sKey.toLowerCase()
+        || (sKey === "default" && (modalSelectedSubVariant === "default" || modalSelectedSubVariant === "standard"));
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `modal-filter-btn subvariant-pill-btn ${isSelected ? "active" : ""}`;
+      btn.dataset.filter = `subvariant-${sKey}`;
+      btn.dataset.subVariant = sKey;
+      btn.innerHTML = `${getFaSvg("tag")} ${escapeHtml(sName)}`;
+      btn.title = `Sub-variant: ${sName}`;
+      subGroup.appendChild(btn);
     });
 
-    if (subVariantsMap.size > 1) {
-      if (groupAdded) addDivider();
-      const subGroup = document.createElement("div");
-      subGroup.className = "filter-pill-group";
-
-      const allSubBtn = document.createElement("button");
-      allSubBtn.type = "button";
-      allSubBtn.className = `modal-filter-btn subvariant-pill-btn ${(modalSelectedSubVariant === "all" || !modalSelectedSubVariant) ? "active" : ""}`;
-      allSubBtn.dataset.filter = "subvariant-all";
-      allSubBtn.dataset.subVariant = "all";
-      allSubBtn.textContent = "All";
-      subGroup.appendChild(allSubBtn);
-
-      subVariantsMap.forEach((sName, sKey) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = `modal-filter-btn subvariant-pill-btn ${modalSelectedSubVariant === sKey ? "active" : ""}`;
-        btn.dataset.filter = `subvariant-${sKey}`;
-        btn.dataset.subVariant = sKey;
-        btn.textContent = sName;
-        subGroup.appendChild(btn);
-      });
-
-      filterContainer.appendChild(subGroup);
-      groupAdded = true;
-    }
+    filterContainer.appendChild(subGroup);
+    groupAdded = true;
   }
 
   // 6. Channel Group (Stable / Beta / All Channels)
@@ -3209,8 +3240,14 @@ function createPatchModalContent(app, brand, buildFilter = "stable", variant = "
 
       // SubVariant filter
       if (subVariant && subVariant !== "all") {
-        const bSub = build.subVariant || "default";
-        if (bSub.toLowerCase() !== subVariant.toLowerCase()) return;
+        const isDefaultSubFilter = subVariant.toLowerCase() === "default" || subVariant.toLowerCase() === "standard";
+        const bSub = (build.subVariant || "").trim().toLowerCase();
+        const isBuildSubDefault = !bSub || bSub === "default" || bSub === "standard";
+        if (isDefaultSubFilter) {
+          if (!isBuildSubDefault) return;
+        } else {
+          if (bSub !== subVariant.toLowerCase()) return;
+        }
       }
 
       // Channel filter
@@ -4126,7 +4163,12 @@ function brandHasApk(brand, variant = "all", subVariant = "all", buildFilter = "
       });
     }
     if (subVariant && subVariant !== "all") {
-      builds = builds.filter((x) => (x.subVariant || "default").toLowerCase() === subVariant.toLowerCase());
+      const isDefaultSub = subVariant.toLowerCase() === "default" || subVariant.toLowerCase() === "standard";
+      builds = builds.filter((x) => {
+        const bSub = (x.subVariant || "").trim().toLowerCase();
+        const isBuildDefault = !bSub || bSub === "default" || bSub === "standard";
+        return isDefaultSub ? isBuildDefault : (bSub === subVariant.toLowerCase());
+      });
     }
 
     return builds.some((build) =>
