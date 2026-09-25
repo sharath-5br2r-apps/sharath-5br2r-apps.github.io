@@ -3855,12 +3855,12 @@ async function openChangelogModal(appKey, brandKey, buildKey) {
     DOM.changelogBody.innerHTML = formatChangelogForBuild(build);
   } else if (params) {
     DOM.changelogBody.innerHTML = `
-      <div class="changelog-container" style="text-align: left; padding: 4px 8px; line-height: 1.6; font-size: 0.92rem;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
-          <div style="display: flex; flex-direction: column; gap: 2px;">
-            <span style="font-size: 0.85rem; color: var(--text-muted);">Build: ${escapeHtml(build.build || build.version || "")}</span>
+      <div class="changelog-container">
+        <div class="changelog-banner">
+          <div class="changelog-banner-info">
+            <span>Build: ${escapeHtml(build.build || build.version || "")}</span>
           </div>
-          <a href="${escapeHtml(build.releaseUrl || '#')}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 12px; text-decoration: none;">
+          <a href="${escapeHtml(build.releaseUrl || '#')}" target="_blank" rel="noopener noreferrer" class="changelog-banner-btn">
             <span>View on GitHub</span> ↗
           </a>
         </div>
@@ -3928,13 +3928,13 @@ async function openPatchChangelogModal(patchName, patchUrl) {
     DOM.changelogBody.innerHTML = formatChangelogBody(cachedBody, patchUrl, tagLabel);
   } else if (parsed && !parsed.fallback) {
     DOM.changelogBody.innerHTML = `
-      <div class="changelog-container" style="text-align: left; padding: 4px 8px; line-height: 1.6; font-size: 0.92rem;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
-          <div style="display: flex; flex-direction: column; gap: 2px;">
-            <span style="font-size: 0.85rem; color: var(--text-muted);">${escapeHtml(displayName)}</span>
+      <div class="changelog-container">
+        <div class="changelog-banner">
+          <div class="changelog-banner-info">
+            <span>${escapeHtml(displayName)}</span>
           </div>
           ${patchUrl ? `
-          <a href="${escapeHtml(patchUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 12px; text-decoration: none;">
+          <a href="${escapeHtml(patchUrl)}" target="_blank" rel="noopener noreferrer" class="changelog-banner-btn">
             <span>View on GitHub</span> ↗
           </a>` : ""}
         </div>
@@ -3991,21 +3991,21 @@ function renderMarkdownContent(body) {
 function formatChangelogBody(body, releaseUrl, tagLabel) {
   const formattedBody = renderMarkdownContent(body);
   return `
-    <div class="changelog-container" style="text-align: left; padding: 4px 8px; line-height: 1.6; font-size: 0.92rem;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
-        <div style="display: flex; flex-direction: column; gap: 2px;">
-          <span style="font-size: 0.85rem; color: var(--text-muted);">${escapeHtml(tagLabel || "")}</span>
+    <div class="changelog-container">
+      <div class="changelog-banner">
+        <div class="changelog-banner-info">
+          <span>${escapeHtml(tagLabel || "")}</span>
         </div>
         ${releaseUrl && releaseUrl !== "#" ? `
-        <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 12px; text-decoration: none;">
+        <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="changelog-banner-btn">
           <span>View on GitHub</span> ↗
         </a>` : ""}
       </div>
-      ${formattedBody ? `<div class="changelog-body-content" style="max-height: 440px; overflow-y: auto; padding-right: 6px;">${formattedBody}</div>` : `
+      ${formattedBody ? `<div class="changelog-markdown-content">${formattedBody}</div>` : `
         <div class="no-results" style="padding: 32px 20px; text-align: center; color: var(--text-secondary);">
           <p style="margin-bottom: 14px; font-size: 0.95rem;">No release notes recorded for this release.</p>
           ${releaseUrl && releaseUrl !== "#" ? `
-          <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none;">
+          <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="changelog-banner-btn" style="display: inline-flex;">
             <span>View Release Details on GitHub</span> ↗
           </a>` : ""}
         </div>
@@ -4016,20 +4016,20 @@ function formatChangelogBody(body, releaseUrl, tagLabel) {
 
 function formatChangelogFallback(name, releaseUrl) {
   return `
-    <div class="changelog-container" style="text-align: left; padding: 4px 8px; line-height: 1.6; font-size: 0.92rem;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; background: var(--bg-surface-high); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border);">
-        <div style="display: flex; flex-direction: column; gap: 2px;">
-          <span style="font-size: 0.85rem; color: var(--text-muted);">${escapeHtml(name)}</span>
+    <div class="changelog-container">
+      <div class="changelog-banner">
+        <div class="changelog-banner-info">
+          <span>${escapeHtml(name)}</span>
         </div>
         ${releaseUrl && releaseUrl !== "#" ? `
-        <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.8rem; padding: 4px 12px; text-decoration: none;">
+        <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="changelog-banner-btn">
           <span>View on Source</span> ↗
         </a>` : ""}
       </div>
       <div class="no-results" style="padding: 32px 20px; text-align: center; color: var(--text-secondary);">
         <p style="margin-bottom: 14px; font-size: 0.95rem;">Could not load inline release notes from source.</p>
         ${releaseUrl && releaseUrl !== "#" ? `
-        <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; text-decoration: none;">
+        <a href="${escapeHtml(releaseUrl)}" target="_blank" rel="noopener noreferrer" class="changelog-banner-btn" style="display: inline-flex;">
           <span>View Release Details</span> ↗
         </a>` : ""}
       </div>
