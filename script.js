@@ -926,6 +926,7 @@ function initDOM() {
   DOM.actionMenu = document.getElementById("actionMenu");
   DOM.patchModal = document.getElementById("patchModal");
   DOM.patchModalTitle = document.getElementById("patchModalTitle");
+  DOM.patchModalMeta = document.getElementById("patchModalMeta");
   DOM.patchModalBody = document.getElementById("patchModalBody");
   DOM.appliedPatchesModal = document.getElementById("appliedPatchesModal");
   DOM.appliedPatchesTitle = document.getElementById("appliedPatchesTitle");
@@ -2588,6 +2589,57 @@ function renderOpenPatchModal() {
       DOM.patchModalTitle.textContent = `${app.appName} • ${brand.brandName || formatBrandDisplayName(brand.brandKey)}`;
     } else {
       DOM.patchModalTitle.textContent = `${app.appName} Builds`;
+    }
+  }
+
+  if (DOM.patchModalMeta) {
+    const originRepos = new Set();
+    const relevantBrands = (modalBrandFilter !== "all" && brand)
+      ? [brand]
+      : (modalEngineFilter !== "all"
+          ? brandList.filter((b) => {
+              let token = (b.engineToken || b.engine || "").toLowerCase();
+              if (!token) {
+                for (const eng of CONFIG.patchEngineTokens) {
+                  if ((b.brandKey || "").toLowerCase().includes(eng) || (b.brandName || "").toLowerCase().includes(eng)) {
+                    token = eng;
+                    break;
+                  }
+                }
+              }
+              return token === modalEngineFilter;
+            })
+          : brandList);
+
+    relevantBrands.forEach((b) => {
+      (b.builds || []).forEach((build) => {
+        if (build.releaseUrl) {
+          const parts = build.releaseUrl.split("/");
+          if (parts.length >= 5) {
+            originRepos.add(`${parts[3]}/${parts[4]}`);
+          }
+        }
+      });
+    });
+
+    if (originRepos.size === 0 && app.repos && app.repos.length > 0) {
+      app.repos.forEach((r) => originRepos.add(r));
+    }
+    if (originRepos.size === 0) {
+      getConfigRepos().forEach((r) => originRepos.add(`${r.owner}/${r.repo}`));
+    }
+
+    if (originRepos.size > 0) {
+      DOM.patchModalMeta.innerHTML = Array.from(originRepos)
+        .map(
+          (repo) =>
+            `<a href="https://github.com/${escapeHtml(repo)}" target="_blank" rel="noopener noreferrer" class="patch-repo-link" title="Origin repository: ${escapeHtml(repo)}">${getFaSvg("folder-open")} ${escapeHtml(repo)}<svg class="patch-link-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>`
+        )
+        .join("");
+      DOM.patchModalMeta.style.display = "flex";
+    } else {
+      DOM.patchModalMeta.innerHTML = "";
+      DOM.patchModalMeta.style.display = "none";
     }
   }
 
